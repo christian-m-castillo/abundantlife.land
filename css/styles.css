@@ -1,0 +1,288 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  margin-left: 4vw;
+  font-size: 4vmin;
+  width: 100vw;
+  font-weight: 100;
+}
+
+.links {
+  width: 50vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 2vmin;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: linear-gradient(#eee, rgb(154, 174, 175));
+  color: #444;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  width: 100vw;
+}
+
+.left-hero {
+  width: 50vw;
+  padding: 1.5vmin 3vmin 3vmin 3vmin;
+  margin-right: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-hero-inner h2 {
+  font-size: 3vmin;
+}
+
+.left-hero-inner p {
+  line-height: 3.5vmin;
+  font-size: 2.5vmin;
+  font-weight: 100;
+  padding-right: 0vmin;
+}
+
+.hero-button-anchor {
+  text-decoration: none;
+}
+
+
+
+.cta-button {
+  background-color: #02500f;
+  border: none;
+  color: #fff;
+  padding: 1vmin 2vmin;
+  border-radius: 5px;
+  font-size: 2vmin;
+  cursor: pointer;
+  text-align: center;
+}
+
+.hero-button {
+  margin-top: 10px;
+}
+
+.right-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vmin;
+}
+.right-hero img {
+  width: 82%;
+  border-radius: 100%;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 40px 0;
+  width: 100vw;
+  background: linear-gradient(rgb(0, 148, 0), rgb(0, 100, 0));
+  color: rgb(86, 69, 46);
+  color: goldenrod;
+  color: #eec68a;
+  color: #fff;
+}
+
+.services-heading {
+  font-size: 3.5vmin;
+  margin-bottom: 5vmin;
+  font-weight: 100;
+}
+
+.card-box {
+  width: 90vw;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 3vmax;
+  width: 100vw;
+}
+
+.card {
+  width: 27%;
+  aspect-ratio: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card a {
+  color: #fff;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0 auto;
+}
+
+.image-box {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border: .3vmin solid;
+  box-shadow: 0 0 2.5vmin;
+  border-radius: 10px;
+}
+
+.proj-text {
+  width: 80%;
+  margin-top: 2vmin;
+  padding: 1vmin;
+  font-size: 2.4vmin;
+  text-align: center;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background: linear-gradient(#2d9041, #4383b0);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+.testimony-box {
+  width: 80vmin;
+  max-width: 600px;
+  font-size: 3vmin;
+}
+
+.testimony {
+  text-align: center;
+  line-height: 4vmin;
+}
+
+.customer {
+  text-align: right;
+  margin-top: 1vmin;
+  font-size: 3vmin;
+}
+
+.call-to-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#eee, rgb(154, 174, 175));
+  color: #555;
+}
+
+.cta-inner {
+  min-width: 350px;
+  margin: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: .3vmin solid #02500f;
+  border-radius: 10px;
+  padding: 2vmin;
+}
+
+.cta-all-text {
+  width: 80%;
+  margin: auto;
+}
+
+.cta-title {
+  font-weight: 700;
+  margin-bottom: 1vmin;
+  text-align: center;
+  font-size: 2.7vmin;
+}
+
+.cta-body-text {
+  text-align: center;
+  font-size: 2.3vmin;
+  line-height: 3.5vmin;
+  width: 90%;
+  margin: auto;
+}
+
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2vmin;
+  margin: 2vmin;
+
+}
+
+.phone, .email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vmin;
+}
+
+.cta-subtitle {
+  font-size: 2.5vmin;
+  font-weight: 700;
+  text-align: center;
+  margin: 1vmin;
+}
+
+.phone-email {
+  font-size: 2.1vmin;
+  text-align: center;
+  
+}
+
+.phone-email a {
+  background: #02500f;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: .7vmin 3vmin;
+  border-radius: 5px;
+  font-size: 2.3vmin;
+
+}
+
+.cta-button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.3vmin;
+  margin-bottom: 2.2vmin;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7vmin;
+  font-size: 2vmin;
+  color: #fff;
+  background-color: #02500f;
+}
+
+.alpha-333 {
+  opacity: 0.333;
+}

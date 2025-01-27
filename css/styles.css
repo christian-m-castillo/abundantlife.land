@@ -19,7 +19,7 @@ body {
   margin-left: 4vw;
   font-size: 4vmin;
   width: 100vw;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .links {
@@ -83,7 +83,7 @@ body {
   cursor: pointer;
   text-align: center;
   max-width: 300px;
-  margin-top: 5vmin;
+  margin-top: 16vmin;
 }
 
 .hero-button {
@@ -116,8 +116,9 @@ body {
 
 .services-heading {
   font-size: 4vmin;
-  margin-bottom: 5vmin;
-  font-weight: 100;
+  margin-top: 5vmin;
+  margin-bottom: 7vmin;
+  font-weight: 500;
 }
 
 .card-box {
@@ -165,6 +166,7 @@ body {
 
 .proj-text h4 {
   font-size: 3vmin;
+  font-weight: 400;
 }
 
 .testimonials {

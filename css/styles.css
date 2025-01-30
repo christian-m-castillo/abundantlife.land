@@ -61,9 +61,9 @@ body {
 }
 
 .left-hero-inner p {
-  line-height: 3.5vmin;
-  font-size: 3vmin;
-  font-weight: 100;
+  line-height: 4vmin;
+  font-size: 3.5vmin;
+  font-weight: 400;
   padding-right: 0vmin;
 }
 
@@ -174,7 +174,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 50px;
-  background: #63beff;
+  background: #006ebd;
   color: #fff;
   font-size: 1.2rem;
   font-weight: 100;
@@ -183,7 +183,8 @@ body {
 .testimony-box {
   width: 80vmin;
   max-width: 600px;
-  font-size: 3vmin;
+  font-size: 3.3vmin;
+  font-weight: 200;
 }
 
 .testimony {

@@ -305,7 +305,7 @@ body {
 .cta-body-text {
   text-align: center;
   font-size: 3vmin;
-  line-height: 3.5vmin;
+  line-height: 1.6;
   width: 90%;
   margin: 3vmin auto;
 }

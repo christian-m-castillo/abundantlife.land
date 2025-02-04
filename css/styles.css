@@ -12,6 +12,7 @@
 }
 
 body {
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -30,7 +31,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 p {
   text-wrap: pretty;
-  line-height: 1.5;
   margin: 10px 0px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -56,7 +56,7 @@ body {
   justify-content: space-between;
   background-color: rgb(0, 149, 0);
   color: white;
-  padding: 10px 0px;
+  padding: 2vmin 0px;
 }
 
 .header h1 {
@@ -86,7 +86,7 @@ body {
   justify-content: center;
   background: linear-gradient(#bef, #fff);
   color: #000;
-  padding-top: 4vh;
+  padding-top: 14px;
   padding-bottom: 4vh;
   width: 100vw;
 }
@@ -102,10 +102,10 @@ body {
 
 .left-hero-inner h2 {
   font-size: 3.3vmin;
+  line-height: 4vmin;
 }
 
 .left-hero-inner p {
-  line-height: 4vmin;
   font-size: 3.5vmin;
   font-weight: 400;
   padding-right: 0vmin;
@@ -241,6 +241,7 @@ body {
 }
 
 .service-section-image {
+  width: 70%;
   max-width: 450px;
   height: auto;
   display: block;

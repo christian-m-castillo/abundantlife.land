@@ -86,8 +86,8 @@ body {
   justify-content: center;
   background: linear-gradient(#bef, #fff);
   color: #000;
-  padding-top: 14px;
-  padding-bottom: 4vh;
+  padding-top: 4vmin;
+  padding-bottom: 4vmin;
   width: 100vw;
 }
 

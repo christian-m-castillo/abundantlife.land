@@ -215,7 +215,7 @@ body {
 }
 
 .service-container {
-  max-width: 900px;
+  width: 100vw;
   margin: 0 auto;
   padding: 20px;
   border-bottom: 1px solid #ccc;
@@ -241,7 +241,7 @@ body {
 }
 
 .service-section-image {
-  max-width: 300px;
+  max-width: 450px;
   height: auto;
   display: block;
   margin: auto;

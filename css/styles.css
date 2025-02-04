@@ -241,8 +241,8 @@ body {
 }
 
 .service-section-image {
-  width: 70%;
-  max-width: 450px;
+  width: 80%;
+  max-width: 650px;
   height: auto;
   display: block;
   margin: auto;
@@ -251,7 +251,7 @@ body {
 
 .copy-container {
   width: 80%;
-  max-width: 550px;
+  max-width: 850px;
   text-align: justify;
   border-radius: 10px;
   margin-top: 3vmin;

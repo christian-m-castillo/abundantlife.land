@@ -249,7 +249,7 @@ h3 {
 }
 
 .copy-container {
-  width: 80%;
+  width: 100%;
   max-width: 67ch;
   text-align: justify;
   border-radius: 10px;
@@ -257,7 +257,7 @@ h3 {
 }
 
 .service-copy {
-  font-size: 3vmin;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 

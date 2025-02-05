@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-family: "Raleway", serif;
+  font-family: "Raleway", sans-serif;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -64,6 +64,10 @@ body {
   font-size: 4vmin;
   width: 100vw;
   font-weight: 400;
+}
+
+h3 {
+  margin: 20px;
 }
 
 .links {

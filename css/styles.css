@@ -159,11 +159,11 @@ body {
   color: #fff;
 }
 
-.services-heading {
-  font-size: 4vmin;
-  margin-top: 5vmin;
+.service-heading {
+  font-size: 4.2vmin;
+  margin-top: 3vmin;
   margin-bottom: 7vmin;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .card-box {

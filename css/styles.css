@@ -66,7 +66,7 @@ body {
   font-weight: 400;
 }
 
-h3 {
+.service-heading {
   margin: 20px;
 }
 
@@ -266,34 +266,18 @@ h3 {
   margin-top: 20px;
 }
 
-
-.testimonials {
+.resources {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 50px;
-  background: #006ebd;
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: 100;
+  padding: 2rem;
 }
 
-.testimony-box {
-  width: 80vmin;
-  max-width: 600px;
-  font-size: 3.3vmin;
-  font-weight: 200;
-}
-
-.testimony {
-  text-align: center;
-  line-height: 4vmin;
-}
-
-.customer {
-  text-align: right;
-  margin-top: 1vmin;
-  font-size: 3vmin;
+.resource-container {
+  padding: 1rem 2rem;
+  border: 1px solid;
+  border-radius: 10px;
+  max-width: 400px;
 }
 
 .call-to-action {

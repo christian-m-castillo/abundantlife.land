@@ -6,12 +6,13 @@
   <link rel="icon" type="image/png" href="./img/hummingbird-logo-plain.svg">
   <title>Land Restoration Consultation - Williams, AZ</title>
   <style>
-    body {
+        body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 20px;
       background-color: #c9a56f;
+      font-size: clamp(.6rem, .8rem + .6vw, 1.8rem);
     }
     .container {
       max-width: 800px;
@@ -24,13 +25,40 @@
     h1, h2, h3 {
       color: #32851e;
     }
+    h1 {
+      margin-top: 0px;
+      font-size: 150%;
+    }
+    h2 {
+      font-size: 120%;
+    }
+    h3 {
+      font-size: 110%;
+    }
     .heading-container {
       display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      font-size: 80%;
     }
     .logo {
       width: 100px;
       border-radius: 50%;
-      margin: 15px 30px 0px 0px;
+      margin: 5px 20px 0px 0px;
+    }
+    .heading-copy {
+      margin-right: 2rem;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .home-button {
+      background-color: #ffe100;
+      padding: .5rem 1rem;
+      border-radius: 10px;
+      text-align: center;
     }
     .species {
       display: flex;
@@ -42,29 +70,31 @@
     .species img {
       width: 100px;
       height: 100px;
-      aspect-ratio: 1/1;
       object-fit: cover;
       margin-right: 15px;
       border-radius: 5px;
+    }
+    .invasives-heading {
+      margin-top: 7rem;
     }
     .steps {
       margin-top: 20px;
       padding-left: 20px;
     }
     .steps li {
-      margin-bottom: 10px;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Land Restoration Consultation</h1>
+    <h1>Arizona Species Replacement Guide</h1>
     <div class="heading-container">
       <div class="logo-img">
-        <img src="./img/abundant-life-logo.jpg" alt="Abundant Life logo" class="logo">
+        <a href="https://abundantlife.land" target="_blank"><img src="./img/abundant-life-logo.jpg" alt="Abundant Life logo" class="logo"></a>
       </div>
       <div class="copy">
-        <p>Location: Williams, Arizona<br>History: Long-term cattle grazing</p>
+        <p>Location: Williams, Arizona</p>
         <p>#20250204-USA-AZ-W</p>
       </div>
     </div>
@@ -140,6 +170,7 @@
       <li><strong>Water Management:</strong> Utilize rainwater harvesting techniques such as swales and basins.</li>
       <li><strong>Monitor and Maintain:</strong> Regularly check for invasive regrowth and reseed as necessary.</li>
     </ol>
+    <a href="https://abundantlife.land" target="_blank"><div class="home-button">Request Installation</div></a>
   </div>
 </body>
 </html>

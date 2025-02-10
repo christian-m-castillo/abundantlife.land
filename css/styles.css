@@ -35,7 +35,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.8vmin;
+  font-size: 3.9vmin;
 }
 
 h2 {
@@ -43,7 +43,7 @@ h2 {
 }
 
 p {
-  font-size: 4vmin;
+  font-size: 1rem;
   margin: 10px 0px;
 }
 
@@ -73,26 +73,28 @@ p {
 .header-nav a {
   text-decoration: none;
   color: #fff;
-  font-size: 2.5vmin;
+  font-size: 2.7vmin;
   font-weight: 100;
 }
 
 .hero {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   background: linear-gradient(#bef, #fff);
   color: #000;
   padding-top: 4vmin;
   padding-bottom: 4vmin;
   width: 100vw;
-  padding: 1rem;
+  padding: .5rem;
 
 }
 
 .left-hero {
-  width: 50vw;
-  padding: 1.5vmin 3vmin 3vmin 3vmin;
+  width: 50%;
+  min-width: 150px;
+  padding: 1.5vmin 3vmin 3vw 3vmin;
   margin-right: 2vw;
   display: flex;
   justify-content: center;
@@ -100,48 +102,43 @@ p {
 }
 
 .left-hero-inner p {
-  margin-bottom: 20px;
   font-size: 3.5vmin;
-}
-
-.hero-button-anchor {
-  text-decoration: none;
-  font-size: 3vmin;
 }
 
 .cta-button {
   background-color: #ffe100;
   color: #000;
-  padding: .37rem .4rem;
+  padding: .33rem 2rem;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  max-width: 330px;
-  font-weight: 500;
+  text-decoration: none;
+  font-size: .9rem;
+  margin: 1.5rem;
+}
+
+.hero-cta {
+  font-size: 2.7vmin;
+  margin: 3vmin 0 0 0;
 }
 
 .right-hero {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50vmin;
+  max-width: 220px;
+  width: 40vw;
 }
 .right-hero img {
-  width: 72%;
-  border-radius: 100%;
+  width: 100%;
+  min-width: 50px;
+  max-width: 150px;
+  border-radius: 50%;
 }
 
 .services-heading {
   font-size: 4vmin;
   margin: 2rem;
-}
-
-.links {
-  width: 70vw;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-right: 20px;
 }
 
 
@@ -195,7 +192,10 @@ p {
 .card a {
   text-decoration: none;
   color: #fff;
-  font-size: 2vmin;
+}
+
+.card p {
+  font-size: .9rem;
 }
 
 
@@ -244,16 +244,12 @@ p {
   margin-top: 3vmin;
 }
 
-.service-button {
-  padding: 10px 20px;
-  margin-top: 20px;
-}
-
 .resources {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  border-bottom: 1px solid #ccc;
 }
 
 .resource-container {
@@ -267,10 +263,43 @@ p {
 
 .contact-container {
   border: 1px solid;
+  width: 90%;
   max-width: 700px;
   border-radius: 10px;
   margin: 0 auto 2rem auto;
   padding: 2rem;
+  margin: 2rem auto;
+}
+
+.contact-methods {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.contact-anchor {
+  background-color: #ffe100;
+  padding: .33rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  margin-right: 1.1rem;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.contact-anchor:hover {
+  background-color: orange;
+}
+
+.contact-anchor:active {
+  background-color: #eec68a;
+}
+
+.phone {
+  letter-spacing: .05rem;
 }
 
 .footer {

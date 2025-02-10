@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  font-family: helvetica, "Raleway", sans-serif;
+  font-family: helvetica, arial, sans-serif;
   font-weight: 100;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;

@@ -202,7 +202,6 @@ p {
 
 .service-container {
   width: 100vw;
-  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   border-bottom: 1px solid #ccc;
@@ -224,12 +223,12 @@ p {
 
 .service-img-container {
   width: 100%;
+  width: min(80%, 700px);
   position: relative;
 }
 
 .service-section-image {
-  width: 80%;
-  max-width: 650px;
+  width: min(90%, 500px);
   height: auto;
   display: block;
   margin: auto;
@@ -248,7 +247,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 0;
   border-bottom: 1px solid #ccc;
 }
 
@@ -256,8 +255,7 @@ p {
   padding: 1rem 2rem;
   border: 1px solid;
   border-radius: 10px;
-  max-width: 500px;
-  width: 90%;
+  width: min(90%, 700px);
   margin-top: 1.5rem;
 }
 
@@ -272,7 +270,7 @@ p {
 
 .contact-methods {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
 }
 

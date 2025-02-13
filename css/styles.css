@@ -315,10 +315,10 @@ p {
 
 .calendly-container {
   background: linear-gradient( var(--mid-green), var(--main-green));
+  padding: 4.5vmin 3vmin;
 }
 
 .calendly-inline-widget {
-  margin: 10px;
 }
 
 .footer {

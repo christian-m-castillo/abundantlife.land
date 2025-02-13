@@ -9,6 +9,8 @@
 
 :root {
   --main-green: rgb(0, 149, 0);
+  --mid-green: rgb(0, 100, 0);
+  --dark-green: #035c03;
 }
 
 body {
@@ -152,7 +154,7 @@ p {
   align-items: center;
   padding: 10px 0 40px 0;
   width: 100vw;
-  background: linear-gradient(rgb(0, 149, 0), rgb(0, 100, 0));
+  background: linear-gradient(var(--main-green), var(--mid-green));
   color: rgb(86, 69, 46);
   color: goldenrod;
   color: #eec68a;
@@ -311,6 +313,10 @@ p {
   letter-spacing: .05rem;
 }
 
+.calendly-container {
+  background: linear-gradient( var(--mid-green), var(--main-green));
+}
+
 .calendly-inline-widget {
   margin: 10px;
 }
@@ -322,7 +328,7 @@ p {
   align-items: center;
   padding: 7vmin;
   color: #fff;
-  background-color: #02500f;
+  background-color: var(--dark-green);
 }
 
 .copy-right-statement {

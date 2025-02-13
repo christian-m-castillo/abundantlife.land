@@ -113,18 +113,17 @@ p {
 .cta-button {
   background-color: #ffe100;
   color: #000;
-  padding: .33rem 2rem;
+  padding: .33rem 1.3rem;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   font-size: .9rem;
-  margin: 1.5rem;
 }
 
 .hero-cta {
-  font-size: 2.7vmin;
-  margin: 3vmin 0 0 0;
+  font-size: clamp(.5rem, calc(.4rem + 1vw), 1rem);
+  margin-top: clamp(2rem, calc(1.7rem + 4vh), 5rem);
 }
 
 .right-hero {
@@ -248,6 +247,10 @@ p {
   margin-top: 3vmin;
 }
 
+.service-copy {
+  margin-bottom: 2rem;
+}
+
 .resources {
   display: flex;
   flex-direction: column;
@@ -271,6 +274,10 @@ p {
   margin: 0 auto 2rem auto;
   padding: 2rem;
   margin: 2rem auto;
+}
+
+.contact-container h2 {
+  text-align: center;
 }
 
 .contact-methods {
@@ -302,6 +309,10 @@ p {
 
 .phone {
   letter-spacing: .05rem;
+}
+
+.calendly-inline-widget {
+  margin: 10px;
 }
 
 .footer {

@@ -191,8 +191,7 @@ p {
 .image-box {
   width: 100%;
   aspect-ratio: 1/1;
-  border: .3vmin solid;
-  box-shadow: 0 0 10px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, .2);
   border-radius: 10px;
 }
 
@@ -203,6 +202,7 @@ p {
 
 .card p {
   font-size: .9rem;
+  font-weight: 400;
 }
 
 
@@ -245,7 +245,7 @@ p {
 .copy-container {
   width: 100%;
   max-width: 67ch;
-  text-align: justify;
+  text-align: center;
   border-radius: 10px;
   margin-top: 3vmin;
 }
@@ -264,14 +264,19 @@ p {
 }
 
 .about-heading {
-  margin-bottom: 1rem;
-  font-weight: 400;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .about-image {
   border: 3px solid white;
   border-radius: 50%;
-  width: min(30%, 300px);
+  width: min(70%, 250px);
+}
+
+.about-copy {
+  font-weight: 400;
+  text-align: left;
 }
 
 .blog-section {
@@ -290,7 +295,11 @@ p {
 
 .blog-intro-image {
   border-radius: 50%;
-  width: 30%;
+  width: min(70%, 250px);
+}
+
+.blog-intro-tagline {
+  text-align: center;
 }
 
 .blog-page-intro {
@@ -386,6 +395,10 @@ p {
   width: min(90%, 700px);
   margin-top: 1.5rem;
   background-color: #fff;
+}
+
+.resources a {
+  color: var(--main-green);
 }
 
 .contact-container {

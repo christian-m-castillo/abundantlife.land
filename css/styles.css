@@ -337,7 +337,7 @@ p {
 }
 
 .blog a {
-  color: blue;
+  color: var(--main-green);
 }
 
 .blog-posts {

@@ -307,6 +307,10 @@ p {
   padding: 1rem 0 1rem 0;
 }
 
+.blog a {
+  color: blue;
+}
+
 .blog-posts {
   border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
@@ -334,9 +338,17 @@ p {
   margin: 1rem 0 0 0;
 }
 
-ul {
+.blog-post h4 {
+  margin-top: 1rem;
+}
+
+.blog-post ul {
   margin-top: .5rem;
   margin-bottom: 1rem;
+}
+
+.blog-post li {
+  margin-bottom: .5rem;
 }
 
 .resources {

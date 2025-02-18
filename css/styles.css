@@ -11,6 +11,7 @@
   --main-green: rgb(0, 149, 0);
   --mid-green: rgb(0, 100, 0);
   --dark-green: #035c03;
+  --main-yellow: #ffe100;
 }
 
 body {
@@ -125,7 +126,7 @@ p {
 
 .hero-cta {
   font-size: clamp(.5rem, calc(.4rem + 1vw), 1rem);
-  margin-top: clamp(2rem, calc(1.7rem + 4vh), 5rem);
+  margin-top: clamp(2.5rem, calc(1.7rem + 10vw), 20rem);
 }
 
 .right-hero {
@@ -206,7 +207,7 @@ p {
 
 
 
-.service-container {
+.service-container, .blog-section {
   width: 100vw;
   margin: 0 auto;
   padding: 20px;
@@ -214,7 +215,7 @@ p {
   padding-bottom: 40px;
 }
 
-.service-heading {
+.service-heading, .blog-heading {
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -249,8 +250,93 @@ p {
   margin-top: 3vmin;
 }
 
-.service-copy {
+.service-copy, .blog-copy {
   margin-bottom: 2rem;
+}
+
+.blog-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#bef, #fff);
+  color: #000;
+}
+
+.blog-section .cta-button {
+  background-color: var(--main-green);
+  color: #fff;
+}
+
+.blog-intro-image {
+  border-radius: 50%;
+  width: 30%;
+}
+
+.blog-page-intro {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-intro-container {
+  border: 1px solid #ccc;
+  padding: 2rem;
+  width: min(90%, 700px);
+  background-color: #f4f4f4;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.blog-page-intro h2 {
+  text-align: center;
+}
+
+.blog-page-intro p {
+  max-width: 70ch;
+  text-align: left;
+}
+
+.blog {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(130, 187, 197);
+  padding: 1rem 0 1rem 0;
+}
+
+.blog-posts {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0 1rem 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.blog article {
+  background-color: #f4f4f4;
+  width: min(90%, 700px);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.blog-post {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  border-radius: 10px;
+  width: min(90%, 700px);
+  margin: 1rem 0 0 0;
+}
+
+ul {
+  margin-top: .5rem;
+  margin-bottom: 1rem;
 }
 
 .resources {

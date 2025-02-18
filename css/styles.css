@@ -271,7 +271,7 @@ p {
 .about-image {
   border: 3px solid white;
   border-radius: 50%;
-  width: 30%;
+  width: min(30%, 300px);
 }
 
 .blog-section {

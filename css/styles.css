@@ -372,6 +372,17 @@ p {
   margin: 1rem;
 }
 
+.blog-post-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-post-card img {
+  margin: 2rem;
+  border-radius: 7px;
+}
+
 .blog-post {
   background-color: #f4f4f4;
   padding: 2rem;

@@ -1,5 +1,7 @@
 + images for post0003
-- images for blog-posts article
++ images for blog-posts article
+- about copy
+- fix clamp() font sizes f/ headings and li
 - sticky header
 - hamburger menu
 - light/dark themes

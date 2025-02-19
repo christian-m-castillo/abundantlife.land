@@ -340,6 +340,14 @@ p {
   color: var(--main-green);
 }
 
+.blog-post h3 {
+  margin-top: 2.5rem;
+}
+
+.blog-post img {
+  margin: 1rem 0 1rem 0;
+}
+
 .blog-posts {
   border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;

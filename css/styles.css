@@ -70,6 +70,11 @@ p {
   font-weight: 200;
 }
 
+.header a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .header-nav {
   width: 40vw;
   display: flex;

@@ -1,0 +1,6 @@
+- images for post0003
+- images for blog-posts article
+- sticky header
+- hamburger menu
+- light/dark themes
+- animations

@@ -12,13 +12,14 @@
   --mid-green: rgb(0, 100, 0);
   --dark-green: #035c03;
   --main-yellow: #ffe100;
+  --header-height: 8vmin;
 }
 
 body {
   box-sizing: border-box;
   line-height: 1.5;
   margin: 0;
-  padding: 0;
+  padding: var(--header-height) 0 0 0;
   width: 100vw;
   font-family: helvetica, arial, sans-serif;
   font-weight: 100;
@@ -61,8 +62,11 @@ p {
   align-items: center;
   background-color: var(--main-green);
   color: white;
-  padding: 2vmin 0px;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
   width: 100vw;
+  z-index: 1;
 }
 
 .header h1 {

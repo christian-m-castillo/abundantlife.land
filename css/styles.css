@@ -12,7 +12,7 @@
   --mid-green: rgb(0, 100, 0);
   --dark-green: #035c03;
   --main-yellow: #ffe100;
-  --header-height: 8vmin;
+  --header-height: 10vmin;
 }
 
 body {
@@ -67,6 +67,7 @@ p {
   top: 0;
   width: 100vw;
   z-index: 1;
+  padding: 0 .25rem 0 .1rem;
 }
 
 .header h1 {

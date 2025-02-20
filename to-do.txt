@@ -1,8 +1,9 @@
 + images for post0003
 + images for blog-posts article
-- about copy
++ about copy
 - fix clamp() font sizes f/ headings and li
-- sticky header
++ sticky header
+- fix header overlap on internal links
 - hamburger menu
 - light/dark themes
 - animations

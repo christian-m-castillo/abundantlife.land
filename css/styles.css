@@ -12,6 +12,7 @@
   --mid-green: rgb(0, 100, 0);
   --dark-green: #035c03;
   --main-yellow: #ffe100;
+  --beautiful-blue: rgb(71, 172, 177);
   --header-height: 10vmin;
 }
 
@@ -156,6 +157,7 @@ p {
 .services-heading {
   font-size: 4vmin;
   margin: 2rem;
+  font-weight: 200;
 }
 
 
@@ -165,44 +167,41 @@ p {
   align-items: center;
   padding: 10px 0 40px 0;
   width: 100vw;
-  background: linear-gradient(var(--main-green), var(--mid-green));
+  background-color: var(--beautiful-blue);
   color: rgb(86, 69, 46);
   color: goldenrod;
   color: #eec68a;
   color: #fff;
 }
 
-.service-heading {
-  margin-top: 3vmin;
-  margin-bottom: 7vmin;
-  font-weight: 700;
-}
-
 .card-box {
   width: 90vw;
-  max-width: 500px;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 7px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 1rem 0;
 }
 
 .card {
-  width: 25%;
+  width: 150px;
   aspect-ratio: 2/2.5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1px;
-  margin: 4%;
+  margin: 1.5vmin;
   text-align: center;
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: 5px;
 }
 
 .image-box {
   width: 100%;
   aspect-ratio: 1/1;
-  box-shadow: 0 0 7px rgba(0, 0, 0, .2);
-  border-radius: 10px;
+  border-radius: 5px 5px 0 0;
 }
 
 .card a {
@@ -211,8 +210,9 @@ p {
 }
 
 .card p {
-  font-size: .9rem;
-  font-weight: 400;
+  font-size: .7rem;
+  font-weight: 200;
+  color: #333;
 }
 
 
@@ -249,7 +249,7 @@ p {
   height: auto;
   display: block;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 9px;
 }
 
 .copy-container {
@@ -269,7 +269,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(71, 172, 177);
+  background-color: var(--beautiful-blue);
   color: #fff;
 }
 

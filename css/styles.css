@@ -8,10 +8,10 @@
 }
 
 :root {
-  --main-green: rgb(0, 149, 0);
-  --mid-green: rgb(0, 100, 0);
+  --main-green: rgb(5, 134, 5);
+  --mid-green: rgb(5, 113, 5);
   --dark-green: #035c03;
-  --main-yellow: #ffe100;
+  --main-yellow: #ffac86;
   --beautiful-blue: rgb(71, 172, 177);
   --header-height: 10vmin;
 }
@@ -132,6 +132,8 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 .left-hero-inner h2 {
   font-size: clamp(1.125rem, 0.5625rem + 1.25vw, 1.75rem);
   margin-bottom: .5rem;
+  font-weight: 600;
+  color: #444;
 }
 
 .left-hero-inner p {
@@ -140,14 +142,15 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 }
 
 .cta-button {
-  background-color: #ffe100;
-  color: #000;
+  background-color: var(--main-yellow);
+  color: #fff;
   padding: .33rem 1.3rem;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   font-size: .9rem;
+  font-weight: 900;
 }
 
 .hero-cta {
@@ -467,7 +470,7 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 }
 
 .contact-anchor {
-  background-color: #ffe100;
+  background-color: var(--main-yellow);
   padding: .33rem 1rem;
   border-radius: 10px;
   text-decoration: none;
@@ -480,7 +483,8 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 }
 
 .contact-anchor:hover {
-  background-color: orange;
+  background-color: rgb(255, 209, 192);
+  color: #fff;
 }
 
 .contact-anchor:active {

@@ -222,7 +222,6 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 }
 
 .card p {
-  font-size: .7rem;
   font-weight: 200;
   margin: 1rem 0;
   color: #333;

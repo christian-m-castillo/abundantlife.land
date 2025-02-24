@@ -144,7 +144,7 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 .cta-button {
   background-color: var(--main-yellow);
   color: #fff;
-  padding: .33rem 1.3rem;
+  padding: .4rem 1.3rem;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;

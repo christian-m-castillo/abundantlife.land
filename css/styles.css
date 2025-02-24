@@ -16,6 +16,10 @@
   --header-height: 10vmin;
 }
 
+html {
+  scroll-padding-top: var(--header-height);
+}
+
 body {
   box-sizing: border-box;
   line-height: 1.5;
@@ -225,6 +229,7 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
   font-weight: 200;
   margin: 1rem 0;
   color: #333;
+  font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1rem);
 }
 
 

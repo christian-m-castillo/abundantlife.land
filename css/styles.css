@@ -57,12 +57,18 @@ h1 { font-size: clamp(1.75rem, 0.875rem + 2.5vw, 3rem); }
 h2 { 
   font-size: clamp(1.5rem, 0.75rem + 2vw, 2.5rem);
   margin: 1rem 0;
+  font-weight: 200;
 }
 h3 { 
   font-size: clamp(1.25rem, 0.625rem + 1.5vw, 2rem);
   margin: 1rem 0; 
+  font-weight: 100;
 }
-h4 { font-size: clamp(1.125rem, 0.5625rem + 1.25vw, 1.75rem); }
+h4 { 
+  font-size: clamp(1.125rem, 0.5625rem + 1.25vw, 1.75rem);
+  margin: 1rem 0;
+  font-weight: 100; 
+}
 h5 { font-size: clamp(1rem, 0.5rem + 1vw, 1.5rem); }
 h6 { font-size: clamp(0.9375rem, 0.46875rem + 0.85vw, 1.375rem); }
 
@@ -128,9 +134,16 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 
 }
 
+.hero-sub {
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+}
+
 .left-hero {
   width: 55%;
   min-width: 150px;
+  max-width: 550px;
   padding: 1.5vmin 3vmin 3vw 3vmin;
   margin-right: 2vw;
   display: flex;
@@ -141,7 +154,7 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 .left-hero-inner h2 {
   font-size: clamp(1.125rem, 0.5625rem + 1.25vw, 1.75rem);
   margin-bottom: .5rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #444;
 }
 
@@ -173,8 +186,8 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
   justify-content: center;
   align-items: center;
   max-width: 220px;
-  width: 40vw;
 }
+
 .right-hero img {
   width: 100%;
   min-width: 50px;
@@ -420,6 +433,11 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.blog-post-card h3 a {
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .blog-post-card img {

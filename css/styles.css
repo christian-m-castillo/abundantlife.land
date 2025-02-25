@@ -189,7 +189,7 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 
 .right-hero img {
   width: 100%;
-  min-width: 50px;
+  min-width: 70px;
   max-width: 120px;
   border-radius: 50%;
   margin: 1vmin;

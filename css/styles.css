@@ -153,7 +153,6 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
 
 .left-hero-inner h2 {
   font-size: clamp(1.125rem, 0.5625rem + 1.25vw, 1.75rem);
-  margin-bottom: .5rem;
   font-weight: 500;
   color: #444;
 }

@@ -370,6 +370,14 @@ li { font-size: clamp(0.875rem, 0.4375rem + 0.9vw, 1.25rem); }
   color: var(--main-green);
 }
 
+.blog-heading {
+  font-weight: 400;
+  letter-spacing: 0rem;
+  word-spacing: .1rem;
+  color: #fff;
+  margin: 2rem;
+}
+
 .blog-post h3 {
   margin-top: 2.5rem;
 }

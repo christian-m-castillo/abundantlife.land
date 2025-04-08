@@ -353,10 +353,10 @@ li {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 95%;
-  max-width: 550px;
+  width: clamp(300px, 95%, 700px);
   background-color: #fff;
   padding: .5rem;
+  border-radius: 7px;
 }
 
 .tree-services .gallery img {
@@ -370,8 +370,10 @@ li {
   align-items: center;
   background-color: #fff;
   color: #000;
-  width: 95%;
+  width: clamp(300px, 95%, 700px);
+  margin: 1rem;
   padding-bottom: 1rem;
+  border-radius: 10px;
 }
 
 .tree-copy-container {
@@ -385,6 +387,14 @@ li {
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.electric-mowing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
 }
 
 .pollinator-gardens {

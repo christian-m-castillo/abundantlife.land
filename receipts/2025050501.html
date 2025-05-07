@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Receipt - Major Structural Prune</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .logo img {
+      max-width: 100%;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .info, .details, .footer {
+      margin-top: 20px;
+    }
+
+    .info p, .details p {
+      margin: 4px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .item-price {
+      text-align: right;
+    }
+
+    .total, .tax, .grand-total {
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .print-button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 1rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media print {
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo"><img src="../img/hummingbird-logo-land-conservation-tree-web.png" alt=""></div>
+    <div>
+      <h1>Receipt</h1>
+      <p>Abundant Life LLC</p>
+      <p>www.abundantlife.land</p>
+    </div>
+  </div>
+
+  <div class="info">
+    <p><strong>Date:</strong> May 5th 2025</p>
+    <p><strong>Client:</strong> Julius Schmidt</p>
+    <p><strong>Payment Method:</strong> Check</p>
+  </div>
+
+  <div class="details">
+    <h2>Service Summary</h2>
+    <p>Major structural pruning performed on a 45 ft elm tree with a significant co-dominant split. Approximately half of the tree structure was removed to improve safety and longevity.</p>
+
+    <h3>Itemized Charges</h3>
+    <table>
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+      </tr>
+      <tr>
+        <td>Tree assessment and pruning plan</td>
+        <td class="item-price">$140.00</td>
+      </tr>
+      <tr>
+        <td>Climbing and labor (approx. 14 hours)</td>
+        <td class="item-price">$976.15</td>
+      </tr>
+      <tr>
+        <td>Rigging and safety setup</td>
+        <td class="item-price">$260.00</td>
+      </tr>
+      <tr>
+        <td class="total">Subtotal (before tax)</td>
+        <td class="total">$1,376.15</td>
+      </tr>
+      <tr>
+        <td class="tax">Included Sales Tax (9.00%)</td>
+        <td class="tax">$123.85</td>
+      </tr>
+      <tr>
+        <td class="grand-total">Total Paid</td>
+        <td class="grand-total">$1,500.00</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    <p>Thank you for your business, Julius. This receipt includes applicable Oklahoma sales tax. Please keep for your farm accounting records.</p>
+  </div>
+
+  <button class="print-button" onclick="window.print()">Print Receipt</button>
+
+</body>
+</html>

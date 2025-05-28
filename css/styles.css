@@ -16,6 +16,7 @@
   --beautiful-blue: rgb(71, 172, 177);
   --cta-button-background-color: rgb(98, 183, 1);
   --header-height: 10vmin;
+  --light-grey: #ccc;
 }
 
 html {
@@ -343,6 +344,7 @@ li {
   flex-direction: column;
   align-items: center;
   padding: .7rem 0 2.5rem 0;
+  border-bottom: 1px solid var(--light-grey);
 }
 
 .tree-services h2 {
@@ -387,7 +389,7 @@ li {
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--light-grey);
 }
 
 .electric-mowing-container {

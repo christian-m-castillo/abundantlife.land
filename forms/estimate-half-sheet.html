@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Estimate Form - Abundant Life Land & Tree</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      font-size: 12px;
+      margin: 0;
+      padding: 0.5in;
+      width: 8.5in;
+      height: 5.5in;
+    }
+    .container {
+      border: 1px solid #000;
+      padding: 0.5rem;
+    }
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .logo img {
+      max-width: 100%;
+    }
+    .logo, .qr {
+      width: 1.5in;
+      height: 1.5in;
+      border: 1px dashed #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      text-align: center;
+    }
+    .business-info {
+      text-align: center;
+      flex: 1;
+    }
+    .section {
+      margin-bottom: 0.3rem;
+    }
+    .section label {
+      font-weight: bold;
+    }
+    .input-line {
+      display: flex;
+      gap: 0.5rem;
+      margin: 0.2rem 0;
+    }
+    .input-line input {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid #000;
+    }
+    .checkboxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 11px;
+    }
+    .checkboxes label {
+      display: flex;
+      align-items: center;
+    }
+    .checkboxes input {
+      margin-right: 0.2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    td, th {
+      border: 1px solid #000;
+      padding: 2px;
+    }
+    .notes {
+      border: 1px solid #000;
+      height: 1in;
+      padding: 2px;
+      font-size: 11px;
+    }
+    .signature-line {
+      margin-top: 0.25rem;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-row">
+      <div class="logo">
+        <img src="../img/hummingbird-logo-land-conservation-tree-web.png" alt="hummingbird-logo">
+      </div>
+      <div class="business-info">
+        <strong>Abundant Life Land & Tree</strong><br>
+        Phone: ____________  |  Email: ____________<br>
+        www.abundantlife.land
+      </div>
+      <div class="qr">QR CODE</div>
+    </div>
+
+    <div class="section">
+      <div class="input-line">
+        <label>Name:</label><input type="text">
+        <label>Date:</label><input type="text">
+      </div>
+      <div class="input-line">
+        <label>Address:</label><input type="text">
+      </div>
+      <div class="input-line">
+        <label>Phone:</label><input type="text">
+        <label>Email:</label><input type="text">
+      </div>
+    </div>
+
+    <div class="section checkboxes">
+      <label><input type="checkbox"> Tree Prune</label>
+      <label><input type="checkbox"> Tree Removal</label>
+      <label><input type="checkbox"> Mowing</label>
+      <label><input type="checkbox"> Flower Bed Install</label>
+      <label><input type="checkbox"> Soil Amendment</label>
+      <label><input type="checkbox"> Consultation</label>
+      <label><input type="checkbox"> Other</label>
+    </div>
+
+    <div class="section">
+      <label>Scope of Work:</label>
+      <div class="notes"></div>
+    </div>
+
+    <div class="section">
+      <label>Estimate:</label>
+      <table>
+        <tr><th>Description</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td colspan="3"><strong>Subtotal</strong></td><td></td></tr>
+        <tr><td colspan="3">Tax</td><td></td></tr>
+        <tr><td colspan="3"><strong>Total Due</strong></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="section signature-line">
+      ☐ Estimate Approved by Client  &nbsp;&nbsp;&nbsp; Signature: __________________  &nbsp;&nbsp;&nbsp; Date: ________
+    </div>
+  </div>
+</body>
+</html>

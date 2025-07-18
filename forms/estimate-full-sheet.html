@@ -18,7 +18,7 @@
     }
     .container {
       background-color: #fff;
-      width: 775px;
+      width: 850px;
       margin: 0;
     }
     .top-row {
@@ -72,7 +72,7 @@
     .input-line {
       display: flex;
       gap: 0.5rem;
-      margin: 0.2rem 0;
+      margin: 0.2rem .5rem;
     }
     .input-line input {
       flex: 1;
@@ -85,7 +85,7 @@
     .checkboxes {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      justify-content: space-between;
       font-size: 11px;
     }
     .checkboxes label {
@@ -93,7 +93,7 @@
       align-items: center;
     }
     .checkboxes input {
-      margin-right: 0.2rem;
+      margin-right: 0.4rem;
     }
     .notes {
       margin-top: .35rem;
@@ -119,6 +119,7 @@
       height: 2in;
       padding: 2px;
       font-size: 11px;
+      margin-bottom: 1rem;
     }
     .follow-up-note {
       border: 1px solid #000;
@@ -191,19 +192,19 @@
       <label><input type="checkbox"> Tree Prune</label>
       <label><input type="checkbox"> Tree Removal</label>
       <label><input type="checkbox"> Mowing</label>
-      <label><input type="checkbox"> Flower Bed Install</label>
+      <label><input type="checkbox"> Flower Bed</label>
       <label><input type="checkbox"> Soil Amendment</label>
       <label><input type="checkbox"> Consultation</label>
       <label><input type="checkbox"> Other</label>
     </div>
 
     <div class="section">
-      <label>Scope of Work:</label>
+      <h4>Scope of Work:</h4>
       <div class="notes"></div>
     </div>
 
     <div class="section">
-      <label>Estimate:</label>
+      <h3>Estimate</h3>
       <table>
         <tr><th>Description</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
         <tr><td></td><td></td><td></td><td></td></tr>
@@ -216,7 +217,7 @@
     </div>
 
     <div class="section">
-      <label>Notes:</label>
+      <h3>Notes:</h3>
       <div class="follow-up-note">
        
       </div>

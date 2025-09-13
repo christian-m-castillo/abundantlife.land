@@ -364,6 +364,7 @@ li {
 .tree-services .gallery img {
   width: 48%;
   margin: 1%;
+  border-radius: 0px;
 }
 
 .tree-copy {

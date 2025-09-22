@@ -1,61 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Printable Business Cards</title>
-  <style>
-    @page {
-      size: letter portrait;
-      margin: 0;
-    }
-
-    body {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .card-container {
-      margin: .25in 0 0 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      width: 7.5in; /* 8.5in - 0.5in margins left and right */
-      height: 10in;  /* 11in - 0.5in margins top and bottom */
-      gap: 0;
-      justify-content: center;
-      align-content: space-between;
-    }
-
-    .card-img {
-      width: 2in;
-      height: 3.5in;
-      border: 1px dashed #efefef; /* light gray cutting border */
-      box-sizing: border-box;
-      object-fit: cover;
-      page-break-inside: avoid;
-    }
-
-    @media print {
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Printable Business Cards</title> 
+    <style> 
+      @page { 
+          size: letter portrait; 
+          margin: 0; 
+        } 
       body {
-        -webkit-print-color-adjust: exact;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="card-container">
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 1" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 2" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 3" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 4" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 5" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 6" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 7" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 8" />
-    <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 9" />
-  </div>
-</body>
+        width: 100%; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        } 
+      .card-container { 
+        margin: .25in 0 0 0; 
+        padding: 0; 
+        display: flex; 
+        flex-wrap: wrap; 
+        width: 7.5in; /* 8.5in - 0.5in margins left and right */ 
+        height: 10in; /* 11in - 0.5in margins top and bottom */ 
+        gap: 0; 
+        justify-content: center; 
+        align-content: space-between; 
+        } 
+      .card-img { 
+        width: 2in; 
+        height: 3.5in; 
+        border: 1px dashed #efefef; /* light gray cutting border */ 
+        box-sizing: border-box; 
+        object-fit: cover; 
+        page-break-inside: avoid; 
+        } 
+        @media print {
+           body { -webkit-print-color-adjust: exact; } 
+        } 
+    </style> 
+  </head> 
+  <body> 
+    <div class="card-container"> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 1" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 2" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 3" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 4" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 5" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 6" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 7" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 8" /> 
+      <img src="../img/abundant-life-landscape-tree-business-card-vertical.png" class="card-img" alt="Business Card 9" /> 
+    </div> 
+  </body> 
 </html>

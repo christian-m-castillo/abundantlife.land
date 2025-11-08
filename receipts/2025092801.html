@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Receipt — Abundant Life Land and Tree LLC</title>
+  <style>
+    :root{--accent:#2b7a3a;--muted:#666;--paper:#fff;--pad:18px}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:#f4f6f8; padding:30px}
+    .receipt{max-width:800px;margin:0 auto;background:var(--paper);box-shadow:0 6px 20px rgba(12,30,60,0.08);border-radius:10px;overflow:hidden}
+    header{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;background:linear-gradient(90deg,var(--accent),#3fa04b);color:#fff}
+    .brand{font-weight:700;font-size:1.05rem}
+    .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.95}
+    .company-site{font-size:.85rem;opacity:.95}
+    .body{padding:22px 28px}
+    h1{font-size:1.2rem;margin:0 0 8px}
+    .meta{margin-bottom:14px}
+    .meta .box{background:#f7faf7;padding:10px 12px;border-radius:8px;border:1px solid #eef6ee;margin-bottom: 1rem;}
+    .client{margin-bottom:18px}
+    .left{flex:1;padding:.2rem}
+    .right{text-align:right;min-width:210px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:10px 12px;border-bottom:1px solid #eef0f2;text-align:left}
+    th{background:#fafafa;font-weight:600;color:var(--muted);font-size:.95rem}
+    .total-row td{font-weight:700;font-size:1.05rem}
+    .notes{margin-top:14px;padding:12px;background:#fffbe8;border-left:4px solid #ffd966;border-radius:6px;color:#6a5500}
+    footer{padding:18px 28px;background:#fbfdff;border-top:1px solid #eef2f4;display:flex;justify-content:space-between;align-items:center}
+    .print{font-size:.92rem;color:var(--muted)}
+    .sig{display:block;margin-top:6px;border-top:1px dashed #ddd;padding-top:8px;width:260px}
+    @media print{body{background:transparent;padding:0} .receipt{box-shadow:none;border-radius:0} header{color:#000;background:transparent} .no-print{display:none}}
+  </style>
+</head>
+<body>
+  <div class="receipt" role="document">
+    <header>
+      <div>
+        <div class="brand">Abundant Life Land and Tree LLC <small>Landscaping & Tree Services</small></div>
+        <div class="company-site">www.abundantlife.land</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:1rem;font-weight:700">Receipt</div>
+        <div style="font-size:.86rem;opacity:.95">Receipt #: AL-<span id="rcpt-num">20250928-0730</span></div>
+      </div>
+    </header>
+
+    <div class="body">
+      <h1>Service Receipt</h1>
+
+      <div class="meta">
+        <div class="box">Client: <strong>Ray Bledsoe</strong><br>Property: <strong>2429 NW 158th St, Edmond, OK</strong></div>
+        <div class="box">Service Location: <strong>Front & Back Lawn</strong><br>Status: <strong>Completed</strong></div>
+        <div class="box">Date Completed: <strong>September 28, 2025</strong><br>Time: <strong>7:30 AM</strong></div>
+      </div>
+
+      <div class="client">
+        <div class="left">
+          <strong>Work performed</strong>
+          <table aria-label="Service details">
+            <thead>
+              <tr><th style="width:60%">Description</th><th style="width:20%">Quantity</th><th style="width:20%">Rate / Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1/8 acre mow — cut set between 2.75" and 3.0" <br> 
+                  mowing, trimming, edging, and blowing off walkways and driveway.</td>
+                <td>1 job</td>
+                <td>Completed on site</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="right">
+          <table>
+            <tbody>
+              <tr><td style="padding:6px 12px">Sub‑total</td><td style="text-align:right;padding:6px 12px">$40.00</td></tr>
+              <tr><td style="padding:6px 12px">Tax</td><td style="text-align:right;padding:6px 12px">$0.00</td></tr>
+              <tr class="total-row"><td style="padding:6px 12px">Total</td><td style="text-align:right;padding:6px 12px">$40.00</td></tr>
+            </tbody>
+          </table>
+
+          <div style="margin-top:2rem;font-size:.95rem">
+            Payment method:<br>
+            <strong>_X_ Cash &nbsp; ___ Card &nbsp; ___ Other</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="print">For records: provide this to landlord or property manager. This document may be printed or saved as PDF.</div>
+    </footer>
+  </div>
+
+</body>
+</html>

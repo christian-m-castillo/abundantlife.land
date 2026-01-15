@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crew Member Portal | Abundant Life Land & Tree</title>
+  <style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f4f6f5;
+  color: #1f1f1f;
+  line-height: 1.65;
+}
+
+.portal-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.portal-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.portal-hero h1 {
+  margin-top: 0;
+  color: #1f3d2b;
+}
+
+.portal-hero p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* Tiles Grid */
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual Tile */
+.tile {
+  display: block;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1f1f1f;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tile h2 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: #1f3d2b;
+  font-size: 1.2rem;
+}
+
+.tile p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 500px) {
+  .tiles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<main class="portal-container">
+
+  <header class="portal-hero">
+    <h1>Crew Member Portal</h1>
+    <p>
+      Central hub for training, safety protocols, SOPs, checklists, and resources.
+      Click a tile to access the content you need.
+    </p>
+  </header>
+
+  <section class="tiles-grid">
+
+    <!-- Training Tiles -->
+    <a href="ground-crew.html" class="tile">
+      <h2>Ground Crew Training</h2>
+      <p>All the foundational skills and safety knowledge for new crew members.</p>
+    </a>
+
+    <a href="chainsaw-training.html" class="tile">
+      <h2>Chainsaw Clearance & Proficiency</h2>
+      <p>Learn proper chainsaw operation, clearance, and hands-on proficiency requirements.</p>
+    </a>
+
+    <a href="jobsite-safety.html" class="tile">
+      <h2>Jobsite Safety & Stop-Work</h2>
+      <p>Understand hazards, drop zones, stop-work authority, and communication protocols.</p>
+    </a>
+
+    <!-- Safety Protocols -->
+    <a href="#" class="tile">
+      <h2>PPE Standards & Inspection</h2>
+      <p>Checklists and protocols to ensure personal protective equipment is used correctly.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>Emergency Response Procedures</h2>
+      <p>Step-by-step guidance for emergencies on the jobsite.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>Rope Handling Awareness</h2>
+      <p>Protocols for safe rope handling, knots, and tensioning.</p>
+    </a>
+
+    <!-- SOPs -->
+    <a href="#" class="tile">
+      <h2>Equipment Setup & Maintenance</h2>
+      <p>Proper preparation, maintenance, and storage of all equipment.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>Climbing Prep SOP</h2>
+      <p>Standard procedures for preparing trees, anchors, and gear for climbing operations.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>Removal & Bucking SOP</h2>
+      <p>Step-by-step procedures for tree removal and limb bucking.</p>
+    </a>
+
+    <!-- Checklists -->
+    <a href="#" class="tile">
+      <h2>Daily Pre-Work Checklist</h2>
+      <p>Ensure your day starts with all tools, PPE, and hazards assessed.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>Chainsaw & Tool Inspection</h2>
+      <p>Step-by-step inspection for saws, ropes, and hand tools.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>End-of-Day Wrap-Up</h2>
+      <p>Site cleanup, tool storage, and reporting procedures.</p>
+    </a>
+
+    <!-- Resources -->
+    <a href="#" class="tile">
+      <h2>Video Library</h2>
+      <p>All training videos organized for easy access.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>External Links</h2>
+      <p>Authoritative references and industry standards.</p>
+    </a>
+
+    <a href="#" class="tile">
+      <h2>Reference Documents</h2>
+      <p>PPE charts, SOP PDFs, and other critical documentation.</p>
+    </a>
+
+  </section>
+
+</main>
+
+</body>
+</html>

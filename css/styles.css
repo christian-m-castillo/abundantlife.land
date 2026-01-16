@@ -223,7 +223,7 @@ li {
   align-items: center;
   padding: 10px 0 40px 0;
   width: 100vw;
-  background-color: var(--beautiful-blue);
+  background-color: var(--dark-forest-green);
   color: rgb(86, 69, 46);
   color: goldenrod;
   color: #eec68a;
@@ -249,7 +249,7 @@ li {
 .card-box {
   width: 90vw;
   max-width: 700px;
-  background-color: rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, .5);
   border-radius: 7px;
   margin: auto;
   display: flex;
@@ -338,8 +338,8 @@ li {
 }
 
 .tree-services {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--dark-green);
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -348,7 +348,7 @@ li {
 }
 
 .tree-services h2 {
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .tree-services .gallery {
@@ -390,7 +390,6 @@ li {
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid var(--light-grey);
 }
 
 .electric-mowing-container {

@@ -352,9 +352,8 @@ li {
 }
 
 .tree-services .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: clamp(300px, 95%, 700px);
   background-color: #fff;
   padding: .5rem;
@@ -362,7 +361,6 @@ li {
 }
 
 .tree-services .gallery img {
-  width: 31%;
   aspect-ratio: 3/4;
   object-fit: cover;
   margin: 1%;

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Household Operating Page</title>
+  <style>
+    :root {
+      --bg: #e1d7ca;
+      --card: #ffffff;
+      --text: #2b2b2b;
+      --muted: #6b6b6b;
+      --accent: #2a9255;
+      --border: #e2ded8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 2rem 1.5rem;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.6rem;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    p {
+      margin-top: 0.5rem;
+    }
+
+    main {
+      padding: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    .principles {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .principle {
+      padding: 0.75rem 1rem;
+      border-left: 4px solid var(--accent);
+      background: #f3f6f4;
+      border-radius: 6px;
+    }
+
+    .decision-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .decision-box {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .financial-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .progress {
+      background: #e8e6e1;
+      border-radius: 999px;
+      overflow: hidden;
+      height: 12px;
+      margin: 2rem 0 2rem 0;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Our Household Operating Page</h1>
+  <p><strong>Mission:</strong> Our family exists to serve God, steward land and people, care faithfully for those entrusted to us, and live as a reliable presence in our community.</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>How to Use This Page</h2>
+    <p>This page exists to help us stay oriented, calm, and united. It is not a scorecard or a tool for control. We return here when things feel confusing, tense, or uncertain, so that decisions can be grounded in shared commitments rather than pressure or emotion.</p>
+    <p><em>This is a living document. We revise it together as our family grows.</em></p>
+  </section>
+
+
+
+  <section>
+    <h2>Guiding Principles</h2>
+    <div class="principles">
+      <div class="principle">Service to God precedes comfort.</div>
+      <div class="principle">Stewardship beats consumption.</div>
+      <div class="principle">Caretaking is a daily practice, not a mood.</div>
+      <div class="principle">Reliability matters more than intensity.</div>
+      <div class="principle">Decisions should support long-term rootedness.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Leadership & Decision Framework</h2>
+    <div class="decision-grid">
+      <div class="decision-box">
+        <strong>Joint Decisions</strong>
+        <ul>
+          <li>Major financial commitments</li>
+          <li>Land or housing decisions</li>
+          <li>Education and childcare choices</li>
+          <li>Schedule changes affecting the whole family</li>
+        </ul>
+      </div>
+      <div class="decision-box">
+        <strong>Individual Authority</strong>
+        <ul>
+          <li>Day-to-day task execution</li>
+          <li>Pre-agreed domains of responsibility</li>
+          <li>Routine purchases within budget</li>
+        </ul>
+      </div>
+      <div class="decision-box">
+        <strong>High-Stakes Safety Rule</strong>
+        <p>In safety-critical moments, decisive action takes priority. Emotional processing and discussion happen afterward, without blame.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Financial Snapshot</h2>
+    <div class="financial-row"><span>Monthly Income</span><span>$___________</span></div>
+    <div class="financial-row"><span>Monthly Fixed Expenses</span><span>$___________</span></div>
+    <div class="financial-row"><span>Current Debt</span><span>$___________</span></div>
+    <div class="financial-row"><span>Current Credit Scores</span><span>$___________</span></div>
+    <div class="financial-row"><span>Current Savings</span><span>$_____1.01___</span></div>
+    <div class="financial-row"><span>Savings Goal</span><span>$___________</span></div>
+    <div class="progress">
+      <div class="progress-bar" id="savingsProgress"></div>
+    </div>
+    <p><em>Primary objective right now: predictability and buffer.</em></p>
+  </section>
+
+  <section>
+    <h2>Weekly Household Check-In</h2>
+    <ol>
+      <li>Where are we financially right now?</li>
+      <li>Any upcoming risks in the next 30 days?</li>
+      <li>One decision that needs to be made?</li>
+      <li>One win to acknowledge?</li>
+    </ol>
+    <p><em>Same agenda every week. No surprise topics outside this container.</em></p>
+  </section>
+
+  <section>
+    <h2>Shared Goals</h2>
+    <ul>
+      <li>Raise our family well</li>
+      <li>Establish a homestead</li>
+      <li>Deepen prayer life</li>
+      <li>Improve health and fitness</li>
+      <li>Achieve stable, predictable finances</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Personal Goals</h2>
+    <p>Each of us maintains personal goals that are honored and supported by the household. These goals do not compete with our shared mission; they strengthen it.</p>
+    <div class="decision-grid">
+      <div class="decision-box">
+        <strong>Christian</strong>
+        <ul>
+          <li>________________________</li>
+          <li>________________________</li>
+        </ul>
+      </div>
+      <div class="decision-box">
+        <strong>Christina</strong>
+        <ul>
+          <li>________________________</li>
+          <li>________________________</li>
+        </ul>
+      </div>
+      <div class="decision-box">
+        <strong>Johnathan</strong>
+        <ul>
+          <li>________________________</li>
+          <li>________________________</li>
+        </ul>
+      </div>
+      <div class="decision-box">
+        <strong>Hannah</strong>
+        <ul>
+          <li>________________________</li>
+          <li>________________________</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>More to come...</h2>
+    <ul>
+      <li>structure on how we do chores (daily)</li>
+      <li>Due out bulletins</li>
+      <li>monthly, weekly family schedule</li>
+      <li>daily personal schedules</li>
+      <li>financial planning</li>
+      <li>alottments on tax returns</li>
+      <li>class together</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>This page exists to provide clarity, safety, and shared direction.</p>
+</footer>
+
+<script>
+  // Example: set savings progress manually
+  // Adjust these numbers as needed
+  const currentSavings = 1.01;
+  const savingsGoal = 10000;
+
+  if (savingsGoal > 0) {
+    const percent = Math.min((currentSavings / savingsGoal) * 100, 100);
+    document.getElementById('savingsProgress').style.width = percent + '%';
+  }
+</script>
+
+</body>
+</html>

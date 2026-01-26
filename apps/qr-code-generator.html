@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <style>
+    body {
+  font-family: Helvetica, sans-serif;
+  font-size: 1.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(24, 41, 26);
+}
+
+.container {
+  text-align: center;
+  background-color: #2b4b2d;
+  color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #fff;
+  width: clamp(300px, 75%, 700px);
+}
+
+#text-input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.7rem;
+}
+
+#generate-btn {
+  padding: 10px 20px;
+  margin-top: 2rem;
+  border: none;
+  background-color: #ffd900;
+  color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.9rem;
+}
+
+#generate-btn:hover {
+  background-color: #f5b905;
+}
+
+#qrcode {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>QR Code Generator</h1>
+    <input type="text" id="text-input" placeholder="Enter your text">
+    <button id="generate-btn">Generate QR Code</button>
+    <div id="qrcode"></div>
+  </div>
+  <script>
+    document.getElementById('generate-btn').addEventListener('click', function() {
+  const qrText = document.getElementById('text-input').value;
+  if (qrText.trim() === "") {
+    alert("Please enter text or URL");
+    return
+  }
+  document.getElementById('qrcode').innerHTML = ""; // Clear previous QR code
+  new QRCode(document.getElementById('qrcode'), {
+    text: qrText,
+    width: 256,
+    height: 256
+  });
+});
+  </script>
+</body>
+</html>

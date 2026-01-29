@@ -163,9 +163,10 @@
   <div class="field">
     <label for="size">Average tree size</label>
     <select id="size">
-      <option value="300">Small (under 30 ft)</option>
-      <option value="700">Medium (30–60 ft)</option>
-      <option value="1200">Large (60+ ft)</option>
+      <option value="200">Small (under 20 ft)</option>
+      <option value="400">Medium (20–40 ft)</option>
+      <option value="600">Large (40-60 ft)</option>
+      <option value="800">X Large (60+ ft)</option>
     </select>
   </div>
 
@@ -225,19 +226,19 @@
     let total = treeCount * sizeRate;
 
     if (document.getElementById('removal').checked) {
-      total *= 1;
+      total *= 2;
     }
 
     if (document.getElementById('rigging').checked) {
-      total *= 1.2 * treeCount;
+      total *= 1.2;
     }
 
     if (document.getElementById('stump').checked) {
-      total += 500 * treeCount;
+      total += 500;
     }
 
     if (document.getElementById('debris').checked) {
-      total += 500;
+      total *= 1.3;
     }
 
     if (document.getElementById('storm').checked) {

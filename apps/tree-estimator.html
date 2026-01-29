@@ -85,6 +85,21 @@
       transform: scale(1.3);
     }
 
+    .coupon-field {
+      border-top: 2px solid var(--accent);
+      padding-top: 1rem;
+    }
+
+    #coupon {
+      text-transform: uppercase;
+    }
+
+    .discount-notice {
+      color: green;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
     .total {
       margin-top: 1.5rem;
       padding: 1.25rem;
@@ -197,15 +212,20 @@
     <label for="storm">Storm / emergency work</label>
   </div>
 
+  <div class="field coupon-field">
+    <label for="coupon">Coupon code</label>
+    <input type="text" id="coupon" placeholder="Enter code" oninput="applyCoupon()"/>
+  </div>
+  <p id="couponNote" class="discount-notice" style="display:none;"> Courtesy 10% discount applied.</p>
+
+
   <h2>Estimate</h2>
 
   <div class="total">
     <span>Total</span>
     <span id="total">$0</span>
   </div>
-
-  <p class="note">Ballpark estimate only. Final pricing may change after on-site inspection.</p>
-
+  <!--<p class="note">Ballpark estimate only. Final pricing may change after on-site inspection.</p>-->
   <button onclick="resetForm()">Reset Estimate</button>
 
 </main>
@@ -216,8 +236,30 @@
 
 <script>
   const inputs = document.querySelectorAll('input, select');
+  let discountActive = false;
+  const DISCOUNT_CODE = 'BLESSED10';
+
 
   inputs.forEach(i => i.addEventListener('change', calculate));
+
+  function applyCoupon() {
+    const input = document.getElementById('coupon').value.trim().toUpperCase();
+    const note = document.getElementById('couponNote');
+
+    if (input === DISCOUNT_CODE) {
+      discountActive = true;
+      note.style.display = 'block';
+      document.getElementById('total').style.color = 'green';
+      document.getElementById('total').style.fontWeight = '700';
+    } else {
+      discountActive = false;
+      note.style.display = 'none';
+      document.getElementById('total').style.color = 'black';
+      document.getElementById('total').style.fontWeight = '600';
+    }
+
+    calculate();
+  }
 
   function calculate() {
     const treeCount = Number(document.getElementById('trees').value);
@@ -245,8 +287,13 @@
       total *= 1.25;
     }
 
+    if (discountActive) {
+      total *= 0.9;
+    }
+
     document.getElementById('total').textContent = `$${Math.round(total).toLocaleString()}`;
   }
+
 
   function resetForm() {
     inputs.forEach(i => {
@@ -254,6 +301,11 @@
       if (i.type === 'number') i.value = 0;
       if (i.tagName === 'SELECT') i.selectedIndex = 0;
     });
+
+    document.getElementById('coupon').value = '';
+    document.getElementById('couponNote').style.display = 'none';
+    discountActive = false;
+
     calculate();
   }
 

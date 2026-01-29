@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abundant Life Land & Tree – Estimate Tool</title>
+  <title>Abundant Life Land & Tree – Tree Estimate Tool</title>
   <style>
     :root {
       --green: #2f6f3e;
@@ -148,7 +148,7 @@
 
 <header>
   <h1>Abundant Life Land & Tree LLC</h1>
-  <p>Quick Tree & Landscape Estimate</p>
+  <p>Quick Tree Estimate</p>
 </header>
 
 <main>
@@ -163,9 +163,9 @@
   <div class="field">
     <label for="size">Average tree size</label>
     <select id="size">
-      <option value="150">Small (under 30 ft)</option>
-      <option value="300">Medium (30–60 ft)</option>
-      <option value="600">Large (60+ ft)</option>
+      <option value="300">Small (under 30 ft)</option>
+      <option value="700">Medium (30–60 ft)</option>
+      <option value="1200">Large (60+ ft)</option>
     </select>
   </div>
 
@@ -225,19 +225,19 @@
     let total = treeCount * sizeRate;
 
     if (document.getElementById('removal').checked) {
-      total *= 1.4;
+      total *= 1;
     }
 
     if (document.getElementById('rigging').checked) {
-      total += 200 * treeCount;
+      total *= 1.2 * treeCount;
     }
 
     if (document.getElementById('stump').checked) {
-      total += 150 * treeCount;
+      total += 500 * treeCount;
     }
 
     if (document.getElementById('debris').checked) {
-      total += 100;
+      total += 500;
     }
 
     if (document.getElementById('storm').checked) {

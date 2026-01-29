@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abundant Life Land & Tree | Applications</title>
+  <meta name="description" content="Internal and client-facing application directory for Abundant Life Land & Tree LLC." />
+
+  <style>
+    :root {
+      --bg: #0f1f17;
+      --panel: #162a20;
+      --accent: #7ccf9a;
+      --accent-soft: #a7e3bf;
+      --text: #e9f5ee;
+      --muted: #b7cfc2;
+      --border: rgba(255,255,255,0.08);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0c1913, var(--bg));
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 2.5rem 1.5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.02em;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .controls input {
+      flex: 1 1 260px;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .controls input::placeholder { color: #9fb9aa; }
+
+    .tag-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag-filter button {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .tag-filter button.active {
+      background: var(--accent);
+      color: #0b1a13;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #183325, var(--panel));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.25rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(124,207,154,0.15);
+      color: var(--accent-soft);
+      border: 1px solid rgba(124,207,154,0.25);
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .actions a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 0.45rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .actions a.primary {
+      background: var(--accent);
+      color: #0b1a13;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 2.5rem auto 2rem;
+      padding: 0 1.5rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    footer span { color: var(--accent-soft); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Applications & Tools</h1>
+    <p>
+      A living directory of internal tools, calculators, client resources, and experimental apps used by
+      <strong>Abundant Life Land & Tree LLC</strong>. Built primarily for operators and team members, but designed
+      to be clear and trustworthy for clients and partners.
+    </p>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search apps by name, purpose, or tag…" />
+      <div class="tag-filter" id="tagFilter"></div>
+    </div>
+
+    <section class="grid" id="appGrid"></section>
+  </main>
+
+  <footer>
+    <p>
+      © <span>Abundant Life Land & Tree LLC</span> · Internal tools may change without notice ·
+      This directory reflects current operational workflows
+    </p>
+  </footer>
+
+  <script>
+    const apps = [
+      {
+        name: "Storm Response Intake",
+        description: "Quick intake form for storm damage calls, triage notes, and priority routing.",
+        url: "/apps/storm-intake/",
+        docs: null,
+        tags: ["internal", "operations", "storm"],
+      },
+      {
+        name: "Tree Work Estimate Calculator",
+        description: "Rough-scope pricing helper for pruning, removals, and cleanup jobs.",
+        url: "/apps/estimate-calculator/",
+        docs: null,
+        tags: ["internal", "sales", "estimating"],
+      },
+      {
+        name: "Service Agreement Generator",
+        description: "Generate plain-language service agreements for residential tree and landscape work.",
+        url: "/apps/service-agreement/",
+        docs: null,
+        tags: ["client-facing", "legal", "documents"],
+      },
+      {
+        name: "Plant Care Reference",
+        description: "Quick-reference plant and tree care notes aligned with ISA and horticultural best practices.",
+        url: "/apps/plant-care/",
+        docs: null,
+        tags: ["reference", "horticulture", "training"],
+      },
+    ];
+
+    const appGrid = document.getElementById("appGrid");
+    const searchInput = document.getElementById("search");
+    const tagFilter = document.getElementById("tagFilter");
+
+    let activeTag = null;
+
+    function renderApps() {
+      const query = searchInput.value.toLowerCase();
+      appGrid.innerHTML = "";
+
+      apps
+        .filter(app => {
+          const matchesSearch =
+            app.name.toLowerCase().includes(query) ||
+            app.description.toLowerCase().includes(query) ||
+            app.tags.some(t => t.includes(query));
+
+          const matchesTag = !activeTag || app.tags.includes(activeTag);
+
+          return matchesSearch && matchesTag;
+        })
+        .forEach(app => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          card.innerHTML = `
+            <h3>${app.name}</h3>
+            <p>${app.description}</p>
+            <div class="meta">
+              ${app.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+            </div>
+            <div class="actions">
+              <a href="${app.url}" class="primary">Open</a>
+              ${app.docs ? `<a href="${app.docs}">Docs</a>` : ""}
+            </div>
+          `;
+
+          appGrid.appendChild(card);
+        });
+    }
+
+    function renderTags() {
+      const tags = [...new Set(apps.flatMap(a => a.tags))];
+
+      tagFilter.innerHTML = tags
+        .map(tag => `<button data-tag="${tag}">${tag}</button>`)
+        .join("");
+
+      tagFilter.addEventListener("click", e => {
+        if (e.target.tagName !== "BUTTON") return;
+        const tag = e.target.dataset.tag;
+
+        if (activeTag === tag) {
+          activeTag = null;
+          e.target.classList.remove("active");
+        } else {
+          activeTag = tag;
+          [...tagFilter.children].forEach(b => b.classList.remove("active"));
+          e.target.classList.add("active");
+        }
+
+        renderApps();
+      });
+    }
+
+    searchInput.addEventListener("input", renderApps);
+
+    renderTags();
+    renderApps();
+  </script>
+</body>
+</html>

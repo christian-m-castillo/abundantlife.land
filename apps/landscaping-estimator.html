@@ -14,7 +14,7 @@
       justify-content: center;
       margin: 0;
       padding: 0;
-      background-color: #333;
+      background-color: rgb(42, 80, 42);
     }
     .pricing-estimator {
       background-color: #fff;
@@ -43,14 +43,13 @@
 </head>
 <body>
   <div class="pricing-estimator">
-    <h2>Pricing Calculator</h2>
+    <h2>Landscape Estimator</h2>
     <form id="estimator-form">
       <label for="service">Select Service:</label>
       <select id="service">
-        <option value="1">Low-Impact Mowing</option>
+        <option value=".7">Mowing</option>
         <option value="1">Mulching</option>
         <option value="1">Soil Amendments</option>
-        <option value="1.35">Tree Services</option>
         <option value="1.2">Landscaping Design</option>
         <option value="1">Land Restoration</option>
         <option value="1">Native Installation</option>
@@ -88,11 +87,11 @@
         
         const gasPrice = 3.0;
         const mpg = 15;
-        const baseLaborRate = 47;
+        const baseLaborRate = 60;
         const laborRate = baseLaborRate * serviceFactor;
         
         const fuelCost = (miles / mpg) * gasPrice;
-        const travelCost = fuelCost * 10;
+        const travelCost = fuelCost * 2.5;
         const laborCost = laborHours * laborRate;
         
         const totalCost = travelCost + laborCost + materialCost;

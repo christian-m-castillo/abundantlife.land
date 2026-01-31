@@ -274,6 +274,7 @@ li {
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 5px 5px 0 0;
+  object-fit: cover;
 }
 
 .card a {

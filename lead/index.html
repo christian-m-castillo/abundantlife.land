@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Capture | Abundant Life Land & Tree</title>
+  <style>
+    :root {
+      --green: #2f6b3f;
+      --light-green: #e8f2ec;
+      --text: #1f2933;
+      --border: #cbd5e1;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--light-green);
+      color: var(--text);
+    }
+
+    main {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    form {
+      background: white;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+      margin-top: 0.75rem;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.65rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      margin-top: 1.25rem;
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: white;
+      background: var(--green);
+      border: none;
+      border-radius: 0.6rem;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .note {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    .success {
+      display: none;
+      background: #ecfdf3;
+      border: 1px solid #86efac;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Lead Capture</h1>
+    <p>
+      Use this when someone expresses interest.  
+      No selling — just capture the info and move on.
+    </p>
+
+    <form id="leadForm">
+      <label for="name">Customer name</label>
+      <input id="name" name="name" placeholder="Jane Smith" />
+
+      <label for="phone">Phone number</label>
+      <input id="phone" name="phone" placeholder="405-555-1234" />
+
+      <label for="address">Address / Location</label>
+      <input id="address" name="address" placeholder="Next door to 123 Oak St" />
+
+      <label for="details">What are they asking about?</label>
+      <textarea id="details" name="details" placeholder="Large oak pruning, neighbor referral, etc."></textarea>
+
+      <label for="crew">Captured by</label>
+      <select id="crew" name="crew" required>
+        <option value="">Select your name</option>
+        <option value="Christian">Christian</option>
+        <option value="Tommie">Tommie</option>
+        <option value="Kalob">Kalob</option>
+      </select>
+
+      <button type="submit">Submit Lead</button>
+
+      <div class="note">
+        This sends the lead to Christian for follow-up.
+      </div>
+    </form>
+
+    <div class="success" id="successMessage">
+      ✅ Lead submitted. Thanks for keeping things moving.
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById("leadForm");
+    const success = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        address: form.address.value,
+        details: form.details.value,
+        crew: form.crew.value,
+        timestamp: new Date().toISOString()
+      };
+
+      /*
+        TODO:
+        Replace this console.log with:
+        - Email send (Formspree / Netlify / server endpoint)
+        - Google Sheet webhook
+        - Internal API
+      */
+      console.log("Lead submitted:", data);
+
+      form.reset();
+      success.style.display = "block";
+
+      setTimeout(() => {
+        success.style.display = "none";
+      }, 4000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mom's Infinite Cats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(rgb(133, 189, 199), rgb(28, 72, 80)) ;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+    width: 500px;
+    max-width: 75vw;
+    margin: 10vmin auto 60vh auto;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(rgba(180, 132, 83, .3), rgba(164, 112, 60, 1));
+    border-radius: 10px;
+    box-shadow: 1px 1px 7px #000;
+}
+
+h1 {
+  margin-top: -15px;
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.4rem;
+}
+
+#catPhoto {
+  margin-top: 5px;
+}
+
+#catPhoto img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 7px #000;
+}
+
+button {
+  background-color:pink;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 18px;
+  font-family: fantasy;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 7px #000;
+  color: #000;
+}
+
+.sun {
+  height: 50vmin;
+  width: 50vmin;
+  background-color: rgb(251, 239, 125);
+  border-radius: 50%;
+  position: fixed;
+  top: -20px;
+  right: 10%;
+  z-index: -5;
+  box-shadow: 10px 10px 300px rgb(251, 239, 125);
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mama's Infinite<br> Box of Cats!</h1>
+    <div id="catPhoto"></div>
+    <button id="newCatBtn">More Cat</button> 
+  </div>
+  <div class="sun"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const catPhoto = document.getElementById('catPhoto');
+  const newCatBtn = document.getElementById('newCatBtn');
+
+  // Function to fetch a new cat photo from the API
+  function fetchCatPhoto() {
+    fetch('https://api.thecatapi.com/v1/images/search')
+    .then(response => response.json())
+    .then(data => {
+      const catImageUrl = data[0].url;
+      displayCatPhoto(catImageUrl);
+    })
+    .catch(error => console.log('Error fetching cat photo:', error));
+  }
+  // Function to display the cat photo on the page
+    function displayCatPhoto(url) {
+      catPhoto.innerHTML = `<img src="${url}" alt="Cat Photo" />`
+    }
+
+  // Event Listener for the "New Cat Photo" button
+      newCatBtn.addEventListener('click', fetchCatPhoto);
+    
+  // Fetch a cat photo when the page loads
+      fetchCatPhoto();
+})
+  </script>
+</body>
+</html>

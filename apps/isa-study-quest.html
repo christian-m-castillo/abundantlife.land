@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISA Study Quest</title>
+  <style>
+    :root {
+      --green: #2f6b3f;
+      --light: #f4f7f4;
+      --dark: #1f2a22;
+      --accent: #c9a227;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 520px;
+      width: 100%;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0.25rem 0;
+      font-size: 1.6rem;
+      color: var(--green);
+    }
+
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .progress {
+      height: 10px;
+      background: #e2e6e2;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--green), var(--accent));
+      transition: width 0.4s ease;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    button {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      background: var(--green);
+      color: white;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #e7ebe7;
+      color: var(--dark);
+    }
+
+    button:active { transform: scale(0.98); }
+
+    .challenge h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .reward {
+      text-align: center;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>ISA Study Quest</h1>
+      <p>Turn pages into progress. Progress into mastery.</p>
+    </header>
+
+    <div class="card">
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="stat-row">
+        <span>XP: <strong id="xp">0</strong></span>
+        <span>Level: <strong id="level">1</strong></span>
+      </div>
+    </div>
+
+    <div class="card challenge" id="challengeCard">
+      <h2>Today's Challenge</h2>
+      <p id="challengeText">Open the ISA Certification Study Guide (4th Ed.) and read 3 pages.</p>
+      <button onclick="completeChallenge()">I did it 🌱</button>
+    </div>
+
+    <div class="card reward" id="rewardCard" style="display:none;"></div>
+
+    <footer>
+      Abundant Life Land & Tree · Built for arborists in training
+    </footer>
+  </div>
+
+  <script>
+    const challenges = [
+      'Read 3 pages from any chapter',
+      'Skim the chapter headings and diagrams',
+      'Read definitions for one ISA domain',
+      'Re-read a section you did not fully understand',
+      'Explain one concept out loud as if teaching it',
+      'Read 5 pages uninterrupted',
+      'Review pruning standards or safety section'
+    ];
+
+    let state = JSON.parse(localStorage.getItem('isaStudyQuest')) || {
+      xp: 0,
+      level: 1
+    };
+
+    const xpEl = document.getElementById('xp');
+    const levelEl = document.getElementById('level');
+    const barEl = document.getElementById('progressBar');
+    const rewardCard = document.getElementById('rewardCard');
+    const challengeText = document.getElementById('challengeText');
+
+    function render() {
+      xpEl.textContent = state.xp;
+      levelEl.textContent = state.level;
+      const progress = (state.xp % 100);
+      barEl.style.width = progress + '%';
+    }
+
+    function newChallenge() {
+      const c = challenges[Math.floor(Math.random() * challenges.length)];
+      challengeText.textContent = c;
+    }
+
+    function completeChallenge() {
+      const gain = 15 + Math.floor(Math.random() * 10);
+      state.xp += gain;
+
+      if (state.xp >= state.level * 100) {
+        state.level++;
+        rewardCard.style.display = 'block';
+        rewardCard.textContent = `Level Up! You are now Level ${state.level} 🌳`;
+      } else {
+        rewardCard.style.display = 'block';
+        rewardCard.textContent = `+${gain} XP earned. Knowledge compounds.`;
+      }
+
+      localStorage.setItem('isaStudyQuest', JSON.stringify(state));
+      newChallenge();
+      render();
+    }
+
+    newChallenge();
+    render();
+  </script>
+</body>
+</html>

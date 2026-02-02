@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Arborist Quest – Knowledge & Valor</title>
+<title>ArborQuest – Arborist Training Game</title>
 
 <style>
   body {
@@ -24,6 +24,7 @@
   }
 
   h1 { text-align:center; color:#fff; margin-top:0; font-size: clamp(1.2rem, 3.5vmin, 3rem);}
+  h2 {text-align: center; margin: 0rem;}
 
   #stats, #controls, #enemyStats {
     border: 1px solid #2f4f2f;
@@ -49,15 +50,22 @@
     aspect-ratio: 16/9;
     padding: 8px;
     margin-bottom: 8px;
+    background-color: #222;
+  }
+
+  #visualizer-img {
+    width: 100%;
+    margin-bottom: 0;
   }
 
   #text {
     background:#2f4f2f;
     color:#fff;
-    padding:12px;
+    padding: 1rem;
     min-height:50px;
-    border-radius:8px;
+    border-radius: 0px 0px 8px;
     white-space:pre-line;
+    margin-top: 0;
   }
 
   button {
@@ -85,7 +93,12 @@
 
 <body>
 <div id="game">
-  <h1>🌳🌲 Arborist Quest 🌲🌳</h1>
+  <h1 style="display: none;">🌳🌲 ArborQuest 🌲🌳</h1>
+
+  <div id="visualizer">
+    <img id="visualizer-img" src="./arbor-quest-imgs/start-menu-01.png"></img>
+    <div id="text"></div>
+  </div>
 
   <div id="stats">
     XP: <strong id="xpText">0</strong>
@@ -95,16 +108,12 @@
     Safety: <strong id="safetyText">0</strong>
   </div>
 
-  <div id="visualizer">
-    <div id="visualizer-img"></div>
-  </div>
-
   <div id="enemyStats">
     Enemy: <strong id="enemyName"></strong>
     Health: <strong id="enemyHealth"></strong>
   </div>
 
-  <div id="text"></div>
+  
 
   <div id="controls">
     <button id="button1">Begin</button>

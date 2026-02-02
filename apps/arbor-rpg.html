@@ -1,308 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arborist Quest – Knowledge & Valor</title>
-  <meta name="description" content="A Tolkien-inspired RPG where arboricultural study fuels your strength.">
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #223822;
-      color: #1f2a22;
-    }
-    #game {
-      max-width: 520px;
-      margin: 30px auto;
-      background: #fffdf7;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 10px 30px rgba(186, 148, 51, 0.55);
-    }
-    h1 { text-align:center; margin-top:0; color:#2f4f2f; }
-    #stats, #controls, #enemyStats {
-      border: 1px solid #2f4f2f;
-      padding: 8px;
-      margin-bottom: 8px;
-      border-radius: 8px;
-    }
-    .stat { padding-right:10px; font-size:0.9rem; }
-    #enemyStats { display:none; background:#5b1e1e; color:#fff; }
-    #text {
-      background:#2f4f2f;
-      color:#fff;
-      padding:12px;
-      min-height:120px;
-      border-radius:8px;
-      white-space:pre-line;
-    }
-    button {
-      cursor:pointer;
-      margin:4px 0;
-      width:100%;
-      padding:10px;
-      font-size:1rem;
-      color:#1f2a22;
-      background:linear-gradient(#f0d58c,#d8b35a);
-      border:2px solid #b38b2d;
-      border-radius:8px;
-    }
-    button:active { transform:scale(0.98); }
-    footer { text-align:center; font-size:0.75rem; margin-top:10px; opacity:0.7; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arborist Quest – Knowledge & Valor</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #223822;
+}
+#game {
+  max-width: 520px;
+  margin: 30px auto;
+  background: #fffdf7;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(186,148,51,0.55);
+}
+h1 { text-align:center; color:#2f4f2f; margin-top:0; }
+
+#stats, #controls, #enemyStats {
+  border: 1px solid #2f4f2f;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+.stat { padding-right:10px; font-size:0.9rem; }
+
+#enemyStats {
+  display:none;
+  background:#5b1e1e;
+  color:#fff;
+}
+
+#text {
+  background:#2f4f2f;
+  color:#fff;
+  padding:12px;
+  min-height:120px;
+  border-radius:8px;
+  white-space:pre-line;
+}
+
+button {
+  width:100%;
+  margin:4px 0;
+  padding:10px;
+  font-size:1rem;
+  cursor:pointer;
+  background:linear-gradient(#f0d58c,#d8b35a);
+  border:2px solid #b38b2d;
+  border-radius:8px;
+}
+button:active { transform:scale(0.98); }
+
+footer {
+  text-align:center;
+  font-size:0.75rem;
+  opacity:0.7;
+}
+</style>
 </head>
+
 <body>
 <div id="game">
-  <h1>🌳 Arborist Quest</h1>
+<h1>🌳 Arborist Quest</h1>
 
-  <div id="stats">
-    <span class="stat">XP: <strong id="xpText">0</strong></span>
-    <span class="stat">Health: <strong id="healthText">100</strong></span>
-    <span class="stat">Gold: <strong id="goldText">50</strong></span><br>
-    <span class="stat">Biology: <strong id="bioText">0</strong></span>
-    <span class="stat">Pruning: <strong id="pruningText">0</strong></span>
-    <span class="stat">Soil: <strong id="soilText">0</strong></span>
-    <span class="stat">Safety: <strong id="safetyText">0</strong></span>
-  </div>
+<div id="stats">
+  XP: <strong id="xpText">0</strong>
+  Health: <strong id="healthText">100</strong>
+  Gold: <strong id="goldText">50</strong><br>
+  Arboriculture: <strong id="arbText">0</strong>
+  Safety: <strong id="safetyText">0</strong>
+</div>
 
-  <div id="controls">
-    <button id="button1">Begin</button>
-    <button id="button2">—</button>
-    <button id="button3">—</button>
-  </div>
+<div id="controls">
+  <button id="button1">Begin</button>
+  <button id="button2">—</button>
+  <button id="button3">—</button>
+</div>
 
-  <div id="enemyStats">
-    <span class="stat">Enemy: <strong><span id="enemyName"></span></strong></span>
-    <span class="stat">Health: <strong><span id="enemyHealth"></span></strong></span>
-  </div>
+<div id="enemyStats">
+  Enemy: <strong id="enemyName"></strong>
+  Health: <strong id="enemyHealth"></strong>
+</div>
 
-  <div id="text"></div>
+<div id="text"></div>
 
-  <footer>Abundant Life Land & Tree · Formation through knowledge</footer>
+<footer>Abundant Life Land & Tree · Formation through knowledge</footer>
 </div>
 
 <script>
-/* ===== Player State ===== */
+/* ===== Player ===== */
 let player = {
-  xp: 0,
-  health: 100,
-  gold: 50,
-  currentWeapon: 0,
-  inventory: ["Field Notebook"],
-  skills: { biology:0, pruning:0, soil:0, safety:0 },
-  streak: 0
+  xp:0, health:100, gold:50,
+  currentWeapon:0,
+  skills:{ arboriculture:0, safety:0 }
 };
 
 let fighting = null;
 let enemyHealth = 0;
+let currentQuestion = null;
 
 /* ===== DOM ===== */
-const button1 = document.getElementById("button1");
-const button2 = document.getElementById("button2");
-const button3 = document.getElementById("button3");
+const b1 = document.getElementById("button1");
+const b2 = document.getElementById("button2");
+const b3 = document.getElementById("button3");
 const text = document.getElementById("text");
+
 const xpText = document.getElementById("xpText");
 const healthText = document.getElementById("healthText");
 const goldText = document.getElementById("goldText");
-const bioText = document.getElementById("bioText");
-const pruningText = document.getElementById("pruningText");
-const soilText = document.getElementById("soilText");
+const arbText = document.getElementById("arbText");
 const safetyText = document.getElementById("safetyText");
+
 const enemyStats = document.getElementById("enemyStats");
 const enemyName = document.getElementById("enemyName");
 const enemyHealthText = document.getElementById("enemyHealth");
 
-/* ===== Knowledge Weapons ===== */
+/* ===== Weapons ===== */
 const weapons = [
-  { name: "Field Notebook", power: 5 },
-  { name: "ISA Study Guide", power: 25 },
-  { name: "ANSI A300 Standards", power: 50 },
-  { name: "Wisdom & Experience", power: 100 }
+  { name:"Field Notebook", power:5 },
+  { name:"ISA Study Guide", power:25 },
+  { name:"ANSI A300", power:50 },
+  { name:"Wisdom & Experience", power:100 }
 ];
 
 /* ===== Enemies ===== */
 const enemies = [
-  { name: "Confusion", level: 2, health: 20, weakness: "biology" },
-  { name: "Bad Pruning Practices", level: 8, health: 60, weakness: "pruning" },
-  { name: "Neglected Soil & Roots", level: 5, health: 40, weakness: "soil" },
-  { name: "Unsafe Work Site", level: 7, health: 50, weakness: "safety" },
-  { name: "ISA Certification Exam", level: 20, health: 300, weakness: "all" }
+  { name:"Confusion", level:2, health:25, type:"arb" },
+  { name:"Bad Practices", level:7, health:60, type:"arb" },
+  { name:"Unsafe Work Site", level:8, health:70, type:"safety" },
+  { name:"ISA Certification Exam", level:20, health:300, type:"all" }
 ];
+
+/* ===== Questions ===== */
+const questions = {
+  arb: [
+    { q:"Topping is an acceptable pruning practice.", a:false },
+    { q:"A branch collar should be preserved when pruning.", a:true },
+    { q:"Soil compaction can reduce root oxygen.", a:true }
+  ],
+  safety: [
+    { q:"Kickback occurs when the chain contacts wood at the tip.", a:true },
+    { q:"PPE is optional for experienced climbers.", a:false },
+    { q:"Drop zones help reduce ground crew risk.", a:true }
+  ],
+  all: [
+    { q:"CODIT describes how trees compartmentalize decay.", a:true },
+    { q:"ANSI A300 defines pruning standards.", a:true },
+    { q:"Flush cuts improve wound closure.", a:false }
+  ]
+};
 
 /* ===== Locations ===== */
 const locations = [
-  { name:"town",
+  {
     buttons:["Visit Arborist's Grove","Enter Wild Wood","Face the Exam"],
-    actions:[goGrove,goWood, fightExam],
-    text:"You stand at the edge of a growing town. Trees surround you, waiting to be understood."
+    actions:[goGrove,goWood,fightExam],
+    text:"You stand at the edge of a growing town."
   },
-  { name:"grove",
-    buttons:["Study Tree Biology","Study Pruning","Study Soil & Roots"],
-    actions:[studyBiology,studyPruning,studySoil],
-    text:"You enter the Arborist's Grove. The air is still. This is a place of learning."
+  {
+    buttons:["Study Arboriculture","Study Safety","Return to Town"],
+    actions:[studyArb,studySafety,goTown],
+    text:"The Arborist's Grove is a place of learning."
   },
-  { name:"wood",
-    buttons:["Face Confusion","Face Bad Practices","Face Neglected Soil"],
-    actions:[fightConfusion,fightBadPractice,fightNeglectedSoil],
-    text:"The Wild Wood is full of neglected trees and half-known truths."
+  {
+    buttons:["Face Confusion","Face Bad Practices","Face Unsafe Site"],
+    actions:[()=>fightEnemy(0),()=>fightEnemy(1),()=>fightEnemy(2)],
+    text:"The Wild Wood tests what you truly know."
   },
-  { name:"fight",
-    buttons:["Apply Knowledge","Reflect","Flee"],
-    actions:[attack,reflect,goTown],
-    text:"You confront a challenge. What you know will matter."
+  {
+    buttons:["True","False","Flee"],
+    actions:[()=>answer(true),()=>answer(false),goTown],
+    text:""
   },
-  { name:"victory",
+  {
     buttons:["Return to Town","Return to Town","Return to Town"],
     actions:[goTown,goTown,goTown],
-    text:"Understanding prevails. You gain insight and confidence."
-  },
-  { name:"defeat",
-    buttons:["Begin Again","Begin Again","Begin Again"],
-    actions:[restart,restart,restart],
-    text:"You are overwhelmed. Rest, then begin again."
-  },
-  { name:"win",
-    buttons:["Begin Again","Begin Again","Begin Again"],
-    actions:[restart,restart,restart],
-    text:"You demonstrate mastery. You are entrusted with responsibility."
+    text:"Understanding prevails."
   }
 ];
 
-/* ===== Study Prompts ===== */
-const studyPrompts = {
-  biology:[ "Read 3 pages on tree anatomy.","Identify one tree today and note its leaf arrangement.","Explain CODIT out loud."],
-  pruning:[ "Study branch collar & branch bark ridge.","Identify a poor pruning cut nearby.","Explain thinning vs reduction."],
-  soil:[ "Observe compacted soil near a tree.","Read about mulch depth & application.","Explain clay, silt, sand differences."],
-  safety:[ "Review PPE & chainsaw safety.","Think through an escape route scenario.","Explain drop zone awareness."],
-};
-
-/* ===== Utility Functions ===== */
-function getRandomPrompt(category) {
-  const list = studyPrompts[category];
-  return list[Math.floor(Math.random()*list.length)];
+/* ===== Core ===== */
+function update(loc){
+  enemyStats.style.display="none";
+  [b1,b2,b3].forEach((b,i)=>{
+    b.innerText = loc.buttons[i];
+    b.onclick = loc.actions[i];
+  });
+  text.innerText = loc.text;
 }
 
-function syncStats() {
+function sync(){
   xpText.innerText = player.xp;
   healthText.innerText = player.health;
   goldText.innerText = player.gold;
-  bioText.innerText = player.skills.biology;
-  pruningText.innerText = player.skills.pruning;
-  soilText.innerText = player.skills.soil;
+  arbText.innerText = player.skills.arboriculture;
   safetyText.innerText = player.skills.safety;
 }
 
-/* ===== Core Engine ===== */
-function update(location) {
-  enemyStats.style.display="none";
-  button1.innerText = location.buttons[0];
-  button2.innerText = location.buttons[1];
-  button3.innerText = location.buttons[2];
-  button1.onclick = location.actions[0];
-  button2.onclick = location.actions[1];
-  button3.onclick = location.actions[2];
-  text.innerText = location.text;
-}
+function goTown(){ update(locations[0]); }
+function goGrove(){ update(locations[1]); }
+function goWood(){ update(locations[2]); }
 
-function goTown(){update(locations[0]);}
-function goGrove(){update(locations[1]);}
-function goWood(){update(locations[2]);}
-
-/* ===== Study Functions ===== */
-function study(category) {
-  const gain = 8 + Math.floor(Math.random()*8);
-  const prompt = getRandomPrompt(category);
-  player.xp += gain;
-  player.skills[category] += 1;
-  player.health += category==="safety"?12:5;
-  player.streak +=1;
-  syncStats();
-  text.innerText=`📘 ${category.toUpperCase()} Study Task:\n${prompt}\n\n+${gain} XP\nKnowledge grows. Streak: ${player.streak}`;
+/* ===== Study ===== */
+function study(cat){
+  player.skills[cat]++;
+  player.xp += 10;
+  player.health += cat==="safety"?12:6;
   unlockWeapon();
+  sync();
+  text.innerText = "You study and grow in understanding.";
+}
+function studyArb(){ study("arboriculture"); }
+function studySafety(){ study("safety"); }
+
+/* ===== Weapons ===== */
+function unlockWeapon(){
+  if(player.xp>=40) player.currentWeapon=1;
+  if(player.xp>=100) player.currentWeapon=2;
+  if(player.xp>=200) player.currentWeapon=3;
 }
 
-function studyBiology(){study("biology");}
-function studyPruning(){study("pruning");}
-function studySoil(){study("soil");}
-function studySafety(){study("safety");}
-
-/* Unlock Weapons by XP */
-function unlockWeapon() {
-  if(player.xp>=40 && player.currentWeapon<1){ player.currentWeapon=1; player.inventory.push(weapons[1].name); text.innerText+="\n\nYou acquire: "+weapons[1].name;}
-  if(player.xp>=100 && player.currentWeapon<2){ player.currentWeapon=2; player.inventory.push(weapons[2].name); text.innerText+="\n\nYou acquire: "+weapons[2].name;}
-  if(player.xp>=200 && player.currentWeapon<3){ player.currentWeapon=3; player.inventory.push(weapons[3].name); text.innerText+="\n\nYou acquire: "+weapons[3].name;}
-}
-
-/* ===== Combat Functions ===== */
-function fightEnemy(enemyIndex){
-  fighting = enemyIndex;
-  startFight();
-}
-
-function fightConfusion(){fightEnemy(0);}
-function fightBadPractice(){fightEnemy(1);}
-function fightNeglectedSoil(){fightEnemy(2);}
-function fightUnsafeSite(){fightEnemy(3);}
-function fightExam(){fightEnemy(4);}
-
-function startFight(){
-  update(locations[3]);
-  const enemy = enemies[fighting];
+/* ===== Combat (Question-Based) ===== */
+function fightEnemy(i){
+  fighting = i;
+  const enemy = enemies[i];
   enemyHealth = enemy.health;
+  nextQuestion();
+}
+
+function fightExam(){ fightEnemy(3); }
+
+function nextQuestion(){
+  const enemy = enemies[fighting];
+  const pool = questions[enemy.type];
+  currentQuestion = pool[Math.floor(Math.random()*pool.length)];
+
   enemyStats.style.display="block";
   enemyName.innerText = enemy.name;
   enemyHealthText.innerText = enemyHealth;
-  text.innerText += "\nPrepare to apply your knowledge!";
+
+  update(locations[3]);
+  text.innerText = "❓ " + currentQuestion.q;
 }
 
-/* Learning-Focused Combat */
-function attack(){
+function answer(choice){
   const enemy = enemies[fighting];
-  // Damage scaled by relevant skill if enemy has a weakness
-  let skillBonus=0;
-  if(enemy.weakness==="all"){
-    skillBonus = Object.values(player.skills).reduce((a,b)=>a+b,0)/2;
-  } else if(enemy.weakness){
-    skillBonus = player.skills[enemy.weakness]*2;
+
+  if(choice === currentQuestion.a){
+    let skillBonus =
+      enemy.type==="safety" ? player.skills.safety*3 :
+      enemy.type==="arb" ? player.skills.arboriculture*3 :
+      (player.skills.arboriculture + player.skills.safety)*2;
+
+    const damage = weapons[player.currentWeapon].power + skillBonus;
+    enemyHealth -= Math.floor(damage);
+
+    text.innerText = "Correct.\nYou apply knowledge effectively.";
+  } else {
+    const hit = enemy.level * 6;
+    player.health -= hit;
+    text.innerText = "Incorrect.\nThe challenge pushes back.";
   }
-  const damage = weapons[player.currentWeapon].power + skillBonus + Math.floor(Math.random()*5);
-  enemyHealth -= damage;
-  
-  const enemyAttack = Math.max(0, enemy.level*5 - Math.floor(player.xp/3));
-  player.health -= enemyAttack;
-  
+
+  sync();
   enemyHealthText.innerText = enemyHealth;
-  syncStats();
-  
-  text.innerText = `You apply ${weapons[player.currentWeapon].name}.\nDamage dealt: ${damage}\nEnemy strikes back: ${enemyAttack} damage.`;
-  
-  if(player.health<=0){update(locations[5]);}
-  else if(enemyHealth<=0){winFight();}
+
+  if(player.health<=0){
+    text.innerText += "\nYou are overwhelmed.";
+    goTown();
+  }
+  else if(enemyHealth<=0){
+    player.xp += enemy.level*3;
+    player.gold += enemy.level*4;
+    sync();
+    update(locations[4]);
+  }
+  else {
+    setTimeout(nextQuestion, 900);
+  }
 }
 
-function reflect(){
-  player.health += 8;
-  syncStats();
-  text.innerText="You pause and reflect. Clarity restores your strength.";
-}
-
-function winFight(){
-  const enemy = enemies[fighting];
-  player.xp += enemy.level*2;
-  player.gold += enemy.level*3;
-  syncStats();
-  update(locations[4]);
-}
-
-/* Restart */
-function restart(){
-  player = { xp:0, health:100, gold:50, currentWeapon:0, inventory:["Field Notebook"], skills:{biology:0,pruning:0,soil:0,safety:0}, streak:0 };
-  syncStats();
-  goTown();
-}
-
-/* ===== Start Game ===== */
+/* ===== Start ===== */
 goTown();
 </script>
 </body>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sign-width: 800px;
+      --sign-border: 20px;
+      --beautiful-blue: rgb(71, 172, 177);
+      --main-green: rgb(5, 134, 5);
+    }
+    body {
+      background-color: #ffe;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      font-family: Helvetica, sans-serif;
+      box-sizing: border-box;
+    }
+    .sign {
+      box-sizing: border-box;
+      background-color: #fff;
+      height: 400px;
+      width: var(--sign-width);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 100px auto;
+      object-fit: cover;
+      border: var(--sign-border) solid var(--main-green);
+    }
+    .green-swath-top {
+      background-color: var(--main-green);
+      width: var(--sign-width);
+      margin-top: -1px;
+    }
+    .title {
+      color: #fff;
+      font-size: 50px;
+      font-weight: 200;
+      letter-spacing: 3px;
+      word-spacing: 5px;
+      margin: 5px 20px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 4px solid #fff;
+      padding: 23px 70px 12px 70px;
+    }
+    .title-line {
+      margin-bottom: 10px;
+    }
+    .tree-service {
+      font-weight: 400;
+    }
+    .lawn-landscape {
+      font-size: 30px;
+    }
+    .phone-number {
+      font-family: "Roboto Mono";
+      font-size: 70px;
+      font-weight: 900;
+      color: #343434;
+      padding: 0px 0 0px 0;
+      letter-spacing: -17px;
+    }
+    .phone-number span {
+      margin: 0;
+      padding: 0;
+    }
+    .fourth-digit {
+      margin-right: -3px;
+    }
+    .eighth-digit {
+      margin-right: 5px;
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 800px;
+      border-top: 9px solid var(--beautiful-blue);
+      padding: 12px 0 0 0;
+      width: calc(var(--sign-width) - 2 * var(--sign-border));
+    }
+    .web-address {
+      font-size: 37px;
+      font-weight: 100;
+      letter-spacing: 2px;
+      color: #000;
+    }
+    .american-flag img {
+      max-height: 37px;
+    }
+    .logo img {
+      max-height: 55px;
+      margin-top: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sign">
+
+    <div class="green-swath-top">
+      <div class="title">
+        <div class="title-line tree-service">TREE SERVICE</div>
+        <div class="title-line lawn-landscape">LANDSCAPE STEWARDSHIP</div>
+      </div>
+    </div>
+    
+    <div class="phone-number">
+      <span class="first-digit">4</span>
+      <span class="second-digit">0</span>
+      <span class="third-digit">5</span>
+      <span class="first-dash">-</span>
+      <span class="fourth-digit">9</span>
+      <span class="fifth-digit">5</span>
+      <span class="sixth-digit">3</span>
+      <span class="second-dash">-</span>
+      <span class="seventh-digit">1</span>
+      <span class="eigth-digit">2</span>
+      <span class="ninth-digit">8</span>
+      <span class="tenth-digit">5</span>
+    </div>
+
+    <div class="bottom-row">
+      <div class="logo"><img src="../img/hummingbird-logo-land-conservation-tree-web.png" alt=""></div>
+      <div class="web-address">www.AbundantLife.Land</div>
+      <div class="american-flag"><img src="../img/american-flag.png" alt=""></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .eco-gardens {
+  padding: 80px 20px;
+  background: #f9faf8;
+  color: #1f2933;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #52606d;
+  line-height: 1.5;
+}
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #e4e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.card h3 {
+  margin-bottom: 6px;
+  font-size: 1.25rem;
+}
+
+.tag {
+  font-size: 0.85rem;
+  color: #829ab1;
+  margin-bottom: 16px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.card ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2f855a;
+}
+
+.result {
+  font-size: 0.9rem;
+  color: #52606d;
+}
+
+.featured {
+  border: 2px solid #2f855a;
+  background: #f0fdf4;
+}
+
+.cta {
+  text-align: center;
+}
+
+.cta h3 {
+  margin-bottom: 10px;
+}
+
+.cta p {
+  margin-bottom: 20px;
+  color: #52606d;
+}
+
+.btn {
+  display: inline-block;
+  background: #2f855a;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #276749;
+}
+  </style>
+</head>
+<body>
+  <section class="eco-gardens">
+    <div class="container">
+      <div class="intro">
+        <h2>Beautiful, Low-Maintenance Gardens That Work With Nature</h2>
+        <p>
+          Thoughtfully designed planting spaces that elevate your home’s appearance,
+          reduce pest pressure, and stay clean with minimal upkeep.
+        </p>
+      </div>
+  
+      <div class="tiers">
+        
+        <!-- Foundation -->
+        <div class="card">
+          <h3>Foundation Garden</h3>
+          <p class="tag">Simple • Clean • Impactful</p>
+          <ul>
+            <li>Designed planting beds</li>
+            <li>Seasonal color & structure</li>
+            <li>Clean edges + mulch</li>
+            <li>Improved curb appeal</li>
+          </ul>
+          <p class="result">A clean, intentional look with immediate visual impact.</p>
+        </div>
+  
+        <!-- Habitat -->
+        <div class="card featured">
+          <h3>Habitat Upgrade</h3>
+          <p class="tag">Balanced • Functional • Beautiful</p>
+          <ul>
+            <li>Layered plant design</li>
+            <li>Supports pollinators & natural pest control</li>
+            <li>Optional water or habitat features</li>
+            <li>Designed for long-term health</li>
+          </ul>
+          <p class="result">
+            A vibrant outdoor space that naturally reduces nuisance insects.
+          </p>
+        </div>
+  
+        <!-- Signature -->
+        <div class="card">
+          <h3>Signature Ecosystem</h3>
+          <p class="tag">Custom • Elevated • Complete</p>
+          <ul>
+            <li>Full property design</li>
+            <li>Outdoor living integration</li>
+            <li>Lighting & focal elements</li>
+            <li>Year-round visual interest</li>
+          </ul>
+          <p class="result">
+            A complete outdoor environment that feels intentional and refined.
+          </p>
+        </div>
+  
+      </div>
+  
+      <div class="cta">
+        <h3>Not sure where to start?</h3>
+        <p>
+          We’ll walk your property, understand your goals, and recommend the right level
+          of transformation.
+        </p>
+        <a href="#contact" class="btn">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sign-width: 800px;
+      --sign-border: 20px;
+      --beautiful-blue: rgb(71, 172, 177);
+      --main-green: rgb(5, 134, 5);
+    }
+    body {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      font-family: Helvetica, sans-serif;
+      box-sizing: border-box;
+    }
+    .sign {
+      box-sizing: border-box;
+      background-color: #fff;
+      height: 400px;
+      width: var(--sign-width);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px auto;
+      object-fit: cover;
+      border: var(--sign-border) solid var(--main-green);
+    }
+    .green-swath-top {
+      background-color: var(--main-green);
+      width: var(--sign-width);
+      margin-top: -1px;
+    }
+    .title {
+      background-color: #fff;
+      color: #000;
+      font-size: 50px;
+      font-weight: 200;
+      letter-spacing: 3px;
+      word-spacing: 5px;
+      margin: 5px 20px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 4px solid #fff;
+      padding: 23px 70px 12px 70px;
+    }
+    .title-line {
+      margin-bottom: 10px;
+    }
+    .tree-service {
+      font-size: 50px;
+      font-weight: 400;
+    }
+    .lawn-landscape {
+      font-size: 40px;
+      font-weight: 400;
+    }
+    .phone-number-row {
+      font-family: "Roboto Mono";
+      font-size: 70px;
+      font-weight: 900;
+      color: #333;
+      padding: 0px 0 0px 0;
+      letter-spacing: 0px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .phone-number {
+      margin-top: -0.5px;
+    }
+    .call-text, .local-insured {
+      font-size: 22px;
+      color: #343434;
+      letter-spacing: .75px;
+      margin: 5.3px 29px 0 45px;
+      font-family: Helvetica, sans-serif;
+      font-weight: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .call, .local {
+      border-bottom: 1px solid #999;
+      width: 47px;
+      text-align: center;
+      padding-bottom: 2px;
+    }
+    .local {
+      width: 80px;
+    }
+    .text, .insured {
+      padding-top: 3px;
+    }
+    .local-insured {
+      margin: 4px 10px 0 28px;
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 800px;
+      border-top: 9px solid var(--beautiful-blue);
+      padding: 12px 0 0 0;
+      width: calc(var(--sign-width) - 2 * var(--sign-border));
+    }
+    .logo img {
+      max-height: 61px;
+      margin-top: -2.4px;
+    }
+    .web-address {
+      font-size: 37px;
+      font-weight: 100;
+      letter-spacing: 2px;
+      color: #232323;
+      margin-top: -2.5px;
+    }
+    .american-flag {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: -2.85px;
+    }
+    .american-flag img {
+      max-height: 37px;
+    }
+    .veteran-owned {
+      font-family: Helvetica, sans-serif;
+      font-size: 12.5px;
+      letter-spacing: .75px;
+      font-weight: 100;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sign">
+
+    <div class="green-swath-top">
+      <div class="title">
+        <div class="title-line tree-service">TREE SERVICE</div>
+        <div class="title-line lawn-landscape">LANDSCAPING</div>
+      </div>
+    </div>
+    
+    <div class="phone-number-row">
+      <div class="call-text">
+        <div class="call">Call</div>
+        <div class="text">Text</div>
+      </div>
+      <span class="phone-number">405-953-1285</span>
+      <div class="local-insured">
+        <div class="local">Local</div> 
+        <div class="insured">Insured</div>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="logo"><img src="../img/hummingbird-logo-land-conservation-tree-web.png" alt=""></div>
+      <div class="web-address">www.AbundantLife.Land</div>
+      <div class="american-flag">
+        <img src="../img/american-flag.png" alt="">
+        <div class="veteran-owned">Veteran Owned</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

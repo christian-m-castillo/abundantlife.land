@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Property Assessment - Abundant Life Land & Tree</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #eee;
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: .0125rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    background: white;
+    margin: auto;
+    padding: 0.6in;
+    box-sizing: border-box;
+  }
+  div {
+    margin-bottom: 1rem;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #000;
+    padding-bottom: 0.15in;
+    margin-bottom: 1rem;
+  }
+
+  .logo, .qr {
+    width: 0.9in;
+    height: 0.9in;
+  }
+
+  .logo img, .qr img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .title {
+    text-align: center;
+    flex: 1;
+  }
+
+  .title h1 {
+    margin-bottom: .8rem;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .title p {
+    margin: .5rem;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+  }
+
+  /* HERO MESSAGE */
+  .hero {
+    margin-top: 0.2in;
+    padding: 0.15in;
+    border: 2px solid #000;
+    text-align: center;
+  }
+
+  .hero h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 200;
+  }
+
+  .hero p {
+    margin: 6px 0 0 0;
+    font-size: 12px;
+  }
+
+  /* SECTIONS */
+  .block {
+    margin-top: 0.2in;
+  }
+
+  .block h3 {
+    margin-bottom: 6px;
+    font-size: 13px;
+    border-bottom: 1px solid #000;
+    padding-bottom: .5rem;
+    text-transform: uppercase;
+  }
+
+  /* SERVICES */
+  .services {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    gap: 6px;
+    padding: 1rem 0 .25rem 0;
+  }
+
+  .services label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .9rem;
+  }
+
+  /* SCOPE BOX */
+  .box {
+    border: 1px solid #000;
+    height: 8rem;
+    padding: 6px;
+    font-size: 12px;
+    margin-top: 1rem;
+  }
+
+  /* ESTIMATE */
+  .estimate-note {
+    font-size: .8rem;
+    margin: 1rem;
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  tr {
+    height: 1.75rem;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 4px;
+  }
+
+  th {
+    background: #f0f0f0;
+    text-align: left;
+  }
+
+  /* CTA (MOST IMPORTANT PART) */
+  .cta {
+    margin-top: 2rem;
+    border: 3px solid #000;
+    padding: 0.2in;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+  }
+
+  .cta h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: .05rem;
+  }
+
+  .cta p {
+    margin: 6px 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .cta small {
+    font-size: 11px;
+  }
+
+  .phone {
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-bottom: .15rem;
+    letter-spacing: .125rem;
+  }
+
+</style>
+</head>
+
+<body>
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="qr">
+      <img src="../img/abundant-life-qr.png">
+    </div>
+
+    <div class="title">
+      <h1>Abundant Life Land & Tree LLC</h1>
+      <p>405-953-1285</p>
+      <p>www.AbundantLife.Land</p>
+    </div>
+
+    <div class="logo">
+      <img src="../img/hummingbird-logo-land-conservation-tree-web.png">
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2>Complimentary Property Assessment & Estimate!</h2>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="block">
+    <h3>Observed Needs We Can Service</h3>
+    <div class="services">
+      <label><input type="checkbox"> Landscape</label>
+      <label><input type="checkbox"> Tree Service</label>
+      
+      <label><input type="checkbox"> Lawn Care</label>
+    </div>
+  </div>
+
+  <!-- SCOPE -->
+  <div class="block">
+    <h3>Work Notes for Client</h3>
+    <div class="box"></div>
+  </div>
+
+  <!-- ESTIMATE -->
+  <div class="block">
+    <h3>Free Estimate</h3>
+    <p class="estimate-note">
+      Pricing reflects current site conditions and labor required to enhance property value, safety, and appearance.
+    </p>
+
+    <table>
+      <tr>
+        <th>Description</th>
+        <th width="60">Qty</th>
+        <th width="90">Total</th>
+      </tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td></tr>
+    </table>
+  </div>
+
+  <!-- CTA (REPLACES APPROVAL COMPLETELY) -->
+  <div class="cta">
+    <h2>+ + + Next Step + + +</h2>
+
+    <p>Call or Text to Schedule or Approve Work!</p>
+
+    <div class="phone">405-953-1285</div>
+
+    <p>
+      Or visit us online at www.abundantlife.land
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

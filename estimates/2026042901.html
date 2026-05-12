@@ -3,219 +3,356 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Garden Bed Renewal Proposal</title>
+  <title>Front Garden Bed Renewal Proposal</title>
 
   <style>
+    :root {
+      --bg: #f6f2eb;
+      --card: #ffffff;
+      --text: #2f2f2f;
+      --muted: #6b6b6b;
+      --accent: #3e4d2c;
+      --border: #e3e0d8;
+      --highlight: #e9f1e6;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
     body {
+      margin: 0;
       font-family: Georgia, serif;
-      background-color: #f6f2eb;
-      color: #333;
-      margin: 0 auto;
-      padding: 1.5rem;
-      max-width: 900px;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      font-size: 1.1rem;
+      font-size: 16px;
     }
 
-    h1, h2, h3 {
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
       text-align: center;
-      color: #3e4d2c;
-      margin-bottom: 0.5rem;
+      padding: 24px 8px 12px;
     }
 
-    .section {
-      margin-bottom: 2.5rem;
-    }
+    h1 { margin: 0; color: var(--accent); font-size: 1.9rem; }
+    h2 { color: var(--accent); font-size: 1.3rem; margin-bottom: 8px; }
+    h3 { margin-top: 8px; font-weight: normal; color: var(--muted); font-size: 1rem; }
 
-    ul {
-      margin-left: 1.2rem;
-    }
-
-    .plant-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    .plant-table th,
-    .plant-table td {
-      border: 1px solid #999;
-      padding: 0.6rem;
-      text-align: left;
-    }
-
-    .plant-table th {
-      background-color: #ddd;
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
     }
 
     .highlight {
-      background-color: #e6efe0;
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      background: var(--highlight);
+      border-left: 4px solid var(--accent);
+    }
+
+    ul { padding-left: 18px; margin: 8px 0 0; }
+
+    /* PLANT GRID */
+    .plant-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .plant-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: white;
+    }
+
+    .plant-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plant-body {
+      padding: 12px 14px 14px;
+    }
+
+    .plant-title {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .plant-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #f0efe9;
+      color: var(--accent);
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th { background: #f0efe9; color: var(--accent); }
+
+    @media (min-width: 700px) {
+      .plant-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      table, thead, tbody, th, td, tr { display: block; width: 100%; }
+      thead { display: none; }
+      tr {
+        margin-bottom: 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+      td {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: none;
+        border-bottom: 1px solid var(--border);
+      }
+      td:last-child { border-bottom: none; }
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--muted);
+      }
     }
 
     .price-box {
-      background-color: #3e4d2c;
-      color: white;
-      padding: 1.5rem;
-      border-radius: 10px;
       text-align: center;
-      margin-top: 1rem;
-    }
-
-    .price-box h2 {
+      padding: 18px;
+      border-radius: 14px;
+      background: var(--accent);
       color: white;
-      margin: 0.5rem 0;
+      margin-top: 12px;
     }
 
-    .small {
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
+    .price-box .label { font-size: 0.85rem; opacity: 0.9; }
+    .price-box .value { font-size: 1.8rem; margin-top: 4px; }
+
   </style>
 </head>
 
 <body>
 
+<div class="container">
+
+<header>
   <h1>Front Garden Bed Renewal</h1>
   <h3>Refined, Durable, and Designed for Long-Term Success</h3>
+</header>
 
-  <div class="section">
-    <h2>Project Overview</h2>
-    <p>
-      This project focuses on strengthening and refining the existing garden bed using plant selections that have already proven successful in this environment.
-    </p>
-    <p>
-      The updated design emphasizes fuller planting, simplified plant selection, and improved layout to create a more cohesive, polished, and low-maintenance landscape.
-    </p>
-  </div>
+<section class="card">
+  <h2>Project Overview</h2>
+  <p>This project strengthens and refines the existing garden bed using plant material that performs well in this specific environment.</p>
+  <p>The design focuses on density, repetition, and layered structure to create a cohesive, established landscape with reduced long-term maintenance.</p>
+</section>
 
-  <div class="section">
-    <h2>Design Goals</h2>
-    <ul>
-      <li>Increase planting density for a more finished, high-end look</li>
-      <li>Use proven plants that thrive in part sun and tree-shaded conditions</li>
-      <li>Reduce long-term maintenance through groundcover expansion</li>
-      <li>Create layered structure with year-round visual appeal</li>
-      <li>Add seasonal color for immediate impact</li>
-    </ul>
-  </div>
+<section class="card">
+  <h2>Plant Material (Nursery Stock)</h2>
+  <p style="color: var(--muted); margin-top: 0;">
+    Additional selections were chosen to help discourage mosquitoes near seating and entry areas through fragrant foliage and pollinator-supportive planting.
+  </p>
 
-  <div class="section">
-    <h2>Plant & Material Plan</h2>
-    <table class="plant-table">
-      <tr>
-        <th>Item</th>
-        <th>Type</th>
-        <th>Quantity</th>
-        <th>Notes</th>
-      </tr>
-      <tr>
-        <td>Fire Chief Arborvitae</td>
-        <td>Evergreen Shrub</td>
-        <td>2</td>
-        <td>Frames front window, provides structure</td>
-      </tr>
-      <tr>
-        <td>Indigo Flair Mahonia</td>
-        <td>Evergreen Shrub</td>
-        <td>1</td>
-        <td>Focal texture plant, shade tolerant</td>
-      </tr>
-      <tr>
-        <td>Garden Phlox</td>
-        <td>Flowering Perennial</td>
-        <td>15</td>
-        <td>Mass planted in color drifts for strong visual impact</td>
-      </tr>
-      <tr>
-        <td>Heuchera</td>
-        <td>Foliage Perennial</td>
-        <td>7</td>
-        <td>Provides contrast and year-round interest</td>
-      </tr>
-      <tr>
-        <td>Daylilies</td>
-        <td>Perennial</td>
-        <td>4 (new)</td>
-        <td>Supports existing plantings, durable and reliable</td>
-      </tr>
-      <tr>
-        <td>Ajuga</td>
-        <td>Groundcover</td>
-        <td>50</td>
-        <td>Dense coverage for weed suppression and soil stability</td>
-      </tr>
-      <tr>
-        <td>Seasonal Annuals</td>
-        <td>Color Planting</td>
-        <td>30</td>
-        <td>Immediate color along front border</td>
-      </tr>
-      <tr>
-        <td>Mulch</td>
-        <td>Soil Cover</td>
-        <td>24 cu ft</td>
-        <td>Moisture retention and visual finish</td>
-      </tr>
-    </table>
-  </div>
+  <div class="plant-grid">
 
-  <div class="section">
-    <h2>Scope of Work</h2>
-    <ul>
-      <li>Plant layout and professional spacing</li>
-      <li>Installation of all shrubs, perennials, and groundcover</li>
-      <li>Integration with existing successful plants</li>
-      <li>Mulch application for moisture retention and clean appearance</li>
-      <li>Final cleanup and bed detailing</li>
-    </ul>
-  </div>
-
-  <div class="section highlight">
-    <h2>Design Improvements</h2>
-    <ul>
-      <li>Simplified plant palette focused on proven performers</li>
-      <li>Stronger grouping and repetition for a cohesive look</li>
-      <li>Increased groundcover to eliminate bare areas</li>
-      <li>Improved balance between structure and seasonal color</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Investment</h2>
-
-    <table class="plant-table">
-      <tr>
-        <th>Description</th>
-        <th>Amount</th>
-      </tr>
-      <tr>
-        <td>Project Value</td>
-        <td>$2,350</td>
-      </tr>
-      <tr>
-        <td>Client Loyalty Credit</td>
-        <td>– $400</td>
-      </tr>
-    </table>
-
-    <div class="price-box">
-      <div class="small">Total Investment</div>
-      <h2>$1,950</h2>
+    <div class="plant-card">
+      <img class="plant-image" src="images/lavender.jpg" alt="Lavender perennial plants in nursery containers with fragrant silver-green foliage and purple flower spikes used near patios and walkways to discourage mosquitoes">
+      <div class="plant-body">
+        <h3 class="plant-title">Lavender</h3>
+        <div class="plant-meta">Quantity: 3 • Fragrant perennial commonly planted near gathering areas to help discourage mosquitoes while adding color and scent.</div>
+        <span class="tag">Mosquito Discouraging</span>
+      </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Closing</h2>
-    <p>
-      This updated installation reflects a refined approach based on real performance in your garden, ensuring stronger establishment and a more complete, lasting result.
-    </p>
-    <p>
-      I appreciate the opportunity to continue building this space with you and look forward to seeing it thrive this season.
-    </p>
+    <div class="plant-card">
+      <img class="plant-image" src="images/citronella-geranium.jpg" alt="Citronella geranium plants in nursery pots with scented foliage commonly used around outdoor seating areas to discourage mosquitoes">
+      <div class="plant-body">
+        <h3 class="plant-title">Citronella Geranium</h3>
+        <div class="plant-meta">Quantity: 4 • Aromatic seasonal planting with citrus-scented foliage commonly associated with mosquito discouragement.</div>
+        <span class="tag">Fragrant Foliage</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/catmint.jpg" alt="Catmint perennial plants with soft gray-green foliage and purple blooms attracting pollinators while discouraging mosquitoes">
+      <div class="plant-body">
+        <h3 class="plant-title">Catmint</h3>
+        <div class="plant-meta">Quantity: 3 • Durable flowering perennial with aromatic foliage and extended bloom season.</div>
+        <span class="tag">Pollinator Friendly</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/marigolds.jpg" alt="Bright marigold annual flowers in nursery trays used in landscape borders for seasonal color and pest discouragement">
+      <div class="plant-body">
+        <h3 class="plant-title">Marigolds</h3>
+        <div class="plant-meta">Quantity: 18 • Bright seasonal edging annuals traditionally used around vegetable and ornamental gardens for pest discouragement.</div>
+        <span class="tag">Seasonal Color</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/fire-chief-arborvitae.jpg" alt="Fire Chief Arborvitae evergreen shrubs in nursery containers, upright structure plants for landscape framing">
+      <div class="plant-body">
+        <h3 class="plant-title">Fire Chief Arborvitae</h3>
+        <div class="plant-meta">Quantity: 2 • Evergreen structural anchor plant used for framing and year-round form.</div>
+        <span class="tag">Structure</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/indigo-flair-mahonia.jpg" alt="Indigo Flair Mahonia evergreen shrubs in 1.5 gallon nursery pots with textured foliage for shade planting">
+      <div class="plant-body">
+        <h3 class="plant-title">Indigo Flair Mahonia</h3>
+        <div class="plant-meta">Quantity: 5 • Shade-tolerant evergreen with bold texture for focal massing.</div>
+        <span class="tag">Evergreen</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/columbine-yellow.jpg" alt="Columbine Earlybird Yellow perennial flowering plants in nursery containers with early spring blooms">
+      <div class="plant-body">
+        <h3 class="plant-title">Columbine 'Earlybird Yellow'</h3>
+        <div class="plant-meta">Quantity: 6 • Light spring bloom layer for early seasonal color and softness.</div>
+        <span class="tag">Perennial</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/creeping-phlox-blue.jpg" alt="Creeping Phlox Emerald Blue groundcover flats producing dense mat-forming spring flowers">
+      <div class="plant-body">
+        <h3 class="plant-title">Creeping Phlox 'Emerald Blue'</h3>
+        <div class="plant-meta">Quantity: 9 • Dense flowering groundcover for spring bloom and soil coverage.</div>
+        <span class="tag">Groundcover</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/creeping-phlox-purple.jpg" alt="Creeping Phlox Sherwood Purple groundcover plants in nursery trays with purple spring flowers">
+      <div class="plant-body">
+        <h3 class="plant-title">Creeping Phlox 'Sherwood Purple'</h3>
+        <div class="plant-meta">Quantity: 9 • Color drift companion to blue phlox for layered spring display.</div>
+        <span class="tag">Groundcover</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/hydrangea-azure-skies.jpg" alt="Hydrangea Azure Skies flowering shrubs in containers with large summer blooms">
+      <div class="plant-body">
+        <h3 class="plant-title">Hydrangea 'Azure Skies'</h3>
+        <div class="plant-meta">Quantity: 3 • Primary summer focal shrub with strong bloom presence.</div>
+        <span class="tag">Shrub</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/bergamot.jpg" alt="Bergamot perennial plants with upright flowering stems for pollinators in nursery stock">
+      <div class="plant-body">
+        <h3 class="plant-title">Bergamot</h3>
+        <div class="plant-meta">Quantity: 3 • Pollinator-support perennial adding mid-layer texture.</div>
+        <span class="tag">Pollinator</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/daylily.jpg" alt="Daylily perennial plants in nursery containers with strap-like foliage and summer bloom potential">
+      <div class="plant-body">
+        <h3 class="plant-title">Daylily</h3>
+        <div class="plant-meta">Quantity: 3 • Reliable summer perennial providing structure and repeat bloom.</div>
+        <span class="tag">Perennial</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/ajuga-small.jpg" alt="Ajuga small groundcover plugs in nursery flats used for dense weed-suppressing planting">
+      <div class="plant-body">
+        <h3 class="plant-title">Ajuga (Small)</h3>
+        <div class="plant-meta">Quantity: 18 • Low-growing groundcover for weed suppression and fill-in coverage.</div>
+        <span class="tag">Groundcover</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/ajuga-giant.jpg" alt="Caitlin's Giant Ajuga groundcover plants with larger leaves for bold texture contrast">
+      <div class="plant-body">
+        <h3 class="plant-title">Ajuga 'Caitlin’s Giant'</h3>
+        <div class="plant-meta">Quantity: 3 • Bold-texture groundcover used as accent massing.</div>
+        <span class="tag">Accent</span>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="images/annual-mix.jpg" alt="Mixed seasonal annuals including begonias and impatiens in multiple colors prepared for bedding display">
+      <div class="plant-body">
+        <h3 class="plant-title">Seasonal Annual Mix</h3>
+        <div class="plant-meta">Quantity: 82 • Immediate seasonal color layer using begonias and impatiens.</div>
+        <span class="tag">Seasonal Color</span>
+      </div>
+    </div>
+
   </div>
+</section>
+
+<section class="card">
+  <h2>Investment</h2>
+  <table>
+    <thead>
+      <tr><th>Description</th><th>Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td data-label="Description">Installed Project Value</td><td data-label="Amount">$3,650.00</td></tr>
+      <tr><td data-label="Description">Client Credit</td><td data-label="Amount">-$400.00</td></tr>
+    </tbody>
+  </table>
+
+  <div class="price-box">
+    <div class="label">Total Investment</div>
+    <div class="value">$3,250.00</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Closing</h2>
+  <p>This installation is designed for long-term structure, seasonal performance, and low maintenance once established.</p>
+  <p>Looking forward to bringing this space to its full potential.</p>
+</section>
+
+</div>
 
 </body>
 </html>

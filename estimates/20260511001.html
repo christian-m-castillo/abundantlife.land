@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lucinda Garden Bed Renewal Proposal</title>
+
+  <style>
+    :root {
+      --bg: #f6f2eb;
+      --card: #ffffff;
+      --text: #2f2f2f;
+      --muted: #6b6b6b;
+      --accent: #3e4d2c;
+      --border: #e3e0d8;
+      --highlight: #e9f1e6;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      padding: 24px 8px 12px;
+    }
+
+    h1 { margin: 0; color: var(--accent); font-size: 1.9rem; }
+    h2 { color: var(--accent); font-size: 1.3rem; margin-bottom: 8px; }
+    h3 { margin-top: 8px; font-weight: normal; color: var(--muted); font-size: 1rem; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight {
+      background: var(--highlight);
+      border-left: 4px solid var(--accent);
+    }
+
+    .plant-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .plant-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: white;
+      padding: 1.1rem;
+    }
+
+    .plant-image {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .plant-body { padding: 12px 14px; }
+
+    .plant-title {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .plant-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #f0efe9;
+      color: var(--accent);
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      font-size: 0.95rem;
+    }
+
+    th { background: #f0efe9; color: var(--accent); }
+
+    .price-box {
+      text-align: center;
+      padding: 18px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: white;
+      margin-top: 12px;
+    }
+
+    .price-box .value { font-size: 1.8rem; }
+
+    @media (min-width: 700px) {
+      .plant-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <h1>Lucinda Garden Bed Renewal</h1>
+  <h3>West-Facing Under-Maple Installation | Layered Shade-Tolerant Design</h3>
+</header>
+
+<section class="card">
+  <h2>Design Intent</h2>
+  <p>This installation rebuilds a previously underperforming bed into a structured, shade-adapted planting system designed for Edmond’s heat, filtered light, and irrigation support under mature canopy conditions.</p>
+</section>
+
+<section class="card">
+  <h2>Planting Plan</h2>
+
+  <div class="plant-grid">
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/atlas-cedar.jpg" alt="Juniper Blue Star evergreen shrub used as structural anchor plant">
+      <div class="plant-body">
+        <h3 class="plant-title">Columnar Blue Atlas Cedar (2)</h3>
+        <div class="plant-meta">Structural blue-toned evergreen anchors flanking the front window for year-round form.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/indigo-flair-mahonia.jpg" alt="Indigo Flair Mahonia evergreen shade shrub with textured foliage">
+      <div class="plant-body">
+        <h3 class="plant-title">Indigo Flair Mahonia (5)</h3>
+        <div class="plant-meta">Shade-adapted evergreen massing for texture and stability.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/black-barlow-columbine.jpg" alt="Black Harlow Columbine flowering perennial for partial shade gardens">
+      <div class="plant-body">
+        <h3 class="plant-title">Black Barlow Columbine (6)</h3>
+        <div class="plant-meta">Early-season bloom layer supporting hummingbirds in filtered shade.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/woodland-phlox.jpg" alt="Woodland Phlox groundcover forming spring bloom carpet in shade">
+      <div class="plant-body">
+        <h3 class="plant-title">Woodland Phlox (12)</h3>
+        <div class="plant-meta">Spring groundcover carpet for soil stabilization and bloom density.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/endless-summer-hydrangea.jpg" alt="Endless Summer hydrangea large flowering shrub for shade gardens">
+      <div class="plant-body">
+        <h3 class="plant-title">Endless Summer Hydrangea (3)</h3>
+        <div class="plant-meta">Primary summer focal shrubs with repeat bloom performance.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/american-beautyberry.jpg" alt="Wild bergamot perennial with pollinator friendly blooms">
+      <div class="plant-body">
+        <h3 class="plant-title">American Beautyberry (2)</h3>
+        <div class="plant-meta">Mosquito repelling Oklahoma native edible flowering perennial.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/purple-wild-bergamot.jpg" alt="Wild bergamot perennial with pollinator friendly blooms">
+      <div class="plant-body">
+        <h3 class="plant-title">Purple Wild Bergamot (5)</h3>
+        <div class="plant-meta">Pollinator-supporting mid-layer perennial with aromatic foliage.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/daylily.jpg" alt="Orange daylily hardy perennial with summer blooms">
+      <div class="plant-body">
+        <h3 class="plant-title">Orange Daylily (3)</h3>
+        <div class="plant-meta">Reliable seasonal color with strong drought tolerance.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/lavender.jpg" alt="Lavender aromatic perennial with purple blooms">
+      <div class="plant-body">
+        <h3 class="plant-title">Lavender (5)</h3>
+        <div class="plant-meta">Fragrant edge planting supporting pollinators and ambiance.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/balloon-flower.jpg" alt="Purple balloon flower perennial with star shaped blooms">
+      <div class="plant-body">
+        <h3 class="plant-title">Purple Balloon Flower (7)</h3>
+        <div class="plant-meta">Long-lasting mid-summer bloom accent layer.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/salvia-greggii.jpg" alt="Salvia greggii perennial flowering shrub for heat tolerance">
+      <div class="plant-body">
+        <h3 class="plant-title">Salvia greggii (7)</h3>
+        <div class="plant-meta">Heat-tolerant flowering structure for extended bloom season.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/impatiens.jpg" alt="Impatiens annual bedding flowers for shaded areas">
+      <div class="plant-body">
+        <h3 class="plant-title">Impatiens (36)</h3>
+        <div class="plant-meta">Seasonal color massing for shaded irrigated areas.</div>
+      </div>
+    </div>
+
+    <div class="plant-card">
+      <img class="plant-image" src="../img/lantana-purple.jpg" alt="Lantana heat tolerant flowering annual shrub">
+      <div class="plant-body">
+        <h3 class="plant-title">Lantana (12)</h3>
+        <div class="plant-meta">Sun-edge annual color with pollinator support.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="card">
+  <h2>Investment Summary</h2>
+
+  <table>
+    <tr><th>Category</th><th>Amount</th></tr>
+    <tr><td>Installed Landscape Value</td><td>$5,395.00</td></tr>
+    <tr><td>Client Loyalty Credit</td><td>-$450.00</td></tr>
+  </table>
+
+  <div class="price-box">
+    <div>Total Investment</div>
+    <div class="value">$4,945.00</div>
+  </div>
+</section>
+
+<section class="card highlight">
+  <h2>Service Disclaimer</h2>
+  <p>
+    Plant material is living and subject to environmental variability including heat stress, irrigation consistency, soil conditions, wildlife activity, and seasonal extremes.
+    While installation is performed with professional care and best horticultural practices for Edmond, Oklahoma conditions, no express or implied warranty is provided on plant survival or performance after installation.
+  </p>
+  <p>
+    Ongoing care, watering, and seasonal maintenance significantly influence long-term outcomes.
+  </p>
+</section>
+
+<section class="card">
+  <h2>Closing</h2>
+  <p>This design rebuilds structure first, then layers seasonal interest and ecological support for a long-term stable planting system.</p>
+</section>
+
+
+</div>
+
+</body>
+</html>

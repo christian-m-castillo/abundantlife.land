@@ -421,8 +421,8 @@ li {
 
 .about-image {
   border: 3px solid white;
-  border-radius: 50%;
-  width: min(70%, 250px);
+  border-radius: 30px;
+  width: min(90%, 400px);
 }
 
 .about-copy {

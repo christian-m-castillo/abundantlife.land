@@ -1,0 +1,318 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tree Pruning Proposal</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: #e8e5dd;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #24301b;
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 850px;
+    margin: 32px auto;
+    background: #fffdf8;
+    padding: 42px;
+    border: 1px solid #d8d0c0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .header {
+    border-bottom: 4px solid #5d6f3a;
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+
+  .brand {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #3d4f25;
+  }
+
+  .subtitle {
+    margin-top: 4px;
+    font-size: 15px;
+    color: #666;
+  }
+
+  h1 {
+    font-size: 26px;
+    margin: 0 0 18px;
+    color: #24301b;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 32px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d8d0c0;
+    color: #3d4f25;
+  }
+
+  h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: #24301b;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    margin-bottom: 28px;
+    font-size: 14px;
+  }
+
+  .info-line {
+    border-bottom: 1px solid #ddd5c8;
+    padding-bottom: 6px;
+  }
+
+  .summary {
+    background: #f2f0e8;
+    border-left: 5px solid #5d6f3a;
+    padding: 18px 20px;
+    margin: 24px 0;
+  }
+
+  .option {
+    border: 1px solid #d8d0c0;
+    border-radius: 8px;
+    margin: 26px 0;
+    overflow: hidden;
+  }
+
+  .option-header {
+    background: #5d6f3a;
+    color: white;
+    padding: 16px 20px;
+  }
+
+  .option-header h2 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: white;
+    font-size: 21px;
+  }
+
+  .option-body {
+    padding: 20px;
+  }
+
+  .price {
+    margin-top: 18px;
+    padding: 16px;
+    background: #f2f0e8;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: right;
+    color: #24301b;
+  }
+
+  ul {
+    margin-top: 8px;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 7px;
+  }
+
+  .included {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin-top: 12px;
+  }
+
+  .check {
+    padding: 8px 0;
+  }
+
+  .recommendation {
+    background: #fff7df;
+    border: 1px solid #e1c56b;
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin-top: 18px;
+  }
+
+  .acceptance {
+    margin-top: 36px;
+    border-top: 2px solid #5d6f3a;
+    padding-top: 24px;
+  }
+
+  .signature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 28px;
+  }
+
+  .signature-line {
+    border-bottom: 1px solid #333;
+    height: 34px;
+  }
+
+  .label {
+    font-size: 13px;
+    margin-top: 6px;
+    color: #666;
+  }
+
+  @media print {
+    body {
+      background: white;
+    }
+
+    .page {
+      margin: 0;
+      max-width: none;
+      box-shadow: none;
+      border: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .page {
+      margin: 0;
+      padding: 24px;
+    }
+
+    .info-grid,
+    .included,
+    .signature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <div class="brand">Abundant Life Land & Tree LLC</div>
+    <div class="subtitle">Professional tree care, pruning, and property stewardship</div>
+  </div>
+
+  <h1>Tree Pruning Proposal</h1>
+
+  <div class="info-grid">
+    <div class="info-line"><strong>Client:</strong> __________________________</div>
+    <div class="info-line"><strong>Date:</strong> __________________________</div>
+    <div class="info-line"><strong>Property Address:</strong> __________________________</div>
+    <div class="info-line"><strong>Prepared By:</strong> Abundant Life Land & Tree LLC</div>
+  </div>
+
+  <h2>Tree Assessment Summary</h2>
+
+  <div class="summary">
+    <p>Two hackberry trees adjacent to your home were evaluated during this visit.</p>
+
+    <p>The primary tree has limbs direvtly extending over your roof. The second tree contains dead branches and areas that are within striking distance of your home and would benefit from corrective pruning.</p>
+
+    <p>While the first tree is the primary concern, addressing both trees at the same time will provide better protection for the home and is more economical than scheduling the work separately.</p>
+  </div>
+
+  <div class="option">
+    <div class="option-header">
+      <h2>Option A: Roof Clearance Pruning</h2>
+    </div>
+
+    <div class="option-body">
+      <h3>Primary Hackberry Only</h3>
+
+      <p>This option addresses the main tree of concern by reducing limbs overhanging the residence.</p>
+
+      <ul>
+        <li>Climb and access the primary hackberry tree.</li>
+        <li>Remove selected limbs directly overhanging the residence.</li>
+        <li>Perform clearance pruning to reduce roof encroachment.</li>
+        <li>Use rigging and controlled lowering as needed to protect structures and landscaping.</li>
+        <li>Haul away and dispose of resulting debris.</li>
+        <li>Complete final cleanup of the work area.</li>
+      </ul>
+
+      <div class="price">Investment: $725</div>
+    </div>
+  </div>
+
+  <div class="option">
+    <div class="option-header">
+      <h2>Option B: Whole Canopy Protection Package</h2>
+    </div>
+
+    <div class="option-body">
+      <h3>Both Adjacent Hackberry Trees</h3>
+
+      <p>This option includes all work in Option A, plus corrective pruning on the second hackberry tree to better protect the home and improve the condition of the surrounding canopy.</p>
+
+      <ul>
+        <li>Complete roof clearance pruning on the primary hackberry.</li>
+        <li>Remove dead, broken, and declining branches from the second hackberry.</li>
+        <li>Perform corrective pruning to improve structure and reduce future maintenance needs.</li>
+        <li>Improve clearance from the roof where appropriate.</li>
+        <li>Consolidate debris hauling, disposal, and cleanup into one visit.</li>
+      </ul>
+
+      <div class="recommendation">
+        <strong>Recommended Option:</strong> Completing both trees during the same visit provides better overall protection for the home and avoids the cost of a separate future mobilization.
+      </div>
+
+      <div class="price">Investment: $1,150</div>
+    </div>
+  </div>
+
+  <h2>Included With Either Option</h2>
+
+  <div class="included">
+    <div class="check">✓ Professional climbing access</div>
+    <div class="check">✓ Controlled rigging as needed</div>
+    <div class="check">✓ Debris hauling and disposal</div>
+    <div class="check">✓ Complete site cleanup</div>
+    <div class="check">✓ General liability insurance coverage</div>
+    <div class="check">✓ Work performed using best tree care practices</div>
+  </div>
+
+  <div class="acceptance">
+    <h2>Acceptance</h2>
+
+    <p>Please select one option:</p>
+
+    <p>☐ <strong>Option A — Roof Clearance Pruning, Primary Hackberry Only:</strong> $725</p>
+    <p>☐ <strong>Option B — Whole Canopy Protection Package, Both Hackberry Trees:</strong> $1,150</p>
+
+    <div class="signature-grid">
+      <div>
+        <div class="signature-line"></div>
+        <div class="label">Client Signature</div>
+      </div>
+
+      <div>
+        <div class="signature-line"></div>
+        <div class="label">Date</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abundant Life Proposal Generator</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef1ea;
+    color: #24301b;
+  }
+
+  .app {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    min-height: 100vh;
+  }
+
+  aside {
+    background: #24301b;
+    color: white;
+    padding: 18px;
+    overflow-y: auto;
+  }
+
+  main {
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  h1, h2, h3 {
+    margin-top: 0;
+  }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #bcc5b4;
+    border-radius: 6px;
+    font: inherit;
+  }
+
+  textarea {
+    min-height: 70px;
+    resize: vertical;
+  }
+
+  button {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background: #9db36b;
+    color: #24301b;
+  }
+
+  .btn-secondary {
+    background: #f4f1e8;
+    color: #24301b;
+  }
+
+  .btn-danger {
+    background: #b85454;
+    color: white;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .panel {
+    border-top: 1px solid rgba(255,255,255,0.25);
+    margin-top: 18px;
+    padding-top: 14px;
+  }
+
+  .proposal {
+    background: white;
+    max-width: 8.5in;
+    min-height: 11in;
+    margin: auto;
+    padding: 0.65in;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  }
+
+  .brand {
+    border-bottom: 3px solid #9db36b;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+
+  .brand h1 {
+    font-size: 28px;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .muted {
+    color: #68705e;
+    font-size: 0.9rem;
+  }
+
+  .proposal h2 {
+    border-bottom: 1px solid #d8ddcf;
+    padding-bottom: 4px;
+    margin-top: 24px;
+  }
+
+  .option {
+    border: 1px solid #d8ddcf;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 14px;
+  }
+
+  .option h3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .price {
+    white-space: nowrap;
+  }
+
+  ul {
+    padding-left: 22px;
+  }
+
+  .signature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .line {
+    border-top: 1px solid #24301b;
+    padding-top: 6px;
+  }
+
+  .small {
+    font-size: 0.82rem;
+  }
+
+  @media print {
+    body { background: white; }
+    aside { display: none; }
+    .app { display: block; }
+    main { padding: 0; }
+    .proposal {
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<aside>
+  <h2>Proposal Generator</h2>
+
+  <label>Client Name</label>
+  <input id="clientName" value="Client Name">
+
+  <label>Project Address</label>
+  <input id="projectAddress" value="Project Address">
+
+  <label>Date</label>
+  <input id="proposalDate" type="date">
+
+  <label>Project Summary</label>
+  <textarea id="summary">Thank you for the opportunity to look over your property. Based on the site visit, the recommended work is outlined below.</textarea>
+
+  <div class="panel">
+    <h3>Add Option</h3>
+
+    <label>Option Name</label>
+    <input id="optionName" value="Option 1 - Essential">
+
+    <label>Price</label>
+    <input id="optionPrice" type="number" value="650">
+
+    <label>Scope Block</label>
+    <select id="scopeSelect"></select>
+
+    <button class="btn-secondary" onclick="addScopeToDraft()">Add Scope to Draft</button>
+
+    <label>Draft Scope</label>
+    <textarea id="draftScope"></textarea>
+
+    <button class="btn-primary" onclick="addOption()">Add Option</button>
+  </div>
+
+  <div class="panel">
+    <h3>Terms</h3>
+
+    <label>Deposit</label>
+    <input id="deposit" value="50% deposit due to schedule.">
+
+    <label>Balance</label>
+    <input id="balance" value="Remaining balance due upon completion.">
+
+    <label>Exclusions</label>
+    <textarea id="exclusions">Stump grinding, irrigation repair, underground utility repair, electrical work, plumbing work, roof/gutter repair, fence repair, hauling of unrelated debris, plant warranty, pest treatment, herbicide application, permit fees, and additional work caused by hidden defects or unsafe/unforeseen site conditions are not included unless specifically listed.</textarea>
+  </div>
+
+  <div class="panel">
+    <button class="btn-primary" onclick="renderProposal()">Update Proposal</button>
+    <button class="btn-secondary" onclick="window.print()">Print / Save PDF</button>
+    <button class="btn-danger" onclick="clearOptions()">Clear Options</button>
+  </div>
+</aside>
+
+<main>
+  <section class="proposal" id="proposalPreview"></section>
+</main>
+
+</div>
+
+<script>
+const scopeBlocks = {
+  "Tree Pruning": "Prune selected tree(s) to improve structure, reduce deadwood, improve clearance, and support long-term tree health. Work includes removal of dead, damaged, crossing, poorly attached, or problematic branches as appropriate for the species and site conditions. Pruning cuts will be made with care to preserve branch collars and avoid unnecessary injury to the tree. Debris generated from pruning will be removed from the work area unless otherwise stated.",
+
+  "Roof / Structure Clearance": "Prune selected branches away from roofline, siding, gutters, fencing, or other structures to improve clearance and reduce contact. Clearance pruning will be performed while preserving as much healthy canopy structure as practical.",
+
+  "Small Tree Removal": "Remove selected tree(s) to near ground level. Brush and debris will be removed from the work area unless otherwise stated. Stump grinding is not included unless listed separately.",
+
+  "Technical / Rigged Removal": "Remove selected tree(s) using climbing, rigging, sectional cutting, and controlled lowering techniques as needed to protect nearby structures, fences, landscaping, utilities, or other targets. Wood and brush handling will be completed according to the agreed debris plan.",
+
+  "Storm Cleanup": "Cut, process, and remove fallen or damaged limbs/tree material from the designated area. Includes cleanup of accessible debris related to the agreed storm-damaged material only.",
+
+  "Mulch Installation": "Prepare designated bed areas and install mulch at an appropriate depth. Mulch will be kept away from trunks, stems, and crowns to reduce rot and pest issues. Includes basic cleanup after installation.",
+
+  "Bed Cleanup": "Remove weeds, volunteer saplings, debris, and unwanted growth from designated landscape beds. Existing desirable plants will be preserved where practical.",
+
+  "Plant Installation": "Install selected plant material in designated locations. Includes planting, backfilling, initial watering, and cleanup. Plant selection will consider site conditions such as sunlight, soil moisture, mature size, and maintenance needs.",
+
+  "Soil Improvement": "Amend designated planting areas with organic matter or soil-building material as appropriate. Work is intended to improve soil structure, moisture handling, and long-term plant health.",
+
+  "Gravel / Stone Refresh": "Prepare designated area and install decorative stone or gravel as agreed. Includes basic grading and cleanup. Weed fabric, edging, or major excavation are only included if listed separately.",
+
+  "Property Assessment": "Walk the property to evaluate tree health, landscape conditions, drainage concerns, plant selection, maintenance priorities, and practical improvement options. Includes verbal recommendations and basic written notes unless a formal report is listed separately."
+};
+
+let options = [];
+
+function init() {
+  const today = new Date().toISOString().slice(0, 10);
+  document.getElementById("proposalDate").value = today;
+
+  const scopeSelect = document.getElementById("scopeSelect");
+  Object.keys(scopeBlocks).forEach(name => {
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    scopeSelect.appendChild(option);
+  });
+
+  renderProposal();
+}
+
+function addScopeToDraft() {
+  const selected = document.getElementById("scopeSelect").value;
+  const draft = document.getElementById("draftScope");
+  draft.value += (draft.value ? "\n\n" : "") + scopeBlocks[selected];
+}
+
+function addOption() {
+  const name = document.getElementById("optionName").value.trim();
+  const price = Number(document.getElementById("optionPrice").value || 0);
+  const scope = document.getElementById("draftScope").value.trim();
+
+  if (!name || !scope) {
+    alert("Add an option name and scope first.");
+    return;
+  }
+
+  options.push({ name, price, scope });
+
+  document.getElementById("draftScope").value = "";
+  document.getElementById("optionName").value = `Option ${options.length + 1}`;
+  document.getElementById("optionPrice").value = "";
+
+  renderProposal();
+}
+
+function clearOptions() {
+  if (confirm("Clear all proposal options?")) {
+    options = [];
+    renderProposal();
+  }
+}
+
+function formatMoney(amount) {
+  return amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0
+  });
+}
+
+function formatDate(dateString) {
+  if (!dateString) return "";
+  const [year, month, day] = dateString.split("-");
+  return `${month}/${day}/${year}`;
+}
+
+function paragraphToList(text) {
+  return text
+    .split("\n")
+    .filter(line => line.trim())
+    .map(line => `<li>${line.trim()}</li>`)
+    .join("");
+}
+
+function renderProposal() {
+  const clientName = document.getElementById("clientName").value;
+  const projectAddress = document.getElementById("projectAddress").value;
+  const proposalDate = document.getElementById("proposalDate").value;
+  const summary = document.getElementById("summary").value;
+  const deposit = document.getElementById("deposit").value;
+  const balance = document.getElementById("balance").value;
+  const exclusions = document.getElementById("exclusions").value;
+
+  const optionsHtml = options.length
+    ? options.map(option => `
+      <div class="option">
+        <h3>
+          <span>${option.name}</span>
+          <span class="price">${formatMoney(option.price)}</span>
+        </h3>
+        <ul>${paragraphToList(option.scope)}</ul>
+      </div>
+    `).join("")
+    : `<p class="muted">No options added yet.</p>`;
+
+  document.getElementById("proposalPreview").innerHTML = `
+    <div class="brand">
+      <h1>Abundant Life Land & Tree</h1>
+      <div class="muted">Tree care • Landscape stewardship • Property improvement</div>
+    </div>
+
+    <h2>Proposal</h2>
+
+    <p><strong>Client:</strong> ${clientName}</p>
+    <p><strong>Project Address:</strong> ${projectAddress}</p>
+    <p><strong>Date:</strong> ${formatDate(proposalDate)}</p>
+
+    <h2>Project Summary</h2>
+    <p>${summary}</p>
+
+    <h2>Recommended Options</h2>
+    ${optionsHtml}
+
+    <h2>Not Included Unless Specifically Listed</h2>
+    <p>${exclusions}</p>
+
+    <h2>Payment Terms</h2>
+    <p>${deposit}</p>
+    <p>${balance}</p>
+
+    <h2>Notes</h2>
+    <p>All work will be performed with care for the health of the landscape, protection of the property, and clean completion of the agreed scope.</p>
+
+    <div class="signature">
+      <div class="line">Client Approval</div>
+      <div class="line">Date</div>
+    </div>
+
+    <p class="small muted" style="margin-top: 34px;">
+      Proposal pricing is valid for 14 days unless otherwise stated.
+    </p>
+  `;
+}
+
+init();
+</script>
+</body>
+</html>

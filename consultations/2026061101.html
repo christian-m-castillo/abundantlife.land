@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Stewardship Assessment Checklist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #000;
+      background: #fff;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.35;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      background: #fffdf8;
+      padding: 0.45in;
+      border: 1px solid #d8d0bf;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px solid #516b3f;
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+    }
+
+    .company {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #334624;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 8px 0 4px;
+      color: #516b3f;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 18px 0 24px;
+      font-size: 14px;
+    }
+
+    .field {
+      border-bottom: 1px solid #777;
+      min-height: 22px;
+    }
+
+    section {
+      break-inside: avoid;
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ddd5c6;
+    }
+
+    h2 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #334624;
+      margin: 0 0 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #a6b58b;
+    }
+
+    h3 {
+      font-size: 14px;
+      color: #516b3f;
+      margin: 14px 0 6px;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 18px;
+      font-size: 13px;
+    }
+
+    .checklist.single {
+      grid-template-columns: 1fr;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 6px;
+      transform: scale(1.05);
+    }
+
+    .notes {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .line {
+      border-bottom: 1px solid #999;
+      height: 20px;
+      margin-bottom: 4px;
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .reminder {
+      margin-top: 24px;
+      padding: 14px;
+      border: 2px solid #516b3f;
+      background: #f0f4e8;
+      font-style: italic;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 11px;
+      color: #666;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        border: none;
+        max-width: none;
+        padding: 0.35in;
+      }
+
+      section {
+        page-break-inside: avoid;
+      }
+
+      input[type="checkbox"] {
+        accent-color: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header>
+      <div class="company">Abundant Life Land &amp; Tree LLC</div>
+      <h1>Property Stewardship Assessment Checklist</h1>
+      <div class="subtitle">Trees • Woodland Health • Wildlife Habitat • Native Landscape Opportunities</div>
+    </header>
+
+    <div class="meta">
+      <div>Client: <span class="field">John Lewis</span></div>
+      <div>Date: <span class="field">&nbsp;</span></div>
+      <div>Property Address: <span class="field">&nbsp;</span></div>
+      <div>Weather: <span class="field">&nbsp;</span></div>
+    </div>
+
+    <section>
+      <h2>Client Vision Interview</h2>
+      <div class="checklist single">
+        <label><input type="checkbox">What do you love most about this property?</label>
+        <label><input type="checkbox">What concerns you most?</label>
+        <label><input type="checkbox">What would you like this property to become in 5–10 years?</label>
+        <label><input type="checkbox">What wildlife do you enjoy seeing here?</label>
+        <label><input type="checkbox">What areas feel too wild, unsafe, or hard to maintain?</label>
+        <label><input type="checkbox">What work would you enjoy doing yourself?</label>
+        <label><input type="checkbox">What work would you rather delegate?</label>
+      </div>
+      <div class="notes">
+        Notes:
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Property Overview</h2>
+      <div class="checklist">
+        <label><input type="checkbox">Lawn areas noted</label>
+        <label><input type="checkbox">Meadow areas noted</label>
+        <label><input type="checkbox">Woodland areas noted</label>
+        <label><input type="checkbox">Drainage patterns observed</label>
+        <label><input type="checkbox">Slopes identified</label>
+        <label><input type="checkbox">Erosion concerns noted</label>
+        <label><input type="checkbox">Access routes identified</label>
+        <label><input type="checkbox">Utility conflicts noted</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tree Assessment</h2>
+      <h3>Significant Trees</h3>
+      <div class="checklist">
+        <label><input type="checkbox">Species identified</label>
+        <label><input type="checkbox">Approximate DBH</label>
+        <label><input type="checkbox">Approximate height</label>
+        <label><input type="checkbox">Canopy condition</label>
+        <label><input type="checkbox">Root flare condition</label>
+        <label><input type="checkbox">Structural defects</label>
+        <label><input type="checkbox">Deadwood present</label>
+        <label><input type="checkbox">Photographed</label>
+      </div>
+
+      <h3>Lightning-Struck Hackberry</h3>
+      <div class="checklist">
+        <label><input type="checkbox">Confirm species</label>
+        <label><input type="checkbox">Photograph full tree</label>
+        <label><input type="checkbox">Photograph root flare</label>
+        <label><input type="checkbox">Photograph lightning wound</label>
+        <label><input type="checkbox">Assess basal decay</label>
+        <label><input type="checkbox">Determine lean direction</label>
+        <label><input type="checkbox">Identify targets</label>
+        <label><input type="checkbox">Estimate failure consequences</label>
+        <label><input type="checkbox">Consider habitat reintegration</label>
+        <label><input type="checkbox">Develop recommendation</label>
+      </div>
+
+      <div class="notes">
+        Hazard Tree Notes:
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Woodland Health</h2>
+      <div class="checklist">
+        <label><input type="checkbox">Canopy species noted</label>
+        <label><input type="checkbox">Midstory species noted</label>
+        <label><input type="checkbox">Understory species noted</label>
+        <label><input type="checkbox">Native regeneration present</label>
+        <label><input type="checkbox">Black walnut seedlings</label>
+        <label><input type="checkbox">Oak seedlings</label>
+        <label><input type="checkbox">Elm seedlings</label>
+        <label><input type="checkbox">Redbud seedlings</label>
+        <label><input type="checkbox">Snags / wildlife trees</label>
+        <label><input type="checkbox">Brush piles / habitat structure</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Invasive Species Survey</h2>
+      <div class="checklist">
+        <label><input type="checkbox">Callery pear</label>
+        <label><input type="checkbox">Tree-of-heaven</label>
+        <label><input type="checkbox">Privet</label>
+        <label><input type="checkbox">Bush honeysuckle</label>
+        <label><input type="checkbox">Japanese honeysuckle</label>
+        <label><input type="checkbox">Wintercreeper</label>
+        <label><input type="checkbox">English ivy</label>
+        <label><input type="checkbox">Bermudagrass encroachment</label>
+      </div>
+
+      <div class="notes">
+        Severity: Low / Moderate / High
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Wildlife Habitat</h2>
+      <div class="checklist">
+        <label><input type="checkbox">Mast-producing trees</label>
+        <label><input type="checkbox">Cavity trees</label>
+        <label><input type="checkbox">Deadwood habitat</label>
+        <label><input type="checkbox">Brush piles</label>
+        <label><input type="checkbox">Native shrub layer</label>
+        <label><input type="checkbox">Pollinator resources</label>
+        <label><input type="checkbox">Water access</label>
+        <label><input type="checkbox">Wildlife corridors</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Vegetable Garden &amp; Horticulture</h2>
+      <div class="checklist">
+        <label><input type="checkbox">Potential garden location identified</label>
+        <label><input type="checkbox">Sun exposure assessed</label>
+        <label><input type="checkbox">Drainage assessed</label>
+        <label><input type="checkbox">Water access noted</label>
+        <label><input type="checkbox">Walnut influence considered</label>
+        <label><input type="checkbox">Raised beds considered</label>
+        <label><input type="checkbox">Soil amendment needs noted</label>
+        <label><input type="checkbox">Access / convenience considered</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Photo Checklist</h2>
+      <div class="checklist">
+        <label><input type="checkbox">Front property overview</label>
+        <label><input type="checkbox">Rear property overview</label>
+        <label><input type="checkbox">Woodland overview</label>
+        <label><input type="checkbox">Meadow overview</label>
+        <label><input type="checkbox">Hackberry full canopy</label>
+        <label><input type="checkbox">Hackberry defects</label>
+        <label><input type="checkbox">Additional hazard trees</label>
+        <label><input type="checkbox">Invasive species</label>
+        <label><input type="checkbox">Potential garden site</label>
+        <label><input type="checkbox">Habitat features</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Future Project Opportunities</h2>
+
+      <div class="phase-grid">
+        <div>
+          <strong>Immediate: 0–12 Months</strong>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+
+        <div>
+          <strong>Intermediate: 1–3 Years</strong>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+
+        <div>
+          <strong>Long-Term Stewardship: 3–10 Years</strong>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Closing Conversation</h2>
+      <div class="checklist single">
+        <label><input type="checkbox">Summarize key findings</label>
+        <label><input type="checkbox">Discuss major risks</label>
+        <label><input type="checkbox">Discuss major opportunities</label>
+        <label><input type="checkbox">Explain written follow-up</label>
+        <label><input type="checkbox">Confirm preferred communication method</label>
+        <label><input type="checkbox">Thank client and leave business card</label>
+      </div>
+    </section>
+
+    <div class="reminder">
+      Listen more than you speak. Curiosity before conclusions. Stewardship before sales.
+    </div>
+
+    <footer>
+      Christian Castillo • Abundant Life Land &amp; Tree LLC • www.AbundantLife.Land • 405-953-1285
+    </footer>
+
+  </div>
+</body>
+</html>

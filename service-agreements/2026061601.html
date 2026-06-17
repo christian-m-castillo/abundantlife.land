@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plum Hollow Property Stewardship Agreement</title>
+  <style>
+    :root {
+      --ink: #1f2a24;
+      --muted: #5f6b63;
+      --line: #d8ded8;
+      --paper: #fff;
+      --soft: #fdfcf9;
+      --green: #2f5e46;
+      --gold: #b18b45;
+      --danger: #7b332c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e9e6dc;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.45;
+    }
+
+    .page {
+      max-width: 8.5in;
+      min-height: 11in;
+      margin: 24px auto;
+      padding: 0.65in;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+    }
+
+    header {
+      border-bottom: 3px solid var(--green);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: 2.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--line);
+      color: var(--green);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 18px;
+      margin-bottom: 7px;
+      color: var(--ink);
+    }
+
+    h4 {
+      font-size: 0.95rem;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 7px 0 12px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .meta div {
+      padding: 10px 12px;
+      background: var(--soft);
+      border-left: 4px solid var(--gold);
+    }
+
+    .summary-box {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--green);
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+
+    .formula-box {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      padding: 14px 16px;
+      margin: 14px 0;
+      border-radius: 3px;
+    }
+
+    .formula {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+    .note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: var(--green);
+      color: #fff;
+      text-align: left;
+      padding: 9px;
+      border: 1px solid var(--green);
+    }
+
+    td {
+      padding: 9px;
+      vertical-align: top;
+      border: 1px solid var(--line);
+    }
+
+    tr:nth-child(even) td {
+      background: #fbfaf6;
+    }
+
+    .priority {
+      border-left: 5px solid var(--danger);
+      padding-left: 14px;
+      margin: 18px 0;
+    }
+
+    .scope-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 14px 16px;
+      margin: 12px 0;
+      break-inside: avoid;
+    }
+
+    .scope-card h3 {
+      color: var(--green);
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .signature {
+      margin-top: 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .page-break {
+      break-before: page;
+      page-break-before: always;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--green);
+      border: 1px solid var(--line);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: bold;
+      margin-left: 6px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+        max-width: none;
+        min-height: auto;
+        padding: 0.55in;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="page">
+    <header>
+      <div class="eyebrow">Initial Stewardship Service Agreement</div>
+      <h1>Plum Hollow Property Stewardship</h1>
+      <p class="small">Service Agreement, Scope of Work, and Pricing Terms</p>
+
+      <div class="meta">
+        <div><strong>Prepared For</strong><br />John Lewis<br />12804 Plum Hollow Drive<br />Oklahoma City, OK 73142</div>
+        <div><strong>Prepared By</strong><br />Christian Castillo<br />Abundant Life Land &amp; Tree LLC<br />405-953-1285</div>
+      </div>
+    </header>
+
+    <div class="summary-box">
+      <p><strong>Purpose:</strong> This agreement establishes a single-point-of-contact stewardship framework for 12804 Plum Hollow Drive. The intent is to manage the property as a unified living system: residence, lawn, meadow, woodland, wildlife habitat, garden spaces, and mature canopy.</p>
+      <p>The work is not best approached as isolated landscaping tasks. It is better approached as continuing property stewardship: regular observation, routine care, prioritized risk reduction, and phased improvements over time.</p>
+    </div>
+
+    <h2>Stewardship Role</h2>
+    <p>Abundant Life Land &amp; Tree LLC will serve as the primary steward for the managed exterior portions of the property, providing routine care, arboricultural work, meadow maintenance, woodland observation, project planning, and phased implementation.</p>
+
+    <p>Highly technical horticulture, arboriculture, and silviculture will be performed directly by the owner. Support work and supervised technical work may be performed by properly trained workers under owner direction.</p>
+
+    <p>Because the property contains mature trees, active habitat, slope, meadow, and woodland edge, regular presence on site is valuable. Routine maintenance visits allow small issues to be observed before they become larger failures or missed opportunities.</p>
+
+    </section>
+
+    <section class="page">
+    <h2>Pricing Framework</h2>
+    <p>The following formula keeps the relationship transparent and scalable. Each task is priced according to actual labor category, time required, materials, disposal, and direct project costs.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Rate / Formula</th>
+          <th>Applies To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Ground Operations</strong></td>
+          <td>$2.00 per man-minute</td>
+          <td>Mowing, trimming, edging, hauling, ground pruning, cleanup, dragging brush, loading, transplanting, garden work, meadow work, and general stewardship labor.</td>
+        </tr>
+        <tr>
+          <td><strong>Technical Arboriculture</strong></td>
+          <td>$3.00 per technical minute</td>
+          <td>Specialized pruning, climbing, tree assessment, canopy work, structural pruning decisions, and technical arboricultural judgment.</td>
+        </tr>
+        <tr>
+          <td><strong>High-Risk Technical Arboriculture</strong></td>
+          <td>$4.00 per technical minute</td>
+          <td>Elevated-risk climbing, rigging over targets, compromised trees, storm-damaged trees, hollow/decayed stems, spar work, and removals where failure consequences are higher.</td>
+        </tr>
+        <tr>
+          <td><strong>Support Work &amp; Supervised Technical Work</strong></td>
+          <td>$2.00 per man-minute</td>
+          <td>Ground support, hauling, cleanup, brush management, rope handling, planting, meadow work, and supervised technical work performed by properly trained workers under owner direction.</td>
+        </tr>
+        <tr>
+          <td><strong>Materials / Plants / Hard Goods</strong></td>
+          <td>Direct cost × 2.7</td>
+          <td>Plants, soil, amendments, compost, mulch, edging, stone, lumber, hardware, fasteners, and other purchased goods.</td>
+        </tr>
+        <tr>
+          <td><strong>Rental Equipment</strong></td>
+          <td>Direct rental cost × 1.5 + operating labor</td>
+          <td>Trailers, lifts, stump grinders, loaders, log splitters, trenchers, chippers, specialty saws, compact equipment, or other project-specific rented equipment.</td>
+        </tr>
+        <tr>
+          <td><strong>Deposits</strong></td>
+          <td>Materials/rentals in advance + scheduled labor reserve</td>
+          <td>Projects requiring purchased materials, plant orders, rental equipment, or reserved workdays may require a deposit before scheduling or procurement.</td>
+        </tr>
+        <tr>
+          <td><strong>Offsite Hauling &amp; Disposal</strong></td>
+          <td>Labor + disposal fees + load charge</td>
+          <td>Brush, logs, sod, soil, invasive plant material, removed landscape debris, and any material hauled away from the property.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    </section>
+    <section class="page">
+
+    <div class="formula-box">
+      <div class="formula">Technical Arboriculture Formula</div>
+      <p><strong>Total =</strong> Climber technical minutes × applicable technical rate + (support work minutes × $2.00) + hauling/disposal + materials or direct costs.</p>
+      <p class="note">Highly technical horticulture, arboriculture, and silviculture decisions and execution will be performed directly by owner. Support work and supervised technical work may be performed by properly trained workers under owner direction.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula">Material Handling, Woodland Integration, and Haul-Off</div>
+      <p><strong>Preferred approach:</strong> Where appropriate, logs, brush, chips, and organic matter may be integrated back into the woodland as habitat structure, erosion control, natural edging, nurse logs, mulch, or future soil-building material.</p>
+      <p><strong>Offsite haul-off formula:</strong> Ground labor minutes × $2.00 + actual disposal fees + load charge.</p>
+      <p><strong>Load charge:</strong> $95 per pickup load, $250 per trailer load, or actual rental/fuel/disposal-cycle cost if higher.</p>
+      <p class="note">Onsite reuse reduces disposal cost and can improve habitat value. Offsite hauling is used when material is unsuitable for reuse, excessive in volume, diseased, invasive, unsightly, or otherwise requested to be removed.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula">Rental Equipment Formula</div>
+      <p><strong>Total =</strong> Direct rental cost × 1.5 + pickup/return labor + operating labor + delivery/fuel/damage waiver fees where applicable.</p>
+      <p class="note">Rental equipment is used only when it improves safety, efficiency, access, or quality of work enough to justify the additional cost.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula">Deposit Formula</div>
+      <p><strong>Materials or rentals:</strong> 100% of expected materials, plant orders, rentals, delivery fees, and special-order costs are due before procurement.</p>
+      <p><strong>Reserved project labor:</strong> For larger scheduled projects, a labor reserve of 25%–50% of the estimated labor may be requested to hold the work window.</p>
+      <p class="note">Deposits are credited toward the final invoice. Final balance is due upon substantial completion unless otherwise agreed in writing.</p>
+    </div>
+  </section>
+
+  <section class="page page-break">
+    <h2>Initial Scope of Full Stewardship</h2>
+
+    <h3>1. Front Estate Grounds</h3>
+    <p>Routine electric maintenance of the front grounds to preserve a clean, intentional appearance while minimizing noise, exhaust, and disturbance.</p>
+    <ul>
+      <li>Electric mowing</li>
+      <li>String trimming</li>
+      <li>Edging along hardscape and bed lines</li>
+      <li>Hard-surface cleanup</li>
+      <li>Observation of turf, shrubs, irrigation effects, drainage, weeds, and developing issues</li>
+    </ul>
+
+    <div class="formula-box">
+      <div class="formula">Recurring Front Grounds Pricing</div>
+      <p><strong>Formula:</strong> Ground Operations Minutes × $2.00</p>
+      <p><strong>Example:</strong> 75 minutes of solo electric care = 75 × $2.00 = $150 per visit.</p>
+      <p class="note">Actual visit time may change seasonally with growth rate, edging needs, moisture, leaf fall, and property conditions.</p>
+    </div>
+
+    <h3>2. Meadow Stewardship</h3>
+    <p>The meadow should not be managed as ordinary turf. It is a living ecological zone that benefits from selective maintenance rather than uniform mowing.</p>
+    <ul>
+      <li>Selective mowing or trimming according to seasonal conditions</li>
+      <li>Walking path maintenance</li>
+      <li>Suppression of invasive or undesirable species</li>
+      <li>Retention of beneficial habitat structure</li>
+      <li>Observation of erosion, compaction, drainage, wildlife activity, and desirable volunteer species</li>
+      <li>Coordination with future meadow and pollinator development</li>
+    </ul>
+
+    <div class="formula-box">
+      <div class="formula">Meadow Stewardship Pricing</div>
+      <p><strong>Formula:</strong> Ground Operations Minutes × $2.00 + disposal or materials where applicable.</p>
+      <p class="note">Meadow work is best priced by actual time because the work varies with season, growth, rainfall, access, and ecological objectives.</p>
+    </div>
+
+    <h3>3. Woodland Stewardship</h3>
+    <p>Regular woodland observation allows tree health, deadwood, wildlife habitat, slope conditions, invasive plants, and future use areas to be managed intentionally.</p>
+    <ul>
+      <li>Tree health observation</li>
+      <li>Hazard recognition and prioritization</li>
+      <li>Deadwood monitoring</li>
+      <li>Volunteer tree selection and removal recommendations</li>
+      <li>Woodland edge management</li>
+      <li>Guidance for future trails, gathering spaces, and patio integration</li>
+    </ul>
+
+    <h3>4. Garden and Habitat Development</h3>
+    <p>Future improvements can be implemented gradually under the same pricing framework.</p>
+    <ul>
+      <li>Raised vegetable garden construction</li>
+      <li>Pollinator and wildlife plantings</li>
+      <li>Beautyberry and native shrub integration</li>
+      <li>Woodland understory development</li>
+      <li>Transplanting desirable plants where practical</li>
+      <li>Mulch, compost, soil, edging, and hard-good installation</li>
+    </ul>
+
+    <div class="formula-box">
+      <div class="formula">Installation Pricing</div>
+      <p><strong>Total =</strong> Labor minutes by category + materials × 2.7 + rental equipment formula + haul-off formula where required.</p>
+    </div>
+  </section>
+
+  <section class="page page-break">
+    <h2>Priority Arboricultural Work</h2>
+
+    <div class="priority">
+      <p><strong>Note on technical work:</strong> Highly technical horticulture, arboriculture, and silviculture will be performed directly by Christian. Support work and supervised technical work may be performed by properly trained workers under owner direction. Pricing and planning are therefore based on Christian's technical minutes plus support labor where appropriate, rather than assuming multiple independent technical climbers.</p>
+    </div>
+
+    <div class="scope-card">
+      <h3>Hazard Hackberry Removal <span class="badge">Priority Safety Work</span></h3>
+      <p><strong>Reason:</strong> Large mature hackberry with significant structural concerns, including basal compromise and lightning-related damage. This is the most consequential known tree risk on the property.</p>
+      <p><strong>Scope:</strong></p>
+      <ul>
+        <li>Set climbing access and work positioning systems</li>
+        <li>Dismantle crown and stem in manageable sections</li>
+        <li>Rig or control pieces as required to protect fence, adjacent trees, slope, and woodland features</li>
+        <li>Ground crew brush handling, log movement, site organization, and cleanup</li>
+        <li>Material staged onsite for beneficial reuse or hauled offsite by agreement</li>
+      </ul>
+      <p><strong>Pricing Formula:</strong> High-risk technical minutes × $4.00 + support work minutes × $2.00 + hauling/disposal + special equipment or direct costs.</p>
+      <p class="note">Final work plan should be confirmed after discussing desired level of onsite wood retention versus offsite removal.</p>
+    </div>
+
+    <div class="scope-card">
+      <h3>Declining Lacebark Elm Removal <span class="badge">Priority Safety Work</span></h3>
+      <p><strong>Reason:</strong> Severe decline and structural concern above or near an outdoor living area.</p>
+      <p><strong>Scope:</strong></p>
+      <ul>
+        <li>Remove declining tree to appropriate height or grade as selected</li>
+        <li>Control pieces based on targets and access</li>
+        <li>Process brush and wood for onsite retention or offsite disposal</li>
+        <li>Clean work area</li>
+      </ul>
+      <p><strong>Pricing Formula:</strong> Ground Operations Minutes × $2.00 and/or Technical minutes × $4.00 where aerial positioning or technical arboricultural judgment is required + hauling/disposal.</p>
+    </div>
+
+    <div class="scope-card">
+      <h3>Black Walnut House Clearance Pruning <span class="badge">Preservation Work</span></h3>
+      <p><strong>Reason:</strong> Preserve the mature black walnut while reducing conflict with the house and roofline.</p>
+      <p><strong>Scope:</strong></p>
+      <ul>
+        <li>Selective pruning for clearance</li>
+        <li>Reduction of roof and siding conflicts</li>
+        <li>Deadwood removal where accessible and appropriate</li>
+        <li>Conservative pruning cuts to preserve structure and health</li>
+        <li>Root conflicts evaluated conservatively and addressed only where justified</li>
+      </ul>
+      <p><strong>Pricing Formula:</strong> Technical minutes × $3.00 + support work minutes × $2.00 + cleanup/disposal as selected.</p>
+    </div>
+
+    <div class="scope-card">
+      <h3>Woodland Hazard Mitigation <span class="badge">Access Preparation</span></h3>
+      <p><strong>Reason:</strong> Future woodland access and gathering areas should begin with removal or reduction of obvious deadwood and foreseeable hazards.</p>
+      <p><strong>Scope:</strong></p>
+      <ul>
+        <li>Walk-through hazard review</li>
+        <li>Removal of reachable deadwood and failed limbs</li>
+        <li>Priority marking for future aerial work</li>
+        <li>Selective cleanup near intended access routes and gathering areas</li>
+      </ul>
+      <p><strong>Pricing Formula:</strong> Ground Operations Minutes × $2.00 + Technical minutes × $3.00 or $4.00 only where technical aerial or high-risk work is required.</p>
+    </div>
+  </section>
+
+  <section class="page page-break">
+    <h2>Service Agreement Structure</h2>
+
+    <h3>1. Stewardship Relationship</h3>
+    <p>Confirm that Abundant Life Land &amp; Tree LLC will serve as the primary point of contact for exterior stewardship, including front grounds, meadow, woodland, tree care, garden planning, and phased improvements.</p>
+
+    <h3>2. Routine Grounds and Meadow Care</h3>
+    <p>Routine presence establishes rhythm and allows ongoing observation. Front electric lawn care and meadow stewardship can begin immediately under the ground operations formula.</p>
+
+    <h3>3. Priority Safety Work</h3>
+    <p>Prioritize the hazard hackberry, declining lacebark elm, black walnut clearance, and woodland hazard mitigation. Work may be staged according to weather, crew availability, equipment needs, and desired handling of debris and wood.</p>
+
+    <h3>4. Reassessment and Next Phase Planning</h3>
+    <p>After major safety work is complete, the property should be reassessed for access, light, views, usable space, and ecological opportunities. This will guide the next phase of pruning, transplanting, planting, trail work, and garden development.</p>
+
+    <h3>5. Seasonal Improvements</h3>
+    <p>Raised beds, pollinator plantings, woodland understory development, meadow refinement, and patio integration can be implemented over time using the same transparent labor and materials formula.</p>
+
+    <h2>Stewardship Agreement Terms for Discussion</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Proposed Understanding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary Contact</td>
+          <td>Abundant Life Land &amp; Tree LLC serves as primary exterior stewardship contact.</td>
+        </tr>
+        <tr>
+          <td>Routine Work</td>
+          <td>Front grounds and meadow work billed by ground operations formula unless a standing monthly agreement is later preferred.</td>
+        </tr>
+        <tr>
+          <td>Project Work</td>
+          <td>Tree work, garden installation, planting, and improvement projects billed according to technical labor, support labor, materials, rentals, hauling, disposal, and direct costs.</td>
+        </tr>
+        <tr>
+          <td>Materials</td>
+          <td>Purchased goods are billed at direct cost × 2.7.</td>
+        </tr>
+        <tr>
+          <td>Debris Handling</td>
+          <td>Woodland integration of organic material is preferred where beneficial. Offsite disposal follows the haul-off formula.</td>
+        </tr>
+        <tr>
+          <td>Scheduling</td>
+          <td>Routine care scheduled according to season and property needs. Project work scheduled by priority, weather, and crew availability.</td>
+        </tr>
+        <tr>
+          <td>Communication</td>
+          <td>Recommendations and observations may be discussed during routine visits or summarized after significant site work.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h2>General Service Terms</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Agreement Language</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Authorization</td>
+          <td>Work begins after verbal, written, text, or email approval of the relevant scope, formula, estimate, or work window.</td>
+        </tr>
+        <tr>
+          <td>Billing</td>
+          <td>Routine work may be invoiced per visit or grouped periodically by agreement. Project work is invoiced according to the formulas in this agreement unless a fixed project price is separately agreed in writing.</td>
+        </tr>
+        <tr>
+          <td>Payment</td>
+          <td>Final payment is due upon substantial completion unless other terms are agreed in writing. Late or unpaid invoices may delay future service.</td>
+        </tr>
+        <tr>
+          <td>Changes in Scope</td>
+          <td>Additional work requested or required due to site conditions, weather, hidden defects, access limitations, debris volume, or changed priorities may change the final cost.</td>
+        </tr>
+        <tr>
+          <td>Safety and Weather</td>
+          <td>Work may be delayed, modified, or stopped due to unsafe weather, wind, lightning, saturated ground, equipment concerns, crew safety, or hazardous site conditions.</td>
+        </tr>
+        <tr>
+          <td>Tree Risk</td>
+          <td>Tree work reduces identified risks but cannot eliminate all risk associated with living trees, decay, storms, wind, soil movement, hidden defects, or future failures.</td>
+        </tr>
+        <tr>
+          <td>Property Access</td>
+          <td>Client authorizes reasonable access to work areas, gates, driveways, water sources, electrical outlets, and staging areas as needed for approved work.</td>
+        </tr>
+        <tr>
+          <td>Insurance</td>
+          <td>Abundant Life Land &amp; Tree LLC carries $2,000,000 in general liability coverage for horticulture and arboriculture operations.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Authorization to Proceed</h2>
+    <p>By signing below, Client authorizes Abundant Life Land &amp; Tree LLC to serve as the primary exterior stewardship provider for Plum Hollow under the scope, pricing formulas, and general service terms described in this agreement.</p>
+    <p>This authorization establishes the stewardship relationship and permits routine grounds, meadow, woodland, arboricultural, horticultural, and phased project work to proceed as approved verbally, by text, by email, or in writing. Larger projects requiring materials, rentals, reserved workdays, or substantial labor may require a deposit before scheduling or procurement.</p>
+
+    <div class="summary-box">
+      <p><strong>Initial Authorization Includes:</strong></p>
+      <ul>
+        <li>Primary stewardship relationship for Plum Hollow</li>
+        <li>Routine front grounds and meadow care under the ground operations formula</li>
+        <li>Planning and scheduling of priority arboricultural safety work</li>
+        <li>Woodland integration of organic material where beneficial</li>
+        <li>Offsite haul-off, materials, rentals, and deposits according to the formulas above</li>
+      </ul>
+    </div>
+
+    <h2>Authorization to Proceed</h2>
+
+<p>
+  By signing below, the parties acknowledge and accept the stewardship relationship,
+  pricing framework, service terms, and authorization procedures described in this
+  agreement. Future work may be approved verbally, by text message, by email, or in
+  writing and shall be governed by these terms unless superseded by a separate written
+  agreement.
+</p>
+
+<p>
+  Client authorizes Abundant Life Land &amp; Tree LLC to serve as the primary exterior
+  stewardship provider for 12804 Plum Hollow Drive, OKC, OK 73142 under the scope, pricing formulas, and service
+  terms described herein.
+</p>
+
+<p>
+  This authorization establishes the stewardship relationship and permits routine
+  grounds, meadow, woodland, arboricultural, horticultural, and phased project work
+  to proceed as approved verbally, by text message, by email, or in writing. Projects
+  requiring materials, rentals, special orders, or reserved work windows may require
+  a deposit prior to scheduling or procurement.
+</p>
+
+<div class="summary-box">
+  <p><strong>Initial Authorization Includes:</strong></p>
+  <ul>
+    <li>Primary stewardship relationship for Plum Hollow</li>
+    <li>Routine front grounds and meadow care under the Ground Operations formula</li>
+    <li>Planning and scheduling of priority arboricultural safety work</li>
+    <li>Woodland integration of organic material where beneficial</li>
+    <li>Offsite haul-off, materials, rentals, and deposits according to the formulas described in this agreement</li>
+  </ul>
+</div>
+
+<h2>Stewardship Agreement Authorization</h2>
+
+<table style="width:100%; margin-top:36px; border-collapse:collapse; border: none;">
+  <tbody style="border: none;">
+    <tr style="border: none;">
+      <td colspan="2" style="border: none;">
+      </td>
+    </tr>
+    <tr>
+      <td style="width:70%; padding-bottom:8px; padding-top:72px; background-color: #fff; border: none;">
+        _________________________________________________
+      </td>
+      <td style="width:30%; padding-left:24px; padding-bottom:8px; padding-top:72px; background-color: #fff; border: none;">
+        __________________
+      </td>
+    </tr>
+
+    <tr>
+      <td style="border: none;">
+        <strong>John Lewis</strong><br>
+        Property Owner / Client
+      </td>
+      <td style="padding-left:24px; border: none;">
+        <strong>Date</strong>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="padding-bottom:8px; padding-top:72px; background-color: #fff; border: none;">
+        _________________________________________________
+      </td>
+      <td style="padding-left:24px; padding-bottom:8px; padding-top:72px; background-color: #fff; border: none;">
+        __________________
+      </td>
+    </tr>
+
+    <tr>
+      <td style="border: none;">
+        <strong>Christian Castillo</strong><br />
+      Abundant Life Land &amp; Tree LLC<br />
+      Owner | Arborist | Landscaper<br />
+      www.AbundantLife.Land<br />
+      405-953-1285
+      </td>
+      <td style="padding-left:24px; border: none;">
+        <strong>Date</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Crew Career Ladder | Abundant Life Land & Tree</title>
+
+  <style>
+    :root {
+      --green-950: #14251b;
+      --green-900: #1b3424;
+      --green-700: #386145;
+      --green-100: #e8f0e9;
+      --green-50: #f4f8f4;
+
+      --gold-700: #806320;
+      --gold-500: #c49a47;
+      --gold-200: #dbc58e;
+      --gold-100: #f4ead2;
+
+      --red-700: #8c3434;
+      --red-100: #f7e6e6;
+
+      --blue-700: #315d7d;
+      --blue-100: #e3eef5;
+
+      --white: #ffffff;
+      --gray-950: #17201b;
+      --gray-800: #303a34;
+      --gray-700: #4c5750;
+      --gray-600: #68736c;
+      --gray-300: #cfd6d1;
+      --gray-200: #e3e8e4;
+      --gray-100: #f1f4f2;
+      --gray-50: #f8faf8;
+
+      --shadow: 0 8px 24px rgba(20, 37, 27, 0.1);
+
+      --radius: 14px;
+      --content: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 0;
+      background: var(--gray-50);
+      color: var(--gray-950);
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold-500);
+      outline-offset: 3px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 24px), var(--content));
+      min-height: 64px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--green-700);
+      color: var(--gold-500);
+      font-weight: 800;
+    }
+
+    .brand-text {
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 0.92rem;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.72rem;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 4px;
+    }
+
+    .header-nav a {
+      min-height: 42px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .header-nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
+    .hero,
+    .page-shell {
+      width: min(calc(100% - 24px), var(--content));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 54px 0 30px;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--green-700);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 14px;
+      font-size: clamp(2.3rem, 6vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin-bottom: 0;
+      color: var(--gray-700);
+      font-size: 1.03rem;
+    }
+
+    .section {
+      margin-top: 48px;
+      scroll-margin-top: 86px;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.1;
+    }
+
+    .section-header p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .principle {
+      padding: 18px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .principle strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green-900);
+    }
+
+    .principle span {
+      color: var(--gray-700);
+      font-size: 0.87rem;
+    }
+
+    .principle.production {
+      border-color: var(--gold-200);
+      background: var(--gold-100);
+    }
+
+    .production-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .production-box > div {
+      padding: 24px;
+    }
+
+    .production-box h3 {
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .production-box p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+    }
+
+    .production-list {
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .production-list ul,
+    .check-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .production-list li,
+    .check-list li {
+      position: relative;
+      margin-bottom: 8px;
+      padding-left: 20px;
+    }
+
+    .production-list li::before,
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.55em;
+      left: 1px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold-500);
+    }
+
+    .ladder {
+      display: grid;
+      gap: 16px;
+    }
+
+    .level {
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .level.featured {
+      border-color: var(--gold-200);
+    }
+
+    .level-header {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--gray-200);
+      background: var(--green-50);
+    }
+
+    .featured .level-header {
+      background: var(--gold-100);
+    }
+
+    .level-number {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--green-900);
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .featured .level-number {
+      background: var(--gold-700);
+    }
+
+    .level-title h3 {
+      margin-bottom: 2px;
+      font-size: 1.08rem;
+    }
+
+    .level-title p {
+      margin-bottom: 0;
+      color: var(--gray-600);
+      font-size: 0.83rem;
+    }
+
+    .pay {
+      padding: 8px 12px;
+      border: 1px solid var(--gold-200);
+      border-radius: 999px;
+      background: var(--gold-100);
+      color: #604915;
+      font-size: 0.86rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .level-body {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 0.8fr;
+      gap: 22px;
+    }
+
+    .level-body h4 {
+      margin-bottom: 9px;
+      color: var(--green-700);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .check-list li {
+      color: var(--gray-800);
+      font-size: 0.89rem;
+    }
+
+    .check-list li::before {
+      background: var(--green-700);
+    }
+
+    .standard-box {
+      padding: 15px;
+      border-radius: 11px;
+      background: var(--gray-100);
+    }
+
+    .standard-box + .standard-box {
+      margin-top: 10px;
+    }
+
+    .standard-box.production-standard {
+      background: var(--gold-100);
+    }
+
+    .standard-box strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--green-900);
+      font-size: 0.9rem;
+    }
+
+    .standard-box p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+      font-size: 0.84rem;
+    }
+
+    .standards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .standard-card {
+      padding: 18px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .standard-card h3 {
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .standard-card p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+      font-size: 0.88rem;
+    }
+
+    .standard-card.warning {
+      border-color: #e4c2c2;
+      background: var(--red-100);
+    }
+
+    .standard-card.warning h3 {
+      color: var(--red-700);
+    }
+
+    .promotion-box {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .promotion-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .promotion-box p {
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .promotion-box .check-list li {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .promotion-box .check-list li::before {
+      background: var(--gold-500);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .skill {
+      min-height: 70px;
+      padding: 15px 52px 15px 15px;
+      position: relative;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .skill strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.92rem;
+    }
+
+    .skill span {
+      color: var(--gray-600);
+      font-size: 0.78rem;
+    }
+
+    .skill input {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      width: 23px;
+      height: 23px;
+      transform: translateY(-50%);
+      accent-color: var(--green-700);
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 16px;
+      border-left: 5px solid var(--gold-500);
+      border-radius: 0 10px 10px 0;
+      background: var(--gold-100);
+      color: #51411f;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding: 30px 16px;
+      background: var(--green-950);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+    @media (max-width: 900px) {
+      .principles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .level-body {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .level-side {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding-bottom: calc(64px + env(safe-area-inset-bottom));
+      }
+
+      .site-header {
+        position: relative;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 200;
+        padding:
+          6px
+          max(8px, env(safe-area-inset-right))
+          calc(6px + env(safe-area-inset-bottom))
+          max(8px, env(safe-area-inset-left));
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        background: var(--green-950);
+        box-shadow: 0 -6px 20px rgba(20, 37, 27, 0.22);
+      }
+
+      .mobile-nav a {
+        min-height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .mobile-nav a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .hero {
+        padding: 38px 0 20px;
+      }
+
+      h1 {
+        font-size: 2.45rem;
+      }
+
+      .section {
+        margin-top: 40px;
+        scroll-margin-top: 18px;
+      }
+
+      .principles,
+      .production-box,
+      .level-body,
+      .standards,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .level-side {
+        grid-column: auto;
+      }
+
+      .level-header {
+        grid-template-columns: 42px 1fr;
+        padding: 16px;
+      }
+
+      .level-number {
+        width: 42px;
+        height: 42px;
+      }
+
+      .pay {
+        grid-column: 1 / -1;
+        width: 100%;
+        border-radius: 9px;
+        text-align: center;
+      }
+
+      .level-body {
+        padding: 17px;
+        gap: 18px;
+      }
+
+      .production-box > div {
+        padding: 20px;
+      }
+
+      .footer {
+        padding-bottom: 86px;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .mobile-nav,
+      .footer {
+        display: none;
+      }
+
+      body {
+        padding-bottom: 0;
+        background: var(--white);
+      }
+
+      .level,
+      .principle,
+      .standard-card,
+      .skill,
+      .production-box {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">AL</span>
+
+        <span class="brand-text">
+          <strong>Abundant Life Land &amp; Tree</strong>
+          <span>Crew Portal</span>
+        </span>
+      </a>
+
+      <nav class="header-nav" aria-label="Page navigation">
+        <a href="#standards">Standards</a>
+        <a href="#ladder">Levels</a>
+        <a href="#advance">Advance</a>
+        <a href="#skills">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#standards">Standards</a>
+    <a href="#ladder">Levels</a>
+    <a href="#advance">Advance</a>
+    <a href="#skills">Skills</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Crew Career Ladder</p>
+
+      <h1>Build skill. Produce value. Earn more.</h1>
+
+      <p>
+        Pay grows with safety, reliability, production, skill, and independence.
+      </p>
+    </section>
+
+    <div class="page-shell">
+      <section class="section" id="standards">
+        <div class="section-header">
+          <p class="eyebrow">Core standards</p>
+          <h2>What we value</h2>
+        </div>
+
+        <div class="principles">
+          <article class="principle">
+            <strong>Safety</strong>
+            <span>Work with control.</span>
+          </article>
+
+          <article class="principle">
+            <strong>Reliability</strong>
+            <span>Show up ready.</span>
+          </article>
+
+          <article class="principle production">
+            <strong>Production</strong>
+            <span>Complete useful work.</span>
+          </article>
+
+          <article class="principle">
+            <strong>Quality</strong>
+            <span>Do it right.</span>
+          </article>
+
+          <article class="principle">
+            <strong>Independence</strong>
+            <span>Need less direction.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="production-box">
+          <div>
+            <p class="eyebrow">Production</p>
+            <h3>Paid time must move the job forward.</h3>
+
+            <p>
+              Good production means steady work, less idle time, fewer delays,
+              and little rework.
+            </p>
+          </div>
+
+          <div class="production-list">
+            <h3>We look for:</h3>
+
+            <ul>
+              <li>Completed work</li>
+              <li>Steady pace</li>
+              <li>Useful next steps</li>
+              <li>Clean results</li>
+              <li>Low rework</li>
+              <li>Less supervision</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ladder">
+        <div class="section-header">
+          <p class="eyebrow">Pay ladder</p>
+          <h2>Field levels</h2>
+        </div>
+
+        <div class="ladder">
+          <article class="level">
+            <header class="level-header">
+              <div class="level-number">1</div>
+
+              <div class="level-title">
+                <h3>Crew Laborer</h3>
+                <p>Basic support</p>
+              </div>
+
+              <div class="pay">$16–$18/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div>
+                <h4>Can do</h4>
+
+                <ul class="check-list">
+                  <li>Drag brush</li>
+                  <li>Move small wood</li>
+                  <li>Rake and blow</li>
+                  <li>Protect property</li>
+                  <li>Use PPE</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>Must show</h4>
+
+                <ul class="check-list">
+                  <li>Good attendance</li>
+                  <li>Steady effort</li>
+                  <li>Follows directions</li>
+                  <li>Good attitude</li>
+                </ul>
+              </div>
+
+              <div class="level-side">
+                <div class="standard-box">
+                  <strong>Supervision</strong>
+                  <p>Frequent direction</p>
+                </div>
+
+                <div class="standard-box production-standard">
+                  <strong>Production</strong>
+                  <p>Useful pace on assigned work</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level">
+            <header class="level-header">
+              <div class="level-number">2</div>
+
+              <div class="level-title">
+                <h3>Ground Technician I</h3>
+                <p>Routine ground work</p>
+              </div>
+
+              <div class="pay">$18–$21/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div>
+                <h4>Can do</h4>
+
+                <ul class="check-list">
+                  <li>Use blowers and trimmers</li>
+                  <li>Fuel equipment</li>
+                  <li>Inspect tools</li>
+                  <li>Stage work areas</li>
+                  <li>Spot common hazards</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>Must show</h4>
+
+                <ul class="check-list">
+                  <li>Works without reminders</li>
+                  <li>Moves to the next task</li>
+                  <li>Keeps tools ready</li>
+                  <li>Avoids damage</li>
+                </ul>
+              </div>
+
+              <div class="level-side">
+                <div class="standard-box">
+                  <strong>Supervision</strong>
+                  <p>Periodic check-ins</p>
+                </div>
+
+                <div class="standard-box production-standard">
+                  <strong>Production</strong>
+                  <p>Does not slow the crew</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level">
+            <header class="level-header">
+              <div class="level-number">3</div>
+
+              <div class="level-title">
+                <h3>Ground Technician II</h3>
+                <p>Basic saw work</p>
+              </div>
+
+              <div class="pay">$21–$24/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div>
+                <h4>Can do</h4>
+
+                <ul class="check-list">
+                  <li>Run a ground saw</li>
+                  <li>Change and tension chains</li>
+                  <li>Read basic bind</li>
+                  <li>Use lowering lines</li>
+                  <li>Organize wood and brush</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>Must show</h4>
+
+                <ul class="check-list">
+                  <li>Anticipates next steps</li>
+                  <li>Keeps saws ready</li>
+                  <li>Makes clean cuts</li>
+                  <li>Communicates clearly</li>
+                </ul>
+              </div>
+
+              <div class="level-side">
+                <div class="standard-box">
+                  <strong>Supervision</strong>
+                  <p>Routine work alone</p>
+                </div>
+
+                <div class="standard-box production-standard">
+                  <strong>Production</strong>
+                  <p>Completes clear parts of the job</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level">
+            <header class="level-header">
+              <div class="level-number">4</div>
+
+              <div class="level-title">
+                <h3>Skilled Ground Technician</h3>
+                <p>Advanced ground work</p>
+              </div>
+
+              <div class="pay">$24–$27/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div>
+                <h4>Can do</h4>
+
+                <ul class="check-list">
+                  <li>Run saws well</li>
+                  <li>Sharpen chains</li>
+                  <li>Read bind and movement</li>
+                  <li>Handle rigging lines</li>
+                  <li>Guide new workers</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>Must show</h4>
+
+                <ul class="check-list">
+                  <li>Good judgment</li>
+                  <li>Strong work pace</li>
+                  <li>Low rework</li>
+                  <li>Stops unsafe work</li>
+                </ul>
+              </div>
+
+              <div class="level-side">
+                <div class="standard-box">
+                  <strong>Supervision</strong>
+                  <p>Little direction</p>
+                </div>
+
+                <div class="standard-box production-standard">
+                  <strong>Production</strong>
+                  <p>Raises daily crew output</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level">
+            <header class="level-header">
+              <div class="level-number">5</div>
+
+              <div class="level-title">
+                <h3>Lead Ground Technician</h3>
+                <p>Leads ground production</p>
+              </div>
+
+              <div class="pay">$27–$31/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div>
+                <h4>Can do</h4>
+
+                <ul class="check-list">
+                  <li>Read the work order</li>
+                  <li>Set up the job</li>
+                  <li>Lead ground work</li>
+                  <li>Train crew members</li>
+                  <li>Speak with clients</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>Must show</h4>
+
+                <ul class="check-list">
+                  <li>Works alone when needed</li>
+                  <li>Prevents delays</li>
+                  <li>Protects equipment</li>
+                  <li>Controls labor time</li>
+                </ul>
+              </div>
+
+              <div class="level-side">
+                <div class="standard-box">
+                  <strong>Supervision</strong>
+                  <p>Owner can step away</p>
+                </div>
+
+                <div class="standard-box production-standard">
+                  <strong>Production</strong>
+                  <p>Creates real company capacity</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level">
+            <header class="level-header">
+              <div class="level-number">6</div>
+
+              <div class="level-title">
+                <h3>Crew Leader</h3>
+                <p>Runs ordinary jobs</p>
+              </div>
+
+              <div class="pay">$31–$36/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div>
+                <h4>Can do</h4>
+
+                <ul class="check-list">
+                  <li>Lead the safety brief</li>
+                  <li>Assign crew roles</li>
+                  <li>Track job progress</li>
+                  <li>Handle client questions</li>
+                  <li>Close out the job</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>Must show</h4>
+
+                <ul class="check-list">
+                  <li>Sound decisions</li>
+                  <li>Strong leadership</li>
+                  <li>Good labor control</li>
+                  <li>Good final results</li>
+                </ul>
+              </div>
+
+              <div class="level-side">
+                <div class="standard-box">
+                  <strong>Supervision</strong>
+                  <p>Limited owner help</p>
+                </div>
+
+                <div class="standard-box production-standard">
+                  <strong>Production</strong>
+                  <p>Finishes near labor targets</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level">
+            <header class="level-header">
+              <div class="level-number">7</div>
+
+              <div class="level-title">
+                <h3>Climbing Arborist</h3>
+                <p>Advanced tree production</p>
+              </div>
+
+              <div class="pay">$35–$45+/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div>
+                <h4>Can do</h4>
+
+                <ul class="check-list">
+                  <li>Climb safely</li>
+                  <li>Prune and remove trees</li>
+                  <li>Use rigging systems</li>
+                  <li>Read tree hazards</li>
+                  <li>Lead complex jobs</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>Must show</h4>
+
+                <ul class="check-list">
+                  <li>Advanced judgment</li>
+                  <li>High-value output</li>
+                  <li>Strong crew control</li>
+                  <li>Professional client care</li>
+                </ul>
+              </div>
+
+              <div class="level-side">
+                <div class="standard-box">
+                  <strong>Supervision</strong>
+                  <p>Broad independence</p>
+                </div>
+
+                <div class="standard-box production-standard">
+                  <strong>Production</strong>
+                  <p>Produces major billable value</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <p class="eyebrow">Always required</p>
+          <h2>Basic crew rules</h2>
+        </div>
+
+        <div class="standards">
+          <article class="standard-card">
+            <h3>Attendance</h3>
+            <p>Show up on time. Call out early.</p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Readiness</h3>
+            <p>Report ready for safe work.</p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Production</h3>
+            <p>Keep moving the job forward.</p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Equipment</h3>
+            <p>Protect, clean, and maintain tools.</p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Quality</h3>
+            <p>Avoid mistakes and rework.</p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Clients</h3>
+            <p>Protect property. Be respectful.</p>
+          </article>
+
+          <article class="standard-card warning">
+            <h3>No unsafe rushing</h3>
+            <p>Fast and careless is not productive.</p>
+          </article>
+
+          <article class="standard-card warning">
+            <h3>No automatic raises</h3>
+            <p>Higher pay requires proven performance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="advance">
+        <div class="promotion-box">
+          <p class="eyebrow" style="color: #d7bc75;">Moving up</p>
+          <h2>How to earn the next level</h2>
+
+          <ul class="check-list">
+            <li>Learn the next skills</li>
+            <li>Meet the next production level</li>
+            <li>Show it on real jobs</li>
+            <li>Do it consistently</li>
+            <li>Ask for a review</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-header">
+          <p class="eyebrow">Skills</p>
+          <h2>Progress checklist</h2>
+        </div>
+
+        <div class="skill-grid">
+          <label class="skill">
+            <strong>Uses PPE</strong>
+            <span>Safety</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Shows up ready</strong>
+            <span>Reliability</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Maintains steady pace</strong>
+            <span>Production</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Finds the next task</strong>
+            <span>Initiative</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Stages brush and wood</strong>
+            <span>Production</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Uses a chainsaw safely</strong>
+            <span>Saw work</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Changes a chain</strong>
+            <span>Maintenance</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Sharpens a chain</strong>
+            <span>Maintenance</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Reads bind</strong>
+            <span>Saw judgment</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Reads piece movement</strong>
+            <span>Saw judgment</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Runs a lowering line</strong>
+            <span>Rigging</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Backs a trailer</strong>
+            <span>Driving</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Avoids rework</strong>
+            <span>Quality</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Protects labor time</strong>
+            <span>Business value</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Leads ground work</strong>
+            <span>Leadership</span>
+            <input type="checkbox">
+          </label>
+
+          <label class="skill">
+            <strong>Runs a job alone</strong>
+            <span>Leadership</span>
+            <input type="checkbox">
+          </label>
+        </div>
+
+        <div class="note">
+          Pay reflects the whole job: safety, reliability, production, quality,
+          skill, and independence.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+    Crew Career Ladder
+  </footer>
+</body>
+</html>

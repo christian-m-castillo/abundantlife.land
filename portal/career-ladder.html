@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Crew Career Ladder | Abundant Life Land & Tree</title>
+
+  <style>
+    :root {
+      --forest-950: #14251b;
+      --forest-900: #1b3424;
+      --forest-800: #294a34;
+      --forest-700: #386145;
+      --forest-100: #e8f0e9;
+      --forest-50: #f4f8f4;
+
+      --gold-500: #c49a47;
+      --gold-100: #f4ead2;
+
+      --earth-700: #695747;
+      --earth-100: #eee8e1;
+
+      --red-700: #8c3434;
+      --red-100: #f7e6e6;
+
+      --blue-700: #315d7d;
+      --blue-100: #e3eef5;
+
+      --white: #ffffff;
+      --gray-950: #17201b;
+      --gray-800: #303a34;
+      --gray-700: #4c5750;
+      --gray-600: #68736c;
+      --gray-400: #a7b0aa;
+      --gray-300: #cfd6d1;
+      --gray-200: #e3e8e4;
+      --gray-100: #f1f4f2;
+      --gray-50: #f8faf8;
+
+      --shadow-sm: 0 2px 8px rgba(20, 37, 27, 0.08);
+      --shadow-md: 0 12px 35px rgba(20, 37, 27, 0.12);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+
+      --content-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(
+          180deg,
+          var(--forest-50) 0,
+          var(--gray-50) 340px,
+          var(--white) 100%
+        );
+      color: var(--gray-950);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(20, 37, 27, 0.96);
+      color: var(--white);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 32px), var(--content-width));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      background: var(--forest-800);
+      color: var(--gold-500);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .brand-mark-img {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.15;
+    }
+
+    .brand-text strong {
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text span {
+      margin-top: 3px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.78rem;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-nav a {
+      padding: 8px 11px;
+      border-radius: 7px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.88rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus-visible {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      outline: none;
+    }
+
+    .hero {
+      width: min(calc(100% - 32px), var(--content-width));
+      margin: 0 auto;
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.75fr);
+      align-items: center;
+      gap: 48px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--forest-700);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 20px;
+      color: var(--forest-950);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-lead {
+      max-width: 760px;
+      margin-bottom: 28px;
+      color: var(--gray-700);
+      font-size: clamp(1.02rem, 2vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 46px;
+      padding: 11px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      font-weight: 750;
+      text-decoration: none;
+      transition:
+        transform 140ms ease,
+        background-color 140ms ease,
+        border-color 140ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--forest-900);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--forest-800);
+    }
+
+    .button-secondary {
+      border-color: var(--gray-300);
+      background: var(--white);
+      color: var(--forest-900);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--forest-700);
+      background: var(--forest-50);
+    }
+
+    .hero-card {
+      padding: 28px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card h2 {
+      margin-bottom: 14px;
+      color: var(--forest-900);
+      font-size: 1.18rem;
+    }
+
+    .hero-card p {
+      margin-bottom: 18px;
+      color: var(--gray-700);
+      font-size: 0.95rem;
+    }
+
+    .value-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .value-list li {
+      position: relative;
+      padding: 10px 0 10px 28px;
+      border-top: 1px solid var(--gray-200);
+      color: var(--gray-800);
+      font-size: 0.93rem;
+    }
+
+    .value-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 2px;
+      color: var(--forest-700);
+      font-weight: 900;
+    }
+
+    .page-shell {
+      width: min(calc(100% - 32px), var(--content-width));
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+
+    .section {
+      margin-top: 64px;
+      scroll-margin-top: 96px;
+    }
+
+    .section-header {
+      max-width: 780px;
+      margin-bottom: 26px;
+    }
+
+    .section-header h2 {
+      margin-bottom: 10px;
+      color: var(--forest-950);
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-header p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .principle-card {
+      padding: 22px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .principle-number {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--forest-100);
+      color: var(--forest-800);
+      font-size: 0.85rem;
+      font-weight: 850;
+    }
+
+    .principle-card h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .principle-card p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+      font-size: 0.9rem;
+    }
+
+    .ladder {
+      display: grid;
+      gap: 20px;
+    }
+
+    .level-card {
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .level-header {
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      border-bottom: 1px solid var(--gray-200);
+      background: linear-gradient(
+        100deg,
+        var(--forest-50),
+        var(--white)
+      );
+    }
+
+    .level-number {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--forest-900);
+      color: var(--white);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .level-title h3 {
+      margin-bottom: 3px;
+      color: var(--forest-950);
+      font-size: 1.28rem;
+    }
+
+    .level-title p {
+      margin-bottom: 0;
+      color: var(--gray-600);
+      font-size: 0.91rem;
+    }
+
+    .pay-range {
+      min-width: 120px;
+      padding: 10px 14px;
+      border: 1px solid #dbc58e;
+      border-radius: 999px;
+      background: var(--gold-100);
+      color: #6a511d;
+      font-size: 0.91rem;
+      font-weight: 850;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .level-body {
+      padding: 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 0.8fr;
+      gap: 28px;
+    }
+
+    .level-column h4 {
+      margin: 0 0 12px;
+      color: var(--forest-800);
+      font-size: 0.8rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .check-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      position: relative;
+      margin-bottom: 9px;
+      padding-left: 22px;
+      color: var(--gray-800);
+      font-size: 0.92rem;
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.52em;
+      left: 1px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--forest-700);
+    }
+
+    .independence-box {
+      height: 100%;
+      padding: 18px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      background: var(--gray-50);
+    }
+
+    .independence-box strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--forest-900);
+      font-size: 0.96rem;
+    }
+
+    .independence-box p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+      font-size: 0.9rem;
+    }
+
+    .level-card.featured {
+      border-color: #cdb26f;
+      box-shadow: 0 16px 45px rgba(72, 58, 25, 0.13);
+    }
+
+    .level-card.featured .level-header {
+      background: linear-gradient(
+        100deg,
+        var(--gold-100),
+        var(--white)
+      );
+    }
+
+    .level-card.featured .level-number {
+      background: #806320;
+    }
+
+    .featured-label {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #806320;
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
+
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .standard-card {
+      padding: 24px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      background: var(--white);
+    }
+
+    .standard-card h3 {
+      margin-bottom: 12px;
+      color: var(--forest-900);
+      font-size: 1.08rem;
+    }
+
+    .standard-card p {
+      margin-bottom: 0;
+      color: var(--gray-700);
+      font-size: 0.92rem;
+    }
+
+    .standard-card.warning {
+      border-color: #e4c2c2;
+      background: #fffafa;
+    }
+
+    .standard-card.warning h3 {
+      color: var(--red-700);
+    }
+
+    .promotion-box {
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      background: var(--forest-950);
+      color: var(--white);
+    }
+
+    .promotion-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: 36px;
+      align-items: start;
+    }
+
+    .promotion-box h2 {
+      margin-bottom: 12px;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+
+    .promotion-box p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .promotion-box .check-list li {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .promotion-box .check-list li::before {
+      background: var(--gold-500);
+    }
+
+    .review-card {
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .review-card h3 {
+      margin-bottom: 10px;
+      color: var(--white);
+      font-size: 1.04rem;
+    }
+
+    .review-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    .skill-table th,
+    .skill-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--gray-200);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .skill-table thead th {
+      background: var(--forest-900);
+      color: var(--white);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .skill-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .skill-table tbody tr:hover {
+      background: var(--forest-50);
+    }
+
+    .skill-name {
+      font-weight: 750;
+    }
+
+    .skill-category {
+      color: var(--gray-600);
+      font-size: 0.87rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge-required {
+      background: var(--red-100);
+      color: var(--red-700);
+    }
+
+    .badge-foundation {
+      background: var(--earth-100);
+      color: var(--earth-700);
+    }
+
+    .badge-skilled {
+      background: var(--blue-100);
+      color: var(--blue-700);
+    }
+
+    .badge-leadership {
+      background: var(--gold-100);
+      color: #725716;
+    }
+
+    .status-checkbox {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--forest-700);
+      cursor: pointer;
+    }
+
+    .policy-note {
+      margin-top: 20px;
+      padding: 20px 22px;
+      border-left: 5px solid var(--gold-500);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: var(--gold-100);
+      color: #51411f;
+    }
+
+    .policy-note strong {
+      color: #3f3218;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding: 36px 16px;
+      border-top: 1px solid var(--gray-200);
+      background: var(--forest-950);
+      color: rgba(255, 255, 255, 0.72);
+      text-align: center;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .promotion-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .principles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .level-body {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .level-body .level-column:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        min-height: 64px;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .principles-grid,
+      .standards-grid,
+      .level-body {
+        grid-template-columns: 1fr;
+      }
+
+      .level-header {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .pay-range {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+
+      .level-body .level-column:last-child {
+        grid-column: auto;
+      }
+
+      .promotion-box {
+        padding: 24px;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .hero-actions,
+      .footer {
+        display: none;
+      }
+
+      body {
+        background: var(--white);
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .level-card,
+      .principle-card,
+      .standard-card,
+      .skill-table-wrap {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"><img src="../img/hummingbird-logo-land-conservation-tree-web.png" alt="" class="brand-mark-img"></span>
+
+        <span class="brand-text">
+          <strong>Abundant Life Land &amp; Tree</strong>
+          <span>Crew Member Portal</span>
+        </span>
+      </a>
+
+      <nav class="header-nav" aria-label="Page navigation">
+        <a href="#principles">Principles</a>
+        <a href="#career-ladder">Career Ladder</a>
+        <a href="#promotions">Promotions</a>
+        <a href="#skills">Skills Checklist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Field Operations Development</p>
+
+          <h1>Build skill. Earn trust. Increase your value.</h1>
+
+          <p class="hero-lead">
+            This career ladder explains how crew members can advance within
+            Abundant Life Land &amp; Tree. Pay increases as a team member
+            demonstrates greater safety, reliability, technical ability,
+            judgment, productivity, and independence.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#career-ladder">
+              View the career ladder
+            </a>
+
+            <a class="button button-secondary" href="#skills">
+              Review the skills checklist
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>What advancement means here</h2>
+
+          <p>
+            Advancement is not based only on seniority or physical effort.
+            It is based on demonstrated capability and the value a crew member
+            creates for the company, the client, and the rest of the team.
+          </p>
+
+          <ul class="value-list">
+            <li>Work safely without repeated correction</li>
+            <li>Produce quality work at an efficient pace</li>
+            <li>Care for equipment and client property</li>
+            <li>Recognize problems before they become costly</li>
+            <li>Require less supervision over time</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div class="page-shell">
+      <section class="section" id="principles">
+        <div class="section-header">
+          <p class="eyebrow">How pay is determined</p>
+
+          <h2>Four principles guide compensation</h2>
+
+          <p>
+            These standards are intended to make advancement understandable,
+            consistent, and fair.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+          <article class="principle-card">
+            <div class="principle-number">1</div>
+            <h3>Safety comes first</h3>
+            <p>
+              No amount of speed or physical strength compensates for unsafe
+              conduct, ignored hazards, or careless equipment use.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-number">2</div>
+            <h3>Reliability creates value</h3>
+            <p>
+              Attendance, punctuality, preparation, communication, and the
+              ability to complete scheduled work all affect compensation.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-number">3</div>
+            <h3>Skill increases earning power</h3>
+            <p>
+              Technical knowledge, equipment competency, judgment, and
+              problem-solving allow the company to complete more valuable work.
+            </p>
+          </article>
+
+          <article class="principle-card">
+            <div class="principle-number">4</div>
+            <h3>Independence earns more</h3>
+            <p>
+              A crew member becomes more valuable as they can be trusted to
+              make sound decisions and produce results with less supervision.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="career-ladder">
+        <div class="section-header">
+          <p class="eyebrow">Field operations career ladder</p>
+
+          <h2>A clear path from crew support to independent production</h2>
+
+          <p>
+            The listed pay ranges are guidelines. Placement within a range
+            depends on demonstrated skill, reliability, productivity, safety,
+            and current business needs.
+          </p>
+        </div>
+
+        <div class="ladder">
+          <article class="level-card">
+            <header class="level-header">
+              <div class="level-number">1</div>
+
+              <div class="level-title">
+                <h3>Crew Laborer</h3>
+                <p>Build dependable work habits and basic field competency.</p>
+              </div>
+
+              <div class="pay-range">$16–$18/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div class="level-column">
+                <h4>Core responsibilities</h4>
+
+                <ul class="check-list">
+                  <li>Arrive on time and prepared for weather and workload</li>
+                  <li>Wear required PPE without repeated reminders</li>
+                  <li>Drag brush and stage debris efficiently</li>
+                  <li>Move manageable wood using safe lifting practices</li>
+                  <li>Perform raking, blowing, and final cleanup</li>
+                  <li>Protect lawns, structures, vehicles, and landscaping</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <h4>Required behaviors</h4>
+
+                <ul class="check-list">
+                  <li>Follow instructions accurately</li>
+                  <li>Stay engaged without excessive idle time</li>
+                  <li>Communicate fatigue, heat stress, and hazards promptly</li>
+                  <li>Ask questions when instructions are unclear</li>
+                  <li>Maintain a respectful and professional attitude</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <div class="independence-box">
+                  <strong>Supervision level</strong>
+                  <p>
+                    Works under direct supervision and receives frequent task
+                    assignments throughout the day.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level-card">
+            <header class="level-header">
+              <div class="level-number">2</div>
+
+              <div class="level-title">
+                <h3>Ground Technician I</h3>
+                <p>Perform routine ground operations with growing consistency.</p>
+              </div>
+
+              <div class="pay-range">$18–$21/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div class="level-column">
+                <h4>Technical skills</h4>
+
+                <ul class="check-list">
+                  <li>Operate blowers, trimmers, and basic powered equipment</li>
+                  <li>Fuel and oil equipment correctly</li>
+                  <li>Inspect tools before and after use</li>
+                  <li>Recognize common jobsite hazards</li>
+                  <li>Use basic knots taught by crew leadership</li>
+                  <li>Stage tools and materials for efficient workflow</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <h4>Production expectations</h4>
+
+                <ul class="check-list">
+                  <li>Complete routine tasks without constant prompting</li>
+                  <li>Maintain a steady pace throughout the work period</li>
+                  <li>Notice obvious cleanup and organization needs</li>
+                  <li>Handle tools and materials without unnecessary damage</li>
+                  <li>Support more experienced crew members effectively</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <div class="independence-box">
+                  <strong>Supervision level</strong>
+                  <p>
+                    Receives clear assignments and can complete routine tasks
+                    with periodic check-ins.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level-card">
+            <header class="level-header">
+              <div class="level-number">3</div>
+
+              <div class="level-title">
+                <h3>Ground Technician II</h3>
+                <p>Become a productive and technically capable ground worker.</p>
+              </div>
+
+              <div class="pay-range">$21–$24/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div class="level-column">
+                <h4>Technical skills</h4>
+
+                <ul class="check-list">
+                  <li>Operate a chainsaw safely for routine ground cutting</li>
+                  <li>Identify kickback zones and dangerous cutting positions</li>
+                  <li>Recognize basic tension and compression</li>
+                  <li>Change, tension, clean, and inspect chains</li>
+                  <li>Perform basic hand filing with inspection afterward</li>
+                  <li>Use lowering lines under direct instruction</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <h4>Production expectations</h4>
+
+                <ul class="check-list">
+                  <li>Anticipate common next steps</li>
+                  <li>Organize brush and wood for efficient removal</li>
+                  <li>Maintain saw readiness during production</li>
+                  <li>Communicate clearly with climbers and sawyers</li>
+                  <li>Help prevent bottlenecks in cleanup and processing</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <div class="independence-box">
+                  <strong>Supervision level</strong>
+                  <p>
+                    Handles ordinary ground tasks independently but still
+                    requires direction for technical or unusual situations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level-card">
+            <header class="level-header">
+              <div class="level-number">4</div>
+
+              <div class="level-title">
+                <h3>Skilled Ground Technician</h3>
+                <p>Support advanced production with strong judgment and skill.</p>
+              </div>
+
+              <div class="pay-range">$24–$27/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div class="level-column">
+                <h4>Technical skills</h4>
+
+                <ul class="check-list">
+                  <li>Run ground saws competently and efficiently</li>
+                  <li>Sharpen chains to a reliable working standard</li>
+                  <li>Read tension, compression, bind, and likely movement</li>
+                  <li>Select the correct saw and cutting approach</li>
+                  <li>Understand common rigging terminology and commands</li>
+                  <li>Operate ropes smoothly under a climber's direction</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <h4>Production expectations</h4>
+
+                <ul class="check-list">
+                  <li>Keep production moving without repeated instruction</li>
+                  <li>Identify dull, damaged, or improperly functioning tools</li>
+                  <li>Direct less-experienced crew during routine work</li>
+                  <li>Recognize when a plan needs to pause or be reconsidered</li>
+                  <li>Maintain quality during physically demanding work</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <div class="independence-box">
+                  <strong>Supervision level</strong>
+                  <p>
+                    Requires only periodic direction during familiar work and
+                    can be trusted with important production responsibilities.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level-card featured">
+            <header class="level-header">
+              <div class="level-number">5</div>
+
+              <div class="level-title">
+                <h3>
+                  Lead Ground Technician
+                  <span class="featured-label">High leverage</span>
+                </h3>
+
+                <p>
+                  Increase company capacity by leading ground production.
+                </p>
+              </div>
+
+              <div class="pay-range">$27–$31/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div class="level-column">
+                <h4>Leadership skills</h4>
+
+                <ul class="check-list">
+                  <li>Read the work order and understand the job objective</li>
+                  <li>Set up tools, work zones, and equipment efficiently</li>
+                  <li>Direct ground operations while the climber is aloft</li>
+                  <li>Make sound routine decisions without owner approval</li>
+                  <li>Train newer workers in safe procedures</li>
+                  <li>Communicate professionally with clients when needed</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <h4>Business value</h4>
+
+                <ul class="check-list">
+                  <li>Can maintain production when the owner steps away</li>
+                  <li>Prevents avoidable damage, downtime, and wasted labor</li>
+                  <li>Recognizes equipment and material needs in advance</li>
+                  <li>Helps work remain within the planned labor budget</li>
+                  <li>Can complete portions of a job independently</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <div class="independence-box">
+                  <strong>Supervision level</strong>
+                  <p>
+                    Trusted to lead routine ground operations and maintain safe,
+                    profitable production without continuous owner presence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level-card">
+            <header class="level-header">
+              <div class="level-number">6</div>
+
+              <div class="level-title">
+                <h3>Crew Leader</h3>
+                <p>Run ordinary jobs safely, professionally, and profitably.</p>
+              </div>
+
+              <div class="pay-range">$31–$36/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div class="level-column">
+                <h4>Job leadership</h4>
+
+                <ul class="check-list">
+                  <li>Verify crew, tools, equipment, and job documentation</li>
+                  <li>Lead the job briefing and jobsite hazard assessment</li>
+                  <li>Assign roles based on experience and current conditions</li>
+                  <li>Track progress against scope and planned labor</li>
+                  <li>Handle routine client communication and concerns</li>
+                  <li>Complete documentation and end-of-job inspection</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <h4>Decision-making</h4>
+
+                <ul class="check-list">
+                  <li>Stop work when conditions become unsafe</li>
+                  <li>Escalate scope changes and major hazards to ownership</li>
+                  <li>Protect company equipment, reputation, and profitability</li>
+                  <li>Resolve ordinary workflow problems independently</li>
+                  <li>Hold crew members accountable to company standards</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <div class="independence-box">
+                  <strong>Supervision level</strong>
+                  <p>
+                    Can lead an ordinary job from arrival through completion
+                    with limited owner involvement.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="level-card">
+            <header class="level-header">
+              <div class="level-number">7</div>
+
+              <div class="level-title">
+                <h3>Climbing Arborist / Production Lead</h3>
+                <p>Generate revenue through advanced technical production.</p>
+              </div>
+
+              <div class="pay-range">$35–$45+/hr</div>
+            </header>
+
+            <div class="level-body">
+              <div class="level-column">
+                <h4>Technical capability</h4>
+
+                <ul class="check-list">
+                  <li>Perform appropriate pruning and removal operations</li>
+                  <li>Establish and evaluate climbing systems</li>
+                  <li>Use rigging systems within demonstrated competency</li>
+                  <li>Recognize structural defects and changing hazards</li>
+                  <li>Select suitable work methods for tree and site conditions</li>
+                  <li>Maintain current knowledge of arboricultural standards</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <h4>Business capability</h4>
+
+                <ul class="check-list">
+                  <li>Lead crews through complex production work</li>
+                  <li>Produce high-value work efficiently</li>
+                  <li>Identify additional legitimate client needs</li>
+                  <li>Explain recommendations professionally</li>
+                  <li>Protect the company's reputation and client relationships</li>
+                </ul>
+              </div>
+
+              <div class="level-column">
+                <div class="independence-box">
+                  <strong>Supervision level</strong>
+                  <p>
+                    Operates as a trusted technical leader capable of producing
+                    substantial revenue with broad independence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <p class="eyebrow">Standards that apply at every level</p>
+
+          <h2>Advancement requires more than technical skill</h2>
+        </div>
+
+        <div class="standards-grid">
+          <article class="standard-card">
+            <h3>Attendance and communication</h3>
+
+            <p>
+              Crew members are expected to report as scheduled, communicate
+              absences as early as reasonably possible, and provide honest
+              information about their readiness to perform assigned work.
+            </p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Fitness for duty</h3>
+
+            <p>
+              Crew members must report adequately rested, hydrated, nourished,
+              and physically able to perform assigned work safely. Health
+              concerns and heat-related symptoms must be reported immediately.
+            </p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Equipment care</h3>
+
+            <p>
+              Higher compensation requires greater trust. Careless damage,
+              neglected maintenance, lost tools, and misuse of equipment reduce
+              the value a crew member provides.
+            </p>
+          </article>
+
+          <article class="standard-card">
+            <h3>Client property and professionalism</h3>
+
+            <p>
+              Every crew member represents the company. Respectful conduct,
+              clean work practices, property protection, and professional
+              communication are required.
+            </p>
+          </article>
+
+          <article class="standard-card warning">
+            <h3>Unsafe speed is not productivity</h3>
+
+            <p>
+              Production is valuable only when it is controlled, repeatable,
+              and safe. Recklessness, unnecessary rushing, skipped PPE, and
+              concealed mistakes are grounds for corrective action.
+            </p>
+          </article>
+
+          <article class="standard-card warning">
+            <h3>Pay levels are not automatic</h3>
+
+            <p>
+              Possessing one advanced skill does not automatically place a crew
+              member at a higher level. Advancement reflects the complete role,
+              including judgment, reliability, safety, and independence.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="promotions">
+        <div class="promotion-box">
+          <div class="promotion-grid">
+            <div>
+              <p class="eyebrow" style="color: #d7bc75;">
+                Promotion process
+              </p>
+
+              <h2>How to advance to the next level</h2>
+
+              <p>
+                Promotions are based on demonstrated performance, not promises
+                or time alone. A crew member may ask for a development review
+                when they believe they are consistently performing at the next
+                level.
+              </p>
+
+              <ul class="check-list">
+                <li>Review the next level's responsibilities</li>
+                <li>Identify skills or behaviors that still need development</li>
+                <li>Demonstrate those abilities consistently on actual jobs</li>
+                <li>Complete a formal or informal competency review</li>
+                <li>Agree on expectations before a pay change takes effect</li>
+              </ul>
+            </div>
+
+            <aside class="review-card">
+              <h3>Evaluation areas</h3>
+
+              <p>
+                Advancement may consider safety, attendance, physical
+                readiness, technical skill, pace, quality, equipment care,
+                initiative, communication, judgment, leadership, and the
+                ability to work independently.
+              </p>
+
+              <p>
+                A temporary strong performance does not necessarily establish a
+                new pay level. The employee should show that the capability is
+                dependable and repeatable.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-header">
+          <p class="eyebrow">Development checklist</p>
+
+          <h2>Track the skills that increase your value</h2>
+
+          <p>
+            This checklist may be reviewed with a supervisor. Checking a box
+            alone does not certify competency; skills must be observed and
+            approved during actual work.
+          </p>
+        </div>
+
+        <div class="skill-table-wrap">
+          <table class="skill-table">
+            <thead>
+              <tr>
+                <th scope="col">Skill</th>
+                <th scope="col">Category</th>
+                <th scope="col">Typical level</th>
+                <th scope="col">Completed</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="skill-name">Uses required PPE correctly</td>
+                <td class="skill-category">Safety</td>
+                <td>
+                  <span class="badge badge-required">Required</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Uses required PPE correctly"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Performs pre-job hazard scan</td>
+                <td class="skill-category">Safety</td>
+                <td>
+                  <span class="badge badge-foundation">Foundation</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Performs pre-job hazard scan"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Reports heat illness symptoms promptly</td>
+                <td class="skill-category">Fitness for duty</td>
+                <td>
+                  <span class="badge badge-required">Required</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Reports heat illness symptoms promptly"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Stages brush and wood efficiently</td>
+                <td class="skill-category">Production</td>
+                <td>
+                  <span class="badge badge-foundation">Foundation</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Stages brush and wood efficiently"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Starts and handles a chainsaw safely</td>
+                <td class="skill-category">Saw operation</td>
+                <td>
+                  <span class="badge badge-foundation">Foundation</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Starts and handles a chainsaw safely"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Changes and tensions a chain</td>
+                <td class="skill-category">Equipment maintenance</td>
+                <td>
+                  <span class="badge badge-foundation">Foundation</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Changes and tensions a chain"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Sharpens a chain to working standard</td>
+                <td class="skill-category">Equipment maintenance</td>
+                <td>
+                  <span class="badge badge-skilled">Skilled</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Sharpens a chain to working standard"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Recognizes tension and compression</td>
+                <td class="skill-category">Saw judgment</td>
+                <td>
+                  <span class="badge badge-skilled">Skilled</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Recognizes tension and compression"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Recognizes likely piece movement</td>
+                <td class="skill-category">Saw judgment</td>
+                <td>
+                  <span class="badge badge-skilled">Skilled</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Recognizes likely piece movement"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Uses basic rigging terminology</td>
+                <td class="skill-category">Rigging support</td>
+                <td>
+                  <span class="badge badge-skilled">Skilled</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Uses basic rigging terminology"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Operates a lowering line smoothly</td>
+                <td class="skill-category">Rigging support</td>
+                <td>
+                  <span class="badge badge-skilled">Skilled</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Operates a lowering line smoothly"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Backs a trailer safely</td>
+                <td class="skill-category">Vehicle operations</td>
+                <td>
+                  <span class="badge badge-skilled">Skilled</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Backs a trailer safely"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Loads tools and materials correctly</td>
+                <td class="skill-category">Logistics</td>
+                <td>
+                  <span class="badge badge-skilled">Skilled</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Loads tools and materials correctly"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Directs routine ground operations</td>
+                <td class="skill-category">Leadership</td>
+                <td>
+                  <span class="badge badge-leadership">Leadership</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Directs routine ground operations"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Completes a jobsite safety analysis</td>
+                <td class="skill-category">Leadership and safety</td>
+                <td>
+                  <span class="badge badge-leadership">Leadership</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Completes a jobsite safety analysis"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Communicates professionally with clients</td>
+                <td class="skill-category">Client service</td>
+                <td>
+                  <span class="badge badge-leadership">Leadership</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Communicates professionally with clients"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Trains a newer crew member</td>
+                <td class="skill-category">Leadership</td>
+                <td>
+                  <span class="badge badge-leadership">Leadership</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Trains a newer crew member"
+                  >
+                </td>
+              </tr>
+
+              <tr>
+                <td class="skill-name">Runs an ordinary job independently</td>
+                <td class="skill-category">Crew leadership</td>
+                <td>
+                  <span class="badge badge-leadership">Leadership</span>
+                </td>
+                <td>
+                  <input
+                    class="status-checkbox"
+                    type="checkbox"
+                    aria-label="Runs an ordinary job independently"
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="policy-note">
+          <strong>Important:</strong>
+          Compensation reflects the complete value of the employee's role.
+          It is not calculated solely by comparing how much weight one person
+          can move, how fast one person can work for a brief period, or how long
+          someone has been with the company.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+    Field Operations Career Ladder and Crew Development Standards
+  </footer>
+</body>
+</html>

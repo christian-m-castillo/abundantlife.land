@@ -187,6 +187,94 @@
     .about-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
     .about-copy { font-size: 1.04rem; }
 
+    .about {
+      background: var(--white);
+    }
+
+    .about-copy {
+      font-size: 1.04rem;
+    }
+
+    .about-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1.35fr 1fr;
+      gap: .75rem;
+    }
+
+    .about-gallery figure {
+      position: relative;
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--green-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .about-gallery figure:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .about-gallery img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+    }
+
+    .about-gallery figure:first-child img {
+      min-height: 320px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .about-gallery figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 2.5rem 1rem .85rem;
+      color: var(--white);
+      background: linear-gradient(
+        to top,
+        rgba(2, 47, 2, .88),
+        rgba(2, 47, 2, 0)
+      );
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    @media (max-width: 850px) {
+      .about .split {
+        align-items: start;
+      }
+
+      .about-gallery {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .about-gallery {
+        gap: .55rem;
+      }
+
+      .about-gallery figure:first-child img {
+        min-height: 240px;
+      }
+
+      .about-gallery img {
+        min-height: 165px;
+      }
+
+      .about-gallery figcaption {
+        padding: 2rem .75rem .65rem;
+        font-size: .7rem;
+      }
+    }
+
     .contact { text-align: center; background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%); color: var(--white); }
     .contact h2 { color: var(--white); }
     .contact-copy { max-width: 680px; margin: 0 auto 1.5rem; color: rgba(255,255,255,.88); }
@@ -420,14 +508,77 @@
 
     <section class="section about" id="about" aria-labelledby="about-heading">
       <div class="wrap split">
-        <img class="about-image" src="./img/husband-and-wife-team-gardeners-landscape-design-installation.jpg" loading="lazy" decoding="async" alt="Christian and Christina of Abundant Life Land and Tree in an Oklahoma garden">
-        <div class="about-copy">
-          <p class="kicker">Locally owned</p>
-          <h2 id="about-heading">About Abundant Life</h2>
-          <p>We are Christian and Christina, a husband-and-wife <a href="./household/operating-page.html" target="_blank" rel="noopener">team</a> with a shared love of nature, faith, health, and caring for God&rsquo;s creation.</p>
-          <p>Christian performs the technical fieldwork and specializes in arboriculture. Christina brings a grounding in design and horticulture. Together, we approach trees and landscapes as living systems worth understanding and tending well.</p>
-          <p>Our aim is practical: improve safety, preserve what is valuable, and leave each property healthier and more beautiful than we found it.</p>
+    
+        <div
+          class="about-gallery"
+          aria-label="Abundant Life family, crew, and fieldwork"
+        >
+          <figure>
+            <img
+              src="./img/husband-and-wife-team-gardeners-landscape-design-installation.jpg"
+              loading="lazy"
+              decoding="async"
+              alt="Christian and Christina Castillo of Abundant Life Land and Tree in an Oklahoma garden"
+            >
+            <figcaption>Family-owned and rooted in stewardship</figcaption>
+          </figure>
+    
+          <figure>
+            <img
+              src="./img/arborist-removing-decayed-bur-oak-tree-in-oklahoma.jpeg"
+              loading="lazy"
+              decoding="async"
+              alt="Abundant Life arborist and groundsman completing technical tree work over a fenced pool"
+            >
+            <figcaption>Owner-led, crew-supported tree work</figcaption>
+          </figure>
+    
+          <figure>
+            <img
+              src="./img/arborist-smiling-in-a-hackberry-tree.jpg"
+              loading="lazy"
+              decoding="async"
+              alt="Christian Castillo positioned in the canopy of a mature hackberry tree"
+            >
+            <figcaption>Hands-on climbing and arboriculture</figcaption>
+          </figure>
         </div>
+    
+        <div class="about-copy">
+          <p class="kicker">Family-owned • Veteran-owned • Owner-led</p>
+          <h2 id="about-heading">About Abundant Life Land & Tree</h2>
+    
+          <p>
+            Abundant Life Land & Tree is an arboriculture and land stewardship company serving
+            Edmond and nearby Oklahoma City. What began as broad residential
+            landscape care has grown into the work we are best equipped to do:
+            mature-tree pruning, technical removals, practical assessments, and
+            thoughtful care for complex properties.
+          </p>
+    
+          <p>
+            Owner Christian Castillo personally leads each project from the initial
+            assessment through the fieldwork. He works alongside a capable tree crew
+            using professional climbing and rigging systems, with an approach shaped
+            by hands-on experience, continued study, and mentorship from veteran
+            arborists.
+          </p>
+    
+          <p>
+            Our horticultural roots remain central to the company. We understand
+            trees as part of a larger living landscape—including soil, gardens,
+            native habitat, woodlands, and the people who enjoy them. This helps us
+            preserve what is valuable, address genuine hazards, and make decisions
+            that serve the property for years to come.
+          </p>
+    
+          <p>
+            We remain intentionally small and grounded in faith, honesty,
+            craftsmanship, and responsible stewardship. Every property receives
+            careful judgment rather than a one-size-fits-all prescription.
+          </p>
+        </div>
+    
       </div>
     </section>
 

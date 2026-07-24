@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Invoice ALT-2026-0724-JL | Abundant Life Land &amp; Tree</title>
+  <style>
+    :root {
+      --green: #035c03;
+      --green-mid: #207c28;
+      --green-soft: #e8f2e7;
+      --brown: #56452e;
+      --sand: #eec68a;
+      --cream: #fbf8f1;
+      --white: #fff;
+      --ink: #333;
+      --muted: #665f55;
+      --line: #d8d3c8;
+      --shadow: 0 14px 40px rgba(51, 51, 51, .12);
+      --radius: 18px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: light;
+    }
+
+    body {
+      margin: 0;
+      padding: clamp(1rem, 4vw, 3.5rem);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(238, 198, 138, .22), transparent 28rem),
+        var(--cream);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .invoice {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      height: 10px;
+      background: linear-gradient(90deg, var(--green), var(--green-mid));
+    }
+
+    .invoice-inner {
+      padding: clamp(1.4rem, 5vw, 4rem);
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(250px, .75fr);
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 2.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 .65rem;
+      color: var(--green-mid);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .brand {
+      max-width: 500px;
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(1.65rem, 4vw, 2.65rem);
+      font-weight: 800;
+      letter-spacing: -.035em;
+      line-height: 1.04;
+    }
+
+    .tagline {
+      max-width: 530px;
+      margin: .9rem 0 .75rem;
+      color: var(--muted);
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem 1rem;
+      margin: 0;
+      color: var(--green);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .invoice-title {
+      margin: 0 0 1rem;
+      color: var(--green);
+      font-size: clamp(2.25rem, 7vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: .9;
+      text-align: right;
+    }
+
+    .meta {
+      margin: 0;
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: end;
+      gap: .3rem 1rem;
+      font-size: .92rem;
+    }
+
+    .meta dt {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .meta dd {
+      margin: 0;
+      text-align: right;
+    }
+
+    .summary {
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border: 1px solid #c8d9c6;
+      border-radius: 14px;
+      background: var(--green-soft);
+    }
+
+    .summary section {
+      min-width: 0;
+      padding: 1.15rem 1.3rem;
+    }
+
+    .summary section + section {
+      border-left: 1px solid #c8d9c6;
+    }
+
+    .label {
+      margin: 0 0 .35rem;
+      color: var(--green);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .summary p:last-child {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      padding: .9rem 1rem;
+      color: var(--white);
+      background: var(--green);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    th:last-child,
+    td:last-child {
+      text-align: right;
+    }
+
+    td {
+      padding: .86rem 1rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fafbf9;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .date {
+      width: 90px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .amount {
+      width: 120px;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .payment {
+      color: var(--green-mid);
+    }
+
+    .balance {
+      margin-top: 1.25rem;
+      padding: 1.2rem 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(1rem, 5vw, 3rem);
+      border-radius: 14px;
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .balance span {
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .balance strong {
+      font-size: clamp(1.85rem, 5vw, 2.65rem);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: end;
+    }
+
+    .note {
+      max-width: 630px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .print-button {
+      min-height: 48px;
+      padding: .72rem 1.15rem;
+      border: 2px solid var(--green);
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--green);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .print-button:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+    }
+
+    .print-button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--sand);
+      outline-offset: 4px;
+    }
+
+    .verse {
+      margin: 2.5rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--brown);
+      font-size: .78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: .65rem;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+      }
+
+      .invoice-title {
+        text-align: left;
+      }
+
+      .meta {
+        justify-content: start;
+      }
+
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      .summary section + section {
+        border-top: 1px solid #c8d9c6;
+        border-left: 0;
+      }
+
+      th,
+      td {
+        padding: .78rem .7rem;
+      }
+
+      .footer {
+        grid-template-columns: 1fr;
+      }
+
+      .print-button {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      @page {
+        size: letter;
+        margin: .38in;
+      }
+
+      body {
+        padding: 0;
+        background: var(--white);
+        font-size: 11px;
+        line-height: 1.28;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .invoice {
+        width: 100%;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .invoice-inner {
+        padding: .25in .3in;
+      }
+
+      .header {
+        grid-template-columns: 1.25fr .75fr;
+        gap: .25in;
+        padding-bottom: .18in;
+      }
+
+      .brand {
+        font-size: 24px;
+      }
+
+      .invoice-title {
+        font-size: 40px;
+      }
+
+      .tagline {
+        margin: .08in 0;
+      }
+
+      .summary {
+        grid-template-columns: 1fr 1fr;
+        margin: .18in 0;
+      }
+
+      .summary section {
+        padding: .1in .14in;
+      }
+
+      th,
+      td {
+        padding: .075in .1in;
+      }
+
+      .balance {
+        margin-top: .12in;
+        padding: .12in .15in;
+      }
+
+      .balance strong {
+        font-size: 24px;
+      }
+
+      .footer {
+        margin-top: .16in;
+      }
+
+      .print-button {
+        display: none;
+      }
+
+      .verse {
+        margin-top: .18in;
+        padding-top: .08in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="invoice" aria-labelledby="invoice-title">
+    <div class="topbar"></div>
+    <div class="invoice-inner">
+      <header class="header">
+        <section>
+          <p class="eyebrow">Arborist-led tree &amp; estate care</p>
+          <h1 class="brand">Abundant Life<br>Land &amp; Tree LLC</h1>
+          <p class="tagline">Thoughtful care for trees, landscapes, and the long-term character of your property.</p>
+          <p class="contact">
+            <a href="tel:+14059531285">405-953-1285</a>
+            <a href="mailto:abundant.life.land@gmail.com">abundant.life.land@gmail.com</a>
+            <a href="https://abundantlife.land/">abundantlife.land</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="invoice-title" id="invoice-title">Invoice</h2>
+          <dl class="meta">
+            <dt>Invoice</dt>
+            <dd>ALT-2026-0724-JL</dd>
+            <dt>Invoice date</dt>
+            <dd>July 24, 2026</dd>
+            <dt>Payment due</dt>
+            <dd>Upon receipt</dd>
+          </dl>
+        </section>
+      </header>
+
+      <div class="summary">
+        <section>
+          <p class="label">Bill to</p>
+          <p>John Lewis</p>
+        </section>
+        <section>
+          <p class="label">Service period</p>
+          <p>July 19-23, 2026</p>
+        </section>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="date">07/19</td>
+              <td>Groundskeeping - mowing, trimming, and blowing</td>
+              <td class="amount">$135.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/21</td>
+              <td>Lacebark elm removal and brush cleanup</td>
+              <td class="amount">$900.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/21</td>
+              <td>Payment received - thank you</td>
+              <td class="amount payment">-$900.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/22</td>
+              <td>Brush processing and haul-off</td>
+              <td class="amount">$780.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/22</td>
+              <td>Trailer rental</td>
+              <td class="amount">$51.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/22</td>
+              <td>Compost site dump fee</td>
+              <td class="amount">$65.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/23</td>
+              <td>Arborist labor - eastern redcedar removal and processing</td>
+              <td class="amount">$765.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/23</td>
+              <td>Helper labor - eastern redcedar removal and processing</td>
+              <td class="amount">$170.00</td>
+            </tr>
+            <tr>
+              <td class="date">07/23</td>
+              <td>Compost site fees</td>
+              <td class="amount">$130.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="balance" aria-label="Balance due">
+        <span>Balance due</span>
+        <strong>$2,096.00</strong>
+      </section>
+
+      <footer class="footer">
+        <p class="note">
+          Thank you for trusting Abundant Life Land &amp; Tree with the ongoing care of your property.
+          Please reference invoice ALT-2026-0724-JL with payment.
+        </p>
+        <button class="print-button" type="button" onclick="window.print()">Print invoice</button>
+      </footer>
+
+    
+    </div>
+  </main>
+</body>
+</html>

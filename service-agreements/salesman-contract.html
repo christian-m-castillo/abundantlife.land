@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tree Service Agreement | Abundant Life Land &amp; Tree</title>
+  <style>
+    :root {
+      --green: #035c03;
+      --green-mid: #207c28;
+      --green-soft: #e8f2e7;
+      --brown: #56452e;
+      --sand: #eec68a;
+      --cream: #fbf8f1;
+      --white: #fff;
+      --ink: #333;
+      --muted: #665f55;
+      --line: #d8d3c8;
+      --shadow: 0 14px 40px rgba(51, 51, 51, .12);
+      --radius: 18px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.52;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--green);
+      line-height: 1.12;
+    }
+    h1 { font-size: clamp(2rem, 7vw, 3.7rem); letter-spacing: -.045em; }
+    h2 { margin-bottom: 1rem; font-size: 1.45rem; letter-spacing: -.02em; }
+    h3 { margin-bottom: .45rem; font-size: 1rem; }
+    p { margin: 0 0 .85rem; }
+    small { color: var(--muted); }
+
+    .page {
+      width: min(calc(100% - 1.5rem), 980px);
+      margin: 2rem auto;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .masthead {
+      padding: clamp(1.6rem, 5vw, 3rem);
+      color: var(--white);
+      background: var(--green);
+    }
+    .masthead h1 { color: var(--white); }
+    .eyebrow {
+      margin-bottom: .65rem;
+      color: var(--sand);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .masthead-grid {
+      display: grid;
+      grid-template-columns: 1.5fr .8fr;
+      gap: 2rem;
+      align-items: end;
+    }
+    .company-details {
+      color: rgba(255,255,255,.9);
+      font-size: .88rem;
+      text-align: right;
+    }
+    .company-details strong { color: var(--white); }
+
+    form { padding: clamp(1.25rem, 4vw, 2.6rem); }
+    section {
+      margin-bottom: 1.25rem;
+      padding: clamp(1rem, 3vw, 1.5rem);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .soft { background: var(--green-soft); }
+    .brown {
+      color: var(--white);
+      border-color: var(--brown);
+      background: var(--brown);
+    }
+    .brown h2, .brown h3 { color: var(--white); }
+    .brown small { color: rgba(255,255,255,.78); }
+
+    .grid { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .field { min-width: 0; }
+    .field-wide { grid-column: 1 / -1; }
+    label, legend {
+      display: block;
+      margin-bottom: .35rem;
+      color: var(--brown);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .brown label { color: var(--sand); }
+    input, textarea, select {
+      width: 100%;
+      min-height: 44px;
+      padding: .65rem .75rem;
+      border: 1px solid #bdb7aa;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--white);
+      font: inherit;
+    }
+    textarea { min-height: 106px; resize: vertical; }
+    .scope { min-height: 180px; }
+    input:focus, textarea:focus, select:focus {
+      outline: 3px solid rgba(238,198,138,.75);
+      border-color: var(--green);
+    }
+    input[type="checkbox"] {
+      width: 1.1rem;
+      min-height: auto;
+      height: 1.1rem;
+      margin: .15rem 0 0;
+      accent-color: var(--green);
+    }
+    .check {
+      display: grid;
+      grid-template-columns: 1.2rem 1fr;
+      gap: .55rem;
+      align-items: start;
+      margin-bottom: .55rem;
+      color: var(--ink);
+      font-size: .92rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .brown .check { color: var(--white); }
+
+    .price {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .terms {
+      columns: 2;
+      column-gap: 2rem;
+      font-size: .84rem;
+    }
+    .term { margin: 0 0 1rem; break-inside: avoid; }
+    .term p { margin: 0; color: var(--muted); }
+    .brown .term p { color: rgba(255,255,255,.88); }
+
+    .notice {
+      padding: 1rem;
+      border-left: 5px solid var(--sand);
+      background: #fff8e8;
+      font-size: .88rem;
+    }
+    .signature-note { margin-top: .8rem; color: var(--muted); font-size: .82rem; }
+    .controls {
+      position: sticky;
+      z-index: 10;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      padding: 1rem;
+      border-top: 1px solid var(--line);
+      background: rgba(251,248,241,.96);
+      backdrop-filter: blur(10px);
+    }
+    button {
+      min-height: 46px;
+      padding: .7rem 1.05rem;
+      border: 2px solid var(--green);
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--green);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    button.secondary { color: var(--green); background: var(--white); }
+    button:hover { background: var(--green-mid); color: var(--white); }
+
+    .cancellation-form {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 2px dashed var(--muted);
+    }
+    .cancel-copy {
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .print-only { display: none; }
+
+    @media (max-width: 720px) {
+      .masthead-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .company-details { text-align: left; }
+      .terms { columns: 1; }
+      .controls { flex-wrap: wrap; }
+    }
+
+    @media print {
+      @page { size: letter; margin: .42in; }
+      body { background: var(--white); font-size: 10.5pt; }
+      .page {
+        width: 100%;
+        margin: 0;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .masthead { padding: .35in; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      form { padding: .25in 0 0; }
+      section { margin-bottom: .12in; padding: .18in; break-inside: avoid; }
+      .controls, .screen-only { display: none !important; }
+      .print-only { display: block; }
+      input, textarea, select {
+        min-height: 28px;
+        padding: .25rem .35rem;
+        border-color: #777;
+      }
+      textarea { min-height: 58px; }
+      .scope { min-height: 105px; }
+      .cancellation-form { break-before: page; border-top: 0; }
+      .cancel-copy { min-height: 9.3in; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="masthead-grid">
+        <div>
+          <div class="eyebrow">Arborist-led tree care</div>
+          <h1>Tree Service Agreement</h1>
+        </div>
+        <div class="company-details">
+          <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+          Edmond &bull; Oklahoma City<br>
+          405-953-1285<br>
+          abundant.life.land@gmail.com<br>
+          abundantlife.land
+        </div>
+      </div>
+    </header>
+
+    <form id="agreement">
+      <section class="soft">
+        <h2>Property &amp; client</h2>
+        <div class="grid grid-2">
+          <div class="field">
+            <label for="agreement-date">Agreement date</label>
+            <input id="agreement-date" name="agreement-date" type="date">
+          </div>
+          <div class="field">
+            <label for="client-name">Client name</label>
+            <input id="client-name" name="client-name" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="client-phone">Phone</label>
+            <input id="client-phone" name="client-phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="client-email">Email</label>
+            <input id="client-email" name="client-email" type="email" autocomplete="email">
+          </div>
+          <div class="field field-wide">
+            <label for="sold-by">Prepared by</label>
+            <input id="sold-by" name="sold-by">
+          </div>
+          <div class="field field-wide">
+            <label for="service-address">Service address</label>
+            <input id="service-address" name="service-address" autocomplete="street-address">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Work authorized</h2>
+        <div class="field">
+          <label for="scope">Exact scope of work</label>
+          <textarea class="scope" id="scope" name="scope" placeholder="Identify each tree by location/species where practical. State exactly what will be pruned or removed, the intended objective, cleanup limits, stump treatment, and wood disposition."></textarea>
+        </div>
+        <div class="grid grid-2">
+          <div class="field">
+            <label for="included">Specifically included</label>
+            <textarea id="included" name="included" placeholder="Example: brush chipped and hauled; logs hauled; roof and driveway blown clean."></textarea>
+          </div>
+          <div class="field">
+            <label for="excluded">Specifically excluded</label>
+            <textarea id="excluded" name="excluded" placeholder="Example: stump grinding, firewood cutting/stacking, haul-off of pre-existing debris, lawn repair."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="soft">
+        <h2>Job selections</h2>
+        <div class="grid grid-2">
+          <div>
+            <h3>Debris &amp; wood</h3>
+            <label class="check"><input type="checkbox" name="debris" value="haul"><span>Brush and wood hauled from property</span></label>
+            <label class="check"><input type="checkbox" name="debris" value="wood-stays"><span>Wood left on site in manageable lengths</span></label>
+            <label class="check"><input type="checkbox" name="debris" value="brush-stays"><span>Brush/chips left on site</span></label>
+            <label class="check"><input type="checkbox" name="debris" value="other"><span>Other arrangement stated in scope</span></label>
+          </div>
+          <div>
+            <h3>Stump treatment</h3>
+            <label class="check"><input type="checkbox" name="stump" value="none"><span>No stump grinding included</span></label>
+            <label class="check"><input type="checkbox" name="stump" value="grind"><span>Grind stump(s) to approximately 6–8 inches below grade</span></label>
+            <label class="check"><input type="checkbox" name="stump" value="chips"><span>Grinding debris left on site</span></label>
+            <label class="check"><input type="checkbox" name="stump" value="remove-chips"><span>Grinding debris removed; rough backfill included</span></label>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Investment &amp; payment</h2>
+        <div class="grid grid-3">
+          <div class="field">
+            <label for="contract-price">Contract price</label>
+            <input class="price" id="contract-price" name="contract-price" inputmode="decimal" placeholder="$0.00">
+          </div>
+          <div class="field">
+            <label for="deposit">Deposit due</label>
+            <input id="deposit" name="deposit" inputmode="decimal" placeholder="$0.00">
+          </div>
+          <div class="field">
+            <label for="balance">Balance due</label>
+            <input id="balance" name="balance" inputmode="decimal" placeholder="$0.00">
+          </div>
+          <div class="field">
+            <label for="payment-method">Payment method</label>
+            <select id="payment-method" name="payment-method">
+              <option value="">Select</option>
+              <option>Check</option>
+              <option>Cash</option>
+              <option>Electronic payment</option>
+              <option>Card</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="valid-through">Price valid through</label>
+            <input id="valid-through" name="valid-through" type="date">
+          </div>
+          <div class="field">
+            <label for="requested-window">Requested timing</label>
+            <input id="requested-window" name="requested-window" placeholder="Scheduling target; not a guarantee">
+          </div>
+        </div>
+        <p class="signature-note">Unless a different schedule is written above, any deposit is due upon acceptance and the remaining balance is due upon completion of the contracted work.</p>
+      </section>
+
+      <section class="brown">
+        <h2>Agreement terms</h2>
+        <div class="terms">
+          <div class="term">
+            <h3>1. Defined scope</h3>
+            <p>Only the work specifically described in this agreement is included. Representations, discussions, photographs, and assumptions not written here do not expand the scope.</p>
+          </div>
+          <div class="term">
+            <h3>2. Changes</h3>
+            <p>Additional or revised work requires the client’s authorization and may change the price and schedule. Authorization may be documented by signed change order, text, or email.</p>
+          </div>
+          <div class="term">
+            <h3>3. Site access</h3>
+            <p>The client will provide reasonable access for personnel and equipment, keep people and pets clear of the work zone, and disclose gates, septic systems, irrigation, invisible fencing, private utilities, and other concealed conditions.</p>
+          </div>
+          <div class="term">
+            <h3>4. Utilities &amp; concealed conditions</h3>
+            <p>Public utility locating does not identify private lines. The company is not responsible for undisclosed or unmarked private improvements, hidden objects, decay, embedded metal, unstable soil, or other conditions that could not reasonably be observed before work.</p>
+          </div>
+          <div class="term">
+            <h3>5. Tree response</h3>
+            <p>Tree work is performed with reasonable professional care, but trees are living organisms. No guarantee is made regarding survival, future health, storm resistance, absence of decay, or elimination of all risk.</p>
+          </div>
+          <div class="term">
+            <h3>6. Pruning limits</h3>
+            <p>Final cuts and pruning extent may be adjusted in the field to protect tree health, comply with safe practice, avoid excessive canopy loss, and respond to defects visible only after access is gained.</p>
+          </div>
+          <div class="term">
+            <h3>7. Lawn &amp; property effects</h3>
+            <p>Reasonable care will be used, but tree work may cause incidental impressions, ruts, sawdust, chips, small divots, or disturbance to turf and planting beds. Repair is included only when expressly stated in the scope.</p>
+          </div>
+          <div class="term">
+            <h3>8. Weather &amp; scheduling</h3>
+            <p>Work is subject to weather, ground conditions, crew safety, equipment, utility clearance, and prior commitments. Dates are estimates unless this agreement expressly states otherwise.</p>
+          </div>
+          <div class="term">
+            <h3>9. Suspension</h3>
+            <p>The company may pause or stop work when conditions are unsafe, the scope materially differs from what was represented, access is unavailable, or payment obligations are not met. Completed work and committed costs remain payable.</p>
+          </div>
+          <div class="term">
+            <h3>10. Ownership &amp; authority</h3>
+            <p>The client represents that they own the property or have authority to approve the work and identifies property lines and trees correctly. The client is responsible for permissions involving neighbors, shared trees, easements, or associations.</p>
+          </div>
+          <div class="term">
+            <h3>11. Payment</h3>
+            <p>Payment is due as stated above. The client is responsible for lawful collection costs incurred on an unpaid balance. No withholding or offset may be made for work outside the written scope.</p>
+          </div>
+          <div class="term">
+            <h3>12. Entire agreement</h3>
+            <p>This agreement, including written selections and approved changes, contains the complete understanding of the parties. If one provision is unenforceable, the remaining provisions continue in effect. Oklahoma law governs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Special instructions</h2>
+        <textarea id="special-instructions" name="special-instructions" placeholder="Access instructions, protected plants or structures, neighbors, gates, parking, utility information, scheduling constraints, or other job-specific terms."></textarea>
+      </section>
+
+      <section class="soft">
+        <h2>Authorization</h2>
+        <p>By signing, the client authorizes Abundant Life Land &amp; Tree LLC to perform the written scope, confirms the selections above, and agrees to the price and terms of this agreement.</p>
+        <div class="grid grid-2">
+          <div class="field">
+            <label for="client-signature">Client signature</label>
+            <input id="client-signature" name="client-signature" placeholder="Sign after printing or type full legal name">
+          </div>
+          <div class="field">
+            <label for="client-signature-date">Date</label>
+            <input id="client-signature-date" name="client-signature-date" type="date">
+          </div>
+          <div class="field">
+            <label for="company-signature">For Abundant Life Land &amp; Tree LLC</label>
+            <input id="company-signature" name="company-signature" placeholder="Authorized representative">
+          </div>
+          <div class="field">
+            <label for="company-signature-date">Date</label>
+            <input id="company-signature-date" name="company-signature-date" type="date">
+          </div>
+        </div>
+        <p class="signature-note">Typed names are intended as signatures only when this document is transmitted and accepted electronically by the person named.</p>
+      </section>
+    <div class="controls">
+      <button type="button" onclick="window.print()">Print / Save PDF</button>
+      <button class="secondary" type="button" id="clear-form">Clear saved copy</button>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('agreement');
+    const storageKey = 'abundant-life-tree-service-agreement-v1';
+
+    function serializeForm() {
+      const data = {};
+      for (const element of form.elements) {
+        if (!element.name) continue;
+        if (element.type === 'checkbox') {
+          data[element.name + ':' + element.value] = element.checked;
+        } else {
+          data[element.name] = element.value;
+        }
+      }
+      return data;
+    }
+
+    function restoreForm() {
+      const saved = localStorage.getItem(storageKey);
+      if (!saved) return;
+      const data = JSON.parse(saved);
+      for (const element of form.elements) {
+        if (!element.name) continue;
+        const key = element.type === 'checkbox'
+          ? element.name + ':' + element.value
+          : element.name;
+        if (!(key in data)) continue;
+        if (element.type === 'checkbox') element.checked = data[key];
+        else element.value = data[key];
+      }
+    }
+
+    form.addEventListener('input', () => {
+      localStorage.setItem(storageKey, JSON.stringify(serializeForm()));
+    });
+
+    document.getElementById('clear-form').addEventListener('click', () => {
+      if (!confirm('Clear every field and delete the locally saved copy?')) return;
+      form.reset();
+      localStorage.removeItem(storageKey);
+    });
+
+    restoreForm();
+  </script>
+</body>
+</html>

@@ -140,6 +140,11 @@
     .button-outline { border-color: rgba(255,255,255,.75); background: transparent; color: var(--white); }
     .button-outline:hover { background: rgba(255,255,255,.12); }
 
+    .phone-number {
+      letter-spacing: .075rem;
+      margin-left: 0.3rem;
+    }
+
     .trust-strip { background: var(--green); color: var(--white); }
     .trust-list { min-height: 74px; margin: 0; padding: 1rem 0; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; gap: 1rem; list-style: none; text-align: center; font-size: .9rem; font-weight: 800; }
     .trust-list li + li { border-left: 1px solid rgba(255,255,255,.3); }
@@ -147,7 +152,7 @@
     .section { padding-block: clamp(4.5rem, 9vw, 8rem); }
     .section-heading { max-width: 760px; margin-bottom: 2.2rem; }
     .section-heading p { color: var(--muted); font-size: 1.08rem; }
-    .kicker { margin-bottom: .65rem; color: var(--green-mid); font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .kicker { margin-bottom: .65rem; color: white; font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
 
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
     .service-card {
@@ -347,7 +352,7 @@
         <h1 id="hero-heading">Arborist-Led Tree &amp; Estate Care</h1>
         <p class="hero-copy">Technical tree removal, mature-tree pruning, thoughtful assessments, and long-term landscape stewardship where judgment and precision matter.</p>
         <div class="hero-actions">
-          <a class="button button-light" href="tel:14059531285">Call 405-953-1285</a>
+          <a class="button button-light" href="tel:14059531285"><span class="phone-number">405-953-1285</span></a>
           <a class="button button-outline" href="#contact">Request an Assessment</a>
         </div>
       </div>
@@ -588,7 +593,7 @@
         <h2 id="contact-heading">Tell us what is happening on your property</h2>
         <p class="contact-copy">Call or email with the location, your main concern, and a few photographs if available. We will help determine the most useful next step.</p>
         <div class="contact-links">
-          <a class="button button-light" href="tel:14059531285">405-953-1285</a>
+          <a class="button button-light" href="tel:14059531285"><span class="phone-number">405-953-1285</span></a>
           <a class="button button-outline" href="mailto:abundant.life.land@gmail.com">Send an Email</a>
         </div>
       </div>

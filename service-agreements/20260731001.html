@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tree Removal Service Agreement</title>
+
+  <style>
+    :root {
+      --forest: #244734;
+      --forest-dark: #173325;
+      --sage: #728c78;
+      --cream: #f7f5ee;
+      --gold: #ba9653;
+      --ink: #202722;
+      --muted: #5f6862;
+      --border: #cfd6cf;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      background: #e9ece8;
+      color: var(--ink);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .agreement {
+      width: 100%;
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--white);
+      border-top: 8px solid var(--forest);
+      box-shadow: 0 10px 35px rgba(20, 40, 28, 0.12);
+    }
+
+    .document-inner {
+      padding: 44px 52px 50px;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 28px;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .logo-box {
+      width: 150px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo-box img {
+      display: block;
+      max-width: 135px;
+      max-height: 105px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-placeholder {
+      padding: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .company-name {
+      margin: 0 0 6px;
+      color: var(--forest-dark);
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .company-tagline {
+      margin: 0 0 14px;
+      color: var(--sage);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .company-details {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .document-title {
+      margin: 34px 0 6px;
+      color: var(--forest-dark);
+      font-size: 25px;
+      line-height: 1.15;
+      text-align: center;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .document-subtitle {
+      margin: 0 0 30px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+      margin-bottom: 28px;
+      padding: 20px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+    }
+
+    .field {
+      min-height: 44px;
+    }
+
+    .field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--forest);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .field-line {
+      min-height: 22px;
+      border-bottom: 1px solid #777f79;
+    }
+
+    .section {
+      margin-top: 30px;
+    }
+
+    .section-title {
+      margin: 0 0 13px;
+      padding-bottom: 7px;
+      color: var(--forest-dark);
+      font-size: 17px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section p {
+      margin: 0 0 12px;
+    }
+
+    .section ul {
+      margin: 8px 0 14px 22px;
+      padding: 0;
+    }
+
+    .section li {
+      margin-bottom: 7px;
+    }
+
+    .scope-item {
+      margin: 14px 0;
+      padding: 15px 17px;
+      border-left: 4px solid var(--sage);
+      background: #fafbf8;
+    }
+
+    .scope-item h3 {
+      margin: 0 0 7px;
+      color: var(--forest);
+      font-size: 14px;
+    }
+
+    .price-box {
+      margin: 32px 0;
+      padding: 24px;
+      color: var(--white);
+      background: var(--forest);
+      text-align: center;
+    }
+
+    .price-label {
+      margin-bottom: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .price-note {
+      margin-top: 8px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .checkbox-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 10px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
+
+    .checkbox {
+      flex: 0 0 auto;
+      width: 15px;
+      height: 15px;
+      margin-top: 2px;
+      border: 1.5px solid var(--forest);
+    }
+
+    .note-box {
+      min-height: 75px;
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          #ffffff,
+          #ffffff 23px,
+          #dde2dd 24px
+        );
+    }
+
+    .acceptance {
+      margin-top: 34px;
+      padding: 22px;
+      border: 2px solid var(--forest);
+      background: #fbfcf9;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-top: 34px;
+    }
+
+    .signature-block {
+      min-height: 120px;
+    }
+
+    .signature-line {
+      margin-top: 42px;
+      border-bottom: 1px solid #4e5751;
+    }
+
+    .signature-label {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .date-line {
+      width: 55%;
+      margin-top: 24px;
+      border-bottom: 1px solid #4e5751;
+    }
+
+    .footer {
+      padding: 16px 52px;
+      color: var(--white);
+      background: var(--forest-dark);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .small-print {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 0;
+        background: var(--white);
+      }
+
+      .agreement {
+        box-shadow: none;
+      }
+
+      .document-inner {
+        padding: 28px 22px 36px;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .logo-box {
+        margin: 0 auto;
+      }
+
+      .info-grid,
+      .signature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full-width {
+        grid-column: auto;
+      }
+
+      .footer {
+        padding: 16px 22px;
+      }
+    }
+
+    @media print {
+  @page {
+    size: letter;
+    margin: 0.55in 0.55in 0.6in;
+  }
+
+  html,
+  body {
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  body {
+    color: #000000;
+    font-size: 10.5pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .agreement {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    border-top: 5px solid var(--forest);
+    box-shadow: none;
+  }
+
+  .document-inner {
+    padding: 0.22in 0.18in 0.25in;
+  }
+
+  /*
+    Avoid treating every section as one unbreakable block.
+    This is the main pagination fix.
+  */
+  .section {
+    margin-top: 16px;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  /*
+    Keep headings with at least some of the content that follows.
+  */
+  .section-title,
+  .scope-item h3 {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 13px;
+    border-bottom: 2px solid var(--gold);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .logo-box {
+    width: 105px;
+    height: 78px;
+  }
+
+  .logo-box img {
+    max-width: 96px;
+    max-height: 72px;
+  }
+
+  .company-name {
+    margin-bottom: 4px;
+    font-size: 19pt;
+  }
+
+  .company-tagline {
+    margin-bottom: 7px;
+    font-size: 8.5pt;
+  }
+
+  .company-details {
+    font-size: 8.5pt;
+    line-height: 1.4;
+  }
+
+  .document-title {
+    margin: 17px 0 3px;
+    font-size: 17pt;
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  .document-subtitle {
+    margin-bottom: 14px;
+    font-size: 9.5pt;
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  .info-grid {
+    margin-bottom: 15px;
+    padding: 11px 13px;
+    gap: 7px 16px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .field {
+    min-height: 31px;
+  }
+
+  .field-label {
+    margin-bottom: 2px;
+    font-size: 7.5pt;
+  }
+
+  .field-line {
+    min-height: 17px;
+  }
+
+  .section-title {
+    margin: 0 0 7px;
+    padding-bottom: 4px;
+    font-size: 12pt;
+  }
+
+  .section p {
+    margin-bottom: 7px;
+  }
+
+  .section ul {
+    margin: 5px 0 8px 18px;
+  }
+
+  .section li {
+    margin-bottom: 4px;
+  }
+
+  /*
+    These boxes are compact enough that they should remain intact.
+    If one becomes much longer later, remove this rule from that box.
+  */
+  .scope-item {
+    margin: 8px 0;
+    padding: 8px 10px;
+    border-left-width: 3px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .scope-item h3 {
+    margin-bottom: 4px;
+    font-size: 10.5pt;
+  }
+
+  .price-box {
+    margin: 15px 0;
+    padding: 11px;
+    background: var(--forest);
+    color: #ffffff;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .price-label {
+    font-size: 8pt;
+  }
+
+  .price {
+    font-size: 22pt;
+  }
+
+  .price-note {
+    margin-top: 4px;
+    font-size: 8pt;
+  }
+
+  .checkbox-list {
+    gap: 5px;
+    margin-top: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .checkbox {
+    width: 12px;
+    height: 12px;
+  }
+
+  .note-box {
+    min-height: 48px;
+    margin-top: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /*
+    Start the acceptance and signatures on a clean page.
+    This makes the final page look deliberate rather than accidental.
+  */
+  .acceptance {
+    margin-top: 0;
+    padding: 15px;
+    border: 2px solid var(--forest);
+    background: #fbfcf9;
+    break-before: page;
+    page-break-before: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /*
+    Flexbox is generally more reliable than grid in browser printing.
+  */
+  .signature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    margin-top: 18px;
+  }
+
+  .signature-block {
+    flex: 1 1 calc(50% - 14px);
+    min-width: 0;
+    min-height: 75px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .signature-line {
+    margin-top: 23px;
+  }
+
+  .date-line {
+    margin-top: 14px;
+  }
+
+  .signature-label {
+    font-size: 7.5pt;
+  }
+
+  .small-print {
+    margin: 10px 0 0;
+    font-size: 7.5pt;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .footer {
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: var(--forest-dark);
+    color: #ffffff;
+    font-size: 7.5pt;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <main class="agreement">
+
+    <div class="document-inner">
+
+      <header class="header">
+
+        <div class="logo-box">
+          <!-- Replace logo.png with the actual path to your logo. -->
+          <img src="../img/abundant-life-land-and-tree-hummimgbird-logo.png" alt="">
+        </div>
+
+        <div>
+          <h1 class="company-name">Abundant Life Land &amp; Tree LLC</h1>
+
+          <p class="company-tagline">
+            Professional Arboriculture • Land Stewardship
+          </p>
+
+          <p class="company-details">
+            Christian Castillo, Owner<br>
+            Phone: 405-953-1285<br>
+            Email: abundant.life.land@gmail.com<br>
+            Website: abundantlife.land
+          </p>
+        </div>
+
+      </header>
+
+      <h2 class="document-title">Tree Removal Service Agreement</h2>
+
+      <p class="document-subtitle">
+        Removal of three mature elm trees and associated stump grinding
+      </p>
+
+      <section class="info-grid">
+
+        <div class="field">
+          <span class="field-label">Client Name</span>
+          <div class="field-line"></div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Agreement Date</span>
+          <div class="field-line"></div>
+        </div>
+
+        <div class="field full-width">
+          <span class="field-label">Service Address</span>
+          <div class="field-line"></div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Phone</span>
+          <div class="field-line"></div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Email</span>
+          <div class="field-line"></div>
+        </div>
+
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">1. Scope of Work</h2>
+
+        <p>
+          Abundant Life Land &amp; Tree LLC will furnish the labor, equipment,
+          supervision, and arboricultural expertise necessary to perform the
+          following services at the property identified above.
+        </p>
+
+        <div class="scope-item">
+          <h3>Removal of Three Mature Elm Trees</h3>
+
+          <ul>
+            <li>
+              Remove three mature elm trees identified and approved by the
+              client.
+            </li>
+
+            <li>
+              Dismantle or fell the trees using climbing, rigging, lowering,
+              sectional removal, or other appropriate methods according to site
+              conditions.
+            </li>
+
+            <li>
+              Remove limbs, brush, trunk wood, and other woody debris generated
+              by the contracted removals, except for material specifically
+              requested to remain on site.
+            </li>
+          </ul>
+        </div>
+
+        <div class="scope-item">
+          <h3>Stump Grinding</h3>
+
+          <ul>
+            <li>
+              Grind the stump of each removed elm approximately 6 to 8 inches
+              below the surrounding finished grade, where reasonably accessible.
+            </li>
+
+            <li>
+              Grind immediately adjacent surface roots when practical and when
+              accessible to standard stump-grinding equipment.
+            </li>
+
+            <li>
+              Stump grindings will remain on site unless removal is specifically
+              included by written agreement.
+            </li>
+          </ul>
+        </div>
+
+        <div class="scope-item">
+          <h3>Final Cleanup</h3>
+
+          <ul>
+            <li>
+              Rake and clean the primary work areas upon completion.
+            </li>
+
+            <li>
+              Remove debris generated by the contracted tree removals, subject
+              to the material-disposition selections below.
+            </li>
+
+            <li>
+              Leave the property in a reasonably neat and orderly condition
+              consistent with the nature of heavy tree-removal operations.
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+      <div class="price-box">
+        <div class="price-label">Total Contract Price</div>
+        <div class="price">$4,300.00</div>
+
+        <div class="price-note">
+          Includes the work expressly described in this agreement.
+        </div>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">2. Material Disposition</h2>
+
+        <p>Select the desired disposition of wood and debris:</p>
+
+        <div class="checkbox-list">
+
+          <div class="checkbox-row">
+            <span class="checkbox"></span>
+            <span>
+              Remove all limbs, brush, and trunk wood from the property.
+            </span>
+          </div>
+
+          <div class="checkbox-row">
+            <span class="checkbox"></span>
+            <span>
+              Leave designated firewood-length logs on the property.
+            </span>
+          </div>
+
+          <div class="checkbox-row">
+            <span class="checkbox"></span>
+            <span>
+              Leave stump grindings at each stump location.
+            </span>
+          </div>
+
+          <div class="checkbox-row">
+            <span class="checkbox"></span>
+            <span>
+              Other instructions listed below.
+            </span>
+          </div>
+
+        </div>
+
+        <div class="note-box"></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">3. Scheduling and Site Access</h2>
+
+        <p>
+          Work will be scheduled according to weather, site conditions,
+          equipment availability, and existing commitments. The contractor may
+          postpone or suspend operations when wind, lightning, saturated soil,
+          equipment failure, heat, or other conditions would compromise safety,
+          property protection, or workmanship.
+        </p>
+
+        <p>
+          The client agrees to provide reasonable access to the work area and
+          to keep vehicles, pets, children, and unauthorized persons outside the
+          established work zone while operations are underway.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">4. Utilities and Concealed Property</h2>
+
+        <p>
+          The client is responsible for identifying private or concealed
+          improvements that may be affected by the work, including irrigation
+          lines, landscape lighting, invisible fencing, septic components,
+          drainage systems, private electrical lines, and other underground or
+          hidden property.
+        </p>
+
+        <p>
+          Public utility locating services generally do not identify privately
+          installed systems. Abundant Life Land &amp; Tree LLC is not responsible
+          for damage to unmarked or undisclosed private utilities or concealed
+          improvements.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">5. Property Protection and Inherent Conditions</h2>
+
+        <p>
+          Tree removal and stump grinding involve heavy material, falling
+          debris, equipment traffic, sawdust, and soil disturbance. Abundant
+          Life Land &amp; Tree LLC will take reasonable precautions to protect the
+          property; however, the client acknowledges that minor lawn disturbance,
+          tire impressions, sawdust, settling, exposed roots, or temporary
+          discoloration may occur.
+        </p>
+
+        <p>
+          Trees may contain hidden cavities, decay, included bark, weak unions,
+          deadwood, insects, or other structural defects that are not visible
+          before work begins. The contractor may modify the removal method when
+          necessary to respond safely to concealed or changing conditions.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">6. Stump-Grinding Limitations</h2>
+
+        <p>
+          Stump grinding does not remove the entire underground root system and
+          does not guarantee that all lateral roots, buried wood, or future
+          sprouts will be eliminated. Grinding depth may be limited by rocks,
+          concrete, fencing, utility lines, structures, metal, grade changes, or
+          equipment-access restrictions.
+        </p>
+
+        <p>
+          Soil, seed, sod, grading, and permanent restoration of stump cavities
+          are not included unless expressly stated in this agreement.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">7. Changes and Additional Work</h2>
+
+        <p>
+          Work outside the stated scope requires client authorization and may
+          result in an additional charge. Authorization may be provided by
+          signed change order, email, or text message.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">8. Payment Terms</h2>
+
+        <p>
+          The total contract price of <strong>$4,300.00</strong> is due upon
+          completion of the contracted work unless an alternate written payment
+          arrangement appears below.
+        </p>
+
+        <p>
+          Past-due balances may accrue interest at 18% per annum, or the maximum
+          rate permitted by applicable law, whichever is lower. The client is
+          responsible for reasonable collection costs, court costs, and
+          attorney fees incurred in collecting an unpaid balance to the extent
+          permitted by law.
+        </p>
+
+        <p><strong>Alternate payment terms, if any:</strong></p>
+
+        <div class="note-box"></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">9. Insurance</h2>
+
+        <p>
+          Abundant Life Land &amp; Tree LLC maintains commercial general
+          liability insurance. A certificate of insurance is available upon
+          request.
+        </p>
+      </section>
+
+      <section class="acceptance">
+        <h2 class="section-title">Authorization and Acceptance</h2>
+
+        <p>
+          By signing below, the client confirms that the trees included in this
+          agreement have been correctly identified, that the client has
+          authority to authorize work on the property, and that the client
+          accepts the scope, price, exclusions, and terms stated above.
+        </p>
+
+        <div class="signature-grid">
+
+          <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-label">Client Signature</div>
+
+            <div class="date-line"></div>
+            <div class="signature-label">Date</div>
+          </div>
+
+          <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-label">Printed Client Name</div>
+
+            <div class="date-line"></div>
+            <div class="signature-label">Phone or Email</div>
+          </div>
+
+          <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-label">
+              Christian Castillo, Owner
+            </div>
+
+            <div class="date-line"></div>
+            <div class="signature-label">Date</div>
+          </div>
+
+          <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-label">
+              Abundant Life Land &amp; Tree LLC
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <p class="small-print">
+        This agreement represents the complete scope of work unless amended in
+        writing. Any handwritten modifications must be initialed by both the
+        client and contractor.
+      </p>
+
+    </div>
+
+    <footer class="footer">
+      Abundant Life Land &amp; Tree LLC • Professional arboriculture for the
+      greener good
+    </footer>
+
+  </main>
+</body>
+</html>
+

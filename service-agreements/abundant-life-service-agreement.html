@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abundant Life Land & Tree - Service Agreement</title>
+  <style>
+    :root {
+      --ink: #000000;
+      --muted: #444444;
+      --border: #777777;
+      --paper: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #eeeeee;
+      color: var(--ink);
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    body { padding: 24px; }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      background: var(--paper);
+      padding: 0.28in 0.38in 0.24in;
+      box-shadow: 0 8px 28px rgba(0,0,0,.12);
+    }
+
+    .brand {
+      display: grid;
+      grid-template-columns: 0.72in 1fr 1.55in;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .logo-space {
+      width: 0.68in;
+      height: 0.68in;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 6px;
+      line-height: 1.15;
+      color: var(--muted);
+    }
+
+    .logo-img {
+      max-width: 100%;
+    }
+
+    .brand-center { text-align: center; }
+
+    .brand-contact {
+      text-align: right;
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: nowrap;
+      letter-spacing: .025rem;
+    }
+
+    .brand-contact strong { 
+      font-size: 12px;
+      letter-spacing: .1rem;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 20px;
+      letter-spacing: .02em;
+      line-height: 1.15;
+    }
+
+    .brand .subtitle {
+      margin-top: 2px;
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    .section-title {
+      margin: 5px 0;
+      padding: 5px 0;
+      background: transparent;
+      color: var(--ink);
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    label {
+      margin-top: 3px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 4px 8px;
+    }
+
+    .grid-3 { grid-template-columns: 1.8fr .65fr 1fr; }
+    .grid-2 { grid-template-columns: 1.65fr 1fr; }
+
+    .field label {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 8px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .line-input {
+      width: 100%;
+      height: 20px;
+      border: 0;
+      border-bottom: 1px solid #555;
+      padding: 1px 3px;
+      font: inherit;
+      font-size: 11px;
+      background: transparent;
+      outline: none;
+    }
+
+    .scope-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 9px;
+      line-height: 1.25;
+    }
+
+    .scope-table th,
+    .scope-table td {
+      border: 1px solid var(--border);
+      padding: 2px 3px;
+      vertical-align: middle;
+    }
+
+    .scope-table th {
+      background: transparent;
+      text-align: left;
+      font-size: 8px;
+      line-height: 1.25;
+    }
+
+    .scope-table th:first-child { width: 24%; }
+
+    .scope-table input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      font-size: 10px;
+      height: 22px;
+      background: transparent;
+    }
+
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px 8px;
+      margin: 2px 0;
+      font-size: 8px;
+      line-height: 1.3;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 18px;
+    }
+
+    .check input { margin: 0; }
+
+    .inline-field {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px;
+      align-items: center;
+      margin-top: 2px;
+      font-size: 8px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: auto 1.1fr auto .9fr auto .9fr;
+      gap: 6px;
+      align-items: end;
+      font-size: 8px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .terms {
+      columns: 2;
+      column-gap: 18px;
+      font-size: 7.35px;
+      line-height: 1.34;
+      text-align: left;
+    }
+
+    .term {
+      break-inside: avoid;
+      margin: 0 0 5px;
+    }
+
+    .term b { letter-spacing: .01em; }
+
+    .acknowledgment {
+      margin-top: 4px;
+      border: 1px solid #000;
+      background: transparent;
+      padding: 4px 5px;
+      font-size: 7.5px;
+      line-height: 1.35;
+    }
+
+    .acceptance {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 2px;
+    }
+
+    .party-block {
+      break-inside: avoid;
+    }
+
+    .party-heading {
+      font-size: 8.5px;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: .02em;
+      margin-bottom: 2px;
+    }
+
+    .party-note {
+      min-height: 18px;
+      margin-bottom: 3px;
+      font-size: 6.9px;
+      line-height: 1.32;
+      color: var(--muted);
+    }
+
+    .signature-field {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: end;
+      margin-top: 4px;
+    }
+
+    .signature-field.single {
+      grid-template-columns: 1fr;
+    }
+
+    .signature-item label {
+      display: block;
+      margin-top: 1px;
+      font-size: 6.5px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .sig-line {
+      height: 19px;
+      border-bottom: 1px solid #555;
+    }
+
+    .date-item { width: 1.05in; }
+
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 6.5px;
+      line-height: 1.25;
+    }
+
+    @media print {
+      @page {
+        size: Letter;
+        margin: 0;
+      }
+
+      html, body {
+        width: 8.5in;
+        height: 11in;
+        background: #fff;
+      }
+
+      body { padding: 0; }
+
+      .page {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+
+      * {
+        color: #000 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      .page { background: #fff !important; }
+
+      /* Minimal-ink print treatment: no solid fills, only thin rules. */
+      .section-title {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+      }
+
+      .scope-table th,
+      .scope-table td,
+      .acknowledgment {
+        border-color: #777 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="brand">
+      <div class="logo-space">
+        <img class="logo-img" src="../img/hummingbird-tree-logo-monochrome.png" alt="">
+      </div>
+      <div class="brand-center">
+        <h1>ABUNDANT LIFE LAND &amp; TREE LLC</h1>
+        <div class="subtitle">LAND MANAGEMENT &amp; TREE SERVICE AGREEMENT</div>
+      </div>
+      <div class="brand-contact">
+        <strong>405-953-1285</strong><br>
+        www.AbundantLife.Land
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">CUSTOMER &amp; PROPERTY INFORMATION</div>
+      <div class="grid grid-3">
+        <div class="field"><label>Customer / Authorized Owner</label><input class="line-input" type="text"></div>
+        <div class="field"><label>Date</label><input class="line-input" type="text"></div>
+        <div class="field"><label>Phone</label><input class="line-input" type="text"></div>
+      </div>
+      <div class="grid grid-2">
+        <div class="field"><label>Service Address</label><input class="line-input" type="text"></div>
+        <div class="field"><label>City / State / ZIP</label><input class="line-input" type="text"></div>
+      </div>
+      <div class="grid grid-2">
+        <div class="field"><label>Email</label><input class="line-input" type="text"></div>
+        <div class="field"><label>Job / Proposal # (YYYYMMDD-client-initials)</label><input class="line-input" type="text"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">SCOPE OF WORK</div>
+      <table class="scope-table">
+        <thead>
+          <tr><th>Tree / Area</th><th>Work to Be Performed / Specifications</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-title">MATERIAL DISPOSITION / CLEANUP</div>
+      <div class="checks">
+        <label class="check"><input type="checkbox"> Brush removed</label>
+        <label class="check"><input type="checkbox"> Wood removed</label>
+        <label class="check"><input type="checkbox"> Wood left on site</label>
+        <label class="check"><input type="checkbox"> Stump ground</label>
+        <label class="check"><input type="checkbox"> Grindings left/backfilled</label>
+        <label class="check"><input type="checkbox"> Grindings removed</label>
+        <label class="check"><input type="checkbox"> Final rake/blow cleanup</label>
+        <label class="check"><input type="checkbox"> Other / see instructions</label>
+      </div>
+      <div class="inline-field">
+        <span>Additional instructions / exclusions:</span>
+        <input class="line-input" type="text">
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">CONTRACT PRICE</div>
+      <div class="pricing">
+        <span>Total Contract Price</span><input class="line-input" type="text">
+        <span>Deposit</span><input class="line-input" type="text">
+        <span>Balance</span><input class="line-input" type="text">
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">TERMS &amp; CONDITIONS</div>
+      <div class="terms">
+        <p class="term"><b>1. AUTHORIZATION &amp; OWNERSHIP.</b> Customer authorizes Contractor to perform the described work and represents that Customer owns the property or has authority to order it. Customer is responsible for identifying property boundaries and obtaining permission concerning boundary or neighboring trees. Contractor may rely on ownership and boundary information supplied by Customer.</p>
+        <p class="term"><b>2. SCOPE &amp; CHANGES.</b> Only work specifically described above is included. Additional work requires Customer authorization and may result in additional charges. Changes or additional work may be authorized by signed writing, text message, or email.</p>
+        <p class="term"><b>3. TREE &amp; SITE CONDITIONS.</b> Tree work inherently involves falling and moving limbs, logs, sawdust, equipment, and personnel. Contractor will exercise reasonable care; Customer accepts ordinary and reasonably foreseeable turf wear, rutting, soil compaction, and disturbance to landscaping or access routes. Restoration is excluded unless specifically stated.</p>
+        <p class="term"><b>4. CONCEALED CONDITIONS &amp; PRIVATE UTILITIES.</b> Customer shall disclose and, when reasonably possible, identify private irrigation, invisible fencing, septic components, drain lines, landscape lighting, private electrical lines, buried piping, and other concealed improvements. Contractor is not responsible for damage to undisclosed or improperly located private improvements that could not reasonably be identified before work.</p>
+        <p class="term"><b>5. UNKNOWN TREE CONDITIONS.</b> Cavities, internal decay, cracks, unstable wood, compromised roots, embedded metal/concrete, insects, wildlife, or other hidden conditions may not be discoverable before cutting or climbing. Contractor may stop, delay, or modify the work method and propose a price adjustment when materially different conditions are discovered.</p>
+        <p class="term"><b>6. PRUNING / RETAINED TREES.</b> Unless expressly warranted in writing, Contractor does not guarantee future health, structural integrity, stability, or survival of any tree or plant. Pruning, cabling, inspection, or other tree care reduces particular risks but does not eliminate the possibility of limb or tree failure.</p>
+        <p class="term"><b>7. STUMPS &amp; ROOTS.</b> Stump grinding, when selected, applies only to the specified stump and reasonably accessible surface roots within the agreed work area. Complete root-system excavation is excluded unless expressly stated. Rocks, concrete, metal, utilities, fencing, or other obstructions may limit grinding.</p>
+        <p class="term"><b>8. WORK ZONE, ACCESS &amp; SAFETY.</b> Customer shall keep people, pets, vehicles, furniture, decorations, and other movable property clear of designated work and access areas. Contractor may suspend, delay, or modify operations because of weather, unsafe access, persons entering the work zone, animals, equipment limitations, tree instability, or other unsafe or impracticable conditions.</p>
+        <p class="term"><b>9. MATERIALS &amp; CLEANUP.</b> Contractor will dispose of wood, brush, chips, and stump debris only as selected above. Materials designated to remain become Customer's responsibility after placement in the agreed location. Minor sawdust, chips, leaves, and incidental woody debris inherent to tree work may remain after reasonable cleanup.</p>
+        <p class="term"><b>10. PAYMENT &amp; COMPLETION.</b> Unless otherwise stated above, payment is due upon substantial completion of the contracted work. Approved additions are payable in addition to the Contract Price. A minor punch-list item does not postpone payment for otherwise substantially completed work.</p>
+        <p class="term"><b>11. NOTICE OF CONCERNS.</b> Customer agrees to promptly notify Contractor of any alleged deficiency or property damage and, when reasonably possible, provide Contractor an opportunity to inspect and address the concern before others alter or repair the affected work or condition.</p>
+        <p class="term"><b>12. ENTIRE AGREEMENT; SEVERABILITY.</b> This Agreement and documented changes constitute the parties' agreement concerning the described work. If any provision is held unenforceable, the remaining provisions remain effective to the fullest extent permitted by law.</p>
+      </div>
+    </section>
+
+    <div class="acknowledgment">
+      <b>CUSTOMER ACKNOWLEDGMENT:</b> Customer has reviewed the Scope of Work, material disposition, stump-grinding selections, exclusions, Contract Price, and Terms &amp; Conditions before signing, authorizes the described work, and represents having authority to authorize work on the identified property and trees.
+    </div>
+
+    <section>
+      <div class="section-title">ACCEPTANCE &amp; SIGNATURES</div>
+      <div class="acceptance">
+        <div class="party-block">
+          <div class="party-heading">CUSTOMER ACCEPTANCE</div>
+          <div class="party-note">By signing, Customer accepts this Agreement and authorizes Abundant Life Land &amp; Tree LLC to perform the work described above.</div>
+          <div class="signature-field">
+            <div class="signature-item">
+              <div class="sig-line"></div>
+              <label>Customer Signature</label>
+            </div>
+            <div class="signature-item date-item">
+              <div class="sig-line"></div>
+              <label>Date</label>
+            </div>
+          </div>
+          <div class="signature-field single">
+            <div class="signature-item">
+              <div class="sig-line"></div>
+              <label>Printed Name</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="party-block">
+          <div class="party-heading">CONTRACTOR ACCEPTANCE</div>
+          <div class="party-note">Accepted for Abundant Life Land &amp; Tree LLC by the authorized representative named below.</div>
+          <div class="signature-field">
+            <div class="signature-item">
+              <div class="sig-line"></div>
+              <label>Representative Signature</label>
+            </div>
+            <div class="signature-item date-item">
+              <div class="sig-line"></div>
+              <label>Date</label>
+            </div>
+          </div>
+          <div class="signature-field single">
+            <div class="signature-item">
+              <div class="sig-line"></div>
+              <label>Printed Representative Name</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">Abundant Life Land &amp; Tree LLC | Oklahoma | Customer should retain a copy of this signed agreement.</div>
+  </main>
+</body>
+</html>

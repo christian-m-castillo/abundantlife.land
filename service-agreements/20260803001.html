@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Agreement | Robert Keenan | Abundant Life Land &amp; Tree</title>
+  <style>
+    :root {
+      --green: #035c03;
+      --green-mid: #207c28;
+      --green-soft: #e8f2e7;
+      --brown: #56452e;
+      --sand: #eec68a;
+      --cream: #fbf8f1;
+      --white: #fff;
+      --ink: #333;
+      --muted: #665f55;
+      --line: #d8d3c8;
+      --shadow: 0 14px 40px rgba(51, 51, 51, .12);
+      --radius: 18px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.52;
+    }
+    h1, h2, h3 { margin: 0; color: var(--green); line-height: 1.12; }
+    h1 { font-size: clamp(2rem, 7vw, 3.7rem); letter-spacing: -.045em; }
+    h2 { margin-bottom: 1rem; font-size: 1.45rem; letter-spacing: -.02em; }
+    h3 { margin: 1rem 0 .45rem; font-size: 1rem; }
+    p { margin: 0 0 .85rem; }
+    ul, ol { margin: .35rem 0 .9rem; padding-left: 1.35rem; }
+    li { margin-bottom: .3rem; }
+
+    .page {
+      width: min(calc(100% - 1.5rem), 980px);
+      margin: 2rem auto;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .masthead {
+      padding: clamp(1.6rem, 5vw, 3rem);
+      color: var(--white);
+      background: var(--green);
+    }
+    .masthead h1 { color: var(--white); }
+    .eyebrow {
+      margin-bottom: .65rem;
+      color: var(--sand);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .masthead-grid {
+      display: grid;
+      grid-template-columns: 1.5fr .8fr;
+      gap: 2rem;
+      align-items: end;
+    }
+    .company-details { color: rgba(255,255,255,.9); font-size: .88rem; text-align: right; }
+    .company-details strong { color: var(--white); }
+    .content { padding: clamp(1.25rem, 4vw, 2.6rem); }
+    section {
+      margin-bottom: 1.25rem;
+      padding: clamp(1rem, 3vw, 1.5rem);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .soft { background: var(--green-soft); }
+    .brown { color: var(--white); border-color: var(--brown); background: var(--brown); }
+    .brown h2, .brown h3 { color: var(--white); }
+    .brown p, .brown li { color: rgba(255,255,255,.9); }
+    .grid { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .label {
+      display: block;
+      margin-bottom: .25rem;
+      color: var(--brown);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .value { margin: 0; font-weight: 700; }
+    .price-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.25rem;
+      border-left: 6px solid var(--sand);
+      background: #fff;
+    }
+    .price { color: var(--green); font-size: 2rem; font-weight: 800; white-space: nowrap; }
+    .callout { padding: 1rem; border-left: 5px solid var(--sand); background: #fff; }
+    .term { break-inside: avoid; page-break-inside: avoid; }
+    .signatures { margin-top: 1rem; }
+    .signature-box { min-height: 116px; padding-top: 2.8rem; }
+    .signature-line { border-top: 1px solid var(--ink); padding-top: .35rem; font-size: .82rem; }
+    .date-line { display: inline-block; min-width: 130px; border-bottom: 1px solid currentColor; }
+    .initial-line { display: inline-block; min-width: 75px; border-bottom: 1px solid currentColor; }
+    .controls {
+      position: sticky;
+      z-index: 10;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      border-top: 1px solid var(--line);
+      background: rgba(251,248,241,.96);
+      backdrop-filter: blur(10px);
+    }
+    button {
+      min-height: 46px;
+      padding: .7rem 1.15rem;
+      border: 2px solid var(--green);
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--green);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    button:hover { background: var(--green-mid); }
+
+    @media (max-width: 720px) {
+      .masthead-grid, .grid-2, .price-card { grid-template-columns: 1fr; }
+      .company-details { text-align: left; }
+    }
+
+    @media print {
+      @page { size: letter; margin: .45in; }
+      body { background: var(--white); font-size: 9.3pt; line-height: 1.38; }
+      .page { width: 100%; margin: 0; overflow: visible; border: 0; border-radius: 0; box-shadow: none; }
+      .masthead { padding: .3in; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .masthead h1 { font-size: 27pt; }
+      .content { padding: .22in 0 0; }
+      section { margin-bottom: .1in; padding: .16in; border-radius: 8px; }
+      h2 { margin-bottom: .08in; font-size: 13pt; }
+      h3 { margin: .09in 0 .03in; font-size: 9.5pt; }
+      p { margin-bottom: .07in; }
+      ul, ol { margin: .03in 0 .08in; }
+      li { margin-bottom: .02in; }
+      .soft, .brown, .price-card, .callout { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .controls { display: none; }
+      .signature-box { min-height: .85in; }
+      .page-break { break-before: page; page-break-before: always; }
+      .keep { break-inside: avoid; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="masthead-grid">
+        <div>
+          <div class="eyebrow">Arborist-led tree &amp; landscape care</div>
+          <h1>Service Agreement</h1>
+        </div>
+        <div class="company-details">
+          <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+          Edmond &bull; Oklahoma City<br>
+          405-953-1285<br>
+          abundant.life.land@gmail.com<br>
+          abundantlife.land
+        </div>
+      </div>
+    </header>
+
+    <article class="content">
+      <section class="keep">
+        <h2>Agreement details</h2>
+        <div class="grid grid-2">
+          <div><span class="label">Customer</span><p class="value">Robert Keenan</p></div>
+          <div><span class="label">Agreement date</span><p class="value">August 3rd, 2026</p></div>
+          <div><span class="label">Customer email</span><p class="value">rxkeenan@outlook.com</p></div>
+          <div><span class="label">Customer phone</span><p class="value">(405) 888-7879</p></div>
+          <div><span class="label">Service property</span><p class="value">700 Knights Bridge Road<br>Edmond, Oklahoma 73034</p></div>
+          <div><span class="label">Contractor</span><p class="value">Abundant Life Land &amp; Tree LLC<br>Owner: Christian Castillo</p></div>
+        </div>
+        <p style="margin-top:1rem">This Tree and Landscape Service Agreement (“Agreement”) is between Abundant Life Land &amp; Tree LLC (“Contractor”) and Robert Keenan (“Customer”). Contractor and Customer agree as follows:</p>
+      </section>
+
+      <section class="term">
+        <h2>1. Property and authority</h2>
+        <p>Customer represents that Customer owns the service property or has full legal authority from the property owner to authorize the work.</p>
+        <p>Customer authorizes Contractor and Contractor’s employees, subcontractors, vehicles, trailers, machinery, and equipment to enter the property and use reasonably necessary access routes to perform the work.</p>
+        <p>Customer represents that all trees, shrubs, planter contents, and other materials identified for removal are located on Customer’s property and may lawfully be removed. Customer is responsible for obtaining any required permission from co-owners, neighbors, homeowners’ associations, landlords, or other interested parties.</p>
+        <p>Contractor may rely upon Customer’s representations concerning ownership, property lines, and authorization. Customer will be responsible for claims resulting from incorrect boundary information or a lack of authority, except to the extent caused by Contractor’s independently negligent or intentionally wrongful conduct.</p>
+      </section>
+
+      <section>
+        <h2>2. Scope of work</h2>
+        <p>For the fixed contract price stated below, Contractor will furnish the labor, equipment, and ordinary disposal necessary to perform the following work:</p>
+
+        <div class="term">
+          <h3>A. Dead oak removal</h3>
+          <ol>
+            <li>Remove one medium-to-large dead oak located behind and in close proximity to the residence.</li>
+            <li>Use climbing, rigging, controlled cutting, mechanical equipment, or other methods selected by Contractor according to site conditions and Contractor’s professional judgment.</li>
+            <li>Remove the trunk, limbs, and reasonably collectible woody debris generated by the removal.</li>
+            <li>Cut the remaining stump as low as reasonably practicable before grinding.</li>
+            <li>Grind the stump to a reasonable depth below the surrounding grade, as permitted by the stump grinder, site access, underground conditions, and surrounding improvements.</li>
+            <li>Grind readily accessible portions of the main stump and readily accessible surface roots immediately adjoining it.</li>
+            <li>Consolidate the resulting stump grindings into the stump cavity for use as backfill.</li>
+            <li>Leave the stump-grinding area reasonably level and neat following ordinary settling and consolidation.</li>
+          </ol>
+          <p><strong>Stump grinding does not include:</strong></p>
+          <ul>
+            <li>Complete excavation or removal of the tree’s root system;</li>
+            <li>Removal of every lateral or feeder root;</li>
+            <li>Grinding beyond the area reasonably accessible to the stump grinder;</li>
+            <li>Removal or disposal of the stump grindings;</li>
+            <li>Importing topsoil or other fill;</li>
+            <li>Compaction to structural or construction-grade standards;</li>
+            <li>Finish grading, seeding, sod installation, or landscaping;</li>
+            <li>Prevention or correction of future decomposition or settlement.</li>
+          </ul>
+          <p>Customer understands that stump grindings contain organic wood material and may decompose and settle over time. Contractor is not responsible for later settlement, replenishment of fill, fungal growth associated with decomposing wood, or restoration of the area unless separately agreed in writing.</p>
+        </div>
+
+        <div class="term">
+          <h3>B. Dead shrub removal</h3>
+          <ol>
+            <li>Remove the dead shrubs presently located along the back fence line and identified during the site inspection.</li>
+            <li>Reasonably excavate or mechanically remove each shrub’s main rootball where practicable.</li>
+            <li>Remove the resulting shrubs, main rootballs, and reasonably collectible debris from the property.</li>
+            <li>Exercise reasonable care around the irrigation components known or observed to be near the shrubs.</li>
+          </ol>
+          <p>The parties acknowledge that irrigation is located in or near the shrub-removal area. Contractor will use reasonable care to avoid damaging known or reasonably observable irrigation components. Because shrub roots may be intertwined with irrigation pipes, fittings, wires, or emitters, complete avoidance of incidental disturbance cannot be guaranteed.</p>
+          <p><strong>Shrub removal does not include:</strong></p>
+          <ul>
+            <li>Removal of every root associated with the shrubs;</li>
+            <li>Extensive excavation of smaller feeder roots extending beyond the main rootballs;</li>
+            <li>Excavation beneath the fence, patio, hardscape, or neighboring property;</li>
+            <li>Removal of extensive roots where removal could damage irrigation, fencing, utilities, hardscape, or other improvements;</li>
+            <li>Irrigation redesign, rerouting, replacement, or repair unless damage is directly caused by Contractor’s failure to exercise reasonable care;</li>
+            <li>Importing soil, finish grading, planting, seeding, or installation of replacement landscaping;</li>
+            <li>Prevention of future sprouts or regrowth from roots remaining in the soil.</li>
+          </ul>
+          <p>Contractor may leave smaller feeder roots and any root material extending materially beyond the reasonably identifiable main rootball. Contractor may also cut and leave roots in place when further excavation could reasonably threaten irrigation, fencing, utilities, hardscape, neighboring property, or other improvements.</p>
+          <p>If an irrigation line or component must be disconnected, moved, or repaired to complete the work safely, Contractor may stop the affected work and discuss the condition with Customer. Irrigation repair or modification will require a written change order unless the repair is Contractor’s responsibility under this Agreement.</p>
+        </div>
+
+        <div class="term">
+          <h3>C. Patio planter boxes</h3>
+          <ol>
+            <li>Empty the existing planter boxes located along the patio perimeter.</li>
+            <li>Remove the existing loose soil, dead vegetation, roots, weeds, mulch, and ordinary planting material from those boxes.</li>
+            <li>Haul away the removed planter contents.</li>
+          </ol>
+          <p>This work does not include demolition, movement, repair, refinishing, waterproofing, reconstruction, or replacement of the planter boxes; removal of concrete, masonry, metal reinforcement, drainage infrastructure, or permanently bonded material; or installation of new soil or plants.</p>
+          <p>If concealed masonry, reinforcement, drainage material, utility components, hazardous material, or material that cannot be removed through ordinary manual excavation is encountered, Contractor may stop the affected work and propose a written change order.</p>
+        </div>
+
+        <div class="term">
+          <h3>D. Cleanup</h3>
+          <p>Contractor will perform a reasonable final cleanup of debris generated directly by the contracted work. Cleanup does not mean restoration of the property to a condition identical to its condition before work began, removal of unrelated preexisting debris, or removal of every particle of sawdust, wood chip, soil, or organic matter.</p>
+        </div>
+      </section>
+
+      <section class="price-card keep">
+        <div>
+          <h2>3. Contract price and payment</h2>
+          <p>The total fixed price for the work described in this Agreement is:</p>
+        </div>
+        <div class="price">$3,000.00</div>
+        <div style="grid-column:1/-1">
+          <p><strong>Deposit due upon signing:</strong> $0 &nbsp;&nbsp; <strong>Remaining balance:</strong> $3000</p>
+          <p>Unless otherwise written above, the entire unpaid balance is due immediately upon substantial completion of the contracted work.</p>
+          <p>“Substantial completion” means that the principal work described in Section 2 has been performed, notwithstanding minor cleanup, punch-list items, weather-delayed stump grinding, or other minor corrective work that does not prevent Customer from receiving the substantial benefit of the project.</p>
+          <p>Customer may not withhold the entire contract balance because of a disputed minor item. The parties will identify any legitimate incomplete or defective item in writing and allow Contractor a reasonable opportunity to inspect and correct it.</p>
+          <p>Balances not paid within ten calendar days after becoming due may accrue interest at 1.5% per month or the maximum lawful rate, whichever is less. Customer will be responsible for reasonable collection costs and attorney fees to the extent permitted by law.</p>
+        </div>
+      </section>
+
+      <section class="term">
+        <h2>4. Fixed price and limited scope</h2>
+        <p>The contract price reflects the exact scope described in this Agreement and the project’s limited budget. It does not include work outside that scope, even if additional work would ordinarily be advisable or convenient while Contractor is on site.</p>
+        <p>Customer is not obligated to approve additional work. Contractor is not obligated to perform additional or materially different work without an agreed written change order stating the additional scope, price, and any schedule adjustment.</p>
+        <p>Text messages and emails exchanged between Customer and Contractor may constitute a written change order if they clearly identify the additional work and price and are affirmatively accepted by both parties.</p>
+      </section>
+
+      <section class="term">
+        <h2>5. Dead-tree and site risk acknowledgment</h2>
+        <p>Customer acknowledges that the oak is dead, is close to the residence, and may contain hidden or unpredictable defects, including internal decay, brittle wood, detached limbs, cracks, cavities, weak root attachment, insects, embedded metal, or structural failure not visible before work begins.</p>
+        <p>Tree removal, rigging, stump grinding, excavation, and debris handling necessarily involve hazards even when reasonable professional care is exercised. These can include falling or swinging material, equipment movement, vibration, noise, dust, sawdust, flying chips, temporary access obstruction, and incidental disturbance to lawns and soil.</p>
+        <p>Contractor will use reasonable care and methods appropriate to the observed conditions. Contractor does not guarantee that a dead or structurally compromised tree will behave like sound wood during removal.</p>
+        <p>Nothing in this Agreement releases Contractor from liability for Contractor’s gross negligence, willful misconduct, or any responsibility that cannot lawfully be waived.</p>
+      </section>
+
+      <section class="term">
+        <h2>6. Reasonable incidental disturbance</h2>
+        <p>Customer authorizes reasonable access and equipment use necessary to complete the work. Customer understands that ordinary performance may cause minor or temporary conditions such as:</p>
+        <ul>
+          <li>Lawn compression, minor ruts, scuffing, or disturbed soil;</li>
+          <li>Sawdust, wood chips, dust, stump grindings, or displaced soil;</li>
+          <li>Temporary relocation of movable outdoor objects;</li>
+          <li>Noise and vibration;</li>
+          <li>Minor disturbance surrounding shrubs, roots, planter boxes, irrigation, and the stump;</li>
+          <li>Temporary loss of use of portions of the yard or patio.</li>
+        </ul>
+        <p>Contractor will exercise reasonable care but is not responsible for ordinary and unavoidable incidental effects inherent in properly performing the authorized work.</p>
+        <p>Contractor remains responsible for direct physical damage caused by its failure to exercise reasonable care, subject to the other lawful terms of this Agreement.</p>
+      </section>
+
+      <section class="term">
+        <h2>7. Underground and concealed conditions</h2>
+        <p>Before work begins, Customer must identify all known private or unmarked underground or concealed improvements within or near the work area, including:</p>
+        <ul>
+          <li>Irrigation pipes, control wires, valves, and sprinkler heads;</li>
+          <li>Landscape-lighting wires;</li>
+          <li>Invisible pet fencing;</li>
+          <li>Private electrical lines;</li>
+          <li>Gas or water lines;</li>
+          <li>Drainage systems;</li>
+          <li>Septic components;</li>
+          <li>Internet, telephone, or cable lines;</li>
+          <li>Footings, buried concrete, metal, rocks, and other obstructions.</li>
+        </ul>
+        <p>The known presence of irrigation near the shrub-removal area has been disclosed. Customer remains responsible for identifying its approximate routing and any known valves, wires, heads, fittings, or other components that are not readily visible.</p>
+        <p>Public utility markings generally do not identify owner-installed or privately maintained systems. Customer is responsible for arranging private utility locating when necessary.</p>
+        <p>Contractor is not responsible for damage to an underground or concealed item that was not accurately disclosed, visibly apparent, or properly marked before work began, unless the damage resulted from Contractor’s failure to exercise reasonable care.</p>
+        <p>If concealed concrete, metal, utilities, excessive stone, hazardous material, unstable structures, unusually extensive roots, or other materially different conditions are encountered, Contractor may stop the affected work. The parties may then agree upon a change order, an alternative method, or deletion of the affected portion with an equitable price adjustment.</p>
+      </section>
+
+      <section class="term">
+        <h2>8. Customer responsibilities</h2>
+        <p>Before Contractor arrives, Customer will:</p>
+        <ol>
+          <li>Remove or secure vehicles, toys, furniture, decorations, hoses, grills, fragile items, pets, and other movable property from the work and access areas.</li>
+          <li>Keep children, pets, occupants, visitors, and other contractors outside the designated work zone.</li>
+          <li>Provide reasonable access to the property.</li>
+          <li>Identify septic systems, irrigation, private utilities, fragile surfaces, property boundaries, and access restrictions.</li>
+          <li>Notify affected neighbors when access, noise, or temporary inconvenience may concern them.</li>
+          <li>Obtain any required HOA approval, owner permission, or other private authorization.</li>
+          <li>Keep doors and windows closed when practical during dusty operations.</li>
+        </ol>
+        <p>Contractor may suspend work if persons or animals enter the work zone or if conditions become unsafe.</p>
+      </section>
+
+      <section class="term">
+        <h2>9. Weather, safety, and scheduling</h2>
+        <p>Any start date or completion date is an estimate unless expressly guaranteed in writing.</p>
+        <p>Contractor may delay, suspend, or reschedule work because of wind, rain, lightning, extreme heat, saturated soil, unsafe tree behavior, equipment failure, illness, utility concerns, access problems, governmental restrictions, or other conditions affecting safe or practical performance.</p>
+        <p>A reasonable weather or safety delay is not a breach of this Agreement. Contractor will not be required to continue work under conditions Contractor reasonably determines to be unsafe.</p>
+      </section>
+
+      <section class="term">
+        <h2>10. Contractor’s right to stop work</h2>
+        <p>Contractor may stop work if:</p>
+        <ul>
+          <li>A dangerous or materially different condition is discovered;</li>
+          <li>Customer or another person interferes with the work;</li>
+          <li>Customer requests unsafe practices;</li>
+          <li>Required access is unavailable;</li>
+          <li>A payment due under this Agreement is not made;</li>
+          <li>Customer materially breaches this Agreement; or</li>
+          <li>Continued work could reasonably endanger persons or property.</li>
+        </ul>
+        <p>Stopping work for one of these reasons does not waive Contractor’s right to payment for work performed, mobilization, disposal, committed expenses, or other amounts properly due.</p>
+      </section>
+
+      <section class="term">
+        <h2>11. Excluded work and conditions</h2>
+        <p>Unless specifically included in Section 2 or a signed change order, Contractor is not responsible for:</p>
+        <ul>
+          <li>Repairing or replacing fences, patios, planter boxes, irrigation, lighting, utilities, drains, landscaping, sod, or hardscape;</li>
+          <li>Soil replacement, finish grading, erosion repair, seeding, or sod installation;</li>
+          <li>Treating insects, fungi, tree disease, or contaminated soil;</li>
+          <li>Removing hazardous materials;</li>
+          <li>Locating or establishing property boundaries;</li>
+          <li>Engineering, structural, or geotechnical evaluation;</li>
+          <li>Repairing preexisting defects or deterioration;</li>
+          <li>Preventing weed growth, root sprouts, soil settlement, or decomposition;</li>
+          <li>Removing debris or materials not generated by the contracted work;</li>
+          <li>Obtaining permits or HOA approval unless expressly stated otherwise.</li>
+        </ul>
+      </section>
+
+      <section class="term">
+        <h2>12. Preexisting and fragile conditions</h2>
+        <p>Contractor is not responsible for the failure or deterioration of fences, planter boxes, retaining walls, patios, roofs, gutters, pavement, utilities, irrigation, landscaping, or other property that was already damaged, decayed, loose, improperly installed, structurally inadequate, or unable to withstand reasonable work activity.</p>
+        <p>Contractor may photograph or record the property before, during, and after the work for documentation, safety, training, insurance, and dispute-resolution purposes. Public advertising use of recognizable private property or Customer-identifying information requires Customer’s separate permission.</p>
+      </section>
+
+      <section class="term">
+        <h2>13. Limited warranty</h2>
+        <p>Contractor warrants that the services will be performed in a workmanlike manner using reasonable care.</p>
+        <p>Customer must give Contractor written notice of any claimed defective or incomplete work within seven calendar days after substantial completion, or within seven days after the condition reasonably could have been discovered. Contractor must be given reasonable access and an opportunity to inspect and, when appropriate, correct covered work before Customer hires another contractor or incurs repair expenses.</p>
+        <p>This warranty does not cover natural wood failure, concealed decay, underground conditions, ordinary settling, decomposition, regrowth, sprouts, weather, acts of third parties, preexisting conditions, or matters expressly excluded from the scope.</p>
+      </section>
+
+      <section class="term">
+        <h2>14. Allocation of liability</h2>
+        <p>To the fullest extent permitted by Oklahoma law:</p>
+        <ol>
+          <li>Each party remains responsible for injury or damage caused by that party’s own negligence, gross negligence, willful misconduct, or breach of this Agreement.</li>
+          <li>Customer will defend and indemnify Contractor against third-party claims arising from Customer’s inaccurate representations concerning ownership, boundaries, permission, utilities, concealed conditions known to Customer but not disclosed, or Customer’s failure to keep persons and animals outside the work zone, except to the extent the claim was caused by Contractor.</li>
+          <li>Neither party will be liable to the other for indirect, incidental, special, exemplary, or consequential losses, including lost profits, loss of use, or emotional distress, except where such a limitation is prohibited by law.</li>
+          <li>Contractor’s liability for a covered contractual claim will be limited to the amount reasonably necessary to repair the direct physical damage or reperform the defective work. To the extent permitted by law, Contractor’s aggregate contractual liability will not exceed the $3,000 contract price. This limitation does not apply to gross negligence, willful misconduct, bodily injury, or liability that cannot lawfully be limited.</li>
+        </ol>
+      </section>
+
+      <section class="term">
+        <h2>15. Cancellation and termination</h2>
+        <p>After expiration of any legally required cancellation period, Customer may terminate the project before completion by written notice.</p>
+        <p>If Customer terminates without an uncured material breach by Contractor, Customer will pay for:</p>
+        <ul>
+          <li>Work performed through the termination date;</li>
+          <li>Mobilization and demobilization;</li>
+          <li>Disposal already performed or committed;</li>
+          <li>Nonreturnable materials or rentals;</li>
+          <li>Reasonable cancellation charges owed to third parties; and</li>
+          <li>Reasonable costs incurred in securing the partially completed site.</li>
+        </ul>
+        <p>Contractor may terminate this Agreement for nonpayment, unsafe conditions, material interference, lack of required authority or access, or another material breach that Customer does not cure within a reasonable time after notice.</p>
+      </section>
+
+      <section class="term">
+        <h2>16. Insurance and independent contractor status</h2>
+        <p>Contractor represents that it maintains commercial general liability insurance. Upon reasonable request, Contractor will provide evidence of current coverage.</p>
+        <p>Contractor is an independent contractor and controls the means, methods, sequencing, staffing, and safety procedures used to perform the work.</p>
+      </section>
+
+      <section class="term">
+        <h2>17. Disputes and opportunity to cure</h2>
+        <p>Before filing suit, either party must provide written notice describing the dispute and requested remedy. The receiving party will have ten calendar days to respond, except when immediate action is reasonably necessary to prevent personal injury or additional property damage.</p>
+        <p>The parties agree to make a good-faith effort to resolve the dispute informally. If they cannot, either party may request nonbinding mediation before litigation.</p>
+        <p>This Agreement is governed by Oklahoma law. Any legal action concerning this Agreement must be brought in the Oklahoma county where the service property is located, unless the parties agree otherwise or applicable law requires a different venue.</p>
+        <p>The prevailing party in an action to enforce this Agreement may recover reasonable attorney fees and costs to the extent permitted by law.</p>
+      </section>
+
+      <section class="term">
+        <h2>18. General provisions</h2>
+        <p>This Agreement, together with any attached photographs, diagrams, written change orders, and incorporated exhibits, contains the entire agreement between the parties concerning this project.</p>
+        <p>Customer acknowledges that no verbal promise or representation not contained in this Agreement was relied upon in signing it.</p>
+        <p>If any provision is found unenforceable, it will be limited or removed only to the minimum extent necessary, and the remaining provisions will remain effective.</p>
+        <p>A waiver of one breach is not a waiver of another breach.</p>
+        <p>Electronic signatures and copies have the same effect as original signatures. Signatures transmitted by email, text-message attachment, or an accepted electronic-signature system are binding.</p>
+      </section>
+
+      <section class="callout term">
+        <h2>19. Buyer’s right to cancel</h2>
+        <p><strong>If this Agreement was solicited at your residence and you do not want the services, you may cancel this Agreement by mailing written notice to Contractor. The notice must state that you do not want the services and must be mailed before midnight of the third business day after you sign this Agreement.</strong></p>
+        <p>The notice must be mailed to:</p>
+        <p><strong>Abundant Life Land &amp; Tree LLC</strong><br>1023 Dustin Dr<br>Edmond, OK 73003</p>
+        <p>If you cancel, Contractor may retain all or part of a cash down payment, not exceeding five percent of the cash price, to the extent permitted by Oklahoma law.</p>
+        <p>Nothing in this section reduces or replaces any cancellation right provided by applicable law.</p>
+      </section>
+
+      <section class="page-break">
+        <h2>20. Acceptance</h2>
+        <p>Customer acknowledges that:</p>
+        <ul>
+          <li>Customer has read and understands this Agreement;</li>
+          <li>The scope and exclusions have been explained;</li>
+          <li>The oak is dead and presents elevated, partly unpredictable removal risks;</li>
+          <li>Stump grinding does not remove the complete root system;</li>
+          <li>Stump grindings will be used as backfill and may settle as they decompose;</li>
+          <li>Shrub removal includes reasonable removal of the main rootballs but excludes extensive smaller feeder roots;</li>
+          <li>Irrigation is known to be near the shrubs and will be managed with reasonable care;</li>
+          <li>The project price is limited to the specifically stated work;</li>
+          <li>Contractor has not promised complete restoration of lawn, soil, landscaping, planter boxes, fencing, irrigation, or hardscape;</li>
+          <li>Customer has had the opportunity to ask questions and seek independent legal advice; and</li>
+          <li>Customer voluntarily authorizes the work.</li>
+        </ul>
+
+        <div class="grid grid-2 signatures keep">
+          <div class="signature-box"><div class="signature-line"><strong>Robert Keenan, Customer</strong><br>Date: <span class="date-line">August 3rd, 2026</span></div></div>
+          <div class="signature-box"><div class="signature-line"><strong>Christian Castillo</strong><br>For Abundant Life Land &amp; Tree LLC<br>Date: <span class="date-line">August 3rd, 2026</span></div></div>
+        </div>
+      </section>
+    </article>
+
+    <div class="controls"><button type="button" onclick="window.print()">Print / Save PDF</button></div>
+  </main>
+</body>
+</html>

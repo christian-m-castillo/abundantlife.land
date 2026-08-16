@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Maple Tree Preservation Proposal | Abundant Life Land & Tree</title>
+
+  <style>
+    :root {
+      --forest: #244734;
+      --forest-dark: #173325;
+      --sage: #728c78;
+      --cream: #f7f5ee;
+      --gold: #ba9653;
+      --ink: #202722;
+      --muted: #5f6862;
+      --border: #cfd6cf;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      background: #e9ece8;
+      color: var(--ink);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .proposal {
+      width: 100%;
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .header {
+      padding: 34px 42px 28px;
+      border-top: 8px solid var(--forest);
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .company-name {
+      margin: 0;
+      color: var(--forest-dark);
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+    }
+
+    .company-subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      text-align: right;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .contact strong {
+      color: var(--ink);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      padding: 32px 42px 28px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: var(--forest-dark);
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       PROJECT INFORMATION
+       ========================================================= */
+
+    .meta {
+      padding: 22px 42px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 34px;
+      font-size: 13px;
+    }
+
+    .meta-item {
+      display: flex;
+      gap: 8px;
+    }
+
+    .meta-label {
+      min-width: 88px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       CONTENT
+       ========================================================= */
+
+    .body {
+      padding: 30px 42px 38px;
+    }
+
+    section {
+      margin-bottom: 28px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      color: var(--forest);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 18px 0 6px;
+      color: var(--forest-dark);
+      font-size: 14px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* =========================================================
+       ASSESSMENT
+       ========================================================= */
+
+    .assessment {
+      border-left: 4px solid var(--gold);
+      background: #fbfaf6;
+      padding: 18px 20px;
+      margin: 18px 0;
+      break-inside: avoid;
+    }
+
+    .assessment strong {
+      color: var(--forest-dark);
+    }
+
+    /* =========================================================
+       SITE PHOTOGRAPHS
+       ========================================================= */
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 4px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .gallery-intro {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 12.5px;
+      margin: 0 0 14px;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .photo-card {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: var(--white);
+      break-inside: avoid;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .photo-card figcaption {
+      padding: 10px 11px 11px;
+      color: var(--muted);
+      font-size: 10.5px;
+      line-height: 1.4;
+    }
+
+    .photo-card figcaption strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--forest-dark);
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       SCOPE OF WORK
+       ========================================================= */
+
+    .scope {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .scope-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      break-inside: avoid;
+    }
+
+    .scope-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .scope-item h3 {
+      margin: 1px 0 4px;
+      font-size: 13px;
+    }
+
+    .scope-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    /* =========================================================
+       INVESTMENT
+       ========================================================= */
+
+    .investment {
+      margin-top: 30px;
+      padding: 24px 26px;
+      border: 2px solid var(--forest);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      break-inside: avoid;
+    }
+
+    .investment-label {
+      color: var(--forest);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .investment-title {
+      margin: 4px 0 0;
+      color: var(--forest-dark);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .investment-note {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .price {
+      color: var(--forest-dark);
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* =========================================================
+       CONTINUING CARE
+       ========================================================= */
+
+    .continuing-care {
+      padding: 24px 26px;
+      background: var(--cream);
+      border-top: 4px solid var(--sage);
+    }
+
+    .continuing-care h2 {
+      margin-bottom: 8px;
+    }
+
+    .followup {
+      margin: 18px 0;
+      padding: 16px 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      break-inside: avoid;
+    }
+
+    .followup-title {
+      color: var(--forest-dark);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .followup p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .care-item {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      break-inside: avoid;
+    }
+
+    .care-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--forest-dark);
+      font-size: 12px;
+    }
+
+    .care-item span {
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.4;
+    }
+
+    /* =========================================================
+       LIMITATIONS
+       ========================================================= */
+
+    .disclaimer {
+      padding: 18px 20px;
+      background: #f6f7f5;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11.5px;
+      break-inside: avoid;
+    }
+
+    /* =========================================================
+       AUTHORIZATION
+       ========================================================= */
+
+    .authorization {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+    }
+
+    .authorization-terms {
+      margin: 18px 0;
+      border: 1px solid var(--border);
+    }
+
+    .term {
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 14px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      break-inside: avoid;
+    }
+
+    .term:last-child {
+      border-bottom: 0;
+    }
+
+    .term strong {
+      color: var(--forest-dark);
+      font-size: 12px;
+    }
+
+    .term span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .authorization-statement {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 11.5px;
+    }
+
+    .signature-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px 28px;
+    }
+
+    .signature-line {
+      padding-top: 28px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .signature-label {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .footer {
+      padding: 18px 42px;
+      background: var(--forest-dark);
+      color: rgba(255, 255, 255, 0.82);
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.03em;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 650px) {
+      body {
+        padding: 0;
+      }
+
+      .header,
+      .meta,
+      .body,
+      .hero {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        text-align: left;
+      }
+
+      .meta,
+      .care-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card img {
+        aspect-ratio: 1/1;
+      }
+
+      .investment {
+        grid-template-columns: 1fr;
+      }
+
+      .term {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .signature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================================================
+       PRINT / PDF
+       ========================================================= */
+
+    @media print {
+      @page {
+        size: Letter;
+        margin: 0.45in 0.5in 0.5in;
+      }
+
+      html,
+      body {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        color: var(--ink);
+        font-size: 10.5pt;
+        line-height: 1.42;
+      }
+
+      .proposal {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        background: #fff;
+        box-shadow: none;
+      }
+
+      /* -----------------------------------------
+         PAGE FLOW
+         ----------------------------------------- */
+
+      section {
+        margin-bottom: 18pt;
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .page-start {
+        break-before: page;
+        page-break-before: always;
+      }
+
+      h1,
+      h2,
+      h3,
+      .eyebrow {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      p {
+        orphans: 3;
+        widows: 3;
+      }
+
+      .assessment,
+      .photo-card,
+      .scope-item,
+      .investment,
+      .followup,
+      .care-item,
+      .disclaimer,
+      .term {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      /* -----------------------------------------
+         HEADER
+         ----------------------------------------- */
+
+      .header {
+        padding: 16pt 20pt 14pt;
+        gap: 20pt;
+        border-top-width: 5pt;
+      }
+
+      .logo {
+        width: 54pt;
+        height: 54pt;
+      }
+
+      .company-name {
+        font-size: 18pt;
+      }
+
+      .company-subtitle {
+        margin-top: 4pt;
+        font-size: 8pt;
+      }
+
+      .contact {
+        font-size: 8.5pt;
+        line-height: 1.5;
+      }
+
+      /* -----------------------------------------
+         HERO
+         ----------------------------------------- */
+
+      .hero {
+        padding: 17pt 20pt 15pt;
+      }
+
+      .eyebrow {
+        margin-bottom: 4pt;
+        font-size: 7.5pt;
+      }
+
+      h1 {
+        margin-bottom: 6pt;
+        font-size: 20pt;
+      }
+
+      .hero p {
+        font-size: 10pt;
+      }
+
+      /* -----------------------------------------
+         PROJECT META
+         ----------------------------------------- */
+
+      .meta {
+        padding: 10pt 20pt;
+        gap: 6pt 22pt;
+        font-size: 9pt;
+      }
+
+      .meta-label {
+        min-width: 66pt;
+      }
+
+      /* -----------------------------------------
+         BODY TYPOGRAPHY
+         ----------------------------------------- */
+
+      .body {
+        padding: 18pt 20pt 20pt;
+      }
+
+      h2 {
+        margin-bottom: 6pt;
+        font-size: 13pt;
+      }
+
+      h3 {
+        margin: 10pt 0 4pt;
+        font-size: 10pt;
+      }
+
+      p {
+        margin-bottom: 7pt;
+      }
+
+      /* -----------------------------------------
+         ASSESSMENT
+         ----------------------------------------- */
+
+      .assessment {
+        margin: 10pt 0;
+        padding: 10pt 12pt;
+        border-left-width: 3pt;
+      }
+
+      /* -----------------------------------------
+         PHOTO GALLERY
+         ----------------------------------------- */
+
+      .site-observations {
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .gallery-intro {
+        margin-bottom: 8pt;
+        font-size: 9pt;
+      }
+
+      .photo-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6pt;
+      }
+
+      .photo-card img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+      }
+
+      .photo-card figcaption {
+        padding: 6pt;
+        font-size: 7.5pt;
+        line-height: 1.3;
+      }
+
+      .photo-card figcaption strong {
+        margin-bottom: 2pt;
+        font-size: 8pt;
+      }
+
+      /* -----------------------------------------
+         SCOPE
+         ----------------------------------------- */
+
+      .scope {
+        gap: 5pt;
+        margin-top: 8pt;
+      }
+
+      .scope-item {
+        grid-template-columns: 24pt 1fr;
+        gap: 8pt;
+        padding: 7pt 8pt;
+      }
+
+      .scope-number {
+        width: 20pt;
+        height: 20pt;
+        font-size: 8pt;
+      }
+
+      .scope-item h3 {
+        margin: 0 0 2pt;
+        font-size: 9pt;
+      }
+
+      .scope-item p {
+        font-size: 8.5pt;
+      }
+
+      /* -----------------------------------------
+         INVESTMENT
+         ----------------------------------------- */
+
+      .investment {
+        margin-top: 14pt;
+        padding: 12pt 14pt;
+        gap: 14pt;
+      }
+
+      .investment-label {
+        font-size: 7.5pt;
+      }
+
+      .investment-title {
+        font-size: 12pt;
+      }
+
+      .investment-note {
+        font-size: 8.5pt;
+      }
+
+      .price {
+        font-size: 23pt;
+      }
+
+      /* -----------------------------------------
+         CONTINUING CARE
+         ----------------------------------------- */
+
+      .continuing-care {
+        padding: 14pt;
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .followup {
+        margin: 10pt 0;
+        padding: 9pt 10pt;
+      }
+
+      .followup-title {
+        font-size: 9.5pt;
+      }
+
+      .followup p {
+        font-size: 8.5pt;
+      }
+
+      .care-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6pt;
+        margin-top: 9pt;
+      }
+
+      .care-item {
+        padding: 7pt 8pt;
+      }
+
+      .care-item strong {
+        font-size: 8.5pt;
+      }
+
+      .care-item span {
+        font-size: 8pt;
+        line-height: 1.3;
+      }
+
+      /* -----------------------------------------
+         LIMITATIONS
+         ----------------------------------------- */
+
+      .disclaimer {
+        padding: 10pt 11pt;
+        font-size: 8pt;
+      }
+
+      /* -----------------------------------------
+         AUTHORIZATION
+         ----------------------------------------- */
+
+      .authorization {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .authorization-terms {
+        margin: 9pt 0;
+      }
+
+      .term {
+        grid-template-columns: 72pt 1fr;
+        gap: 9pt;
+        padding: 6pt 7pt;
+      }
+
+      .term strong,
+      .term span {
+        font-size: 8.5pt;
+      }
+
+      .authorization-statement {
+        margin-top: 9pt;
+        font-size: 8pt;
+      }
+
+      .signature-grid {
+        margin-top: 14pt;
+        gap: 12pt 18pt;
+      }
+
+      .signature-line {
+        padding-top: 18pt;
+      }
+
+      .signature-label {
+        margin-top: 3pt;
+        font-size: 7pt;
+      }
+
+      /* -----------------------------------------
+         FOOTER
+         ----------------------------------------- */
+
+      .footer {
+        padding: 9pt 20pt;
+        font-size: 7.5pt;
+      }
+
+      /* -----------------------------------------
+         LINKS
+         ----------------------------------------- */
+
+      a[href]::after {
+        content: "";
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="proposal">
+
+    <!-- =======================================================
+         HEADER
+         ======================================================= -->
+
+    <header class="header">
+
+      <div class="brand">
+
+        <div class="logo">
+          <img
+            src="../img/logo.jpeg"
+            alt="Abundant Life Land & Tree Logo"
+          >
+        </div>
+
+        <div>
+          <div class="company-name">
+            Abundant Life<br>
+            Land &amp; Tree
+          </div>
+
+          <div class="company-subtitle">
+            Arboriculture • Tree Care • Land Management
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contact">
+        <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+        405-953-1285<br>
+        abundantlife.land
+      </div>
+
+    </header>
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <div class="hero">
+
+      <div class="eyebrow">
+        Tree Preservation Proposal
+      </div>
+
+      <h1>Maple Tree Root Collar Correction</h1>
+
+      <p>
+        Corrective arboricultural work for fourteen young maple trees,
+        focused on improving root-collar conditions, addressing unfavorable
+        root development, and supporting their healthy establishment as
+        long-term community trees.
+      </p>
+
+    </div>
+
+
+    <!-- =======================================================
+         PROJECT INFORMATION
+         ======================================================= -->
+
+    <div class="meta">
+
+      <div class="meta-item">
+        <span class="meta-label">Prepared for:</span>
+        <span>Plaza at Town Square HOA</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-label">Location:</span>
+        <span>
+          The north side of Monument Dr from Boathouse Rd through School St
+        </span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-label">Prepared by:</span>
+        <span>Abundant Life Land &amp; Tree LLC</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-label">Consult Date:</span>
+        <span>August 14th, 2026</span>
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         BODY
+         ======================================================= -->
+
+    <div class="body">
+
+      <!-- =====================================================
+           PAGE 1 — ASSESSMENT
+           ===================================================== -->
+
+      <section>
+
+        <h2>Assessment</h2>
+
+        <p>
+          Abundant Life Land &amp; Tree was asked to inspect a group of
+          maple trees exhibiting visible trunk stress and bark splitting.
+          During the site visit, fourteen young maple trees were observed
+          with a recurring root-zone condition: the natural root flare is
+          poorly defined or concealed beneath excess soil and/or mulch.
+        </p>
+
+        <p>
+          Several trees also show surface root development consistent
+          with improper planting depth or unfavorable root development
+          around the root collar.
+        </p>
+
+        <div class="assessment">
+          <strong>Primary finding:</strong>
+          these trees appear to have an establishment problem rather
+          than simply a cosmetic mulch problem. The objective of the
+          proposed work is to locate and restore an appropriate
+          relationship between the trunk, structural roots, soil grade,
+          and mulch.
+        </div>
+
+      </section>
+
+
+      <section class="site-observations">
+
+        <div class="section-heading">
+
+          <div>
+            <div class="eyebrow">Site Observations</div>
+            <h2>Existing Conditions</h2>
+          </div>
+
+        </div>
+
+        <p class="gallery-intro">
+          The photographs below show representative conditions observed
+          among the fourteen maple trees during the initial site visit.
+        </p>
+
+        <div class="photo-gallery">
+
+          <figure class="photo-card">
+
+            <img
+              src="../img/small-maple-overview.jpg"
+              alt="Representative young maple tree on HOA property"
+            >
+
+            <figcaption>
+              <strong>Tree Overview</strong>
+              Representative maple showing tree size and current
+              landscape setting.
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="photo-card">
+
+            <img
+              src="../img/maple-root-flare-condition.jpg"
+              alt="Buried root collar of maple tree"
+            >
+
+            <figcaption>
+              <strong>Root Collar</strong>
+              Root flare is not readily visible at the existing
+              soil and mulch grade.
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="photo-card">
+
+            <img
+              src="../img/maple-trunk-condition.jpg"
+              alt="Existing trunk injury on maple tree"
+            >
+
+            <figcaption>
+              <strong>Trunk Condition</strong>
+              Existing vertical trunk injury observed during the
+              initial inspection.
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+      </section>
+
+
+      <section>
+
+        <h2>Why Root Collar Exposure Matters</h2>
+
+        <p>
+          A tree's trunk and roots are specialized tissues adapted to
+          different environments. The trunk is normally exposed to air,
+          while the structural root system develops within the soil.
+        </p>
+
+        <p>
+          When trunk tissue is buried beneath excessive soil or mulch,
+          the environment surrounding that tissue changes. Moisture,
+          gas exchange, temperature, and root development may all be
+          affected.
+        </p>
+
+        <p>
+          Roots may also develop in unfavorable positions above or
+          around the original structural root system. As both the tree
+          trunk and these roots increase in diameter, crossing or
+          circling roots may eventually interfere with normal trunk and
+          root development.
+        </p>
+
+        <p>
+          Correcting these conditions while the trees are relatively
+          young is preferable to waiting until the trees are mature and
+          the root defects have enlarged.
+        </p>
+
+      </section>
+
+
+      <!-- =====================================================
+           PAGE 2 — WORK & INVESTMENT
+           ===================================================== -->
+
+      <section class="page-start">
+
+        <div class="eyebrow">
+          Corrective Arboriculture
+        </div>
+
+        <h2>Proposed Scope of Work</h2>
+
+        <div class="scope">
+
+          <div class="scope-item">
+
+            <div class="scope-number">1</div>
+
+            <div>
+              <h3>Root Collar Excavation</h3>
+
+              <p>
+                Carefully remove excess mulch and soil surrounding each
+                trunk to locate the natural root flare and primary
+                structural roots.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="scope-item">
+
+            <div class="scope-number">2</div>
+
+            <div>
+              <h3>Root System Evaluation</h3>
+
+              <p>
+                Inspect exposed roots for circling, crossing,
+                adventitious, damaged, or potentially stem-girdling
+                development.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="scope-item">
+
+            <div class="scope-number">3</div>
+
+            <div>
+              <h3>Corrective Root Pruning</h3>
+
+              <p>
+                Selectively prune unfavorable roots where their size,
+                location, and relationship to the tree make removal
+                biologically appropriate. Significant roots will not
+                be removed solely to create a uniform appearance.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="scope-item">
+
+            <div class="scope-number">4</div>
+
+            <div>
+              <h3>Root Flare &amp; Grade Correction</h3>
+
+              <p>
+                Establish an appropriate finished condition around each
+                tree that keeps the trunk-to-root transition visible
+                and reduces continued burial of trunk tissue.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="scope-item">
+
+            <div class="scope-number">5</div>
+
+            <div>
+              <h3>Mulch Correction</h3>
+
+              <p>
+                Redistribute suitable existing mulch into a broad,
+                shallow profile while maintaining appropriate
+                separation between mulch and the tree trunks.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="scope-item">
+
+            <div class="scope-number">6</div>
+
+            <div>
+              <h3>Inspection, Documentation &amp; Cleanup</h3>
+
+              <p>
+                Visually inspect newly exposed root collars and
+                accessible trunk tissue for additional concerns,
+                document significant findings, remove excess material,
+                and leave each work area in a neat finished condition.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section>
+
+        <h2>Existing Trunk Injuries</h2>
+
+        <p>
+          Several trees exhibit existing bark injury and/or vertical
+          trunk cracking. Root-collar correction is intended to improve
+          the trees' growing environment and address correctable
+          root-zone conditions.
+        </p>
+
+        <p>
+          Existing damaged tissue cannot simply be restored to its
+          previous condition. Trees respond to injuries through new
+          growth and compartmentalization of affected tissues.
+          Improving the root environment supports the living portions
+          of the tree as this process continues.
+        </p>
+
+        <p>
+          If excavation reveals significant decay, extensive girdling,
+          structural defects, or other conditions beyond the proposed
+          scope, those findings will be documented and brought to the
+          HOA's attention.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>Project Objective</h2>
+
+        <p>
+          The purpose of this work is not simply to alter the appearance
+          of the mulch beds. It is an early corrective arboricultural
+          intervention intended to improve the long-term health,
+          structure, and useful life of fourteen existing community
+          trees.
+        </p>
+
+        <p>
+          Addressing establishment defects now may reduce the likelihood
+          that relatively manageable root problems develop into more
+          consequential defects as the trees increase substantially in
+          size and value.
+        </p>
+
+      </section>
+
+
+      <section class="investment">
+
+        <div>
+
+          <div class="investment-label">
+            Project Investment
+          </div>
+
+          <div class="investment-title">
+            Corrective Root Collar Management — 14 Maple Trees
+          </div>
+
+          <div class="investment-note">
+            Includes excavation, individual root evaluation, appropriate
+            corrective root pruning, grade and mulch correction,
+            documentation of significant findings, disposal of excess
+            material, and final cleanup.
+          </div>
+
+        </div>
+
+        <div class="price">
+          $2,450
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           PAGE 3 — CONTINUING TREE STEWARDSHIP
+           ===================================================== -->
+
+      <section class="continuing-care page-start">
+
+        <div class="eyebrow">
+          Continuing Tree Stewardship
+        </div>
+
+        <h2>Protecting the HOA's Tree Investment</h2>
+
+        <p>
+          Trees are long-lived community assets, and many developing
+          problems are most effectively managed when identified early.
+          The corrective work proposed here establishes a useful
+          baseline for these fourteen maples and allows their future
+          development to be evaluated against conditions observed
+          during this project.
+        </p>
+
+        <div class="followup">
+
+          <div class="followup-title">
+            Complimentary Follow-Up Inspection
+          </div>
+
+          <p>
+            Following completion of the corrective work, Abundant Life
+            Land &amp; Tree will provide one follow-up visual inspection
+            of these fourteen maples during an appropriate subsequent
+            growing period at no additional charge. The purpose of this
+            visit will be to evaluate root-collar condition, response to
+            corrective work, trunk development, and any emerging
+            management needs.
+          </p>
+
+        </div>
+
+        <p>
+          As the property develops, Abundant Life Land &amp; Tree is
+          available to serve as an ongoing arboricultural resource for
+          the HOA and board — providing continuity in the observation,
+          care, and management of the community's trees.
+        </p>
+
+        <div class="care-grid">
+
+          <div class="care-item">
+
+            <strong>Periodic Tree Inspections</strong>
+
+            <span>
+              Monitoring tree health, structural development, defects,
+              storm damage, and changing site conditions.
+            </span>
+
+          </div>
+
+
+          <div class="care-item">
+
+            <strong>Young-Tree Structural Pruning</strong>
+
+            <span>
+              Guiding developing trees toward durable branch structure
+              while corrective pruning is still relatively minor.
+            </span>
+
+          </div>
+
+
+          <div class="care-item">
+
+            <strong>Tree Preservation</strong>
+
+            <span>
+              Root-zone, mulch, soil, pruning, and cultural
+              recommendations intended to preserve valuable existing
+              trees.
+            </span>
+
+          </div>
+
+
+          <div class="care-item">
+
+            <strong>Board &amp; Property Consultation</strong>
+
+            <span>
+              Practical arboricultural guidance when the HOA is
+              considering tree work, new plantings, removals, or
+              landscape changes.
+            </span>
+
+          </div>
+
+
+          <div class="care-item">
+
+            <strong>Storm &amp; Hazard Response</strong>
+
+            <span>
+              Evaluation and tree work following significant weather,
+              limb failures, or newly observed structural concerns.
+            </span>
+
+          </div>
+
+
+          <div class="care-item">
+
+            <strong>Long-Term Tree Planning</strong>
+
+            <span>
+              Helping the HOA prioritize work over time so tree-care
+              resources can be directed toward the property's most
+              important needs.
+            </span>
+
+          </div>
+
+        </div>
+
+        <p style="margin-top: 16px; margin-bottom: 0;">
+          Any future work identified through inspection or consultation
+          will be discussed with the HOA and proposed separately before
+          work is performed.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <div class="disclaimer">
+
+          <strong>Tree-care limitations:</strong>
+
+          Tree care is performed according to conditions reasonably
+          visible or discoverable at the time of service. Root systems
+          are partially concealed until excavation begins, and
+          corrective decisions will be made individually based upon the
+          condition of each tree.
+
+          Abundant Life Land &amp; Tree LLC does not guarantee tree
+          survival, reversal of existing damage, freedom from future
+          defects, or prevention of storm-related failure.
+
+          Work outside the scope described above will not be performed
+          without authorization.
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           PAGE 4 — AUTHORIZATION
+           ===================================================== -->
+
+      <section class="authorization page-start">
+
+        <div class="eyebrow">
+          Project Approval
+        </div>
+
+        <h2>Authorization &amp; Payment Terms</h2>
+
+        <p>
+          Approval of this proposal authorizes Abundant Life Land &amp; Tree LLC
+          to perform the corrective arboricultural work described herein for a
+          total project price of <strong>$2,450.00</strong>.
+        </p>
+
+        <div class="authorization-terms">
+
+          <div class="term">
+
+            <strong>Scheduling</strong>
+
+            <span>
+              Work will be scheduled upon written acceptance of this proposal
+              by an authorized representative of the HOA.
+            </span>
+
+          </div>
+
+
+          <div class="term">
+
+            <strong>Deposit</strong>
+
+            <span>
+              No deposit is required for this project.
+            </span>
+
+          </div>
+
+
+          <div class="term">
+
+            <strong>Payment</strong>
+
+            <span>
+              Payment in full is due upon completion of the proposed work.
+            </span>
+
+          </div>
+
+
+          <div class="term">
+
+            <strong>Additional Work</strong>
+
+            <span>
+              Work outside the approved scope will not be performed or billed
+              without additional authorization from the HOA.
+            </span>
+
+          </div>
+
+        </div>
+
+        <p class="authorization-statement">
+          By signing below, the undersigned represents that they are authorized
+          to approve this work on behalf of the HOA and accepts the scope,
+          project price, payment terms, and limitations described in this
+          proposal.
+        </p>
+
+        <div class="signature-grid">
+
+          <div>
+
+            <div class="signature-line"></div>
+
+            <div class="signature-label">
+              Authorized HOA Representative — Printed Name
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="signature-line"></div>
+
+            <div class="signature-label">
+              Title / Position
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="signature-line"></div>
+
+            <div class="signature-label">
+              Signature
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="signature-line"></div>
+
+            <div class="signature-label">
+              Date
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =======================================================
+         FOOTER
+         ======================================================= -->
+
+    <footer class="footer">
+
+      <strong>Abundant Life Land &amp; Tree LLC</strong>
+
+      &nbsp;•&nbsp;
+
+      405-953-1285
+
+      &nbsp;•&nbsp;
+
+      abundantlife.land
+
+    </footer>
+
+  </main>
+
+</body>
+</html>

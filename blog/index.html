@@ -3,107 +3,1311 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abundant Life Blog: Sustainable Landscape & Tree: Servicing Oklahoma</title>
-  <link rel="icon" type="image/png" href="./img/hummingbird-logo-plain.svg">
-  <meta property="og:title" content="Abundant Life LLC: Land Conservation & Tree">
-  <meta property="og:description" content="Abundant Life LLC: Land Conservation & Tree">
-  <meta property="og:url" content="https://abundantlife.land">
-  <meta property="og:image" content="https://live.staticflickr.com/65535/54422413476_e1c70df1c9_k.jpg">
+
+  <title>Tree Care Field Notes | Abundant Life Land & Tree | Edmond, OK</title>
+
+  <meta
+    name="description"
+    content="Field notes, practical tree-care guidance, and land stewardship resources from Abundant Life Land & Tree in Edmond, Oklahoma."
+  >
+
+  <link rel="canonical" href="https://abundantlife.land/blog/">
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../img/hummingbird-logo-land-conservation-tree-web.png"
+  >
+
+  <meta
+    property="og:title"
+    content="Tree Care Field Notes | Abundant Life Land & Tree"
+  >
+
+  <meta
+    property="og:description"
+    content="Practical observations and guidance on Oklahoma trees, landscapes, and long-term land stewardship."
+  >
+
+  <meta
+    property="og:url"
+    content="https://abundantlife.land/blog/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://abundantlife.land/img/arborist-climbing-pecan-tree-high-limb-service.jpg"
+  >
+
   <meta property="og:type" content="website">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <link href="../css/styles.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #035c03;
+      --green-mid: #207c28;
+      --green-bright: #1a7d13;
+      --green-soft: #e8f2e7;
+      --brown: #56452e;
+      --sand: #eec68a;
+      --cream: #fbf8f1;
+      --white: #fff;
+      --ink: #333;
+      --muted: #665f55;
+      --line: #d8d3c8;
+      --shadow: 0 14px 40px rgba(51, 51, 51, .12);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: var(--green);
+    }
+
+    a:hover {
+      color: var(--green-mid);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--sand);
+      outline-offset: 4px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      color: var(--green);
+      line-height: 1.12;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 1rem;
+      font-size: clamp(2.6rem, 7vw, 5.6rem);
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      letter-spacing: -.03em;
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    .wrap {
+      width: min(calc(100% - 2rem), var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 10px;
+      left: 10px;
+      padding: .7rem 1rem;
+      background: var(--white);
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* ================================
+       HEADER
+       ================================ */
+
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      color: var(--white);
+      background: rgba(3, 92, 3, .97);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .16);
+    }
+
+    .nav-wrap {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      font-size: 1.16rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      text-decoration: none;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(.8rem, 3vw, 1.8rem);
+    }
+
+    .site-nav a {
+      color: var(--white);
+      font-size: .92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .site-nav a:hover {
+      color: var(--sand);
+    }
+
+    .site-nav .active {
+      color: var(--sand);
+    }
+
+    /* ================================
+       BUTTONS & TEXT LINKS
+       ================================ */
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: .78rem 1.15rem;
+      border: 2px solid var(--green);
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--white);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      transition:
+        transform .18s ease,
+        background .18s ease;
+    }
+
+    .button:hover {
+      color: var(--white);
+      background: var(--green-mid);
+      transform: translateY(-2px);
+    }
+
+    .button-light {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--green);
+    }
+
+    .button-light:hover {
+      color: var(--green);
+      background: var(--cream);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, .75);
+      background: transparent;
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .text-link {
+      font-weight: 800;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .phone-number {
+      margin-left: .3rem;
+      letter-spacing: .075rem;
+    }
+
+    /* ================================
+       FIELD NOTES HERO
+       ================================ */
+
+    .journal-hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 560px;
+      display: grid;
+      align-items: center;
+      color: var(--white);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3, 55, 3, .94) 0%,
+          rgba(3, 55, 3, .82) 48%,
+          rgba(3, 55, 3, .38) 100%
+        ),
+        url("../img/arborist-study-guide-hand.jpg")
+        center 48% / cover no-repeat;
+    }
+
+    .journal-hero-content {
+      padding-block: clamp(5rem, 10vw, 8rem);
+    }
+
+    .eyebrow {
+      margin-bottom: .85rem;
+      color: var(--sand);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .journal-hero h1 {
+      color: var(--white);
+      text-wrap: balance;
+      letter-spacing: .0001rem;
+      font-weight: 400;
+    }
+
+    .journal-hero-copy {
+      max-width: 700px;
+      margin-bottom: 1.8rem;
+      color: rgba(255, 255, 255, .9);
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+    }
+
+    /* ================================
+       INTRO STRIP
+       ================================ */
+
+    .journal-intro {
+      padding-block: 2rem;
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .journal-intro-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .journal-intro strong {
+      color: var(--sand);
+      font-size: .8rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .journal-intro p {
+      max-width: 850px;
+      margin: 0;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    /* ================================
+       GENERAL SECTION
+       ================================ */
+
+    .section {
+      padding-block: clamp(4.5rem, 9vw, 8rem);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .kicker {
+      margin-bottom: .65rem;
+      color: var(--green-mid);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    /* ================================
+       FEATURED ARTICLE
+       ================================ */
+
+    .featured-post {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .featured-post-image-link {
+      min-height: 100%;
+    }
+
+    .featured-post img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      object-fit: cover;
+    }
+
+    .featured-post-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2rem, 5vw, 4rem);
+    }
+
+    .post-meta {
+      margin-bottom: .75rem;
+      color: var(--green-mid);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .featured-post h2 {
+      margin-bottom: 1.1rem;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .featured-post h2 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .featured-post h2 a:hover {
+      color: var(--green-mid);
+    }
+
+    .featured-post-body > p:not(.post-meta) {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* ================================
+       ARTICLE GRID
+       ================================ */
+
+    .all-notes {
+      background: var(--white);
+    }
+
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .post-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--cream);
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .post-card-image {
+      display: block;
+    }
+
+    .post-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .post-card-body {
+      padding: 1.6rem;
+    }
+
+    .post-card h3 {
+      margin-bottom: .8rem;
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    }
+
+    .post-card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .post-card h3 a:hover {
+      color: var(--green-mid);
+    }
+
+    .post-card p:not(.post-meta) {
+      color: var(--muted);
+    }
+
+    /* ================================
+       ABOUT FIELD NOTES
+       ================================ */
+
+    .journal-purpose {
+      background: var(--green-soft);
+    }
+
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+    }
+
+    .purpose-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .purpose-list {
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .purpose-list li {
+      position: relative;
+      padding: .7rem 0 .7rem 1.65rem;
+      border-bottom: 1px solid rgba(3, 92, 3, .18);
+    }
+
+    .purpose-list li::before {
+      position: absolute;
+      top: 1.28rem;
+      left: 0;
+      width: .62rem;
+      height: .62rem;
+      border-radius: 50%;
+      background: var(--green-mid);
+      content: "";
+    }
+
+    /* ================================
+       CONTACT
+       ================================ */
+
+    .contact {
+      text-align: center;
+      background:
+        linear-gradient(
+          135deg,
+          var(--green) 0%,
+          var(--green-mid) 100%
+        );
+      color: var(--white);
+    }
+
+    .contact h2 {
+      color: var(--white);
+    }
+
+    .contact .kicker {
+      color: var(--sand);
+    }
+
+    .contact-copy {
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      color: rgba(255, 255, 255, .88);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem;
+    }
+
+    /* ================================
+       RESOURCES
+       ================================ */
+
+    .resources {
+      padding-block: 3rem;
+      background: #f4f4f4;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .resources h2 {
+      font-size: 1.5rem;
+    }
+
+    .resources h3 {
+      margin-bottom: .7rem;
+      font-size: 1rem;
+    }
+
+    .resources ul {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    .resources li {
+      margin-bottom: .45rem;
+    }
+
+    .resources a {
+      font-size: .9rem;
+    }
+
+    /* ================================
+       FOOTER
+       ================================ */
+
+    .site-footer {
+      padding-block: 2.2rem;
+      background: #022f02;
+      color: rgba(255, 255, 255, .78);
+      text-align: center;
+    }
+
+    .site-footer p {
+      max-width: 900px;
+      margin: .35rem auto;
+      font-size: .82rem;
+    }
+
+    /* ================================
+       RESPONSIVE
+       ================================ */
+
+    @media (max-width: 850px) {
+      body {
+        font-size: 16px;
+      }
+
+      .site-header {
+        position: static;
+      }
+
+      .nav-wrap {
+        padding-block: .85rem;
+        align-items: flex-start;
+      }
+
+      .site-nav {
+        gap: .8rem;
+        flex-wrap: wrap;
+      }
+
+      .site-nav a {
+        font-size: .82rem;
+      }
+
+      .journal-hero {
+        min-height: 520px;
+        background-position: 58% center;
+      }
+
+      .featured-post {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-post img {
+        min-height: 0;
+        aspect-ratio: 16 / 10;
+      }
+
+      .purpose-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .post-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journal-intro-inner {
+        grid-template-columns: 1fr;
+        gap: .4rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-wrap {
+        display: block;
+      }
+
+      .brand {
+        display: block;
+        margin-bottom: .55rem;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+      }
+
+      .journal-hero {
+        min-height: 500px;
+      }
+
+      .hero-actions .button,
+      .contact-links .button {
+        width: 100%;
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-post-body {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="header">
-    <a href="/"><h1>Abundant Life</h1></a>
-    <nav class="header-nav">
-      <a href="../index.html#about">About</a>
-      <a href="/payment/index.html" target="_blank">Payment</a>
-      <a href="../index.html#contact">Contact</a>
-    </nav>
-  </div>
 
-  <div class="hero">
-    <div class="hero-sub">
-      <div class="left-hero">
-        <div class="left-hero-inner">
-          <h2 class="tagline">Our Mission</h2>
-          <p>Expert tree care and land enrichment made accessible to everyone, for the betterment of our shared future.</p>
+  <a class="skip-link" href="#main">
+    Skip to main content
+  </a>
+
+  <!-- ========================================
+       SITE HEADER
+       ======================================== -->
+
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+
+      <a class="brand" href="/">
+        Abundant Life Land &amp; Tree
+      </a>
+
+      <nav
+        class="site-nav"
+        aria-label="Primary navigation"
+      >
+        <a href="/">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/#about">About</a>
+        <a class="active" href="/blog/">Field Notes</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ========================================
+         FIELD NOTES HERO
+         ======================================== -->
+
+    <section
+      class="journal-hero"
+      aria-labelledby="journal-heading"
+    >
+
+      <div class="wrap journal-hero-content">
+
+        <p class="eyebrow">
+          Arboriculture &bull; Horticulture &bull; Stewardship
+        </p>
+
+        <h1 id="journal-heading">
+          Field Notes
+        </h1>
+
+        <p class="journal-hero-copy">
+          Practical observations from our work with Oklahoma trees,
+          landscapes, and woodlands—along with guidance to help property
+          owners understand what they are seeing and make thoughtful
+          decisions about what comes next.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            class="button button-light"
+            href="#latest"
+          >
+            Read the Latest
+          </a>
+
+          <a
+            class="button button-outline"
+            href="/#contact"
+          >
+            Request an Assessment
+          </a>
+
         </div>
+
       </div>
-      <div class="right-hero">
-        <img src="../img/hummingbird-logo-land-conservation-tree-web.png" alt="Abundant Life LLC, Oklahoma City, Landscaping and Tree Service Logo">
+
+    </section>
+
+    <!-- ========================================
+         INTRO
+         ======================================== -->
+
+    <div class="journal-intro">
+
+      <div class="wrap journal-intro-inner">
+
+        <strong>
+          From the field
+        </strong>
+
+        <p>
+          Tree care is often less about finding one universal answer
+          and more about understanding the tree, the site, the defect,
+          and the owner's goals. These notes document that process.
+        </p>
+
       </div>
-    </div>
-    <a href="tel:14059531285" class="cta-button hero-cta"><span class="phone-number">405. 953. 1285</span></a>
-  </div>
 
-  <div class="blog">
-    <h2 class="blog-heading">Abundant Life Blog</h2>
-    <div class="blog-posts">
-      <article class="blog-post-card">
-        <h3><a href="./post0001.html">The Best Native Trees for Oklahoma Landscapes</a></h3>
-        <img src="../img/oaks-residential-imagen-wide.jpeg" alt="Oak trees in residential Oklahoma">
-        <p>Discover the top native trees to plant for a resilient and beautiful landscape that thrives in Oklahoma’s climate.</p>
-        <a href="./post0001.html" class="read-more">Read More</a>
-      </article>
-      <article class="blog-post-card">
-        <h3><a href="./post0002.html">Regenerative Landscaping: Restore Your Soil Naturally</a></h3>
-        <img src="../img/healthy-soil-polyculture-garden-imagen3-wide.jpeg" alt="Healthy soil in a polyculture garden.">
-        <p>Learn techniques to improve your soil health while supporting local wildlife and reducing maintenance costs.</p>
-        <a href="./post0002.html" class="read-more">Read More</a>
-      </article>
-      <article class="blog-post-card">
-        <h3><a href="./post0003.html">Principles of Beautiful Low-Maintenance Landscapes</a></h3>
-        <img src="../img/stone-pavers-wide-imagen.jpeg" alt="">
-        <p>Implement low-maintenance landscaping with practical ways to design an easy-care outdoor space.</p>
-        <a href="./post0003.html" class="read-more">Read More</a>
-      </article>
-    </div>
-  </div>
-
-  
-
-
-  <div class="resources">
-    <div class="resource-container">
-      <h3>Internal Resources</h3>
-      <ul>
-        <li><a href="../consultations/20250204-USA-AZ-W/" target="_blank">Arizona Species Replacement Guide</a></li>
-        <li><a href="../consultations/20250209-USA-OK-C/" target="_blank">Oklahoma Pollinator Garden Guide</a></li>
-      </ul>
     </div>
 
-    <div class="resource-container external">
-      <h3>External Resources</h3>
-      <ul>
-        <li><a href="https://www.arborday.org/trees/whattree" target="_blank">Arbor Day Foundation Tree Identification Tool</a></li>
-        <li><a href="https://www.isa-arbor.com" target="_blank">The International Society of Arboriculture</a></li>
-        <li><a href="https://www.wildflower.org" target="_blank">Lady Bird Johnson Wildflower Center</a></li>
-        <li><a href="https://www.forestry.ok.gov" target="_blank">Oklahoma Forestry Services</a></li>
-        <li><a href="https://www.wildlifedepartment.com/lands-and-minerals/landowner-programs/whip" target="_blank">Oklahoma Wildlife Improvement Program</a></li>
-      </ul>
-    </div>
-  </div>
+    <!-- ========================================
+         FEATURED ARTICLE
+         ======================================== -->
 
+    <section
+      class="section"
+      id="latest"
+      aria-labelledby="latest-heading"
+    >
 
-  <div class="contact-container" id="contact">
-        <h2>Contact</h2>
-        <div class="contact-methods">
-          <a class="contact-anchor phone" href="tel:14059531285">405-953-1285</a>
-          <a class="contact-anchor email" href="mailto:abundant.life.land@gmail.com">abundant.life.land@gmail.com</a>
+      <div class="wrap">
+
+        <div class="section-heading">
+
+          <p class="kicker">
+            Featured Field Note
+          </p>
+
+          <h2 id="latest-heading">
+            Start with the trees themselves
+          </h2>
+
+          <p>
+            Species selection, site conditions, structure, and long-term
+            stewardship all shape whether a tree becomes an asset for
+            generations or an ongoing problem.
+          </p>
+
         </div>
-  </div>
 
-  <div class="calendly-container">
-    <div id="calendly-inline-widget" class="calendly-inline-widget" data-url="https://calendly.com/abundant-life-land/land-tree-consultation?primary_color=009500" style="min-width:300px;height:1400px;"></div>
-  </div>
-  
-  <div class="footer">
-    <p class="copy-right-statement">Copyright Abundant Life LLC 2025</p>
-    <p class="bible-verse">Genesis 2:15 NKJV- "Then the Lord God took the man and put him in the garden of Eden to tend and keep it."</p>
-  </div>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <div id="featured-post"></div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================
+         ALL FIELD NOTES
+         ======================================== -->
+
+    <section
+      class="section all-notes"
+      aria-labelledby="all-notes-heading"
+    >
+
+      <div class="wrap">
+
+        <div class="section-heading">
+
+          <p class="kicker">
+            More from Abundant Life
+          </p>
+
+          <h2 id="all-notes-heading">
+            Tree, soil, and landscape knowledge
+          </h2>
+
+          <p>
+            Explore practical guidance for healthier trees, stronger
+            landscapes, better soil, and thoughtful long-term property
+            care.
+          </p>
+
+        </div>
+
+        <div
+          class="post-grid"
+          id="blog-post-list"
+        ></div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================
+         PURPOSE / WHY FIELD NOTES EXIST
+         ======================================== -->
+
+    <section
+      class="section journal-purpose"
+      aria-labelledby="purpose-heading"
+    >
+
+      <div class="wrap purpose-grid">
+
+        <img
+          class="purpose-image"
+          src="../img/gopro-photo-top-of-arborists-helmet-360-hackberry-assessment.jpeg"
+          loading="lazy"
+          decoding="async"
+          alt="Arborist examining a mature tree from within the canopy during a field assessment"
+        >
+
+        <div>
+
+          <p class="kicker">
+            Why we write
+          </p>
+
+          <h2 id="purpose-heading">
+            Good tree care begins with understanding
+          </h2>
+
+          <p>
+            Trees are living structures responding to species,
+            genetics, soil, weather, past pruning, construction,
+            competition, pests, decay, and decades of accumulated
+            history.
+          </p>
+
+          <p>
+            Our Field Notes are intended to make that complexity more
+            understandable. Some come from questions we hear repeatedly.
+            Others begin with something unusual encountered during an
+            assessment, pruning project, or removal.
+          </p>
+
+          <ul class="purpose-list">
+
+            <li>
+              Tree health and structural observations
+            </li>
+
+            <li>
+              Pruning and mature-tree care
+            </li>
+
+            <li>
+              Storm damage and tree risk
+            </li>
+
+            <li>
+              Species selection and establishment
+            </li>
+
+            <li>
+              Soil, gardens, woodlands, and habitat
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================
+         CONTACT
+         ======================================== -->
+
+    <section
+      class="section contact"
+      id="contact"
+      aria-labelledby="contact-heading"
+    >
+
+      <div class="wrap">
+
+        <p class="kicker">
+          Start a conversation
+        </p>
+
+        <h2 id="contact-heading">
+          Have a question about a tree on your property?
+        </h2>
+
+        <p class="contact-copy">
+          Call or email with the location, your main concern, and a few
+          photographs if available. We can help determine whether the
+          next step is an assessment, pruning, removal, or simply a
+          little more observation.
+        </p>
+
+        <div class="contact-links">
+
+          <a
+            class="button button-light"
+            href="tel:14059531285"
+          >
+            <span class="phone-number">
+              405-953-1285
+            </span>
+          </a>
+
+          <a
+            class="button button-outline"
+            href="mailto:abundant.life.land@gmail.com"
+          >
+            Send an Email
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================
+         RESOURCES
+         ======================================== -->
+
+    <section
+      class="resources"
+      aria-labelledby="resources-heading"
+    >
+
+      <div class="wrap resource-grid">
+
+        <div>
+
+          <h2 id="resources-heading">
+            Resources
+          </h2>
+
+          <p>
+            Additional guides and trusted sources for thoughtful land
+            and tree care.
+          </p>
+
+          <a
+            class="text-link"
+            href="/"
+          >
+            Return to Abundant Life
+          </a>
+
+        </div>
+
+        <div>
+
+          <h3>
+            Abundant Life Guides
+          </h3>
+
+          <ul>
+
+            <li>
+              <a
+                href="../consultations/20250209-USA-OK-C/"
+                target="_blank"
+                rel="noopener"
+              >
+                Oklahoma Pollinator Garden Guide
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h3>
+            Trusted Organizations
+          </h3>
+
+          <ul>
+
+            <li>
+              <a
+                href="https://www.arborday.org/trees/whattree"
+                target="_blank"
+                rel="noopener"
+              >
+                Arbor Day Foundation Tree Identification Tool
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.isa-arbor.com"
+                target="_blank"
+                rel="noopener"
+              >
+                International Society of Arboriculture
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.wildflower.org"
+                target="_blank"
+                rel="noopener"
+              >
+                Lady Bird Johnson Wildflower Center
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://www.forestry.ok.gov"
+                target="_blank"
+                rel="noopener"
+              >
+                Oklahoma Forestry Services
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+
+  <footer class="site-footer">
+
+    <div class="wrap">
+
+      <p>
+        &copy; 2026 Abundant Life Land &amp; Tree LLC
+        &bull; Edmond, Oklahoma
+      </p>
+
+      <p>
+        Genesis 2:15 NKJV &mdash;
+        &ldquo;Then the Lord God took the man and put him in the garden
+        of Eden to tend and keep it.&rdquo;
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script>
+    fetch("/blog/posts.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Unable to load Field Notes.");
+        }
+
+        return response.json();
+      })
+
+      .then((posts) => {
+        if (!posts.length) {
+          return;
+        }
+
+        const featuredContainer =
+          document.querySelector("#featured-post");
+
+        const gridContainer =
+          document.querySelector("#blog-post-list");
+
+        const featured = posts[0];
+        const remainingPosts = posts.slice(1);
+
+        /* ======================================
+           FEATURED POST
+           ====================================== */
+
+        featuredContainer.innerHTML = `
+          <article class="featured-post">
+
+            <a
+              class="featured-post-image-link"
+              href="${featured.url}"
+              aria-label="Read ${featured.title}"
+            >
+
+              <img
+                src="${featured.image}"
+                alt=""
+              >
+
+            </a>
+
+            <div class="featured-post-body">
+
+              <p class="post-meta">
+                ${featured.category}
+                &bull;
+                ${featured.location}
+              </p>
+
+              <h2>
+                <a href="${featured.url}">
+                  ${featured.title}
+                </a>
+              </h2>
+
+              <p>
+                ${featured.description}
+              </p>
+
+              <p>
+                <a
+                  class="text-link"
+                  href="${featured.url}"
+                >
+                  Read Field Note &rarr;
+                </a>
+              </p>
+
+            </div>
+
+          </article>
+        `;
+
+        /* ======================================
+           REMAINING POSTS
+           ====================================== */
+
+        gridContainer.innerHTML =
+          remainingPosts
+            .map((post) => `
+              <article class="post-card">
+
+                <a
+                  class="post-card-image"
+                  href="${post.url}"
+                  aria-label="Read ${post.title}"
+                >
+
+                  <img
+                    src="${post.image}"
+                    loading="lazy"
+                    decoding="async"
+                    alt=""
+                  >
+
+                </a>
+
+                <div class="post-card-body">
+
+                  <p class="post-meta">
+                    ${post.category}
+                    &bull;
+                    ${post.location}
+                  </p>
+
+                  <h3>
+                    <a href="${post.url}">
+                      ${post.title}
+                    </a>
+                  </h3>
+
+                  <p>
+                    ${post.description}
+                  </p>
+
+                  <a
+                    class="text-link"
+                    href="${post.url}"
+                  >
+                    Read Field Note &rarr;
+                  </a>
+
+                </div>
+
+              </article>
+            `)
+            .join("");
+      })
+
+      .catch((error) => {
+        console.error(error);
+      });
+  </script>
+
 </body>
 </html>

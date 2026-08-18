@@ -1173,7 +1173,7 @@
   </footer>
 
   <script>
-    fetch("/blog/posts.json")
+    fetch("./blog/posts.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Unable to load Field Notes.");

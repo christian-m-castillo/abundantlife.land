@@ -339,6 +339,7 @@
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="#services">Services</a>
         <a href="#about">About</a>
+        <a href="./blog/">Field Notes</a>
         <a href="/payment/index.html" target="_blank" rel="noopener">Payment</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -511,6 +512,24 @@
       </div>
     </section>
 
+    <!-- ========================================
+     FIELD NOTES
+     ======================================== -->
+
+    <section class="section tree-section" id="field-notes" aria-labelledby="field-notes-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="kicker">Field Notes</p>
+          <h2 id="field-notes-heading">Knowledge from the field</h2>
+          <p>Practical observations on trees, landscapes, soil, and stewardship from our work and ongoing study across Oklahoma.</p>
+        </div>
+        <div class="services-grid" id="latest-field-notes"></div>
+        <div class="section-actions" style="margin-top: 2rem;">
+          <a class="button" href="./blog/">Explore All Field Notes</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section about" id="about" aria-labelledby="about-heading">
       <div class="wrap split">
     
@@ -633,5 +652,85 @@
       <p>Genesis 2:15 NKJV &mdash; &ldquo;Then the Lord God took the man and put him in the garden of Eden to tend and keep it.&rdquo;</p>
     </div>
   </footer>
+  <script>
+    fetch("./blog/posts.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Unable to load Field Notes.");
+        }
+  
+        return response.json();
+      })
+  
+      .then((posts) => {
+        const container =
+          document.querySelector("#latest-field-notes");
+  
+        if (!container || !posts.length) {
+          return;
+        }
+  
+        const latestPosts = posts.slice(0, 3);
+  
+        container.innerHTML =
+          latestPosts
+            .map((post) => `
+              <article class="service-card">
+  
+                <a
+                  href="${post.url}"
+                  aria-label="Read ${post.title}"
+                >
+                  <img
+                    src="${post.image}"
+                    loading="lazy"
+                    decoding="async"
+                    alt=""
+                  >
+                </a>
+  
+                <div class="service-card-body">
+  
+                  <p
+                    style="
+                      margin-bottom: .65rem;
+                      color: var(--green-mid);
+                      font-size: .72rem;
+                      font-weight: 800;
+                      letter-spacing: .12em;
+                      text-transform: uppercase;
+                    "
+                  >
+                    ${post.category}
+                    &bull;
+                    ${post.location}
+                  </p>
+  
+                  <h3>
+                    ${post.title}
+                  </h3>
+  
+                  <p>
+                    ${post.description}
+                  </p>
+  
+                  <a
+                    class="text-link"
+                    href="${post.url}"
+                  >
+                    Read Field Note &rarr;
+                  </a>
+  
+                </div>
+  
+              </article>
+            `)
+            .join("");
+      })
+  
+      .catch((error) => {
+        console.error(error);
+      });
+  </script>
 </body>
 </html>

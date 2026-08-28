@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Abundant Life Land & Tree — Business Card</title>
+
+  <style>
+    /* =========================================================
+       ABUNDANT LIFE LAND & TREE LLC
+       BUSINESS CARD
+
+       Finished size: 3.5" × 2"
+       Orientation: Landscape
+
+       Customize the brand primarily from these variables.
+       ========================================================= */
+
+    :root {
+      --green: #035c03;
+      --green-dark: #023d02;
+      --green-soft: #e8f2e7;
+
+      --cream: #fbf8f1;
+      --sand: #eec68a;
+      --brown: #56452e;
+
+      --ink: #262923;
+      --muted: #64675f;
+      --white: #ffffff;
+
+      --card-width: 3.5in;
+      --card-height: 2in;
+
+      /*
+        The dashed safe area is only a design guide.
+        It disappears when printing.
+      */
+      --safe-margin: 0.125in;
+    }
+
+
+    /* =========================================================
+       BASIC PAGE
+       ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: #d8d8d5;
+      color: var(--ink);
+
+      /*
+        Helvetica/Arial matches the cleaner direction
+        of the current website and contrasts nicely
+        with the traditional line-art seal.
+      */
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       SCREEN PREVIEW
+       ========================================================= */
+
+    .page {
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 0.45in;
+
+      padding: 0.6in;
+    }
+
+    .preview-label {
+      width: var(--card-width);
+
+      margin-bottom: -0.32in;
+
+      color: #555;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       CARD SHELL
+       ========================================================= */
+
+    .card {
+      position: relative;
+
+      width: var(--card-width);
+      height: var(--card-height);
+
+      overflow: hidden;
+
+      background: var(--cream);
+
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    /*
+      Screen-only safe-zone indicator.
+    */
+
+    .card::after {
+      content: "";
+
+      position: absolute;
+      inset: var(--safe-margin);
+
+      z-index: 100;
+
+      pointer-events: none;
+    }
+
+
+    /* =========================================================
+       FRONT
+       ========================================================= */
+
+    .front {
+      display: grid;
+
+      grid-template-columns: 1.3in 1fr;
+
+      background: #fff;
+    }
+
+
+    /* ---------- Logo side ---------- */
+
+    .front-brand {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0.14in 0.05in 0.14in 0.13in;
+    }
+
+    .front-brand::after {
+      content: "";
+
+      position: absolute;
+
+      top: 0.24in;
+      right: 0;
+
+      width: 1px;
+      height: calc(100% - 0.48in);
+
+      background: rgba(3, 92, 3, 0.25);
+    }
+
+    .logo {
+      width: 0.93in;
+      height: 0.93in;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+
+    /* ---------- Identity side ---------- */
+
+    .front-content {
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding:
+        0.20in
+        0.18in
+        0.18in
+        0.17in;
+    }
+
+    .company-name {
+      margin: 0 0 0.035in;
+
+      color: var(--green);
+
+      font-size: 13.5px;
+      font-weight: 800;
+
+      line-height: 1.05;
+
+      letter-spacing: -0.025em;
+    }
+
+    .company-descriptor {
+      margin: 0 0 0.115in;
+
+      color: var(--brown);
+
+      font-size: 6.8px;
+      font-weight: 800;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .person-name {
+      margin: 0;
+
+      color: var(--ink);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 15.5px;
+      font-weight: 500;
+
+      line-height: 1;
+    }
+
+    .person-title {
+      margin: 0.035in 0 0.11in;
+
+      color: var(--muted);
+
+      font-size: 7.4px;
+      font-weight: 700;
+    }
+
+
+    /* ---------- Contact ---------- */
+
+    .contact {
+      display: grid;
+
+      gap: 0.035in;
+
+      font-size: 8px;
+      font-weight: 700;
+    }
+
+    .phone {
+      color: var(--green);
+
+      font-size: 10.5px;
+      font-weight: 850;
+
+      letter-spacing: 0.025em;
+    }
+
+    .website {
+      color: var(--ink);
+      letter-spacing: .25px;
+    }
+
+    .service-area {
+      margin-top: 0.07in;
+
+      color: var(--muted);
+
+      font-size: 6.5px;
+      font-weight: 700;
+
+      letter-spacing: 0.025em;
+    }
+
+
+    /* =========================================================
+       BACK
+       ========================================================= */
+
+    .back {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns: 1fr 0.90in;
+
+      color: var(--white);
+
+      background:
+        linear-gradient(
+          130deg,
+          var(--green-dark) 0%,
+          var(--green) 58%,
+          #176d1b 100%
+        );
+    }
+
+    /*
+      A subtle decorative "canopy" shape.
+      Pure CSS — no extra image needed.
+    */
+
+    .back::before {
+      content: "";
+
+      position: absolute;
+
+      width: 2.2in;
+      height: 2.2in;
+
+      right: -0.75in;
+      top: -1.15in;
+
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+    }
+
+    .back::after {
+      content: "";
+
+      position: absolute;
+
+      width: 1.6in;
+      height: 1.6in;
+
+      right: -0.43in;
+      bottom: -0.95in;
+
+      border: 1px solid rgba(238,198,138,0.22);
+      border-radius: 50%;
+    }
+
+
+    /* ---------- Back text ---------- */
+
+    .back-content {
+      position: relative;
+
+      z-index: 2;
+
+      padding:
+        0.20in
+        0.11in
+        0.18in
+        0.20in;
+    }
+
+    .back-kicker {
+      margin: 0 0 0.045in;
+
+      color: var(--sand);
+
+      font-size: 6.4px;
+      font-weight: 800;
+
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .back-title {
+      max-width: 1.85in;
+
+      margin: 0 0 0.095in;
+
+      color: var(--white);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 15px;
+      font-weight: 500;
+
+      line-height: 1.08;
+
+      letter-spacing: -0.018em;
+    }
+
+
+    /* ---------- Services ---------- */
+
+    .services {
+      margin: 0;
+      padding: 0;
+
+      display: grid;
+
+      gap: 0.032in;
+
+      list-style: none;
+    }
+
+    .services li {
+      display: flex;
+      align-items: center;
+
+      gap: 0.055in;
+
+      font-size: 9px;
+      letter-spacing: .1px;
+      font-weight: 400;
+
+      line-height: 1.5;
+    }
+
+    .services li::before {
+      content: "";
+
+      flex: 0 0 auto;
+
+      width: 0.045in;
+      height: 0.045in;
+
+      border-radius: 50%;
+
+      background: var(--sand);
+    }
+
+
+    /* =========================================================
+       QR AREA
+       ========================================================= */
+
+    .qr-panel {
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      padding-right: 0.16in;
+    }
+
+    .qr-shell {
+      width: 0.70in;
+      height: 0.70in;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0.055in;
+
+      border-radius: 0.055in;
+
+      background: var(--white);
+    }
+
+    .qr-code {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+    }
+
+    .qr-label {
+      margin: 0.07in 0 0;
+
+      color: rgba(255,255,255,0.88);
+
+      font-size: 5.8px;
+      font-weight: 800;
+
+      line-height: 1.2;
+
+      text-align: center;
+
+      letter-spacing: 0.035em;
+    }
+
+
+    /* =========================================================
+       OPTIONAL SMALL FOOTER
+       ========================================================= */
+
+    .back-footer {
+      position: absolute;
+
+      left: 0.20in;
+      bottom: 0.105in;
+
+      z-index: 3;
+
+      color: rgba(255,255,255,0.60);
+
+      font-size: 5.5px;
+      font-weight: 700;
+
+      letter-spacing: 0.03em;
+    }
+
+
+    /* =========================================================
+       PRINT
+       ========================================================= */
+
+    @media print {
+
+      /*
+        Depending on your workflow, your print shop may
+        instead want a PDF with 0.125" bleed.
+
+        This version outputs one finished-size card
+        per printed page.
+      */
+
+      @page {
+        size: 3.5in 2in;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+
+        background: transparent;
+
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .page {
+        display: block;
+
+        min-height: 0;
+
+        padding: 0;
+      }
+
+      .preview-label {
+        display: none;
+      }
+
+      .card {
+        margin: 0;
+
+        box-shadow: none;
+
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .card:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      .card::after {
+        display: none;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+
+    <!-- =======================================================
+         FRONT
+         ======================================================= -->
+
+    <div class="preview-label">
+      Front
+    </div>
+
+    <section
+      class="card front"
+      aria-label="Front of Abundant Life business card"
+    >
+
+      <div class="front-brand">
+
+        <!--
+          Replace this path with the actual location
+          of the new hummingbird/tree logo in your project.
+        -->
+
+        <img
+          class="logo"
+          src="../img/hummingbird-tree-logo-monochrome.png"
+          alt="Abundant Life Land & Tree LLC"
+        >
+
+      </div>
+
+
+      <div class="front-content">
+
+        <p class="company-name">
+          Abundant Life<br>
+          Land &amp; Tree LLC
+        </p>
+
+        <p class="company-descriptor">
+          Arborist-Led Tree Care
+        </p>
+
+
+        <p class="person-name">
+          Christian Castillo
+        </p>
+
+        <p class="person-title">
+          Owner &bull; Arborist
+        </p>
+
+
+        <div class="contact">
+
+          <a
+            class="phone"
+            href="tel:+14059531285"
+          >
+            405-953-1285
+          </a>
+
+          <a
+            class="website"
+            href="https://abundantlife.land/"
+          >
+            www.AbundantLife.Land
+          </a>
+
+        </div>
+
+
+        <div class="service-area">
+          Edmond &bull; Oklahoma City &bull; Nichols Hills
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         BACK
+         ======================================================= -->
+
+    <div class="preview-label">
+      Back
+    </div>
+
+    <section
+      class="card back"
+      aria-label="Back of Abundant Life business card"
+    >
+
+      <div class="back-content">
+
+        <p class="back-kicker">
+          Thoughtful stewardship
+        </p>
+
+        <h2 class="back-title">
+          Better decisions for trees and the land around them.
+        </h2>
+
+
+        <ul class="services">
+
+          <li>
+            Tree Assessments &amp; Consultations
+          </li>
+
+          <li>
+            Mature-Tree Pruning
+          </li>
+
+          <li>
+            Technical Tree Removal
+          </li>
+
+          <li>
+            Estate &amp; Property Stewardship
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="qr-panel">
+
+        <!--
+          Replace this with the QR code that points
+          wherever you ultimately want card traffic
+          to land.
+
+          I would presently send it to:
+          https://abundantlife.land/
+        -->
+
+        <div class="qr-shell">
+
+          <img
+            class="qr-code"
+            src="../img/abundant-life-qr.png"
+            alt="QR code for abundantlife.land"
+          >
+
+        </div>
+
+        <p class="qr-label">
+          SEE OUR WORK<br>
+          &amp; GET IN TOUCH
+        </p>
+
+      </div>
+
+
+      <div class="back-footer">
+        Abundant Life Land &amp; Tree LLC
+      </div>
+
+    </section>
+
+
+  </main>
+
+</body>
+</html>

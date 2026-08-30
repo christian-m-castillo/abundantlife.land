@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Sales System | Abundant Life Land & Tree</title>
+
+  <style>
+    :root {
+      --green-950: #14251b;
+      --green-900: #1b3424;
+      --green-800: #294b35;
+      --green-700: #386145;
+      --green-100: #e8f0e9;
+      --green-50: #f4f8f4;
+
+      --gold-800: #654e19;
+      --gold-700: #806320;
+      --gold-500: #c49a47;
+      --gold-300: #d7bd78;
+      --gold-200: #dbc58e;
+      --gold-100: #f4ead2;
+      --gold-50: #fbf7ec;
+
+      --red-700: #8c3434;
+      --red-100: #f7e6e6;
+
+      --blue-700: #315d7d;
+      --blue-100: #e3eef5;
+
+      --white: #ffffff;
+
+      --gray-950: #17201b;
+      --gray-900: #222b26;
+      --gray-800: #303a34;
+      --gray-700: #4c5750;
+      --gray-600: #68736c;
+      --gray-500: #828c86;
+      --gray-300: #cfd6d1;
+      --gray-200: #e3e8e4;
+      --gray-100: #f1f4f2;
+      --gray-50: #f8faf8;
+
+      --shadow:
+        0 8px 24px rgba(20, 37, 27, 0.10);
+
+      --shadow-small:
+        0 3px 12px rgba(20, 37, 27, 0.08);
+
+      --radius: 14px;
+      --radius-small: 10px;
+
+      --content: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 0;
+      background: var(--gray-50);
+      color: var(--gray-950);
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ul,
+    ol {
+      margin-top: 0;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold-500);
+      outline-offset: 3px;
+    }
+
+
+    /* ----------------------------------------
+       HEADER
+    ---------------------------------------- */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 24px), var(--content));
+      min-height: 64px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+
+      overflow: hidden;
+
+      border-radius: 50%;
+      background: var(--green-700);
+    }
+
+    .brand-mark-img {
+      width: 100%;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .brand-text {
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 0.92rem;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 3px;
+
+      color: rgba(255, 255, 255, 0.65);
+
+      font-size: 0.72rem;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 4px;
+    }
+
+    .header-nav a {
+      min-height: 42px;
+      padding: 8px 10px;
+
+      display: flex;
+      align-items: center;
+
+      border-radius: 8px;
+
+      color: rgba(255, 255, 255, 0.82);
+
+      font-size: 0.80rem;
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+    .header-nav a:hover {
+      background: rgba(255, 255, 255, 0.10);
+      color: var(--white);
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
+
+    /* ----------------------------------------
+       LAYOUT
+    ---------------------------------------- */
+
+    .hero,
+    .page-shell {
+      width: min(calc(100% - 24px), var(--content));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 58px 0 32px;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+
+      color: var(--green-700);
+
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 16px;
+
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin-bottom: 0;
+
+      color: var(--gray-700);
+
+      font-size: 1.05rem;
+    }
+
+    .section {
+      margin-top: 52px;
+      scroll-margin-top: 86px;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      margin-bottom: 8px;
+
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    .section-header p:last-child {
+      margin-bottom: 0;
+
+      color: var(--gray-700);
+    }
+
+
+    /* ----------------------------------------
+       HERO METRICS
+    ---------------------------------------- */
+
+    .hero-metrics {
+      margin-top: 28px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hero-metric {
+      padding: 17px;
+
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+      box-shadow: var(--shadow-small);
+    }
+
+    .hero-metric strong {
+      display: block;
+      margin-bottom: 4px;
+
+      color: var(--green-900);
+
+      font-size: 1.15rem;
+    }
+
+    .hero-metric span {
+      color: var(--gray-600);
+
+      font-size: 0.82rem;
+    }
+
+    .hero-metric.gold {
+      border-color: var(--gold-200);
+      background: var(--gold-100);
+    }
+
+
+    /* ----------------------------------------
+       SALES MISSION
+    ---------------------------------------- */
+
+    .mission-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+
+      overflow: hidden;
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .mission-main,
+    .mission-side {
+      padding: 26px;
+    }
+
+    .mission-main {
+      background: var(--white);
+    }
+
+    .mission-main h3 {
+      max-width: 540px;
+      margin-bottom: 12px;
+
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      line-height: 1.15;
+    }
+
+    .mission-main p:last-child {
+      margin-bottom: 0;
+      color: var(--gray-700);
+    }
+
+    .mission-side {
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .mission-side h3 {
+      margin-bottom: 12px;
+    }
+
+    .mission-side p {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .mission-side p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ----------------------------------------
+       PRINCIPLES
+    ---------------------------------------- */
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .principle {
+      padding: 18px;
+
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+      box-shadow: var(--shadow-small);
+    }
+
+    .principle-number {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 16px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 9px;
+
+      background: var(--green-900);
+      color: var(--white);
+
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .principle h3 {
+      margin-bottom: 6px;
+
+      color: var(--green-900);
+
+      font-size: 1rem;
+    }
+
+    .principle p {
+      margin-bottom: 0;
+
+      color: var(--gray-700);
+
+      font-size: 0.86rem;
+    }
+
+    .principle.gold {
+      border-color: var(--gold-200);
+      background: var(--gold-100);
+    }
+
+    .principle.gold .principle-number {
+      background: var(--gold-700);
+    }
+
+
+    /* ----------------------------------------
+       PIPELINE
+    ---------------------------------------- */
+
+    .pipeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pipeline-step {
+      min-height: 88px;
+      padding: 17px 18px;
+
+      display: grid;
+      grid-template-columns: 50px 1fr auto;
+      align-items: center;
+      gap: 16px;
+
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+    }
+
+    .pipeline-number {
+      width: 46px;
+      height: 46px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 11px;
+
+      background: var(--green-900);
+      color: var(--white);
+
+      font-weight: 800;
+    }
+
+    .pipeline-copy h3 {
+      margin-bottom: 3px;
+
+      font-size: 1rem;
+    }
+
+    .pipeline-copy p {
+      margin-bottom: 0;
+
+      color: var(--gray-600);
+
+      font-size: 0.85rem;
+    }
+
+    .pipeline-owner {
+      padding: 7px 10px;
+
+      border-radius: 999px;
+
+      background: var(--green-100);
+      color: var(--green-800);
+
+      font-size: 0.72rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pipeline-step.handoff {
+      border-color: var(--gold-200);
+      background: var(--gold-50);
+    }
+
+    .pipeline-step.handoff .pipeline-number {
+      background: var(--gold-700);
+    }
+
+    .pipeline-step.handoff .pipeline-owner {
+      background: var(--gold-100);
+      color: var(--gold-800);
+    }
+
+
+    /* ----------------------------------------
+       AUTHORITY
+    ---------------------------------------- */
+
+    .authority-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .authority-card {
+      overflow: hidden;
+
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+      box-shadow: var(--shadow-small);
+    }
+
+    .authority-header {
+      padding: 18px 20px;
+
+      background: var(--green-900);
+      color: var(--white);
+    }
+
+    .authority-card.large .authority-header {
+      background: var(--gold-700);
+    }
+
+    .authority-header span {
+      display: block;
+      margin-bottom: 4px;
+
+      color: rgba(255, 255, 255, 0.70);
+
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .authority-header strong {
+      display: block;
+
+      font-size: 1.4rem;
+    }
+
+    .authority-body {
+      padding: 20px;
+    }
+
+    .authority-body p {
+      color: var(--gray-700);
+    }
+
+    .authority-body p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ----------------------------------------
+       LISTS
+    ---------------------------------------- */
+
+    .check-list {
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .check-list li {
+      position: relative;
+
+      margin-bottom: 9px;
+      padding-left: 22px;
+
+      color: var(--gray-800);
+
+      font-size: 0.90rem;
+    }
+
+    .check-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .check-list li::before {
+      content: "";
+
+      position: absolute;
+      top: 0.55em;
+      left: 2px;
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green-700);
+    }
+
+    .check-list.gold li::before {
+      background: var(--gold-500);
+    }
+
+
+    /* ----------------------------------------
+       QUALIFICATION
+    ---------------------------------------- */
+
+    .qualification-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .qualification-card {
+      padding: 20px;
+
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+    }
+
+    .qualification-card h3 {
+      margin-bottom: 8px;
+
+      color: var(--green-900);
+
+      font-size: 1rem;
+    }
+
+    .qualification-card p {
+      margin-bottom: 0;
+
+      color: var(--gray-700);
+
+      font-size: 0.87rem;
+    }
+
+
+    /* ----------------------------------------
+       ESTIMATE / VALUE
+    ---------------------------------------- */
+
+    .value-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      overflow: hidden;
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .value-box > div {
+      padding: 25px;
+    }
+
+    .value-left {
+      background: var(--gold-100);
+    }
+
+    .value-right {
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .value-box h3 {
+      margin-bottom: 10px;
+    }
+
+    .value-left p {
+      color: #594923;
+    }
+
+    .value-right p,
+    .value-right li {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .value-right .check-list li::before {
+      background: var(--gold-500);
+    }
+
+
+    /* ----------------------------------------
+       FOLLOW-UP
+    ---------------------------------------- */
+
+    .follow-up {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .follow-up-card {
+      position: relative;
+
+      padding: 19px;
+
+      border-top: 4px solid var(--green-700);
+      border-right: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      border-left: 1px solid var(--gray-200);
+
+      border-radius: var(--radius);
+
+      background: var(--white);
+    }
+
+    .follow-up-card strong {
+      display: block;
+      margin-bottom: 5px;
+
+      color: var(--green-900);
+    }
+
+    .follow-up-card p {
+      margin-bottom: 0;
+
+      color: var(--gray-700);
+
+      font-size: 0.84rem;
+    }
+
+    .follow-up-card.final {
+      border-top-color: var(--gold-500);
+    }
+
+
+    /* ----------------------------------------
+       HANDOFF
+    ---------------------------------------- */
+
+    .handoff-box {
+      padding: 25px;
+
+      border-radius: var(--radius);
+
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .handoff-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .handoff-box > p {
+      max-width: 760px;
+
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .handoff-grid {
+      margin-top: 20px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .handoff-item {
+      padding: 17px;
+
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 11px;
+
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .handoff-item strong {
+      display: block;
+      margin-bottom: 5px;
+
+      color: var(--gold-300);
+
+      font-size: 0.88rem;
+    }
+
+    .handoff-item span {
+      color: rgba(255, 255, 255, 0.82);
+
+      font-size: 0.82rem;
+    }
+
+
+    /* ----------------------------------------
+       COMMISSION
+    ---------------------------------------- */
+
+    .commission-card {
+      overflow: hidden;
+
+      border: 1px solid var(--gold-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .commission-top {
+      padding: 26px;
+
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 22px;
+
+      background: var(--gold-100);
+    }
+
+    .commission-number {
+      font-size: clamp(2.7rem, 7vw, 4.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+
+      color: var(--gold-700);
+    }
+
+    .commission-top h3 {
+      margin-bottom: 5px;
+    }
+
+    .commission-top p {
+      margin-bottom: 0;
+
+      color: #594923;
+    }
+
+    .commission-body {
+      padding: 22px;
+    }
+
+    .commission-body p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ----------------------------------------
+       SCOREBOARD
+    ---------------------------------------- */
+
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+
+    .score {
+      padding: 16px 12px;
+
+      border: 1px solid var(--gray-200);
+      border-radius: 11px;
+
+      background: var(--white);
+
+      text-align: center;
+    }
+
+    .score strong {
+      display: block;
+      margin-bottom: 4px;
+
+      color: var(--green-900);
+
+      font-size: 0.88rem;
+    }
+
+    .score span {
+      color: var(--gray-600);
+
+      font-size: 0.74rem;
+    }
+
+    .score.money {
+      border-color: var(--gold-200);
+      background: var(--gold-100);
+    }
+
+
+    /* ----------------------------------------
+       MANAGEMENT LOOP
+    ---------------------------------------- */
+
+    .questions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .question {
+      padding: 22px;
+
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 15px;
+
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+    }
+
+    .question-number {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--green-100);
+      color: var(--green-800);
+
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .question h3 {
+      margin-bottom: 4px;
+
+      font-size: 1.05rem;
+    }
+
+    .question p {
+      margin-bottom: 0;
+
+      color: var(--gray-700);
+
+      font-size: 0.86rem;
+    }
+
+    .question:last-child {
+      border-color: var(--gold-200);
+      background: var(--gold-50);
+    }
+
+    .question:last-child .question-number {
+      background: var(--gold-100);
+      color: var(--gold-700);
+    }
+
+
+    /* ----------------------------------------
+       SALES STANDARD
+    ---------------------------------------- */
+
+    .standard {
+      padding: 28px;
+
+      border-left: 6px solid var(--gold-500);
+      border-radius: 0 var(--radius) var(--radius) 0;
+
+      background: var(--gold-100);
+    }
+
+    .standard h2 {
+      margin-bottom: 10px;
+    }
+
+    .standard p {
+      max-width: 800px;
+      margin-bottom: 0;
+
+      color: #51411f;
+
+      font-size: 1rem;
+    }
+
+
+    /* ----------------------------------------
+       QUICK LINKS
+    ---------------------------------------- */
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .quick-link {
+      min-height: 120px;
+      padding: 20px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+
+      background: var(--white);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .quick-link:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-link strong {
+      color: var(--green-900);
+    }
+
+    .quick-link span {
+      margin-top: 12px;
+
+      color: var(--gray-600);
+
+      font-size: 0.80rem;
+    }
+
+    .quick-link.primary {
+      border-color: var(--gold-200);
+      background: var(--gold-100);
+    }
+
+
+    /* ----------------------------------------
+       FOOTER
+    ---------------------------------------- */
+
+    .footer {
+      margin-top: 60px;
+      padding: 32px 16px;
+
+      background: var(--green-950);
+      color: rgba(255, 255, 255, 0.66);
+
+      text-align: center;
+
+      font-size: 0.80rem;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+
+    /* ----------------------------------------
+       RESPONSIVE
+    ---------------------------------------- */
+
+    @media (max-width: 900px) {
+      .principles,
+      .follow-up {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .scoreboard {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+
+    @media (max-width: 700px) {
+      body {
+        padding-bottom:
+          calc(65px + env(safe-area-inset-bottom));
+      }
+
+      .site-header {
+        position: relative;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 200;
+
+        padding:
+          6px
+          max(8px, env(safe-area-inset-right))
+          calc(6px + env(safe-area-inset-bottom))
+          max(8px, env(safe-area-inset-left));
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+
+        background: var(--green-950);
+
+        box-shadow:
+          0 -6px 20px rgba(20, 37, 27, 0.22);
+      }
+
+      .mobile-nav a {
+        min-height: 46px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 8px;
+
+        color: rgba(255, 255, 255, 0.84);
+
+        font-size: 0.68rem;
+        font-weight: 800;
+
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .mobile-nav a:hover {
+        background: rgba(255, 255, 255, 0.10);
+      }
+
+      .hero {
+        padding: 38px 0 22px;
+      }
+
+      h1 {
+        font-size: 2.65rem;
+      }
+
+      .section {
+        margin-top: 42px;
+        scroll-margin-top: 18px;
+      }
+
+      .hero-metrics,
+      .mission-box,
+      .principles,
+      .authority-grid,
+      .qualification-grid,
+      .value-box,
+      .follow-up,
+      .handoff-grid,
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline-step {
+        grid-template-columns: 42px 1fr;
+      }
+
+      .pipeline-number {
+        width: 42px;
+        height: 42px;
+      }
+
+      .pipeline-owner {
+        grid-column: 1 / -1;
+
+        width: max-content;
+        margin-left: 58px;
+      }
+
+      .commission-top {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .scoreboard {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer {
+        padding-bottom: 88px;
+      }
+    }
+
+
+    @media print {
+      .site-header,
+      .mobile-nav,
+      .footer,
+      .quick-links {
+        display: none;
+      }
+
+      body {
+        padding-bottom: 0;
+        background: var(--white);
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+
+      .principle,
+      .pipeline-step,
+      .authority-card,
+      .qualification-card,
+      .follow-up-card,
+      .commission-card,
+      .question,
+      .hero-metric {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ======================================
+       HEADER
+  ======================================= -->
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">
+          <img
+            class="brand-mark-img"
+            src="../img/hummingbird-logo-land-conservation-tree-web.png"
+            alt=""
+          >
+        </span>
+
+        <span class="brand-text">
+          <strong>Abundant Life Land &amp; Tree</strong>
+          <span>Crew Portal · Sales</span>
+        </span>
+      </a>
+
+      <nav class="header-nav" aria-label="Sales page navigation">
+        <a href="#system">System</a>
+        <a href="#authority">Authority</a>
+        <a href="#selling">Selling</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#management">Improve</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ======================================
+       MOBILE NAVIGATION
+  ======================================= -->
+
+  <nav class="mobile-nav" aria-label="Mobile sales navigation">
+    <a href="#system">System</a>
+    <a href="#authority">Authority</a>
+    <a href="#selling">Selling</a>
+    <a href="#scoreboard">Numbers</a>
+  </nav>
+
+
+  <main id="top">
+
+    <!-- ====================================
+         HERO
+    ===================================== -->
+
+    <section class="hero">
+
+      <p class="eyebrow">Sales System</p>
+
+      <h1>
+        Find good work.<br>
+        Build trust.<br>
+        Close profitably.
+      </h1>
+
+      <p class="hero-copy">
+        Sales exists to keep strong, profitable work moving into production.
+        Generate opportunity, understand the customer, price with confidence,
+        communicate clearly, and hand the crew a job we can execute well.
+      </p>
+
+      <div class="hero-metrics">
+
+        <div class="hero-metric gold">
+          <strong>20%</strong>
+          <span>
+            Commission on collected gross revenue from
+            salesperson-generated leads that sell.
+          </span>
+        </div>
+
+        <div class="hero-metric">
+          <strong>$3,000</strong>
+          <span>
+            Current autonomous estimating threshold during
+            the calibration period.
+          </span>
+        </div>
+
+        <div class="hero-metric">
+          <strong>Collected</strong>
+          <span>
+            Commission becomes payable when customer funds
+            are received.
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <div class="page-shell">
+
+
+      <!-- ==================================
+           MISSION
+      =================================== -->
+
+      <section class="section">
+
+        <div class="mission-box">
+
+          <div class="mission-main">
+
+            <p class="eyebrow">The mission</p>
+
+            <h3>
+              Sales is not about being the cheapest.
+              It is about matching good clients with work
+              we can perform exceptionally well.
+            </h3>
+
+            <p>
+              A sold job is only a good sale when the customer
+              understands the scope, the production team can deliver
+              what was promised, and the price leaves room to execute
+              safely and profitably.
+            </p>
+
+          </div>
+
+
+          <div class="mission-side">
+
+            <h3>The standard</h3>
+
+            <p>
+              Do not create work just to create work.
+            </p>
+
+            <p>
+              Create good work:
+              clear scope, appropriate price, realistic expectations,
+              healthy customer relationship, and clean production handoff.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           PRINCIPLES
+      =================================== -->
+
+      <section class="section">
+
+        <div class="section-header">
+          <p class="eyebrow">Sales doctrine</p>
+          <h2>Four rules</h2>
+        </div>
+
+        <div class="principles">
+
+          <article class="principle">
+            <div class="principle-number">01</div>
+            <h3>Generate</h3>
+            <p>
+              Conversations create opportunities.
+              Carry cards. Notice properties. Ask questions.
+              Follow relationships.
+            </p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-number">02</div>
+            <h3>Understand</h3>
+            <p>
+              Diagnose before prescribing.
+              Understand what the client wants, what the property needs,
+              and what problem actually needs solving.
+            </p>
+          </article>
+
+          <article class="principle gold">
+            <div class="principle-number">03</div>
+            <h3>Sell value</h3>
+            <p>
+              Price confidently.
+              Explain the work.
+              Do not reduce good tree work to a race toward the lowest bid.
+            </p>
+          </article>
+
+          <article class="principle">
+            <div class="principle-number">04</div>
+            <h3>Handoff cleanly</h3>
+            <p>
+              What production receives should match what the customer
+              believes they purchased.
+            </p>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           SYSTEM / PIPELINE
+      =================================== -->
+
+      <section class="section" id="system">
+
+        <div class="section-header">
+          <p class="eyebrow">The pipeline</p>
+          <h2>Opportunity becomes production</h2>
+
+          <p>
+            Every lead should move forward, be deliberately followed up,
+            or be deliberately closed out.
+          </p>
+        </div>
+
+
+        <div class="pipeline">
+
+          <article class="pipeline-step">
+            <div class="pipeline-number">1</div>
+
+            <div class="pipeline-copy">
+              <h3>Generate</h3>
+              <p>
+                Canvassing, referrals, jobsite conversations,
+                networking, repeat clients, or other direct prospecting.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Sales</div>
+          </article>
+
+
+          <article class="pipeline-step">
+            <div class="pipeline-number">2</div>
+
+            <div class="pipeline-copy">
+              <h3>Qualify</h3>
+              <p>
+                Confirm the customer, property, need, timing,
+                decision-maker, and whether the opportunity is worth pursuing.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Sales</div>
+          </article>
+
+
+          <article class="pipeline-step">
+            <div class="pipeline-number">3</div>
+
+            <div class="pipeline-copy">
+              <h3>Inspect</h3>
+              <p>
+                Walk the property. Understand scope, access, hazards,
+                cleanup expectations, disposal, obstacles, and customer priorities.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Sales</div>
+          </article>
+
+
+          <article class="pipeline-step">
+            <div class="pipeline-number">4</div>
+
+            <div class="pipeline-copy">
+              <h3>Price &amp; present</h3>
+              <p>
+                Build a clear scope and present the price confidently.
+                Avoid vague promises and accidental scope expansion.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Sales</div>
+          </article>
+
+
+          <article class="pipeline-step">
+            <div class="pipeline-number">5</div>
+
+            <div class="pipeline-copy">
+              <h3>Follow up</h3>
+              <p>
+                Stay professionally persistent.
+                A quiet customer is not necessarily a lost customer.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Sales</div>
+          </article>
+
+
+          <article class="pipeline-step handoff">
+            <div class="pipeline-number">6</div>
+
+            <div class="pipeline-copy">
+              <h3>Production handoff</h3>
+              <p>
+                Transfer the complete scope, customer expectations,
+                access information, job constraints, and agreed price.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Sales → Operations</div>
+          </article>
+
+
+          <article class="pipeline-step">
+            <div class="pipeline-number">7</div>
+
+            <div class="pipeline-copy">
+              <h3>Complete &amp; collect</h3>
+              <p>
+                Production fulfills the agreement.
+                Customer funds are received and the job becomes collected revenue.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Operations</div>
+          </article>
+
+
+          <article class="pipeline-step">
+            <div class="pipeline-number">8</div>
+
+            <div class="pipeline-copy">
+              <h3>Stay connected</h3>
+              <p>
+                Reviews, referrals, future work, and long-term property stewardship
+                turn one transaction into a relationship.
+              </p>
+            </div>
+
+            <div class="pipeline-owner">Company</div>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           SALES AUTHORITY
+      =================================== -->
+
+      <section class="section" id="authority">
+
+        <div class="section-header">
+          <p class="eyebrow">Current calibration period</p>
+          <h2>Sales authority</h2>
+
+          <p>
+            Early autonomy is intentionally bounded while sales and production
+            develop a shared understanding of Abundant Life pricing,
+            capabilities, risk, and execution.
+          </p>
+        </div>
+
+
+        <div class="authority-grid">
+
+          <article class="authority-card">
+
+            <header class="authority-header">
+              <span>Estimated contract value</span>
+              <strong>$3,000 or less</strong>
+            </header>
+
+            <div class="authority-body">
+
+              <p>
+                The salesperson may independently inspect,
+                estimate, present, follow up, and close routine work.
+              </p>
+
+              <ul class="check-list">
+                <li>Define scope clearly.</li>
+                <li>Account for access and cleanup.</li>
+                <li>Price with confidence.</li>
+                <li>Avoid promises outside known company capability.</li>
+                <li>Document what the customer purchased.</li>
+              </ul>
+
+            </div>
+
+          </article>
+
+
+          <article class="authority-card large">
+
+            <header class="authority-header">
+              <span>Estimated contract value</span>
+              <strong>Over $3,000</strong>
+            </header>
+
+            <div class="authority-body">
+
+              <p>
+                Generate and qualify the opportunity, then involve Christian
+                for estimating and sales while the team continues to calibrate.
+              </p>
+
+              <ul class="check-list gold">
+                <li>Preserve the relationship you generated.</li>
+                <li>Brief Christian before the appointment.</li>
+                <li>Attend the walkthrough when practical.</li>
+                <li>Compare pricing judgment and scope.</li>
+                <li>Learn from the production strategy.</li>
+              </ul>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           QUALIFICATION
+      =================================== -->
+
+      <section class="section">
+
+        <div class="section-header">
+          <p class="eyebrow">Before estimating</p>
+          <h2>Know what you're selling</h2>
+        </div>
+
+
+        <div class="qualification-grid">
+
+          <article class="qualification-card">
+            <h3>Customer</h3>
+            <p>
+              Who owns or controls the property?
+              Who makes the final decision?
+              What outcome matters most to them?
+            </p>
+          </article>
+
+
+          <article class="qualification-card">
+            <h3>Scope</h3>
+            <p>
+              Which trees or areas are included?
+              Removal, pruning, cleanup, hauling, stump work,
+              landscaping, or another service?
+            </p>
+          </article>
+
+
+          <article class="qualification-card">
+            <h3>Site</h3>
+            <p>
+              Access, gates, fences, structures, utilities,
+              traffic, neighboring property, terrain,
+              drop zones, and equipment limitations.
+            </p>
+          </article>
+
+
+          <article class="qualification-card">
+            <h3>Timing</h3>
+            <p>
+              Emergency, active hazard, upcoming event,
+              flexible scheduling, seasonal need,
+              or exploratory future work?
+            </p>
+          </article>
+
+
+          <article class="qualification-card">
+            <h3>Risk</h3>
+            <p>
+              Deadwood, compromised trees, difficult rigging,
+              targets, utility proximity, decay, poor access,
+              or specialized equipment.
+            </p>
+          </article>
+
+
+          <article class="qualification-card">
+            <h3>Expectations</h3>
+            <p>
+              What does “finished” mean to this client?
+              Make cleanup, haul-off, wood handling,
+              surface protection, and exclusions explicit.
+            </p>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           SELLING / VALUE
+      =================================== -->
+
+      <section class="section" id="selling">
+
+        <div class="section-header">
+          <p class="eyebrow">Pricing &amp; presentation</p>
+          <h2>Sell the result, not just the labor</h2>
+        </div>
+
+
+        <div class="value-box">
+
+          <div class="value-left">
+
+            <h3>Do not apologize for a good price.</h3>
+
+            <p>
+              The customer is buying judgment, risk management,
+              skilled labor, equipment, insurance, cleanup,
+              property protection, communication, and a completed result.
+            </p>
+
+            <p>
+              Price should support excellent execution.
+              A job that cannot be performed properly at the sold price
+              was not sold well.
+            </p>
+
+          </div>
+
+
+          <div class="value-right">
+
+            <h3>When presenting work:</h3>
+
+            <ul class="check-list">
+              <li>Explain what you observed.</li>
+              <li>Explain what you recommend.</li>
+              <li>Explain what the crew will actually do.</li>
+              <li>State the price clearly.</li>
+              <li>Stop talking long enough for the customer to respond.</li>
+              <li>Answer the real concern behind objections.</li>
+              <li>Do not create unnecessary pressure.</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           FOLLOW-UP
+      =================================== -->
+
+      <section class="section">
+
+        <div class="section-header">
+          <p class="eyebrow">Follow-up</p>
+          <h2>Stay useful without becoming noise</h2>
+
+          <p>
+            Follow-up exists to help the customer make a decision,
+            not to harass them into one.
+          </p>
+        </div>
+
+
+        <div class="follow-up">
+
+          <article class="follow-up-card">
+            <strong>After estimate</strong>
+
+            <p>
+              Make sure the proposal arrived and invite questions.
+            </p>
+          </article>
+
+
+          <article class="follow-up-card">
+            <strong>2–3 days</strong>
+
+            <p>
+              Check for unanswered concerns or changes in scope.
+            </p>
+          </article>
+
+
+          <article class="follow-up-card">
+            <strong>About 1 week</strong>
+
+            <p>
+              Reconnect politely and ask where the project stands.
+            </p>
+          </article>
+
+
+          <article class="follow-up-card final">
+            <strong>Longer-term</strong>
+
+            <p>
+              Keep worthwhile opportunities alive when timing,
+              budget, or circumstances change.
+            </p>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           HANDOFF
+      =================================== -->
+
+      <section class="section">
+
+        <div class="handoff-box">
+
+          <p class="eyebrow" style="color: var(--gold-300);">
+            Production handoff
+          </p>
+
+          <h2>Never make the crew rediscover the sale.</h2>
+
+          <p>
+            Before work is scheduled, operations should be able to understand
+            exactly what was sold and what conditions were observed.
+          </p>
+
+
+          <div class="handoff-grid">
+
+            <div class="handoff-item">
+              <strong>Customer</strong>
+              <span>
+                Name, address, contact information,
+                preferred communication, decision-maker.
+              </span>
+            </div>
+
+
+            <div class="handoff-item">
+              <strong>Exact scope</strong>
+              <span>
+                Trees, limbs, areas, services,
+                cleanup, haul-off, stump work, exclusions.
+              </span>
+            </div>
+
+
+            <div class="handoff-item">
+              <strong>Price</strong>
+              <span>
+                Contract amount, options accepted,
+                deposits, and approved changes.
+              </span>
+            </div>
+
+
+            <div class="handoff-item">
+              <strong>Site conditions</strong>
+              <span>
+                Access, gates, obstacles, targets,
+                terrain, utilities, neighbors.
+              </span>
+            </div>
+
+
+            <div class="handoff-item">
+              <strong>Expectations</strong>
+              <span>
+                What the customer specifically cares about
+                and what “done” looks like.
+              </span>
+            </div>
+
+
+            <div class="handoff-item">
+              <strong>Photos / notes</strong>
+              <span>
+                Enough information for production to arrive
+                prepared rather than surprised.
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           COMMISSION
+      =================================== -->
+
+      <section class="section">
+
+        <div class="section-header">
+          <p class="eyebrow">Compensation</p>
+          <h2>When sales wins, sales gets paid</h2>
+        </div>
+
+
+        <article class="commission-card">
+
+          <div class="commission-top">
+
+            <div class="commission-number">
+              20%
+            </div>
+
+            <div>
+              <h3>Sales commission</h3>
+
+              <p>
+                20% of gross revenue from salesperson-generated leads
+                that sell, payable upon receipt of customer funds.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="commission-body">
+
+            <p>
+              The purpose of commission is alignment:
+              creating more valuable work should create more value
+              for both the salesperson and the company.
+            </p>
+
+            <p>
+              Lead source and ownership should therefore be recorded
+              clearly when an opportunity enters the pipeline.
+            </p>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- ==================================
+           SCOREBOARD
+      =================================== -->
+
+      <section class="section" id="scoreboard">
+
+        <div class="section-header">
+          <p class="eyebrow">Sales scoreboard</p>
+          <h2>Measure the funnel</h2>
+
+          <p>
+            Do not judge the sales system by feelings.
+            Find where opportunity is being created,
+            converted, delayed, or lost.
+          </p>
+        </div>
+
+
+        <div class="scoreboard">
+
+          <div class="score">
+            <strong>Leads</strong>
+            <span>Generated</span>
+          </div>
+
+          <div class="score">
+            <strong>Appointments</strong>
+            <span>Set</span>
+          </div>
+
+          <div class="score">
+            <strong>Estimates</strong>
+            <span>Delivered</span>
+          </div>
+
+          <div class="score money">
+            <strong>$ Quoted</strong>
+            <span>Opportunity</span>
+          </div>
+
+          <div class="score money">
+            <strong>$ Sold</strong>
+            <span>Closed work</span>
+          </div>
+
+          <div class="score money">
+            <strong>$ Collected</strong>
+            <span>Realized revenue</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           MANAGEMENT LOOP
+      =================================== -->
+
+      <section class="section" id="management">
+
+        <div class="section-header">
+          <p class="eyebrow">Continuous improvement</p>
+          <h2>Build the system around the salesperson</h2>
+
+          <p>
+            The goal is not merely to have a productive salesman.
+            The goal is to learn how Abundant Life makes salespeople productive.
+          </p>
+        </div>
+
+
+        <div class="questions">
+
+          <article class="question">
+
+            <div class="question-number">1</div>
+
+            <div>
+              <h3>What would help you sell more?</h3>
+
+              <p>
+                Diagnose the whole system:
+                materials, tools, pricing authority, lead flow,
+                proof of work, process, credibility, or customer experience.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="question">
+
+            <div class="question-number">2</div>
+
+            <div>
+              <h3>What gets in your way of selling?</h3>
+
+              <p>
+                Find friction:
+                slow estimates, unclear pricing, missing information,
+                weak follow-up, scheduling problems, or unnecessary approvals.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="question">
+
+            <div class="question-number">3</div>
+
+            <div>
+              <h3>What can I do to help you sell more?</h3>
+
+              <p>
+                Define what the owner can personally do to remove bottlenecks,
+                improve support, and make good opportunities easier to close.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           FINAL STANDARD
+      =================================== -->
+
+      <section class="section">
+
+        <div class="standard">
+
+          <p class="eyebrow">Remember</p>
+
+          <h2>A sale is a promise.</h2>
+
+          <p>
+            Sell work we can be proud to perform.
+            Price it so we can perform it well.
+            Describe it so the customer and crew understand the same promise.
+            Then hand it to production cleanly.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================
+           QUICK LINKS
+      =================================== -->
+
+      <section class="section">
+
+        <div class="section-header">
+          <p class="eyebrow">Resources</p>
+          <h2>Quick links</h2>
+        </div>
+
+
+        <div class="quick-links">
+
+          <a
+            class="quick-link primary"
+            href="../lead/index.html"
+          >
+            <strong>Lead Capture</strong>
+            <span>
+              Record a new sales opportunity.
+            </span>
+          </a>
+
+
+          <a
+            class="quick-link"
+            href="../crm/customer-tracker.html"
+          >
+            <strong>Customer Tracker</strong>
+            <span>
+              View customer and pipeline information.
+            </span>
+          </a>
+
+
+          <a
+            class="quick-link"
+            href="./index.html"
+          >
+            <strong>Crew Portal</strong>
+            <span>
+              Return to the internal resource hub.
+            </span>
+          </a>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- ======================================
+       FOOTER
+  ======================================= -->
+
+  <footer class="footer">
+    <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+    Internal Sales System
+  </footer>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
 
-  <title>Sales System | Abundant Life Land & Tree</title>
+  <title>Sales Team | Abundant Life Land & Tree</title>
 
   <style>
     :root {
@@ -27,12 +27,6 @@
       --gold-100: #f4ead2;
       --gold-50: #fbf7ec;
 
-      --red-700: #8c3434;
-      --red-100: #f7e6e6;
-
-      --blue-700: #315d7d;
-      --blue-100: #e3eef5;
-
       --white: #ffffff;
 
       --gray-950: #17201b;
@@ -40,7 +34,6 @@
       --gray-800: #303a34;
       --gray-700: #4c5750;
       --gray-600: #68736c;
-      --gray-500: #828c86;
       --gray-300: #cfd6d1;
       --gray-200: #e3e8e4;
       --gray-100: #f1f4f2;
@@ -53,8 +46,6 @@
         0 3px 12px rgba(20, 37, 27, 0.08);
 
       --radius: 14px;
-      --radius-small: 10px;
-
       --content: 1050px;
     }
 
@@ -84,8 +75,7 @@
     h3,
     h4,
     p,
-    ul,
-    ol {
+    ul {
       margin-top: 0;
     }
 
@@ -93,11 +83,6 @@
       outline: 3px solid var(--gold-500);
       outline-offset: 3px;
     }
-
-
-    /* ----------------------------------------
-       HEADER
-    ---------------------------------------- */
 
     .site-header {
       position: sticky;
@@ -137,7 +122,6 @@
       flex: 0 0 auto;
 
       overflow: hidden;
-
       border-radius: 50%;
       background: var(--green-700);
     }
@@ -197,11 +181,6 @@
       display: none;
     }
 
-
-    /* ----------------------------------------
-       LAYOUT
-    ---------------------------------------- */
-
     .hero,
     .page-shell {
       width: min(calc(100% - 24px), var(--content));
@@ -241,35 +220,6 @@
       font-size: 1.05rem;
     }
 
-    .section {
-      margin-top: 52px;
-      scroll-margin-top: 86px;
-    }
-
-    .section-header {
-      max-width: 760px;
-      margin-bottom: 20px;
-    }
-
-    .section-header h2 {
-      margin-bottom: 8px;
-
-      font-size: clamp(1.7rem, 4vw, 2.3rem);
-      line-height: 1.08;
-      letter-spacing: -0.025em;
-    }
-
-    .section-header p:last-child {
-      margin-bottom: 0;
-
-      color: var(--gray-700);
-    }
-
-
-    /* ----------------------------------------
-       HERO METRICS
-    ---------------------------------------- */
-
     .hero-metrics {
       margin-top: 28px;
 
@@ -308,10 +258,28 @@
       background: var(--gold-100);
     }
 
+    .section {
+      margin-top: 52px;
+      scroll-margin-top: 86px;
+    }
 
-    /* ----------------------------------------
-       SALES MISSION
-    ---------------------------------------- */
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      margin-bottom: 8px;
+
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    .section-header p:last-child {
+      margin-bottom: 0;
+      color: var(--gray-700);
+    }
 
     .mission-box {
       display: grid;
@@ -354,19 +322,6 @@
     .mission-side h3 {
       margin-bottom: 12px;
     }
-
-    .mission-side p {
-      color: rgba(255, 255, 255, 0.74);
-    }
-
-    .mission-side p:last-child {
-      margin-bottom: 0;
-    }
-
-
-    /* ----------------------------------------
-       PRINCIPLES
-    ---------------------------------------- */
 
     .principles {
       display: grid;
@@ -426,10 +381,42 @@
       background: var(--gold-700);
     }
 
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
 
-    /* ----------------------------------------
-       PIPELINE
-    ---------------------------------------- */
+    .score {
+      padding: 16px 12px;
+
+      border: 1px solid var(--gray-200);
+      border-radius: 11px;
+
+      background: var(--white);
+
+      text-align: center;
+    }
+
+    .score strong {
+      display: block;
+      margin-bottom: 4px;
+
+      color: var(--green-900);
+
+      font-size: 0.88rem;
+    }
+
+    .score span {
+      color: var(--gray-600);
+
+      font-size: 0.74rem;
+    }
+
+    .score.money {
+      border-color: var(--gold-200);
+      background: var(--gold-100);
+    }
 
     .pipeline {
       display: grid;
@@ -468,7 +455,6 @@
 
     .pipeline-copy h3 {
       margin-bottom: 3px;
-
       font-size: 1rem;
     }
 
@@ -506,11 +492,6 @@
       background: var(--gold-100);
       color: var(--gold-800);
     }
-
-
-    /* ----------------------------------------
-       AUTHORITY
-    ---------------------------------------- */
 
     .authority-grid {
       display: grid;
@@ -553,7 +534,6 @@
 
     .authority-header strong {
       display: block;
-
       font-size: 1.4rem;
     }
 
@@ -568,11 +548,6 @@
     .authority-body p:last-child {
       margin-bottom: 0;
     }
-
-
-    /* ----------------------------------------
-       LISTS
-    ---------------------------------------- */
 
     .check-list {
       margin: 0;
@@ -615,10 +590,13 @@
       background: var(--gold-500);
     }
 
+    .mission-side .check-list li {
+      color: rgba(255, 255, 255, 0.88);
+    }
 
-    /* ----------------------------------------
-       QUALIFICATION
-    ---------------------------------------- */
+    .mission-side .check-list li::before {
+      background: var(--gold-500);
+    }
 
     .qualification-grid {
       display: grid;
@@ -650,11 +628,6 @@
 
       font-size: 0.87rem;
     }
-
-
-    /* ----------------------------------------
-       ESTIMATE / VALUE
-    ---------------------------------------- */
 
     .value-box {
       display: grid;
@@ -697,11 +670,6 @@
       background: var(--gold-500);
     }
 
-
-    /* ----------------------------------------
-       FOLLOW-UP
-    ---------------------------------------- */
-
     .follow-up {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -709,8 +677,6 @@
     }
 
     .follow-up-card {
-      position: relative;
-
       padding: 19px;
 
       border-top: 4px solid var(--green-700);
@@ -742,67 +708,6 @@
       border-top-color: var(--gold-500);
     }
 
-
-    /* ----------------------------------------
-       HANDOFF
-    ---------------------------------------- */
-
-    .handoff-box {
-      padding: 25px;
-
-      border-radius: var(--radius);
-
-      background: var(--green-950);
-      color: var(--white);
-    }
-
-    .handoff-box h2 {
-      margin-bottom: 10px;
-    }
-
-    .handoff-box > p {
-      max-width: 760px;
-
-      color: rgba(255, 255, 255, 0.75);
-    }
-
-    .handoff-grid {
-      margin-top: 20px;
-
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .handoff-item {
-      padding: 17px;
-
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 11px;
-
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .handoff-item strong {
-      display: block;
-      margin-bottom: 5px;
-
-      color: var(--gold-300);
-
-      font-size: 0.88rem;
-    }
-
-    .handoff-item span {
-      color: rgba(255, 255, 255, 0.82);
-
-      font-size: 0.82rem;
-    }
-
-
-    /* ----------------------------------------
-       COMMISSION
-    ---------------------------------------- */
-
     .commission-card {
       overflow: hidden;
 
@@ -825,12 +730,12 @@
     }
 
     .commission-number {
+      color: var(--gold-700);
+
       font-size: clamp(2.7rem, 7vw, 4.5rem);
       font-weight: 800;
       line-height: 0.9;
       letter-spacing: -0.05em;
-
-      color: var(--gold-700);
     }
 
     .commission-top h3 {
@@ -839,7 +744,6 @@
 
     .commission-top p {
       margin-bottom: 0;
-
       color: #594923;
     }
 
@@ -850,53 +754,6 @@
     .commission-body p:last-child {
       margin-bottom: 0;
     }
-
-
-    /* ----------------------------------------
-       SCOREBOARD
-    ---------------------------------------- */
-
-    .scoreboard {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-    }
-
-    .score {
-      padding: 16px 12px;
-
-      border: 1px solid var(--gray-200);
-      border-radius: 11px;
-
-      background: var(--white);
-
-      text-align: center;
-    }
-
-    .score strong {
-      display: block;
-      margin-bottom: 4px;
-
-      color: var(--green-900);
-
-      font-size: 0.88rem;
-    }
-
-    .score span {
-      color: var(--gray-600);
-
-      font-size: 0.74rem;
-    }
-
-    .score.money {
-      border-color: var(--gold-200);
-      background: var(--gold-100);
-    }
-
-
-    /* ----------------------------------------
-       MANAGEMENT LOOP
-    ---------------------------------------- */
 
     .questions {
       display: grid;
@@ -934,7 +791,6 @@
 
     .question h3 {
       margin-bottom: 4px;
-
       font-size: 1.05rem;
     }
 
@@ -955,11 +811,6 @@
       background: var(--gold-100);
       color: var(--gold-700);
     }
-
-
-    /* ----------------------------------------
-       SALES STANDARD
-    ---------------------------------------- */
 
     .standard {
       padding: 28px;
@@ -982,11 +833,6 @@
 
       font-size: 1rem;
     }
-
-
-    /* ----------------------------------------
-       QUICK LINKS
-    ---------------------------------------- */
 
     .quick-links {
       display: grid;
@@ -1036,11 +882,6 @@
       background: var(--gold-100);
     }
 
-
-    /* ----------------------------------------
-       FOOTER
-    ---------------------------------------- */
-
     .footer {
       margin-top: 60px;
       padding: 32px 16px;
@@ -1057,11 +898,6 @@
       color: var(--white);
     }
 
-
-    /* ----------------------------------------
-       RESPONSIVE
-    ---------------------------------------- */
-
     @media (max-width: 900px) {
       .principles,
       .follow-up {
@@ -1072,7 +908,6 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
-
 
     @media (max-width: 700px) {
       body {
@@ -1153,7 +988,6 @@
       .qualification-grid,
       .value-box,
       .follow-up,
-      .handoff-grid,
       .quick-links {
         grid-template-columns: 1fr;
       }
@@ -1188,7 +1022,6 @@
       }
     }
 
-
     @media print {
       .site-header,
       .mobile-nav,
@@ -1221,12 +1054,7 @@
   </style>
 </head>
 
-
 <body>
-
-  <!-- ======================================
-       HEADER
-  ======================================= -->
 
   <header class="site-header">
     <div class="header-inner">
@@ -1242,54 +1070,44 @@
 
         <span class="brand-text">
           <strong>Abundant Life Land &amp; Tree</strong>
-          <span>Crew Portal · Sales</span>
+          <span>Crew Portal · Sales Team</span>
         </span>
       </a>
 
       <nav class="header-nav" aria-label="Sales page navigation">
-        <a href="#system">System</a>
+        <a href="#scoreboard">Numbers</a>
+        <a href="#system">Daily Loop</a>
         <a href="#authority">Authority</a>
-        <a href="#selling">Selling</a>
-        <a href="#scoreboard">Scoreboard</a>
-        <a href="#management">Improve</a>
+        <a href="#selling">Sell</a>
+        <a href="#improve">Improve</a>
       </nav>
 
     </div>
   </header>
 
-
-  <!-- ======================================
-       MOBILE NAVIGATION
-  ======================================= -->
-
   <nav class="mobile-nav" aria-label="Mobile sales navigation">
-    <a href="#system">System</a>
-    <a href="#authority">Authority</a>
-    <a href="#selling">Selling</a>
     <a href="#scoreboard">Numbers</a>
+    <a href="#system">Loop</a>
+    <a href="#authority">Authority</a>
+    <a href="#improve">Improve</a>
   </nav>
-
 
   <main id="top">
 
-    <!-- ====================================
-         HERO
-    ===================================== -->
-
     <section class="hero">
 
-      <p class="eyebrow">Sales System</p>
+      <p class="eyebrow">Sales Team</p>
 
       <h1>
-        Find good work.<br>
-        Build trust.<br>
-        Close profitably.
+        Create opportunity.<br>
+        Close good work.<br>
+        Earn more.
       </h1>
 
       <p class="hero-copy">
-        Sales exists to keep strong, profitable work moving into production.
-        Generate opportunity, understand the customer, price with confidence,
-        communicate clearly, and hand the crew a job we can execute well.
+        Your value grows when you create qualified opportunities,
+        communicate clearly, price intelligently, follow up consistently,
+        and hand production work that can be completed profitably.
       </p>
 
       <div class="hero-metrics">
@@ -1297,24 +1115,21 @@
         <div class="hero-metric gold">
           <strong>20%</strong>
           <span>
-            Commission on collected gross revenue from
-            salesperson-generated leads that sell.
+            Commission on collected revenue from leads you generate that sell.
           </span>
         </div>
 
         <div class="hero-metric">
-          <strong>$3,000</strong>
+          <strong>More sales</strong>
           <span>
-            Current autonomous estimating threshold during
-            the calibration period.
+            More useful opportunity means more earning potential.
           </span>
         </div>
 
         <div class="hero-metric">
-          <strong>Collected</strong>
+          <strong>More trust</strong>
           <span>
-            Commission becomes payable when customer funds
-            are received.
+            Good judgment earns greater pricing and closing authority.
           </span>
         </div>
 
@@ -1322,13 +1137,7 @@
 
     </section>
 
-
     <div class="page-shell">
-
-
-      <!-- ==================================
-           MISSION
-      =================================== -->
 
       <section class="section">
 
@@ -1336,37 +1145,33 @@
 
           <div class="mission-main">
 
-            <p class="eyebrow">The mission</p>
+            <p class="eyebrow">Your job</p>
 
             <h3>
-              Sales is not about being the cheapest.
-              It is about matching good clients with work
-              we can perform exceptionally well.
+              Turn conversations into profitable work.
             </h3>
 
             <p>
-              A sold job is only a good sale when the customer
-              understands the scope, the production team can deliver
-              what was promised, and the price leaves room to execute
-              safely and profitably.
+              Find people who need what we do.
+              Understand the problem.
+              Help them make a good decision.
+              Close the work at a price that allows the crew to perform it well.
             </p>
 
           </div>
-
 
           <div class="mission-side">
 
-            <h3>The standard</h3>
+            <h3>What makes you valuable?</h3>
 
-            <p>
-              Do not create work just to create work.
-            </p>
-
-            <p>
-              Create good work:
-              clear scope, appropriate price, realistic expectations,
-              healthy customer relationship, and clean production handoff.
-            </p>
+            <ul class="check-list">
+              <li>You create leads.</li>
+              <li>You identify real opportunities.</li>
+              <li>You build customer trust.</li>
+              <li>You protect price.</li>
+              <li>You keep opportunities moving.</li>
+              <li>You bring production clear, profitable work.</li>
+            </ul>
 
           </div>
 
@@ -1374,301 +1179,195 @@
 
       </section>
 
-
-      <!-- ==================================
-           PRINCIPLES
-      =================================== -->
-
-      <section class="section">
+      <section class="section" id="scoreboard">
 
         <div class="section-header">
-          <p class="eyebrow">Sales doctrine</p>
-          <h2>Four rules</h2>
+          <p class="eyebrow">Your scoreboard</p>
+
+          <h2>Know your numbers</h2>
+
+          <p>
+            Sales improves when you know where your opportunities are being
+            created, won, delayed, or lost.
+          </p>
         </div>
 
-        <div class="principles">
+        <div class="scoreboard">
 
-          <article class="principle">
-            <div class="principle-number">01</div>
-            <h3>Generate</h3>
-            <p>
-              Conversations create opportunities.
-              Carry cards. Notice properties. Ask questions.
-              Follow relationships.
-            </p>
-          </article>
+          <div class="score">
+            <strong>Leads</strong>
+            <span>You generated</span>
+          </div>
 
-          <article class="principle">
-            <div class="principle-number">02</div>
-            <h3>Understand</h3>
-            <p>
-              Diagnose before prescribing.
-              Understand what the client wants, what the property needs,
-              and what problem actually needs solving.
-            </p>
-          </article>
+          <div class="score">
+            <strong>Appointments</strong>
+            <span>You booked</span>
+          </div>
 
-          <article class="principle gold">
-            <div class="principle-number">03</div>
-            <h3>Sell value</h3>
-            <p>
-              Price confidently.
-              Explain the work.
-              Do not reduce good tree work to a race toward the lowest bid.
-            </p>
-          </article>
+          <div class="score">
+            <strong>Estimates</strong>
+            <span>You delivered</span>
+          </div>
 
-          <article class="principle">
-            <div class="principle-number">04</div>
-            <h3>Handoff cleanly</h3>
-            <p>
-              What production receives should match what the customer
-              believes they purchased.
-            </p>
-          </article>
+          <div class="score money">
+            <strong>$ Quoted</strong>
+            <span>Total opportunity</span>
+          </div>
+
+          <div class="score money">
+            <strong>$ Sold</strong>
+            <span>Work closed</span>
+          </div>
+
+          <div class="score money">
+            <strong>$ Collected</strong>
+            <span>Commissionable revenue</span>
+          </div>
 
         </div>
 
       </section>
-
-
-      <!-- ==================================
-           SYSTEM / PIPELINE
-      =================================== -->
 
       <section class="section" id="system">
 
         <div class="section-header">
-          <p class="eyebrow">The pipeline</p>
-          <h2>Opportunity becomes production</h2>
+          <p class="eyebrow">Daily sales loop</p>
+
+          <h2>Keep opportunity moving</h2>
 
           <p>
-            Every lead should move forward, be deliberately followed up,
-            or be deliberately closed out.
+            Every opportunity should move toward a clear next step:
+            appointment, estimate, follow-up, sale, later date, or closed out.
           </p>
         </div>
-
 
         <div class="pipeline">
 
           <article class="pipeline-step">
+
             <div class="pipeline-number">1</div>
 
             <div class="pipeline-copy">
-              <h3>Generate</h3>
+              <h3>Look for work</h3>
+
               <p>
-                Canvassing, referrals, jobsite conversations,
-                networking, repeat clients, or other direct prospecting.
+                Notice neglected trees, storm damage, clearance problems,
+                deadwood, removals, neighboring properties, active contractors,
+                commercial sites, and people already talking about tree problems.
               </p>
             </div>
 
-            <div class="pipeline-owner">Sales</div>
+            <div class="pipeline-owner">Generate</div>
+
           </article>
 
-
           <article class="pipeline-step">
+
             <div class="pipeline-number">2</div>
 
             <div class="pipeline-copy">
-              <h3>Qualify</h3>
+              <h3>Start conversations</h3>
+
               <p>
-                Confirm the customer, property, need, timing,
-                decision-maker, and whether the opportunity is worth pursuing.
+                Introduce yourself, ask useful questions, leave a card,
+                and give people an easy next step.
               </p>
             </div>
 
-            <div class="pipeline-owner">Sales</div>
+            <div class="pipeline-owner">Connect</div>
+
           </article>
 
-
           <article class="pipeline-step">
+
             <div class="pipeline-number">3</div>
 
             <div class="pipeline-copy">
-              <h3>Inspect</h3>
+              <h3>Qualify quickly</h3>
+
               <p>
-                Walk the property. Understand scope, access, hazards,
-                cleanup expectations, disposal, obstacles, and customer priorities.
+                Determine whether there is a real need, a real decision-maker,
+                a workable property, and a realistic opportunity.
               </p>
             </div>
 
-            <div class="pipeline-owner">Sales</div>
+            <div class="pipeline-owner">Qualify</div>
+
           </article>
 
-
           <article class="pipeline-step">
+
             <div class="pipeline-number">4</div>
 
             <div class="pipeline-copy">
-              <h3>Price &amp; present</h3>
+              <h3>Inspect and price</h3>
+
               <p>
-                Build a clear scope and present the price confidently.
-                Avoid vague promises and accidental scope expansion.
+                Understand scope, access, cleanup, hazards, equipment needs,
+                and what the customer expects before giving a number.
               </p>
             </div>
 
-            <div class="pipeline-owner">Sales</div>
+            <div class="pipeline-owner">Estimate</div>
+
           </article>
 
-
           <article class="pipeline-step">
+
             <div class="pipeline-number">5</div>
 
             <div class="pipeline-copy">
-              <h3>Follow up</h3>
+              <h3>Ask for the work</h3>
+
               <p>
-                Stay professionally persistent.
-                A quiet customer is not necessarily a lost customer.
+                Explain the recommendation, state the price clearly,
+                answer concerns, and give the customer a clear path to say yes.
               </p>
             </div>
 
-            <div class="pipeline-owner">Sales</div>
+            <div class="pipeline-owner">Close</div>
+
           </article>
 
-
           <article class="pipeline-step handoff">
+
             <div class="pipeline-number">6</div>
 
             <div class="pipeline-copy">
-              <h3>Production handoff</h3>
+              <h3>Follow up until resolved</h3>
+
               <p>
-                Transfer the complete scope, customer expectations,
-                access information, job constraints, and agreed price.
+                Do not let good opportunities disappear because nobody followed up.
+                Move each lead toward yes, no, later, or a specific next action.
               </p>
             </div>
 
-            <div class="pipeline-owner">Sales → Operations</div>
-          </article>
-
-
-          <article class="pipeline-step">
-            <div class="pipeline-number">7</div>
-
-            <div class="pipeline-copy">
-              <h3>Complete &amp; collect</h3>
-              <p>
-                Production fulfills the agreement.
-                Customer funds are received and the job becomes collected revenue.
-              </p>
-            </div>
-
-            <div class="pipeline-owner">Operations</div>
-          </article>
-
-
-          <article class="pipeline-step">
-            <div class="pipeline-number">8</div>
-
-            <div class="pipeline-copy">
-              <h3>Stay connected</h3>
-              <p>
-                Reviews, referrals, future work, and long-term property stewardship
-                turn one transaction into a relationship.
-              </p>
-            </div>
-
-            <div class="pipeline-owner">Company</div>
-          </article>
-
-        </div>
-
-      </section>
-
-
-      <!-- ==================================
-           SALES AUTHORITY
-      =================================== -->
-
-      <section class="section" id="authority">
-
-        <div class="section-header">
-          <p class="eyebrow">Current calibration period</p>
-          <h2>Sales authority</h2>
-
-          <p>
-            Early autonomy is intentionally bounded while sales and production
-            develop a shared understanding of Abundant Life pricing,
-            capabilities, risk, and execution.
-          </p>
-        </div>
-
-
-        <div class="authority-grid">
-
-          <article class="authority-card">
-
-            <header class="authority-header">
-              <span>Estimated contract value</span>
-              <strong>$3,000 or less</strong>
-            </header>
-
-            <div class="authority-body">
-
-              <p>
-                The salesperson may independently inspect,
-                estimate, present, follow up, and close routine work.
-              </p>
-
-              <ul class="check-list">
-                <li>Define scope clearly.</li>
-                <li>Account for access and cleanup.</li>
-                <li>Price with confidence.</li>
-                <li>Avoid promises outside known company capability.</li>
-                <li>Document what the customer purchased.</li>
-              </ul>
-
-            </div>
-
-          </article>
-
-
-          <article class="authority-card large">
-
-            <header class="authority-header">
-              <span>Estimated contract value</span>
-              <strong>Over $3,000</strong>
-            </header>
-
-            <div class="authority-body">
-
-              <p>
-                Generate and qualify the opportunity, then involve Christian
-                for estimating and sales while the team continues to calibrate.
-              </p>
-
-              <ul class="check-list gold">
-                <li>Preserve the relationship you generated.</li>
-                <li>Brief Christian before the appointment.</li>
-                <li>Attend the walkthrough when practical.</li>
-                <li>Compare pricing judgment and scope.</li>
-                <li>Learn from the production strategy.</li>
-              </ul>
-
-            </div>
+            <div class="pipeline-owner">Follow up</div>
 
           </article>
 
         </div>
 
       </section>
-
-
-      <!-- ==================================
-           QUALIFICATION
-      =================================== -->
 
       <section class="section">
 
         <div class="section-header">
           <p class="eyebrow">Before estimating</p>
-          <h2>Know what you're selling</h2>
-        </div>
 
+          <h2>Know what you're selling</h2>
+
+          <p>
+            Better information produces better estimates,
+            stronger customer confidence, and cleaner production.
+          </p>
+        </div>
 
         <div class="qualification-grid">
 
           <article class="qualification-card">
             <h3>Customer</h3>
+
             <p>
               Who owns or controls the property?
               Who makes the final decision?
@@ -1676,9 +1375,9 @@
             </p>
           </article>
 
-
           <article class="qualification-card">
             <h3>Scope</h3>
+
             <p>
               Which trees or areas are included?
               Removal, pruning, cleanup, hauling, stump work,
@@ -1686,43 +1385,42 @@
             </p>
           </article>
 
-
           <article class="qualification-card">
             <h3>Site</h3>
+
             <p>
-              Access, gates, fences, structures, utilities,
-              traffic, neighboring property, terrain,
-              drop zones, and equipment limitations.
+              Check access, gates, fences, structures, utilities,
+              traffic, neighboring property, terrain, drop zones,
+              and equipment limitations.
             </p>
           </article>
-
 
           <article class="qualification-card">
             <h3>Timing</h3>
+
             <p>
-              Emergency, active hazard, upcoming event,
-              flexible scheduling, seasonal need,
-              or exploratory future work?
+              Is this urgent, flexible, seasonal,
+              tied to an event, or simply exploratory future work?
             </p>
           </article>
-
 
           <article class="qualification-card">
             <h3>Risk</h3>
+
             <p>
-              Deadwood, compromised trees, difficult rigging,
-              targets, utility proximity, decay, poor access,
-              or specialized equipment.
+              Look for compromised trees, difficult rigging,
+              valuable targets, decay, utility proximity,
+              poor access, and specialized equipment needs.
             </p>
           </article>
 
-
           <article class="qualification-card">
             <h3>Expectations</h3>
+
             <p>
-              What does “finished” mean to this client?
-              Make cleanup, haul-off, wood handling,
-              surface protection, and exclusions explicit.
+              What does “finished” mean to this customer?
+              Clarify cleanup, haul-off, wood handling,
+              surface protection, and exclusions.
             </p>
           </article>
 
@@ -1730,18 +1428,13 @@
 
       </section>
 
-
-      <!-- ==================================
-           SELLING / VALUE
-      =================================== -->
-
       <section class="section" id="selling">
 
         <div class="section-header">
-          <p class="eyebrow">Pricing &amp; presentation</p>
+          <p class="eyebrow">Selling well</p>
+
           <h2>Sell the result, not just the labor</h2>
         </div>
-
 
         <div class="value-box">
 
@@ -1763,7 +1456,6 @@
 
           </div>
 
-
           <div class="value-right">
 
             <h3>When presenting work:</h3>
@@ -1775,7 +1467,7 @@
               <li>State the price clearly.</li>
               <li>Stop talking long enough for the customer to respond.</li>
               <li>Answer the real concern behind objections.</li>
-              <li>Do not create unnecessary pressure.</li>
+              <li>Ask for the work.</li>
             </ul>
 
           </div>
@@ -1784,23 +1476,62 @@
 
       </section>
 
+      <section class="section">
 
-      <!-- ==================================
-           FOLLOW-UP
-      =================================== -->
+        <div class="value-box">
+
+          <div class="value-left">
+
+            <p class="eyebrow">Before reducing price</p>
+
+            <h3>Find the real objection.</h3>
+
+            <p>
+              “That's expensive” does not always mean the customer needs
+              a lower price.
+            </p>
+
+            <p>
+              They may need more confidence, clearer scope, better timing,
+              a smaller project, or simply time to decide.
+            </p>
+
+          </div>
+
+          <div class="value-right">
+
+            <h3>Ask yourself:</h3>
+
+            <ul class="check-list">
+              <li>Do they understand what is included?</li>
+              <li>Do they trust us?</li>
+              <li>Is timing the real issue?</li>
+              <li>Can scope change instead of price?</li>
+              <li>Is the customer comparing the same scope?</li>
+              <li>
+                Am I discounting because they need it,
+                or because I am uncomfortable?
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+      </section>
 
       <section class="section">
 
         <div class="section-header">
           <p class="eyebrow">Follow-up</p>
+
           <h2>Stay useful without becoming noise</h2>
 
           <p>
             Follow-up exists to help the customer make a decision,
-            not to harass them into one.
+            not to pressure them into one.
           </p>
         </div>
-
 
         <div class="follow-up">
 
@@ -1808,19 +1539,19 @@
             <strong>After estimate</strong>
 
             <p>
-              Make sure the proposal arrived and invite questions.
+              Make sure the customer received everything
+              and invite questions.
             </p>
           </article>
-
 
           <article class="follow-up-card">
             <strong>2–3 days</strong>
 
             <p>
-              Check for unanswered concerns or changes in scope.
+              Check for unanswered concerns,
+              scope questions, or changes in timing.
             </p>
           </article>
-
 
           <article class="follow-up-card">
             <strong>About 1 week</strong>
@@ -1829,7 +1560,6 @@
               Reconnect politely and ask where the project stands.
             </p>
           </article>
-
 
           <article class="follow-up-card final">
             <strong>Longer-term</strong>
@@ -1844,100 +1574,158 @@
 
       </section>
 
+      <section class="section" id="authority">
 
-      <!-- ==================================
-           HANDOFF
-      =================================== -->
+        <div class="section-header">
+          <p class="eyebrow">Sales authority</p>
 
-      <section class="section">
-
-        <div class="handoff-box">
-
-          <p class="eyebrow" style="color: var(--gold-300);">
-            Production handoff
-          </p>
-
-          <h2>Never make the crew rediscover the sale.</h2>
+          <h2>Trust expands with proven judgment</h2>
 
           <p>
-            Before work is scheduled, operations should be able to understand
-            exactly what was sold and what conditions were observed.
+            Early limits are not a ceiling.
+            They are a calibration period.
+            Consistently accurate estimating and profitable sales
+            earn more autonomy.
           </p>
+        </div>
 
+        <div class="authority-grid">
 
-          <div class="handoff-grid">
+          <article class="authority-card">
 
-            <div class="handoff-item">
-              <strong>Customer</strong>
-              <span>
-                Name, address, contact information,
-                preferred communication, decision-maker.
-              </span>
+            <header class="authority-header">
+              <span>Current independent authority</span>
+              <strong>Up to $3,000</strong>
+            </header>
+
+            <div class="authority-body">
+
+              <p>
+                Independently inspect, scope, price, present,
+                follow up, and close routine work within this range.
+              </p>
+
+              <ul class="check-list">
+                <li>Know exactly what is included.</li>
+                <li>Understand access and disposal.</li>
+                <li>Price confidently.</li>
+                <li>Document what was promised.</li>
+                <li>Ask when something feels unusual.</li>
+              </ul>
+
             </div>
 
+          </article>
 
-            <div class="handoff-item">
-              <strong>Exact scope</strong>
-              <span>
-                Trees, limbs, areas, services,
-                cleanup, haul-off, stump work, exclusions.
-              </span>
+          <article class="authority-card large">
+
+            <header class="authority-header">
+              <span>Current owner-assisted work</span>
+              <strong>Over $3,000</strong>
+            </header>
+
+            <div class="authority-body">
+
+              <p>
+                Generate and qualify the lead, then bring Christian
+                into the estimate while maintaining your relationship
+                with the customer.
+              </p>
+
+              <ul class="check-list gold">
+                <li>Brief Christian before the appointment.</li>
+                <li>Share your own price judgment.</li>
+                <li>Observe how production affects price.</li>
+                <li>Participate in the customer conversation.</li>
+                <li>Use each large estimate to sharpen your judgment.</li>
+              </ul>
+
             </div>
 
-
-            <div class="handoff-item">
-              <strong>Price</strong>
-              <span>
-                Contract amount, options accepted,
-                deposits, and approved changes.
-              </span>
-            </div>
-
-
-            <div class="handoff-item">
-              <strong>Site conditions</strong>
-              <span>
-                Access, gates, obstacles, targets,
-                terrain, utilities, neighbors.
-              </span>
-            </div>
-
-
-            <div class="handoff-item">
-              <strong>Expectations</strong>
-              <span>
-                What the customer specifically cares about
-                and what “done” looks like.
-              </span>
-            </div>
-
-
-            <div class="handoff-item">
-              <strong>Photos / notes</strong>
-              <span>
-                Enough information for production to arrive
-                prepared rather than surprised.
-              </span>
-            </div>
-
-          </div>
+          </article>
 
         </div>
 
       </section>
 
+      <section class="section" id="value">
 
-      <!-- ==================================
-           COMMISSION
-      =================================== -->
+        <div class="section-header">
+          <p class="eyebrow">Professional growth</p>
+
+          <h2>Become more valuable</h2>
+
+          <p>
+            Greater sales authority comes from repeatedly making good decisions
+            and producing useful revenue.
+          </p>
+        </div>
+
+        <div class="principles">
+
+          <article class="principle">
+
+            <div class="principle-number">01</div>
+
+            <h3>Generate more</h3>
+
+            <p>
+              Create your own opportunities instead of waiting
+              for leads to appear.
+            </p>
+
+          </article>
+
+          <article class="principle">
+
+            <div class="principle-number">02</div>
+
+            <h3>Learn the work</h3>
+
+            <p>
+              Better understanding of trees, equipment, risk,
+              access, disposal, and production makes your estimates stronger.
+            </p>
+
+          </article>
+
+          <article class="principle gold">
+
+            <div class="principle-number">03</div>
+
+            <h3>Protect margin</h3>
+
+            <p>
+              The best salesperson does not merely close jobs.
+              They close profitable jobs.
+            </p>
+
+          </article>
+
+          <article class="principle">
+
+            <div class="principle-number">04</div>
+
+            <h3>Need less oversight</h3>
+
+            <p>
+              Accurate scopes, good pricing, clean documentation,
+              and sound judgment earn greater autonomy.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
 
       <section class="section">
 
         <div class="section-header">
           <p class="eyebrow">Compensation</p>
-          <h2>When sales wins, sales gets paid</h2>
-        </div>
 
+          <h2>Create value and share in it</h2>
+        </div>
 
         <article class="commission-card">
 
@@ -1958,18 +1746,17 @@
 
           </div>
 
-
           <div class="commission-body">
 
             <p>
               The purpose of commission is alignment:
-              creating more valuable work should create more value
-              for both the salesperson and the company.
+              more valuable work for the company should create more value
+              for the salesperson.
             </p>
 
             <p>
-              Lead source and ownership should therefore be recorded
-              clearly when an opportunity enters the pipeline.
+              Generate better opportunities, close stronger work,
+              and grow your own earning power.
             </p>
 
           </div>
@@ -1978,78 +1765,18 @@
 
       </section>
 
-
-      <!-- ==================================
-           SCOREBOARD
-      =================================== -->
-
-      <section class="section" id="scoreboard">
+      <section class="section" id="improve">
 
         <div class="section-header">
-          <p class="eyebrow">Sales scoreboard</p>
-          <h2>Measure the funnel</h2>
+          <p class="eyebrow">Get better every week</p>
+
+          <h2>Find your bottleneck</h2>
 
           <p>
-            Do not judge the sales system by feelings.
-            Find where opportunity is being created,
-            converted, delayed, or lost.
+            Improvement begins by identifying what is actually preventing
+            more good work from being sold.
           </p>
         </div>
-
-
-        <div class="scoreboard">
-
-          <div class="score">
-            <strong>Leads</strong>
-            <span>Generated</span>
-          </div>
-
-          <div class="score">
-            <strong>Appointments</strong>
-            <span>Set</span>
-          </div>
-
-          <div class="score">
-            <strong>Estimates</strong>
-            <span>Delivered</span>
-          </div>
-
-          <div class="score money">
-            <strong>$ Quoted</strong>
-            <span>Opportunity</span>
-          </div>
-
-          <div class="score money">
-            <strong>$ Sold</strong>
-            <span>Closed work</span>
-          </div>
-
-          <div class="score money">
-            <strong>$ Collected</strong>
-            <span>Realized revenue</span>
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- ==================================
-           MANAGEMENT LOOP
-      =================================== -->
-
-      <section class="section" id="management">
-
-        <div class="section-header">
-          <p class="eyebrow">Continuous improvement</p>
-          <h2>Build the system around the salesperson</h2>
-
-          <p>
-            The goal is not merely to have a productive salesman.
-            The goal is to learn how Abundant Life makes salespeople productive.
-          </p>
-        </div>
-
 
         <div class="questions">
 
@@ -2058,45 +1785,46 @@
             <div class="question-number">1</div>
 
             <div>
-              <h3>What would help you sell more?</h3>
+              <h3>Where am I losing opportunities?</h3>
 
               <p>
-                Diagnose the whole system:
-                materials, tools, pricing authority, lead flow,
-                proof of work, process, credibility, or customer experience.
+                Not enough conversations?
+                Weak qualification?
+                Slow estimates?
+                Poor follow-up?
+                Price resistance?
+                Unclear scope?
               </p>
             </div>
 
           </article>
-
 
           <article class="question">
 
             <div class="question-number">2</div>
 
             <div>
-              <h3>What gets in your way of selling?</h3>
+              <h3>What would help me sell more?</h3>
 
               <p>
-                Find friction:
-                slow estimates, unclear pricing, missing information,
-                weak follow-up, scheduling problems, or unnecessary approvals.
+                Better materials, faster answers, more technical knowledge,
+                stronger proof of work, clearer pricing,
+                better lead flow, or greater authority?
               </p>
             </div>
 
           </article>
-
 
           <article class="question">
 
             <div class="question-number">3</div>
 
             <div>
-              <h3>What can I do to help you sell more?</h3>
+              <h3>What do I need from the company?</h3>
 
               <p>
-                Define what the owner can personally do to remove bottlenecks,
-                improve support, and make good opportunities easier to close.
+                Bring obstacles forward.
+                Good sales systems improve when salespeople identify friction early.
               </p>
             </div>
 
@@ -2106,42 +1834,37 @@
 
       </section>
 
-
-      <!-- ==================================
-           FINAL STANDARD
-      =================================== -->
-
       <section class="section">
 
         <div class="standard">
 
-          <p class="eyebrow">Remember</p>
+          <p class="eyebrow">The goal</p>
 
-          <h2>A sale is a promise.</h2>
+          <h2>Become someone the company can trust with revenue.</h2>
 
           <p>
-            Sell work we can be proud to perform.
-            Price it so we can perform it well.
-            Describe it so the customer and crew understand the same promise.
-            Then hand it to production cleanly.
+            Generate opportunities.
+            Know the work.
+            Protect price.
+            Keep customers moving.
+            Communicate clearly.
+            Hand production clean jobs.
+            The more reliably you do those things,
+            the more valuable you become—and the more opportunity
+            you can be trusted to control.
           </p>
 
         </div>
 
       </section>
 
-
-      <!-- ==================================
-           QUICK LINKS
-      =================================== -->
-
       <section class="section">
 
         <div class="section-header">
           <p class="eyebrow">Resources</p>
+
           <h2>Quick links</h2>
         </div>
-
 
         <div class="quick-links">
 
@@ -2150,28 +1873,29 @@
             href="../lead/index.html"
           >
             <strong>Lead Capture</strong>
+
             <span>
               Record a new sales opportunity.
             </span>
           </a>
-
 
           <a
             class="quick-link"
             href="../crm/customer-tracker.html"
           >
             <strong>Customer Tracker</strong>
+
             <span>
               View customer and pipeline information.
             </span>
           </a>
-
 
           <a
             class="quick-link"
             href="./index.html"
           >
             <strong>Crew Portal</strong>
+
             <span>
               Return to the internal resource hub.
             </span>
@@ -2185,14 +1909,9 @@
 
   </main>
 
-
-  <!-- ======================================
-       FOOTER
-  ======================================= -->
-
   <footer class="footer">
     <strong>Abundant Life Land &amp; Tree LLC</strong><br>
-    Internal Sales System
+    Internal Sales Team Resource
   </footer>
 
 </body>

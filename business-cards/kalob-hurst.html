@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Abundant Life Land & Tree — Business Card</title>
+
+  <style>
+    :root {
+      --ink: #111;
+      --paper: #fff;
+
+      --card-width: 2in;
+      --card-height: 3.5in;
+
+      --font-serif:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      --font-mono:
+        "Courier New",
+        Courier,
+        monospace;
+
+        --font-mono:
+        helvetica,
+        arial,
+        sans-serif;
+
+      --font-sans-serif: 
+        helvetica,
+        arial,
+        sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      letter-spacing: .25px;
+    }
+
+    body {
+      background: #ddd;
+      color: var(--ink);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      padding: 0.6in;
+    }
+
+    .card {
+      width: var(--card-width);
+      height: var(--card-height);
+
+      overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+
+      padding:
+        0.125in
+        0.16in
+        0.16in;
+
+      background: var(--paper);
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,.18);
+
+      font-family: var(--font-serif);
+    }
+
+
+    /* =========================================================
+       LOGO
+       ========================================================= */
+
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 1.35in;
+    }
+
+    .logo {
+      width: 1.18in;
+      height: 1.18in;
+
+      object-fit: contain;
+    }
+
+
+    /* =========================================================
+       IDENTITY
+       ========================================================= */
+
+    .identity {
+      text-align: center;
+
+      margin-top: 0.03in;
+    }
+
+    .person-name {
+      margin: 0;
+
+      font-family: var(--font-mono);
+
+      font-size: 14.5px;
+      font-weight: 400;
+
+      line-height: 1.05;
+    }
+
+    .person-title {
+      margin-top: 0.045in;
+
+      font-family: var(--font-mono);
+
+      font-size: 10px;
+      font-weight: 400;
+
+      line-height: 1.1;
+    }
+
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact {
+      margin-top: 0.14in;
+
+      text-align: center;
+
+      font-family: var(--font-mono);
+    }
+
+    .phone {
+      display: block;
+
+      font-size: 14px;
+      letter-spacing: .1px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 600;
+      margin-top: -3px;
+
+      line-height: 1;
+    }
+
+    .website {
+      display: block;
+
+      margin-top: 0.06in;
+
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: .75px;
+
+      line-height: 1.05;
+    }
+
+
+    /* =========================================================
+       LOWER SECTION
+       ========================================================= */
+
+    .lower {
+      margin-top: 11px;
+      margin-right: 7px;
+      margin-left: 7px;
+
+      padding-top: 8px;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-bottom: 7px;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        0.58in;
+
+      gap: 0.00in;
+
+      border-top: 1px solid rgb(228, 228, 228);
+    }
+
+
+    /* ---------- Difference / Services ---------- */
+
+    .difference {
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+
+      font-family: var(--font-mono);
+
+      font-size: 9.5px;
+      line-height: 1.85;
+      letter-spacing: .01px;
+    }
+
+    .difference li::before {
+      content: "- ";
+    }
+
+
+    /* ---------- QR ---------- */
+
+    .qr-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .qr-code {
+      width: 0.39in;
+      height: 0.39in;
+
+      object-fit: contain;
+      margin-bottom: 4px;
+      margin-right: -11px;
+    }
+
+
+    /* =========================================================
+       PRINT
+       ========================================================= */
+
+    @media print {
+      @page {
+        size: 2in 3.5in;
+        margin: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        background: transparent;
+
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .page {
+        display: block;
+        padding: 0;
+        min-height: 0;
+      }
+
+      .card {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <article class="card">
+
+
+      <!-- LOGO -->
+
+      <div class="logo-wrap">
+
+        <img
+          class="logo"
+          src="../img/hummingbird-tree-logo-monochrome.png"
+          alt="Abundant Life Land & Tree LLC"
+        >
+
+      </div>
+
+
+      <!-- PERSON -->
+
+      <section class="identity">
+
+        <h1 class="person-name">
+          Kalob Hurst
+        </h1>
+
+        <div class="person-title">
+          Project Manager
+        </div>
+
+      </section>
+
+
+      <!-- CONTACT -->
+
+      <section class="contact">
+
+        <a
+          class="phone"
+          href="tel:+14059531285"
+        >
+          580-231-8118
+        </a>
+
+        <a
+          class="website"
+          href="https://abundantlife.land/"
+        >
+          www.AbundantLife.Land
+        </a>
+
+      </section>
+
+
+      <!-- LOWER -->
+
+      <section class="lower">
+
+        <ul class="difference">
+
+          <li>Expert Tree Service</li>
+
+          <li>Land Management</li>
+
+          <li>Private Forestry</li>
+
+          <li>Horticulture</li>
+
+        </ul>
+
+
+        <div class="qr-wrap">
+
+          <img
+            class="qr-code"
+            src="../img/abundant-life-qr.png"
+            alt="QR code for AbundantLife.Land"
+          >
+
+        </div>
+
+      </section>
+
+
+    </article>
+
+  </main>
+
+</body>
+</html>

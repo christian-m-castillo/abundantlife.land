@@ -2,14 +2,887 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Abundant Life CRM</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      --green: #035c03;
+      --green-mid: #207c28;
+      --green-soft: #e8f2e7;
+      --brown: #56452e;
+      --sand: #eec68a;
+      --cream: #fbf8f1;
+      --white: #fff;
+      --ink: #333;
+      --muted: #665f55;
+      --line: #d8d3c8;
+      --danger: #9d2d20;
+      --warning: #986800;
+      --shadow: 0 14px 40px rgba(51, 51, 51, .12);
+      --radius: 18px;
+      --max: 1440px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    .hidden { display: none !important; }
+
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(3,92,3,.98);
+      color: white;
+      box-shadow: 0 4px 18px rgba(0,0,0,.16);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 1.5rem), var(--max));
+      min-height: 68px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .brand small {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sand);
+    }
+
+    .header-actions { display: flex; gap: .55rem; align-items: center; }
+
+    .button {
+      min-height: 42px;
+      border: 0;
+      border-radius: 999px;
+      padding: .68rem 1rem;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+    }
+
+    .button:hover { background: var(--green-mid); }
+    .button-light { background: white; color: var(--green); }
+    .button-light:hover { background: var(--cream); }
+    .button-outline { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+    .button-danger { background: var(--danger); }
+    .button-small { min-height: 34px; padding: .42rem .72rem; font-size: .86rem; }
+
+    main {
+      width: min(calc(100% - 1.5rem), var(--max));
+      margin: 1.25rem auto 5rem;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.25rem;
+    }
+
+    h1, h2, h3 { color: var(--green); line-height: 1.12; margin-top: 0; }
+    h1 { margin-bottom: .3rem; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.04em; }
+    h2 { font-size: 1.35rem; }
+    p { margin-top: 0; }
+    .muted { color: var(--muted); }
+    .eyebrow { color: var(--green-mid); font-size: .72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+
+    .view-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .55rem .82rem;
+      background: white;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .tab.active { color: white; background: var(--green); border-color: var(--green); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: .8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .metric, .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .metric { padding: 1rem; }
+    .metric .label { color: var(--muted); font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .metric .value { margin-top: .15rem; color: var(--green); font-size: clamp(1.55rem, 4vw, 2.3rem); font-weight: 900; letter-spacing: -.04em; }
+    .metric .sub { color: var(--muted); font-size: .8rem; }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px,1fr) repeat(3, minmax(130px,auto));
+      gap: .65rem;
+      margin-bottom: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      color: var(--ink);
+      padding: .72rem .8rem;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(238,198,138,.55);
+      border-color: var(--green-mid);
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(240px, 1fr));
+      gap: .8rem;
+      overflow-x: auto;
+      padding-bottom: .5rem;
+    }
+
+    .stage {
+      min-height: 300px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.55);
+    }
+
+    .stage-head {
+      position: sticky;
+      top: 0px;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .8rem;
+      border-bottom: 1px solid var(--line);
+      border-radius: var(--radius) var(--radius) 0 0;
+      background: var(--green-soft);
+    }
+
+    .stage-title { font-weight: 900; color: var(--green); }
+    .stage-count { min-width: 28px; padding: .18rem .45rem; border-radius: 999px; background: white; text-align: center; font-size: .78rem; font-weight: 900; }
+    .cards { padding: .65rem; display: grid; gap: .65rem; }
+
+    .lead-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      padding: .85rem;
+      box-shadow: 0 5px 14px rgba(0,0,0,.06);
+    }
+
+    .lead-card:hover { border-color: var(--green-mid); }
+    .lead-card.overdue { border-left: 5px solid var(--danger); }
+    .lead-card.today { border-left: 5px solid var(--warning); }
+
+    .lead-top { display: flex; justify-content: space-between; gap: .5rem; }
+    .lead-name { font-size: 1rem; font-weight: 900; }
+    .lead-value { white-space: nowrap; color: var(--green); font-weight: 900; }
+    .lead-service { margin: .35rem 0 .6rem; color: var(--muted); font-size: .88rem; }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .65rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: .23rem .48rem;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: .7rem;
+      font-weight: 800;
+    }
+    .badge.overdue { background: #fbe5e1; color: var(--danger); }
+    .badge.today { background: #fff0c9; color: #795100; }
+
+    .next-action {
+      border-top: 1px solid var(--line);
+      padding-top: .6rem;
+      color: var(--ink);
+      font-size: .82rem;
+    }
+
+    .card-actions { display: flex; gap: .35rem; margin-top: .65rem; }
+    .card-actions button, .card-actions a {
+      flex: 1;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: .42rem;
+      background: white;
+      color: var(--ink);
+      text-align: center;
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .today-list, .table-list { display: grid; gap: .65rem; }
+    .followup {
+      display: grid;
+      grid-template-columns: 100px minmax(160px,1fr) minmax(180px,1.3fr) auto;
+      gap: .8rem;
+      align-items: center;
+      padding: .85rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+    }
+    .followup-date { font-weight: 900; }
+    .followup-name { font-weight: 900; }
+    .followup-action { color: var(--muted); }
+
+    .empty {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    dialog {
+      width: min(760px, calc(100% - 1rem));
+      max-height: 92vh;
+      border: 0;
+      border-radius: 20px;
+      padding: 0;
+      box-shadow: 0 30px 80px rgba(0,0,0,.28);
+    }
+
+    dialog::backdrop { background: rgba(10,20,10,.56); backdrop-filter: blur(3px); }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--green);
+      color: white;
+    }
+
+    .modal-head h2 { margin: 0; color: white; }
+    .close {
+      width: 40px; height: 40px; border: 0; border-radius: 50%;
+      background: rgba(255,255,255,.15); color: white; font-size: 1.35rem;
+    }
+
+    .modal-body { padding: 1.1rem 1.2rem 1.3rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .field.full { grid-column: 1 / -1; }
+    label { display: block; margin-bottom: .32rem; color: var(--muted); font-size: .76rem; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+    .required::after { content: " *"; color: var(--danger); }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: .7rem;
+      padding-top: 1rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .activity-list { display: grid; gap: .5rem; max-height: 220px; overflow: auto; }
+    .activity {
+      border-left: 3px solid var(--green-mid);
+      padding: .5rem .7rem;
+      background: var(--green-soft);
+      font-size: .85rem;
+    }
+    .activity time { color: var(--muted); font-size: .72rem; font-weight: 800; }
+
+    .settings-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1rem;
+    }
+
+    .notice {
+      margin-bottom: 1rem;
+      padding: .8rem 1rem;
+      border: 1px solid #ead49f;
+      border-radius: 12px;
+      background: #fff8e6;
+      color: #624d1d;
+      font-size: .86rem;
+    }
+
+    @media (max-width: 950px) {
+      .metrics { grid-template-columns: repeat(2,1fr); }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .followup { grid-template-columns: 90px 1fr; }
+      .followup-action, .followup > :last-child { grid-column: 2; }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner { min-height: 62px; }
+      .brand small { display: none; }
+      .header-actions .desktop-label { display: none; }
+      main { width: min(calc(100% - 1rem), var(--max)); margin-top: .8rem; }
+      .topbar { grid-template-columns: 1fr; }
+      .metrics { gap: .5rem; }
+      .metric { padding: .8rem; }
+      .toolbar { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .pipeline { grid-template-columns: repeat(6, 86vw); }
+      .stage-head { top: 62px; }
+      .followup { grid-template-columns: 1fr; }
+      .followup-action, .followup > :last-child { grid-column: auto; }
+      .modal-actions { flex-direction: column-reverse; }
+      .modal-actions > * { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Customer Tracker</h1>
-  <table>
-    
-  </table>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">Abundant Life CRM <small>Land & Tree · Sales Command</small></div>
+      <div class="header-actions">
+        <button class="button button-light" id="newLeadBtn">＋ <span class="desktop-label">New Lead</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Sales command</div>
+        <h1>Keep the next move obvious.</h1>
+        <p class="muted">Every open lead should have a next action and a date.</p>
+      </div>
+      <div class="view-tabs">
+        <button class="tab active" data-view="pipeline">Pipeline</button>
+        <button class="tab" data-view="today">Follow-ups</button>
+        <button class="tab" data-view="all">All Leads</button>
+        <button class="tab" data-view="data">Data</button>
+      </div>
+    </div>
+
+    <section class="metrics" id="metrics"></section>
+
+    <div class="toolbar" id="toolbar">
+      <input id="searchInput" type="search" placeholder="Search name, service, address, notes…">
+      <select id="ownerFilter">
+        <option value="">All salespeople</option>
+      </select>
+      <select id="sourceFilter">
+        <option value="">All lead sources</option>
+      </select>
+      <select id="stageFilter">
+        <option value="">All stages</option>
+      </select>
+    </div>
+
+    <section id="pipelineView"></section>
+    <section id="todayView" class="hidden"></section>
+    <section id="allView" class="hidden"></section>
+    <section id="dataView" class="hidden">
+      <div class="panel" style="padding:1.2rem">
+        <h2>Data & backups</h2>
+        <div class="notice">
+          This v0.1 stores CRM data in this browser using localStorage. It works immediately on GitHub Pages, but it is not yet a multi-user cloud database. Export a backup regularly until the backend is added.
+        </div>
+        <p class="muted">Export creates a JSON backup. Import restores one of those backups on this device.</p>
+        <div class="settings-row">
+          <button class="button" id="exportBtn">Export backup</button>
+          <button class="button button-outline" id="importBtn">Import backup</button>
+          <input class="hidden" type="file" id="importFile" accept=".json,application/json">
+          <button class="button button-outline" id="seedBtn">Load example leads</button>
+          <button class="button button-danger" id="clearBtn">Clear CRM</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="leadDialog">
+    <form method="dialog" id="leadForm">
+      <div class="modal-head">
+        <h2 id="dialogTitle">New Lead</h2>
+        <button class="close" value="cancel" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="leadId">
+        <div class="form-grid">
+          <div class="field">
+            <label class="required" for="name">Customer name</label>
+            <input id="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="owner">Salesperson</label>
+            <input id="owner" value="Christian">
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="email">
+          </div>
+          <div class="field full">
+            <label for="address">Property address</label>
+            <input id="address" autocomplete="street-address">
+          </div>
+          <div class="field">
+            <label class="required" for="service">Service / opportunity</label>
+            <input id="service" required placeholder="Tree removal, pruning, landscape…">
+          </div>
+          <div class="field">
+            <label for="value">Estimated value</label>
+            <input id="value" type="number" min="0" step="1" placeholder="0">
+          </div>
+          <div class="field">
+            <label for="source">Lead source</label>
+            <select id="source">
+              <option>Google</option>
+              <option>Referral</option>
+              <option>Repeat Client</option>
+              <option>Canvassing</option>
+              <option>Neighbor</option>
+              <option>Yelp</option>
+              <option>Facebook</option>
+              <option>Website</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="required" for="stage">Stage</label>
+            <select id="stage" required></select>
+          </div>
+          <div class="field full">
+            <label for="notes">General notes</label>
+            <textarea id="notes" rows="3"></textarea>
+          </div>
+          <div class="field">
+            <label id="nextActionLabel" class="required" for="nextAction">Next action</label>
+            <input id="nextAction" placeholder="Call, send estimate, follow up…">
+          </div>
+          <div class="field">
+            <label id="nextDateLabel" class="required" for="nextDate">Next action date</label>
+            <input id="nextDate" type="date">
+          </div>
+          <div class="field full">
+            <label for="activityText">Log a new contact / activity</label>
+            <textarea id="activityText" rows="2" placeholder="Called customer; discussed revised scope…"></textarea>
+          </div>
+          <div class="field full">
+            <div class="activity-list" id="activityList"></div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="button button-danger hidden" id="deleteBtn">Delete lead</button>
+          <div style="display:flex;gap:.5rem;margin-left:auto">
+            <button type="button" class="button button-outline" id="cancelBtn">Cancel</button>
+            <button type="submit" class="button" id="saveBtn">Save lead</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const STORAGE_KEY = 'abundantLifeCRM_v1';
+      const STAGES = [
+        ['new', 'New'],
+        ['contacted', 'Contacted'],
+        ['estimate', 'Estimate Scheduled'],
+        ['proposal', 'Proposal Sent'],
+        ['followup', 'Follow-Up'],
+        ['won', 'Won'],
+        ['lost', 'Lost']
+      ];
+      const OPEN_STAGES = new Set(['new','contacted','estimate','proposal','followup']);
+
+      const $ = s => document.querySelector(s);
+      const $$ = s => [...document.querySelectorAll(s)];
+      const todayISO = () => {
+        const d = new Date();
+        const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+        return local.toISOString().slice(0,10);
+      };
+
+      const uid = () => 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+      const money = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(Number(n)||0);
+      const datePretty = str => {
+        if (!str) return 'No date';
+        const d = new Date(str + 'T12:00:00');
+        return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+      };
+      const stageName = key => STAGES.find(s => s[0] === key)?.[1] || key;
+
+      let state = loadState();
+      let currentView = 'pipeline';
+
+      function loadState() {
+        try {
+          const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY));
+          return parsed && Array.isArray(parsed.leads) ? parsed : { leads: [] };
+        } catch {
+          return { leads: [] };
+        }
+      }
+
+      function saveState() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        render();
+      }
+
+      function isOpen(lead) { return OPEN_STAGES.has(lead.stage); }
+      function isOverdue(lead) { return isOpen(lead) && lead.nextDate && lead.nextDate < todayISO(); }
+      function isDueToday(lead) { return isOpen(lead) && lead.nextDate === todayISO(); }
+
+      function filters() {
+        return {
+          q: $('#searchInput').value.trim().toLowerCase(),
+          owner: $('#ownerFilter').value,
+          source: $('#sourceFilter').value,
+          stage: $('#stageFilter').value
+        };
+      }
+
+      function filteredLeads() {
+        const f = filters();
+        return state.leads.filter(l => {
+          const haystack = [l.name,l.phone,l.email,l.address,l.service,l.source,l.owner,l.notes,l.nextAction,
+            ...(l.activities||[]).map(a=>a.text)].join(' ').toLowerCase();
+          return (!f.q || haystack.includes(f.q)) &&
+                 (!f.owner || l.owner === f.owner) &&
+                 (!f.source || l.source === f.source) &&
+                 (!f.stage || l.stage === f.stage);
+        });
+      }
+
+      function render() {
+        populateFilters();
+        renderMetrics();
+        renderPipeline();
+        renderToday();
+        renderAll();
+      }
+
+      function populateFilters() {
+        const ownerValue = $('#ownerFilter').value;
+        const sourceValue = $('#sourceFilter').value;
+        const owners = [...new Set(state.leads.map(l=>l.owner).filter(Boolean))].sort();
+        const sources = [...new Set(state.leads.map(l=>l.source).filter(Boolean))].sort();
+
+        $('#ownerFilter').innerHTML = '<option value="">All salespeople</option>' +
+          owners.map(v=>`<option ${v===ownerValue?'selected':''}>${esc(v)}</option>`).join('');
+        $('#sourceFilter').innerHTML = '<option value="">All lead sources</option>' +
+          sources.map(v=>`<option ${v===sourceValue?'selected':''}>${esc(v)}</option>`).join('');
+      }
+
+      function renderMetrics() {
+        const open = state.leads.filter(isOpen);
+        const overdue = open.filter(isOverdue);
+        const due = open.filter(isDueToday);
+        const won = state.leads.filter(l=>l.stage==='won');
+        const openValue = open.reduce((s,l)=>s+(Number(l.value)||0),0);
+        const wonValue = won.reduce((s,l)=>s+(Number(l.value)||0),0);
+        $('#metrics').innerHTML = `
+          <div class="metric"><div class="label">Open pipeline</div><div class="value">${money(openValue)}</div><div class="sub">${open.length} active opportunities</div></div>
+          <div class="metric"><div class="label">Needs attention</div><div class="value">${overdue.length + due.length}</div><div class="sub">${overdue.length} overdue · ${due.length} due today</div></div>
+          <div class="metric"><div class="label">Won</div><div class="value">${money(wonValue)}</div><div class="sub">${won.length} closed jobs</div></div>
+          <div class="metric"><div class="label">Close rate</div><div class="value">${closeRate()}%</div><div class="sub">Won ÷ won + lost</div></div>`;
+      }
+
+      function closeRate() {
+        const won = state.leads.filter(l=>l.stage==='won').length;
+        const lost = state.leads.filter(l=>l.stage==='lost').length;
+        return won + lost ? Math.round(won/(won+lost)*100) : 0;
+      }
+
+      function renderPipeline() {
+        const leads = filteredLeads();
+        const openStages = STAGES.filter(([key])=>OPEN_STAGES.has(key));
+        const columns = openStages.map(([key,label]) => {
+          const stageLeads = leads.filter(l=>l.stage===key).sort(sortAttention);
+          return `<div class="stage">
+            <div class="stage-head"><span class="stage-title">${label}</span><span class="stage-count">${stageLeads.length}</span></div>
+            <div class="cards">${stageLeads.length ? stageLeads.map(cardHTML).join('') : '<div class="empty">No leads</div>'}</div>
+          </div>`;
+        }).join('');
+        $('#pipelineView').innerHTML = `<div class="pipeline">${columns}</div>`;
+        wireLeadButtons();
+      }
+
+      function sortAttention(a,b) {
+        const ad = a.nextDate || '9999-12-31';
+        const bd = b.nextDate || '9999-12-31';
+        return ad.localeCompare(bd) || (Number(b.value)||0) - (Number(a.value)||0);
+      }
+
+      function cardHTML(l) {
+        const status = isOverdue(l) ? 'overdue' : isDueToday(l) ? 'today' : '';
+        const statusBadge = isOverdue(l) ? `<span class="badge overdue">Overdue ${datePretty(l.nextDate)}</span>` :
+                            isDueToday(l) ? `<span class="badge today">Due today</span>` :
+                            l.nextDate ? `<span class="badge">${datePretty(l.nextDate)}</span>` : '';
+        const phoneHref = l.phone ? `tel:${l.phone.replace(/[^\d+]/g,'')}` : '';
+        return `<article class="lead-card ${status}">
+          <div class="lead-top">
+            <div class="lead-name">${esc(l.name)}</div>
+            <div class="lead-value">${money(l.value)}</div>
+          </div>
+          <div class="lead-service">${esc(l.service)}</div>
+          <div class="badge-row">
+            ${statusBadge}
+            ${l.owner ? `<span class="badge">${esc(l.owner)}</span>` : ''}
+            ${l.source ? `<span class="badge">${esc(l.source)}</span>` : ''}
+          </div>
+          <div class="next-action"><strong>Next:</strong> ${esc(l.nextAction || 'No next action set')}</div>
+          <div class="card-actions">
+            ${phoneHref ? `<a href="${phoneHref}">Call</a>` : ''}
+            <button data-edit="${l.id}">Open</button>
+          </div>
+        </article>`;
+      }
+
+      function renderToday() {
+        const leads = filteredLeads().filter(l=>isOpen(l) && l.nextDate && l.nextDate <= todayISO()).sort(sortAttention);
+        $('#todayView').innerHTML = `
+          <div class="panel" style="padding:1rem">
+            <h2>Follow-ups requiring attention</h2>
+            <div class="today-list">
+              ${leads.length ? leads.map(l=>`
+                <div class="followup">
+                  <div class="followup-date">${isOverdue(l)?'OVERDUE': 'TODAY'}<br><span class="muted">${datePretty(l.nextDate)}</span></div>
+                  <div><div class="followup-name">${esc(l.name)}</div><div class="muted">${esc(l.service)}</div></div>
+                  <div class="followup-action">${esc(l.nextAction)}</div>
+                  <button class="button button-small" data-edit="${l.id}">Open</button>
+                </div>`).join('') : '<div class="empty">Nothing is due. Good.</div>'}
+            </div>
+          </div>`;
+        wireLeadButtons();
+      }
+
+      function renderAll() {
+        const leads = filteredLeads().sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''));
+        $('#allView').innerHTML = `
+          <div class="panel" style="padding:1rem">
+            <h2>All leads</h2>
+            <div class="table-list">
+              ${leads.length ? leads.map(l=>`
+                <div class="followup">
+                  <div><span class="badge">${stageName(l.stage)}</span></div>
+                  <div><div class="followup-name">${esc(l.name)}</div><div class="muted">${esc(l.service)}</div></div>
+                  <div>${money(l.value)}<br><span class="muted">${esc(l.owner||'Unassigned')} · ${esc(l.source||'Unknown')}</span></div>
+                  <button class="button button-small" data-edit="${l.id}">Open</button>
+                </div>`).join('') : '<div class="empty">No leads match your filters.</div>'}
+            </div>
+          </div>`;
+        wireLeadButtons();
+      }
+
+      function wireLeadButtons() {
+        $$('[data-edit]').forEach(btn => btn.onclick = () => openLead(btn.dataset.edit));
+      }
+
+      function openLead(id=null) {
+        const l = id ? state.leads.find(x=>x.id===id) : null;
+        $('#dialogTitle').textContent = l ? l.name : 'New Lead';
+        $('#leadId').value = l?.id || '';
+        $('#name').value = l?.name || '';
+        $('#owner').value = l?.owner || 'Christian';
+        $('#phone').value = l?.phone || '';
+        $('#email').value = l?.email || '';
+        $('#address').value = l?.address || '';
+        $('#service').value = l?.service || '';
+        $('#value').value = l?.value || '';
+        $('#source').value = l?.source || 'Google';
+        $('#stage').value = l?.stage || 'new';
+        $('#notes').value = l?.notes || '';
+        $('#nextAction').value = l?.nextAction || '';
+        $('#nextDate').value = l?.nextDate || '';
+        $('#activityText').value = '';
+        $('#deleteBtn').classList.toggle('hidden', !l);
+        renderActivities(l?.activities || []);
+        syncNextRequired();
+        $('#leadDialog').showModal();
+      }
+
+      function renderActivities(activities) {
+        $('#activityList').innerHTML = activities.length
+          ? [...activities].reverse().map(a=>`<div class="activity"><time>${new Date(a.at).toLocaleString()}</time><div>${esc(a.text)}</div></div>`).join('')
+          : '<div class="muted" style="font-size:.82rem">No activity logged yet.</div>';
+      }
+
+      function syncNextRequired() {
+        const open = OPEN_STAGES.has($('#stage').value);
+        $('#nextAction').required = open;
+        $('#nextDate').required = open;
+        $('#nextActionLabel').classList.toggle('required', open);
+        $('#nextDateLabel').classList.toggle('required', open);
+      }
+
+      function saveLead(e) {
+        e.preventDefault();
+        const id = $('#leadId').value;
+        const existing = id ? state.leads.find(l=>l.id===id) : null;
+        const now = new Date().toISOString();
+        const activities = existing ? [...(existing.activities||[])] : [];
+        const activityText = $('#activityText').value.trim();
+        if (activityText) activities.push({at: now, text: activityText});
+
+        const lead = {
+          id: existing?.id || uid(),
+          name: $('#name').value.trim(),
+          owner: $('#owner').value.trim(),
+          phone: $('#phone').value.trim(),
+          email: $('#email').value.trim(),
+          address: $('#address').value.trim(),
+          service: $('#service').value.trim(),
+          value: Number($('#value').value)||0,
+          source: $('#source').value,
+          stage: $('#stage').value,
+          notes: $('#notes').value.trim(),
+          nextAction: $('#nextAction').value.trim(),
+          nextDate: $('#nextDate').value,
+          activities,
+          createdAt: existing?.createdAt || now,
+          updatedAt: now
+        };
+
+        if (!OPEN_STAGES.has(lead.stage)) {
+          lead.nextAction = '';
+          lead.nextDate = '';
+        }
+
+        if (existing) Object.assign(existing, lead);
+        else state.leads.unshift(lead);
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        $('#leadDialog').close();
+        render();
+      }
+
+      function deleteCurrent() {
+        const id = $('#leadId').value;
+        const lead = state.leads.find(l=>l.id===id);
+        if (!lead) return;
+        if (!confirm(`Delete ${lead.name}? This cannot be undone unless you have a backup.`)) return;
+        state.leads = state.leads.filter(l=>l.id!==id);
+        saveState();
+        $('#leadDialog').close();
+      }
+
+      function setView(view) {
+        currentView = view;
+        $$('.tab').forEach(t=>t.classList.toggle('active', t.dataset.view===view));
+        ['pipeline','today','all','data'].forEach(v=>$('#'+v+'View').classList.toggle('hidden',v!==view));
+        $('#toolbar').classList.toggle('hidden', view==='data');
+      }
+
+      function exportData() {
+        const blob = new Blob([JSON.stringify({version:1, exportedAt:new Date().toISOString(), ...state}, null, 2)], {type:'application/json'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `abundant-life-crm-backup-${todayISO()}.json`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }
+
+      async function importData(file) {
+        try {
+          const parsed = JSON.parse(await file.text());
+          if (!Array.isArray(parsed.leads)) throw new Error('No leads array found');
+          if (!confirm(`Import ${parsed.leads.length} leads? This will replace the CRM data on this device.`)) return;
+          state = {leads: parsed.leads};
+          saveState();
+          alert('CRM backup imported.');
+        } catch(err) {
+          alert('Could not import that file: ' + err.message);
+        }
+      }
+
+      function loadExamples() {
+        if (state.leads.length && !confirm('Add example leads to your existing CRM?')) return;
+        const t = todayISO();
+        const d = offset => {
+          const x = new Date(t+'T12:00:00'); x.setDate(x.getDate()+offset);
+          return new Date(x.getTime()-x.getTimezoneOffset()*60000).toISOString().slice(0,10);
+        };
+        const now = new Date().toISOString();
+        const examples = [
+          {name:'Example: Roof Clearance', owner:'Christian', phone:'', email:'', address:'Edmond, OK', service:'Hackberry roof clearance pruning', value:950, source:'Neighbor', stage:'followup', notes:'Customer felt first price was outside budget.', nextAction:'Send simplified revised offer', nextDate:d(0)},
+          {name:'Example: Two Pear Removals', owner:'Christian', phone:'', email:'', address:'Edmond, OK', service:'Two Bradford pear removals', value:750, source:'Neighbor', stage:'proposal', notes:'Price-sensitive prospect.', nextAction:'Check whether they want the opening this week', nextDate:d(1)},
+          {name:'Example: HOA Maples', owner:'Christian', phone:'', email:'', address:'Edmond, OK', service:'Corrective care for young maples', value:2450, source:'Google', stage:'followup', notes:'Potential ongoing HOA relationship.', nextAction:'Follow up with board representative', nextDate:d(3)}
+        ].map(x=>({id:uid(),...x,activities:[{at:now,text:'Example record created.'}],createdAt:now,updatedAt:now}));
+        state.leads.push(...examples);
+        saveState();
+      }
+
+      function esc(value='') {
+        return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+      }
+
+      // Initialize selects
+      $('#stage').innerHTML = STAGES.map(([v,l])=>`<option value="${v}">${l}</option>`).join('');
+      $('#stageFilter').innerHTML = '<option value="">All stages</option>' + STAGES.map(([v,l])=>`<option value="${v}">${l}</option>`).join('');
+
+      // Events
+      $('#newLeadBtn').onclick = () => openLead();
+      $('#leadForm').addEventListener('submit', saveLead);
+      $('#cancelBtn').onclick = () => $('#leadDialog').close();
+      $('#deleteBtn').onclick = deleteCurrent;
+      $('#stage').onchange = syncNextRequired;
+
+      $$('.tab').forEach(t=>t.onclick=()=>setView(t.dataset.view));
+      ['searchInput','ownerFilter','sourceFilter','stageFilter'].forEach(id=>{
+        $('#'+id).addEventListener(id==='searchInput'?'input':'change', render);
+      });
+
+      $('#exportBtn').onclick = exportData;
+      $('#importBtn').onclick = () => $('#importFile').click();
+      $('#importFile').onchange = e => e.target.files[0] && importData(e.target.files[0]);
+      $('#seedBtn').onclick = loadExamples;
+      $('#clearBtn').onclick = () => {
+        if (confirm('Clear every CRM record stored on this device? Export a backup first if you may need it.')) {
+          state = {leads:[]}; saveState();
+        }
+      };
+
+      render();
+      setView(currentView);
+    })();
+  </script>
 </body>
 </html>

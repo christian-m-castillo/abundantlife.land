@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abundant Life Land and Tree CRM</title>
+  <title>Abundant Life CRM</title>
   <meta name="robots" content="noindex,nofollow">
   <style>
     :root {
@@ -185,7 +185,7 @@
 
     .stage-head {
       position: sticky;
-      top: 0px;
+      top: 68px;
       z-index: 5;
       width: 100%;
       display: flex;
@@ -502,7 +502,78 @@
       }
     }
 
-  </style>
+  
+    .activity-compose {
+      display: grid;
+      gap: .75rem;
+      margin-top: .75rem;
+      padding-top: .9rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: .75rem;
+    }
+
+    .activity-history {
+      display: grid;
+      gap: .65rem;
+      margin-top: .85rem;
+      max-height: 260px;
+      overflow: auto;
+      padding-right: .2rem;
+    }
+
+    .activity-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: .72rem .8rem;
+      background: #fff;
+    }
+
+    .activity-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: .5rem;
+      margin-bottom: .35rem;
+      font-size: .76rem;
+      color: var(--muted);
+    }
+
+    .activity-type {
+      font-weight: 800;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .activity-body {
+      white-space: pre-wrap;
+    }
+
+    .activity-empty {
+      color: var(--muted);
+      font-size: .88rem;
+      padding: .5rem 0;
+    }
+
+    .inline-error {
+      color: var(--danger);
+      font-size: .82rem;
+      font-weight: 700;
+      min-height: 1.15rem;
+    }
+
+    @media (max-width: 600px) {
+      .activity-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+</style>
 </head>
 <body>
 
@@ -714,7 +785,7 @@
        * a Secret key / service_role key in this file.
        */
       const SUPABASE_URL = 'https://dhzpfisjgxjsikkxpbhv.supabase.co';
-      const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_t6xGs9GGv_84HxGAlaFdbw_uEBpLIrZ';
+      const SUPABASE_PUBLISHABLE_KEY = 'YOUR_PUBLISHABLE_KEY_HERE';
 
       const STAGES = [
         ['new', 'New'],
@@ -789,7 +860,7 @@
 
       function setLoading(value, message = '') {
         loading = value;
-        document.body.classList.toggle('loading', value);
+        $('#appMain')?.classList.toggle('loading', value);
         $('#syncStatus').textContent =
           message || (value ? 'Syncing with PostgreSQL…' : 'Synced with PostgreSQL');
       }
@@ -843,8 +914,7 @@
           stage: lead.stage,
           notes: lead.notes || null,
           next_action: lead.nextAction || null,
-          next_action_date: lead.nextDate || null,
-          updated_at: new Date().toISOString()
+          next_action_date: lead.nextDate || null
         };
       }
 
@@ -1318,6 +1388,110 @@
         });
       }
 
+
+      async function loadActivities(leadId) {
+        const container = $('#activityHistory');
+        const errorBox = $('#activityError');
+
+        errorBox.textContent = '';
+
+        if (!leadId) {
+          container.innerHTML =
+            '<div class="activity-empty">Save this lead first to begin logging activity.</div>';
+          $('#addActivityBtn').disabled = true;
+          return;
+        }
+
+        $('#addActivityBtn').disabled = false;
+        container.innerHTML =
+          '<div class="activity-empty">Loading activity…</div>';
+
+        const { data, error } = await db
+          .from('activities')
+          .select('id, activity_type, body, created_by, created_at')
+          .eq('lead_id', leadId)
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          container.innerHTML = '';
+          errorBox.textContent = 'Could not load activity: ' + error.message;
+          return;
+        }
+
+        if (!data?.length) {
+          container.innerHTML =
+            '<div class="activity-empty">No activity yet.</div>';
+          return;
+        }
+
+        container.innerHTML = data.map(activity => {
+          const created = new Date(activity.created_at);
+          const when = created.toLocaleString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit'
+          });
+
+          return `
+            <article class="activity-item">
+              <div class="activity-meta">
+                <span class="activity-type">${esc(activity.activity_type || 'note')}</span>
+                <span>${esc(when)}</span>
+              </div>
+              <div class="activity-body">${esc(activity.body || '')}</div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      async function addActivity() {
+        if (!db || !currentUser) return;
+
+        const leadId = $('#leadId').value;
+        const body = $('#activityBody').value.trim();
+        const type = $('#activityType').value;
+        const errorBox = $('#activityError');
+
+        errorBox.textContent = '';
+
+        if (!leadId) {
+          errorBox.textContent = 'Save the lead before adding activity.';
+          return;
+        }
+
+        if (!body) {
+          errorBox.textContent = 'Enter an activity note first.';
+          return;
+        }
+
+        const button = $('#addActivityBtn');
+        button.disabled = true;
+        button.textContent = 'Adding…';
+
+        const { error } = await db
+          .from('activities')
+          .insert({
+            lead_id: leadId,
+            activity_type: type,
+            body,
+            created_by: currentUser.id
+          });
+
+        button.disabled = false;
+        button.textContent = 'Add activity';
+
+        if (error) {
+          errorBox.textContent = 'Could not add activity: ' + error.message;
+          return;
+        }
+
+        $('#activityBody').value = '';
+        $('#activityType').value = 'note';
+        await loadActivities(leadId);
+      }
+
       function openLead(id = null) {
         const lead = id
           ? state.leads.find(item => item.id === id)
@@ -1341,9 +1515,13 @@
         $('#nextDate').value = lead?.nextDate || '';
 
         $('#deleteBtn').classList.toggle('hidden', !lead);
+        $('#activityBody').value = '';
+        $('#activityType').value = 'note';
+        $('#activityError').textContent = '';
 
         syncNextRequired();
         $('#leadDialog').showModal();
+        loadActivities(lead?.id || null);
       }
 
       function syncNextRequired() {
@@ -1394,14 +1572,15 @@
           result = await db
             .from('leads')
             .update(payload)
-            .eq('id', id);
+            .eq('id', id)
+            .select('*')
+            .single();
         } else {
           result = await db
             .from('leads')
-            .insert({
-              ...payload,
-              created_at: new Date().toISOString()
-            });
+            .insert(payload)
+            .select('*')
+            .single();
         }
 
         $('#saveBtn').disabled = false;
@@ -1412,8 +1591,14 @@
           return;
         }
 
-        $('#leadDialog').close();
+        $('#leadId').value = result.data.id;
+        $('#deleteBtn').classList.remove('hidden');
         await loadLeads();
+        await loadActivities(result.data.id);
+
+        if (!id) {
+          alert('Lead saved. You can now log activity.');
+        }
       }
 
       async function deleteCurrent() {
@@ -1527,7 +1712,9 @@
       // Events.
       $('#loginForm').addEventListener('submit', signIn);
       $('#logoutBtn').onclick = signOut;
-      $('#refreshBtn').onclick = loadLeads;
+      $('#refreshBtn').onclick = () => {
+        if (currentUser) loadLeads();
+      };
 
       $('#newLeadBtn').onclick = () => {
         if (currentUser) openLead();
@@ -1536,6 +1723,7 @@
       $('#leadForm').addEventListener('submit', saveLead);
       $('#cancelBtn').onclick = () => $('#leadDialog').close();
       $('#deleteBtn').onclick = deleteCurrent;
+      $('#addActivityBtn').onclick = addActivity;
       $('#stage').onchange = syncNextRequired;
 
       $$('.tab').forEach(tab => {

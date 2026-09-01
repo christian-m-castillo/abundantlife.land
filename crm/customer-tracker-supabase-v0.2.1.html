@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abundant Life CRM</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      --green: #035c03;
+      --green-mid: #207c28;
+      --green-soft: #e8f2e7;
+      --brown: #56452e;
+      --sand: #eec68a;
+      --cream: #fbf8f1;
+      --white: #fff;
+      --ink: #333;
+      --muted: #665f55;
+      --line: #d8d3c8;
+      --danger: #9d2d20;
+      --warning: #986800;
+      --shadow: 0 14px 40px rgba(51, 51, 51, .12);
+      --radius: 18px;
+      --max: 1440px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    .hidden { display: none !important; }
+
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(3,92,3,.98);
+      color: white;
+      box-shadow: 0 4px 18px rgba(0,0,0,.16);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 1.5rem), var(--max));
+      min-height: 68px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .brand small {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sand);
+    }
+
+    .header-actions { display: flex; gap: .55rem; align-items: center; }
+
+    .button {
+      min-height: 42px;
+      border: 0;
+      border-radius: 999px;
+      padding: .68rem 1rem;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+    }
+
+    .button:hover { background: var(--green-mid); }
+    .button-light { background: white; color: var(--green); }
+    .button-light:hover { background: var(--cream); }
+    .button-outline { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+    .button-danger { background: var(--danger); }
+    .button-small { min-height: 34px; padding: .42rem .72rem; font-size: .86rem; }
+
+    main {
+      width: min(calc(100% - 1.5rem), var(--max));
+      margin: 1.25rem auto 5rem;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.25rem;
+    }
+
+    h1, h2, h3 { color: var(--green); line-height: 1.12; margin-top: 0; }
+    h1 { margin-bottom: .3rem; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.04em; }
+    h2 { font-size: 1.35rem; }
+    p { margin-top: 0; }
+    .muted { color: var(--muted); }
+    .eyebrow { color: var(--green-mid); font-size: .72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+
+    .view-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .55rem .82rem;
+      background: white;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .tab.active { color: white; background: var(--green); border-color: var(--green); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: .8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .metric, .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .metric { padding: 1rem; }
+    .metric .label { color: var(--muted); font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .metric .value { margin-top: .15rem; color: var(--green); font-size: clamp(1.55rem, 4vw, 2.3rem); font-weight: 900; letter-spacing: -.04em; }
+    .metric .sub { color: var(--muted); font-size: .8rem; }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px,1fr) repeat(3, minmax(130px,auto));
+      gap: .65rem;
+      margin-bottom: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      color: var(--ink);
+      padding: .72rem .8rem;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(238,198,138,.55);
+      border-color: var(--green-mid);
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(240px, 1fr));
+      gap: .8rem;
+      overflow-x: auto;
+      padding-bottom: .5rem;
+    }
+
+    .stage {
+      min-height: 300px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.55);
+    }
+
+    .stage-head {
+      position: sticky;
+      top: 68px;
+      z-index: 5;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .8rem;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: var(--radius) var(--radius) 0 0;
+      background: var(--green-soft);
+      color: var(--ink);
+      text-align: left;
+      cursor: default;
+    }
+
+    .stage-heading-main { display: flex; align-items: center; gap: .5rem; }
+    .stage-chevron { display: none; width: 1rem; color: var(--green); font-size: .72rem; }
+    .stage-title { font-weight: 900; color: var(--green); }
+    .stage-count { min-width: 28px; padding: .18rem .45rem; border-radius: 999px; background: white; text-align: center; font-size: .78rem; font-weight: 900; }
+    .cards { padding: .65rem; display: grid; gap: .65rem; }
+
+    .lead-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      padding: .85rem;
+      box-shadow: 0 5px 14px rgba(0,0,0,.06);
+    }
+
+    .lead-card:hover { border-color: var(--green-mid); }
+    .lead-card.overdue { border-left: 5px solid var(--danger); }
+    .lead-card.today { border-left: 5px solid var(--warning); }
+
+    .lead-top { display: flex; justify-content: space-between; gap: .5rem; }
+    .lead-name { font-size: 1rem; font-weight: 900; }
+    .lead-value { white-space: nowrap; color: var(--green); font-weight: 900; }
+    .lead-service { margin: .35rem 0 .6rem; color: var(--muted); font-size: .88rem; }
+
+    .badge-row { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .65rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: .23rem .48rem;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: .7rem;
+      font-weight: 800;
+    }
+    .badge.overdue { background: #fbe5e1; color: var(--danger); }
+    .badge.today { background: #fff0c9; color: #795100; }
+
+    .next-action {
+      border-top: 1px solid var(--line);
+      padding-top: .6rem;
+      color: var(--ink);
+      font-size: .82rem;
+    }
+
+    .card-actions { display: flex; gap: .35rem; margin-top: .65rem; }
+    .card-actions button, .card-actions a {
+      flex: 1;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: .42rem;
+      background: white;
+      color: var(--ink);
+      text-align: center;
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .today-list, .table-list { display: grid; gap: .65rem; }
+    .followup {
+      display: grid;
+      grid-template-columns: 100px minmax(160px,1fr) minmax(180px,1.3fr) auto;
+      gap: .8rem;
+      align-items: center;
+      padding: .85rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+    }
+    .followup-date { font-weight: 900; }
+    .followup-name { font-weight: 900; }
+    .followup-action { color: var(--muted); }
+
+    .empty {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    dialog {
+      width: min(760px, calc(100% - 1rem));
+      max-height: 92vh;
+      border: 0;
+      border-radius: 20px;
+      padding: 0;
+      box-shadow: 0 30px 80px rgba(0,0,0,.28);
+    }
+
+    dialog::backdrop { background: rgba(10,20,10,.56); backdrop-filter: blur(3px); }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--green);
+      color: white;
+    }
+
+    .modal-head h2 { margin: 0; color: white; }
+    .close {
+      width: 40px; height: 40px; border: 0; border-radius: 50%;
+      background: rgba(255,255,255,.15); color: white; font-size: 1.35rem;
+    }
+
+    .modal-body { padding: 1.1rem 1.2rem 1.3rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .field.full { grid-column: 1 / -1; }
+    label { display: block; margin-bottom: .32rem; color: var(--muted); font-size: .76rem; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+    .required::after { content: " *"; color: var(--danger); }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: .7rem;
+      padding-top: 1rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .activity-list { display: grid; gap: .5rem; max-height: 220px; overflow: auto; }
+    .activity {
+      border-left: 3px solid var(--green-mid);
+      padding: .5rem .7rem;
+      background: var(--green-soft);
+      font-size: .85rem;
+    }
+    .activity time { color: var(--muted); font-size: .72rem; font-weight: 800; }
+
+    .settings-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1rem;
+    }
+
+    .notice {
+      margin-bottom: 1rem;
+      padding: .8rem 1rem;
+      border: 1px solid #ead49f;
+      border-radius: 12px;
+      background: #fff8e6;
+      color: #624d1d;
+      font-size: .86rem;
+    }
+
+    @media (max-width: 950px) {
+      .metrics { grid-template-columns: repeat(2,1fr); }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .followup { grid-template-columns: 90px 1fr; }
+      .followup-action, .followup > :last-child { grid-column: 2; }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner { min-height: 62px; }
+      .brand small { display: none; }
+      .header-actions .desktop-label { display: none; }
+      main { width: min(calc(100% - 1rem), var(--max)); margin-top: .8rem; }
+      .topbar { grid-template-columns: 1fr; }
+      .metrics { gap: .5rem; }
+      .metric { padding: .8rem; }
+      .toolbar { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .pipeline {
+        grid-template-columns: 1fr;
+        gap: .75rem;
+        overflow-x: visible;
+        padding-bottom: 0;
+      }
+      .stage {
+        width: 100%;
+        min-height: 0;
+      }
+      .stage-head {
+        position: static;
+        min-height: 54px;
+        padding: .9rem 1rem;
+        cursor: pointer;
+      }
+      .stage-title { font-size: .95rem; }
+      .stage-count { min-width: 32px; padding: .25rem .55rem; }
+      .stage-chevron { display: inline-block; }
+      .stage.collapsed .cards { display: none; }
+      .stage.collapsed .stage-head {
+        border-bottom: 0;
+        border-radius: var(--radius);
+      }
+      .cards { padding: .65rem; }
+      .lead-card { width: 100%; }
+      .followup { grid-template-columns: 1fr; }
+      .followup-action, .followup > :last-child { grid-column: auto; }
+      .modal-actions { flex-direction: column-reverse; }
+      .modal-actions > * { width: 100%; }
+    }
+  
+    /* =========================================================
+       AUTH / CONNECTION
+       ========================================================= */
+
+    .auth-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      background:
+        radial-gradient(circle at top, rgba(32,124,40,.12), transparent 40%),
+        var(--cream);
+    }
+
+    .auth-card {
+      width: min(430px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.4rem;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .auth-card h1 {
+      margin-bottom: .35rem;
+      font-size: 2rem;
+    }
+
+    .auth-card form {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1.2rem;
+    }
+
+    .auth-error {
+      min-height: 1.25rem;
+      color: var(--danger);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .session-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      max-width: 260px;
+      padding: .38rem .65rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      font-size: .76rem;
+      font-weight: 800;
+    }
+
+    .session-pill span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sync-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .8rem;
+      padding: .62rem .8rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .sync-dot {
+      width: .55rem;
+      height: .55rem;
+      border-radius: 50%;
+      background: var(--green-mid);
+      flex: 0 0 auto;
+    }
+
+    .sync-left {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .loading {
+      opacity: .6;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      .session-pill {
+        display: none;
+      }
+
+      .sync-banner {
+        align-items: flex-start;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="auth-screen" id="authScreen">
+    <div class="auth-card">
+      <div class="eyebrow">Abundant Life Land & Tree</div>
+      <h1>CRM sign in</h1>
+      <p class="muted">
+        Sign in with the Supabase user you created. Your lead data is stored
+        in PostgreSQL and shared across authorized devices.
+      </p>
+
+      <form id="loginForm">
+        <div>
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" autocomplete="username" required>
+        </div>
+
+        <div>
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" required>
+        </div>
+
+        <div class="auth-error" id="authError"></div>
+
+        <button class="button" id="loginBtn" type="submit">
+          Sign in
+        </button>
+      </form>
+    </div>
+  </section>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">Abundant Life CRM <small>Land & Tree · Sales Command</small></div>
+      <div class="header-actions">
+        <div class="session-pill" id="sessionPill">
+          <span id="sessionEmail">Signed out</span>
+        </div>
+
+        <button class="button button-light button-small" id="logoutBtn" type="button">
+          Sign out
+        </button>
+
+        <button class="button button-light" id="newLeadBtn" type="button">
+          ＋ <span class="desktop-label">New Lead</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="appMain">
+
+    <div class="sync-banner">
+      <div class="sync-left">
+        <span class="sync-dot"></span>
+        <span id="syncStatus">Waiting for sign in…</span>
+      </div>
+      <button class="button button-outline button-small" id="refreshBtn" type="button">
+        Refresh
+      </button>
+    </div>
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Sales command</div>
+        <h1>Keep the next move obvious.</h1>
+        <p class="muted">Every open lead should have a next action and a date.</p>
+      </div>
+      <div class="view-tabs">
+        <button class="tab active" data-view="pipeline">Pipeline</button>
+        <button class="tab" data-view="today">Follow-ups</button>
+        <button class="tab" data-view="all">All Leads</button>
+        <button class="tab" data-view="data">Data</button>
+      </div>
+    </div>
+
+    <section class="metrics" id="metrics"></section>
+
+    <div class="toolbar" id="toolbar">
+      <input id="searchInput" type="search" placeholder="Search name, service, address, notes…">
+      <select id="ownerFilter">
+        <option value="">All salespeople</option>
+      </select>
+      <select id="sourceFilter">
+        <option value="">All lead sources</option>
+      </select>
+      <select id="stageFilter">
+        <option value="">All stages</option>
+      </select>
+    </div>
+
+    <section id="pipelineView"></section>
+    <section id="todayView" class="hidden"></section>
+    <section id="allView" class="hidden"></section>
+    <section id="dataView" class="hidden">
+      <div class="panel" style="padding:1.2rem">
+        <h2>Data & backups</h2>
+        <div class="notice">
+          This v0.1 stores CRM data in this browser using localStorage. It works immediately on GitHub Pages, but it is not yet a multi-user cloud database. Export a backup regularly until the backend is added.
+        </div>
+        <p class="muted">Export creates a JSON backup. Import restores one of those backups on this device.</p>
+        <div class="settings-row">
+          <button class="button" id="exportBtn">Export backup</button>
+          <button class="button button-outline" id="importBtn">Import backup</button>
+          <input class="hidden" type="file" id="importFile" accept=".json,application/json">
+          <button class="button button-outline" id="seedBtn">Load example leads</button>
+          <button class="button button-danger" id="clearBtn">Clear CRM</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="leadDialog">
+    <form method="dialog" id="leadForm">
+      <div class="modal-head">
+        <h2 id="dialogTitle">New Lead</h2>
+        <button class="close" value="cancel" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="leadId">
+        <div class="form-grid">
+          <div class="field">
+            <label class="required" for="name">Customer name</label>
+            <input id="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="owner">Salesperson</label>
+            <input id="owner" value="Christian">
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="email">
+          </div>
+          <div class="field full">
+            <label for="address">Property address</label>
+            <input id="address" autocomplete="street-address">
+          </div>
+          <div class="field">
+            <label class="required" for="service">Service / opportunity</label>
+            <input id="service" required placeholder="Tree removal, pruning, landscape…">
+          </div>
+          <div class="field">
+            <label for="value">Estimated value</label>
+            <input id="value" type="number" min="0" step="1" placeholder="0">
+          </div>
+          <div class="field">
+            <label for="source">Lead source</label>
+            <select id="source">
+              <option>Google</option>
+              <option>Referral</option>
+              <option>Repeat Client</option>
+              <option>Canvassing</option>
+              <option>Neighbor</option>
+              <option>Yelp</option>
+              <option>Facebook</option>
+              <option>Website</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="required" for="stage">Stage</label>
+            <select id="stage" required></select>
+          </div>
+          <div class="field full">
+            <label for="notes">General notes</label>
+            <textarea id="notes" rows="3"></textarea>
+          </div>
+          <div class="field">
+            <label id="nextActionLabel" class="required" for="nextAction">Next action</label>
+            <input id="nextAction" placeholder="Call, send estimate, follow up…">
+          </div>
+          <div class="field">
+            <label id="nextDateLabel" class="required" for="nextDate">Next action date</label>
+            <input id="nextDate" type="date">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="button button-danger hidden" id="deleteBtn">Delete lead</button>
+          <div style="display:flex;gap:.5rem;margin-left:auto">
+            <button type="button" class="button button-outline" id="cancelBtn">Cancel</button>
+            <button type="submit" class="button" id="saveBtn">Save lead</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    (() => {
+      'use strict';
+
+      /*
+       * =======================================================
+       * ONE-TIME CONFIGURATION
+       * =======================================================
+       *
+       * Project URL is already filled in.
+       *
+       * Replace YOUR_PUBLISHABLE_KEY_HERE with the value from:
+       * Supabase → Settings → API Keys → Publishable key.
+       *
+       * A publishable key is designed for browser use. NEVER put
+       * a Secret key / service_role key in this file.
+       */
+      const SUPABASE_URL = 'https://dhzpfisjgxjsikkxpbhv.supabase.co';
+      const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_t6xGs9GGv_84HxGAlaFdbw_uEBpLIrZ';
+
+      const STAGES = [
+        ['new', 'New'],
+        ['contacted', 'Contacted'],
+        ['estimate', 'Estimate Scheduled'],
+        ['proposal', 'Proposal Sent'],
+        ['followup', 'Follow-Up'],
+        ['won', 'Won'],
+        ['lost', 'Lost']
+      ];
+
+      const OPEN_STAGES = new Set([
+        'new',
+        'contacted',
+        'estimate',
+        'proposal',
+        'followup'
+      ]);
+
+      const $ = selector => document.querySelector(selector);
+      const $$ = selector => [...document.querySelectorAll(selector)];
+
+      const todayISO = () => {
+        const date = new Date();
+        const local = new Date(
+          date.getTime() - date.getTimezoneOffset() * 60000
+        );
+        return local.toISOString().slice(0, 10);
+      };
+
+      const money = number =>
+        new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          maximumFractionDigits: 0
+        }).format(Number(number) || 0);
+
+      const datePretty = string => {
+        if (!string) return 'No date';
+        const date = new Date(string + 'T12:00:00');
+        return date.toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric'
+        });
+      };
+
+      const stageName = key =>
+        STAGES.find(stage => stage[0] === key)?.[1] || key;
+
+      const clientConfigured =
+        SUPABASE_PUBLISHABLE_KEY &&
+        SUPABASE_PUBLISHABLE_KEY !== 'YOUR_PUBLISHABLE_KEY_HERE';
+
+      const db = clientConfigured
+        ? window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY,
+            {
+              auth: {
+                persistSession: true,
+                autoRefreshToken: true,
+                detectSessionInUrl: true
+              }
+            }
+          )
+        : null;
+
+      let state = { leads: [] };
+      let currentView = 'pipeline';
+      let currentUser = null;
+      let loading = false;
+
+      function setLoading(value, message = '') {
+        loading = value;
+        document.body.classList.toggle('loading', value);
+        $('#syncStatus').textContent =
+          message || (value ? 'Syncing with PostgreSQL…' : 'Synced with PostgreSQL');
+      }
+
+      function setAuthError(message = '') {
+        $('#authError').textContent = message;
+      }
+
+      function showAuth() {
+        $('#authScreen').classList.remove('hidden');
+        $('#sessionEmail').textContent = 'Signed out';
+        $('#syncStatus').textContent = 'Waiting for sign in…';
+      }
+
+      function showApp(user) {
+        currentUser = user;
+        $('#authScreen').classList.add('hidden');
+        $('#sessionEmail').textContent = user?.email || 'Signed in';
+      }
+
+      function mapDbLead(row) {
+        return {
+          id: row.id,
+          name: row.name || '',
+          owner: row.owner || '',
+          phone: row.phone || '',
+          email: row.email || '',
+          address: row.address || '',
+          service: row.service || '',
+          value: Number(row.estimated_value) || 0,
+          source: row.source || '',
+          stage: row.stage || 'new',
+          notes: row.notes || '',
+          nextAction: row.next_action || '',
+          nextDate: row.next_action_date || '',
+          createdAt: row.created_at || '',
+          updatedAt: row.updated_at || ''
+        };
+      }
+
+      function mapLeadToDb(lead) {
+        return {
+          name: lead.name,
+          owner: lead.owner || null,
+          phone: lead.phone || null,
+          email: lead.email || null,
+          address: lead.address || null,
+          service: lead.service,
+          estimated_value: Number(lead.value) || 0,
+          source: lead.source || null,
+          stage: lead.stage,
+          notes: lead.notes || null,
+          next_action: lead.nextAction || null,
+          next_action_date: lead.nextDate || null,
+          updated_at: new Date().toISOString()
+        };
+      }
+
+      async function loadLeads() {
+        if (!db || !currentUser) return;
+
+        setLoading(true, 'Loading leads from PostgreSQL…');
+
+        const { data, error } = await db
+          .from('leads')
+          .select('*')
+          .order('updated_at', { ascending: false });
+
+        if (error) {
+          setLoading(false, 'Could not load leads');
+          alert(
+            'Supabase could not load the leads table.\n\n' +
+            error.message +
+            '\n\nIf this mentions permissions, we may need one database GRANT.'
+          );
+          return;
+        }
+
+        state.leads = (data || []).map(mapDbLead);
+        render();
+        setLoading(false, `Synced · ${state.leads.length} lead${state.leads.length === 1 ? '' : 's'}`);
+      }
+
+      async function signIn(event) {
+        event.preventDefault();
+
+        if (!clientConfigured) {
+          setAuthError(
+            'The Supabase publishable key has not been added to this HTML file yet.'
+          );
+          return;
+        }
+
+        const email = $('#loginEmail').value.trim();
+        const password = $('#loginPassword').value;
+
+        setAuthError('');
+        $('#loginBtn').disabled = true;
+        $('#loginBtn').textContent = 'Signing in…';
+
+        const { data, error } = await db.auth.signInWithPassword({
+          email,
+          password
+        });
+
+        $('#loginBtn').disabled = false;
+        $('#loginBtn').textContent = 'Sign in';
+
+        if (error) {
+          setAuthError(error.message);
+          return;
+        }
+
+        showApp(data.user);
+        $('#loginPassword').value = '';
+        await loadLeads();
+      }
+
+      async function signOut() {
+        if (!db) return;
+        await db.auth.signOut();
+        currentUser = null;
+        state = { leads: [] };
+        render();
+        showAuth();
+      }
+
+      async function initializeAuth() {
+        if (!clientConfigured) {
+          showAuth();
+          setAuthError(
+            'Setup needed: replace YOUR_PUBLISHABLE_KEY_HERE in the HTML with your Supabase Publishable key.'
+          );
+          return;
+        }
+
+        const { data, error } = await db.auth.getSession();
+
+        if (error) {
+          showAuth();
+          setAuthError(error.message);
+          return;
+        }
+
+        const session = data.session;
+
+        if (!session?.user) {
+          showAuth();
+          return;
+        }
+
+        showApp(session.user);
+        await loadLeads();
+      }
+
+      function isOpen(lead) {
+        return OPEN_STAGES.has(lead.stage);
+      }
+
+      function isOverdue(lead) {
+        return isOpen(lead) &&
+          lead.nextDate &&
+          lead.nextDate < todayISO();
+      }
+
+      function isDueToday(lead) {
+        return isOpen(lead) &&
+          lead.nextDate === todayISO();
+      }
+
+      function filters() {
+        return {
+          q: $('#searchInput').value.trim().toLowerCase(),
+          owner: $('#ownerFilter').value,
+          source: $('#sourceFilter').value,
+          stage: $('#stageFilter').value
+        };
+      }
+
+      function filteredLeads() {
+        const filterValues = filters();
+
+        return state.leads.filter(lead => {
+          const haystack = [
+            lead.name,
+            lead.phone,
+            lead.email,
+            lead.address,
+            lead.service,
+            lead.source,
+            lead.owner,
+            lead.notes,
+            lead.nextAction
+          ].join(' ').toLowerCase();
+
+          return (
+            (!filterValues.q || haystack.includes(filterValues.q)) &&
+            (!filterValues.owner || lead.owner === filterValues.owner) &&
+            (!filterValues.source || lead.source === filterValues.source) &&
+            (!filterValues.stage || lead.stage === filterValues.stage)
+          );
+        });
+      }
+
+      function render() {
+        populateFilters();
+        renderMetrics();
+        renderPipeline();
+        renderToday();
+        renderAll();
+      }
+
+      function populateFilters() {
+        const ownerValue = $('#ownerFilter').value;
+        const sourceValue = $('#sourceFilter').value;
+
+        const owners = [
+          ...new Set(state.leads.map(lead => lead.owner).filter(Boolean))
+        ].sort();
+
+        const sources = [
+          ...new Set(state.leads.map(lead => lead.source).filter(Boolean))
+        ].sort();
+
+        $('#ownerFilter').innerHTML =
+          '<option value="">All salespeople</option>' +
+          owners.map(value => `
+            <option ${value === ownerValue ? 'selected' : ''}>
+              ${esc(value)}
+            </option>
+          `).join('');
+
+        $('#sourceFilter').innerHTML =
+          '<option value="">All lead sources</option>' +
+          sources.map(value => `
+            <option ${value === sourceValue ? 'selected' : ''}>
+              ${esc(value)}
+            </option>
+          `).join('');
+      }
+
+      function renderMetrics() {
+        const open = state.leads.filter(isOpen);
+        const overdue = open.filter(isOverdue);
+        const due = open.filter(isDueToday);
+        const won = state.leads.filter(lead => lead.stage === 'won');
+
+        const openValue = open.reduce(
+          (sum, lead) => sum + (Number(lead.value) || 0),
+          0
+        );
+
+        const wonValue = won.reduce(
+          (sum, lead) => sum + (Number(lead.value) || 0),
+          0
+        );
+
+        $('#metrics').innerHTML = `
+          <div class="metric">
+            <div class="label">Open pipeline</div>
+            <div class="value">${money(openValue)}</div>
+            <div class="sub">${open.length} active opportunities</div>
+          </div>
+
+          <div class="metric">
+            <div class="label">Needs attention</div>
+            <div class="value">${overdue.length + due.length}</div>
+            <div class="sub">${overdue.length} overdue · ${due.length} due today</div>
+          </div>
+
+          <div class="metric">
+            <div class="label">Won</div>
+            <div class="value">${money(wonValue)}</div>
+            <div class="sub">${won.length} closed jobs</div>
+          </div>
+
+          <div class="metric">
+            <div class="label">Close rate</div>
+            <div class="value">${closeRate()}%</div>
+            <div class="sub">Won ÷ won + lost</div>
+          </div>
+        `;
+      }
+
+      function closeRate() {
+        const won = state.leads.filter(lead => lead.stage === 'won').length;
+        const lost = state.leads.filter(lead => lead.stage === 'lost').length;
+
+        return won + lost
+          ? Math.round((won / (won + lost)) * 100)
+          : 0;
+      }
+
+      function renderPipeline() {
+        const leads = filteredLeads();
+
+        const openStages = STAGES.filter(
+          ([key]) => OPEN_STAGES.has(key)
+        );
+
+        const columns = openStages.map(([key, label]) => {
+          const stageLeads = leads
+            .filter(lead => lead.stage === key)
+            .sort(sortAttention);
+
+          const startsCollapsed = stageLeads.length === 0;
+
+          return `
+            <div class="stage ${startsCollapsed ? 'collapsed' : ''}">
+              <button
+                class="stage-head"
+                type="button"
+                data-stage-toggle="${key}"
+                aria-expanded="${startsCollapsed ? 'false' : 'true'}"
+              >
+                <span class="stage-heading-main">
+                  <span class="stage-chevron">${startsCollapsed ? '▶' : '▼'}</span>
+                  <span class="stage-title">${label}</span>
+                </span>
+
+                <span class="stage-count">${stageLeads.length}</span>
+              </button>
+
+              <div class="cards" data-stage-cards="${key}">
+                ${
+                  stageLeads.length
+                    ? stageLeads.map(cardHTML).join('')
+                    : '<div class="empty">No leads</div>'
+                }
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        $('#pipelineView').innerHTML = `
+          <div class="pipeline">${columns}</div>
+        `;
+
+        wireLeadButtons();
+        wireStageToggles();
+      }
+
+      function sortAttention(a, b) {
+        const aDate = a.nextDate || '9999-12-31';
+        const bDate = b.nextDate || '9999-12-31';
+
+        return (
+          aDate.localeCompare(bDate) ||
+          (Number(b.value) || 0) - (Number(a.value) || 0)
+        );
+      }
+
+      function cardHTML(lead) {
+        const status = isOverdue(lead)
+          ? 'overdue'
+          : isDueToday(lead)
+            ? 'today'
+            : '';
+
+        const statusBadge = isOverdue(lead)
+          ? `<span class="badge overdue">Overdue ${datePretty(lead.nextDate)}</span>`
+          : isDueToday(lead)
+            ? `<span class="badge today">Due today</span>`
+            : lead.nextDate
+              ? `<span class="badge">${datePretty(lead.nextDate)}</span>`
+              : '';
+
+        const phoneHref = lead.phone
+          ? `tel:${lead.phone.replace(/[^\d+]/g, '')}`
+          : '';
+
+        return `
+          <article class="lead-card ${status}">
+            <div class="lead-top">
+              <div class="lead-name">${esc(lead.name)}</div>
+              <div class="lead-value">${money(lead.value)}</div>
+            </div>
+
+            <div class="lead-service">${esc(lead.service)}</div>
+
+            <div class="badge-row">
+              ${statusBadge}
+              ${lead.owner ? `<span class="badge">${esc(lead.owner)}</span>` : ''}
+              ${lead.source ? `<span class="badge">${esc(lead.source)}</span>` : ''}
+            </div>
+
+            <div class="next-action">
+              <strong>Next:</strong>
+              ${esc(lead.nextAction || 'No next action set')}
+            </div>
+
+            <div class="card-actions">
+              ${phoneHref ? `<a href="${phoneHref}">Call</a>` : ''}
+              <button data-edit="${lead.id}">Open</button>
+            </div>
+          </article>
+        `;
+      }
+
+      function renderToday() {
+        const leads = filteredLeads()
+          .filter(
+            lead =>
+              isOpen(lead) &&
+              lead.nextDate &&
+              lead.nextDate <= todayISO()
+          )
+          .sort(sortAttention);
+
+        $('#todayView').innerHTML = `
+          <div class="panel" style="padding:1rem">
+            <h2>Follow-ups requiring attention</h2>
+
+            <div class="today-list">
+              ${
+                leads.length
+                  ? leads.map(lead => `
+                    <div class="followup">
+                      <div class="followup-date">
+                        ${isOverdue(lead) ? 'OVERDUE' : 'TODAY'}
+                        <br>
+                        <span class="muted">${datePretty(lead.nextDate)}</span>
+                      </div>
+
+                      <div>
+                        <div class="followup-name">${esc(lead.name)}</div>
+                        <div class="muted">${esc(lead.service)}</div>
+                      </div>
+
+                      <div class="followup-action">
+                        ${esc(lead.nextAction)}
+                      </div>
+
+                      <button
+                        class="button button-small"
+                        data-edit="${lead.id}"
+                      >
+                        Open
+                      </button>
+                    </div>
+                  `).join('')
+                  : '<div class="empty">Nothing is due. Good.</div>'
+              }
+            </div>
+          </div>
+        `;
+
+        wireLeadButtons();
+      }
+
+      function renderAll() {
+        const leads = filteredLeads().sort(
+          (a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || '')
+        );
+
+        $('#allView').innerHTML = `
+          <div class="panel" style="padding:1rem">
+            <h2>All leads</h2>
+
+            <div class="table-list">
+              ${
+                leads.length
+                  ? leads.map(lead => `
+                    <div class="followup">
+                      <div>
+                        <span class="badge">${stageName(lead.stage)}</span>
+                      </div>
+
+                      <div>
+                        <div class="followup-name">${esc(lead.name)}</div>
+                        <div class="muted">${esc(lead.service)}</div>
+                      </div>
+
+                      <div>
+                        ${money(lead.value)}
+                        <br>
+                        <span class="muted">
+                          ${esc(lead.owner || 'Unassigned')}
+                          ·
+                          ${esc(lead.source || 'Unknown')}
+                        </span>
+                      </div>
+
+                      <button
+                        class="button button-small"
+                        data-edit="${lead.id}"
+                      >
+                        Open
+                      </button>
+                    </div>
+                  `).join('')
+                  : '<div class="empty">No leads match your filters.</div>'
+              }
+            </div>
+          </div>
+        `;
+
+        wireLeadButtons();
+      }
+
+      function wireLeadButtons() {
+        $$('[data-edit]').forEach(button => {
+          button.onclick = () => openLead(button.dataset.edit);
+        });
+      }
+
+      function wireStageToggles() {
+        $$('[data-stage-toggle]').forEach(button => {
+          button.onclick = () => {
+            if (window.innerWidth > 600) return;
+
+            const stage = button.closest('.stage');
+            const collapsed = stage.classList.toggle('collapsed');
+
+            button.setAttribute(
+              'aria-expanded',
+              String(!collapsed)
+            );
+
+            const chevron = button.querySelector('.stage-chevron');
+
+            if (chevron) {
+              chevron.textContent = collapsed ? '▶' : '▼';
+            }
+          };
+        });
+      }
+
+      function openLead(id = null) {
+        const lead = id
+          ? state.leads.find(item => item.id === id)
+          : null;
+
+        $('#dialogTitle').textContent =
+          lead ? lead.name : 'New Lead';
+
+        $('#leadId').value = lead?.id || '';
+        $('#name').value = lead?.name || '';
+        $('#owner').value = lead?.owner || 'Christian';
+        $('#phone').value = lead?.phone || '';
+        $('#email').value = lead?.email || '';
+        $('#address').value = lead?.address || '';
+        $('#service').value = lead?.service || '';
+        $('#value').value = lead?.value || '';
+        $('#source').value = lead?.source || 'Google';
+        $('#stage').value = lead?.stage || 'new';
+        $('#notes').value = lead?.notes || '';
+        $('#nextAction').value = lead?.nextAction || '';
+        $('#nextDate').value = lead?.nextDate || '';
+
+        $('#deleteBtn').classList.toggle('hidden', !lead);
+
+        syncNextRequired();
+        $('#leadDialog').showModal();
+      }
+
+      function syncNextRequired() {
+        const open = OPEN_STAGES.has($('#stage').value);
+
+        $('#nextAction').required = open;
+        $('#nextDate').required = open;
+
+        $('#nextActionLabel').classList.toggle('required', open);
+        $('#nextDateLabel').classList.toggle('required', open);
+      }
+
+      async function saveLead(event) {
+        event.preventDefault();
+
+        if (!db || !currentUser || loading) return;
+
+        const id = $('#leadId').value;
+
+        const lead = {
+          name: $('#name').value.trim(),
+          owner: $('#owner').value.trim(),
+          phone: $('#phone').value.trim(),
+          email: $('#email').value.trim(),
+          address: $('#address').value.trim(),
+          service: $('#service').value.trim(),
+          value: Number($('#value').value) || 0,
+          source: $('#source').value,
+          stage: $('#stage').value,
+          notes: $('#notes').value.trim(),
+          nextAction: $('#nextAction').value.trim(),
+          nextDate: $('#nextDate').value
+        };
+
+        if (!OPEN_STAGES.has(lead.stage)) {
+          lead.nextAction = '';
+          lead.nextDate = '';
+        }
+
+        const payload = mapLeadToDb(lead);
+
+        $('#saveBtn').disabled = true;
+        $('#saveBtn').textContent = 'Saving…';
+
+        let result;
+
+        if (id) {
+          result = await db
+            .from('leads')
+            .update(payload)
+            .eq('id', id);
+        } else {
+          result = await db
+            .from('leads')
+            .insert({
+              ...payload,
+              created_at: new Date().toISOString()
+            });
+        }
+
+        $('#saveBtn').disabled = false;
+        $('#saveBtn').textContent = 'Save lead';
+
+        if (result.error) {
+          alert('Could not save lead:\n\n' + result.error.message);
+          return;
+        }
+
+        $('#leadDialog').close();
+        await loadLeads();
+      }
+
+      async function deleteCurrent() {
+        if (!db || !currentUser || loading) return;
+
+        const id = $('#leadId').value;
+        const lead = state.leads.find(item => item.id === id);
+
+        if (!lead) return;
+
+        if (!confirm(`Delete ${lead.name}? This will remove it from the shared CRM.`)) {
+          return;
+        }
+
+        $('#deleteBtn').disabled = true;
+        $('#deleteBtn').textContent = 'Deleting…';
+
+        const { error } = await db
+          .from('leads')
+          .delete()
+          .eq('id', id);
+
+        $('#deleteBtn').disabled = false;
+        $('#deleteBtn').textContent = 'Delete lead';
+
+        if (error) {
+          alert('Could not delete lead:\n\n' + error.message);
+          return;
+        }
+
+        $('#leadDialog').close();
+        await loadLeads();
+      }
+
+      function setView(view) {
+        currentView = view;
+
+        $$('.tab').forEach(tab => {
+          tab.classList.toggle(
+            'active',
+            tab.dataset.view === view
+          );
+        });
+
+        ['pipeline', 'today', 'all', 'data'].forEach(name => {
+          $('#' + name + 'View').classList.toggle(
+            'hidden',
+            name !== view
+          );
+        });
+
+        $('#toolbar').classList.toggle(
+          'hidden',
+          view === 'data'
+        );
+      }
+
+      function exportData() {
+        const blob = new Blob(
+          [
+            JSON.stringify(
+              {
+                version: 2,
+                source: 'Supabase/PostgreSQL',
+                exportedAt: new Date().toISOString(),
+                leads: state.leads
+              },
+              null,
+              2
+            )
+          ],
+          { type: 'application/json' }
+        );
+
+        const anchor = document.createElement('a');
+
+        anchor.href = URL.createObjectURL(blob);
+        anchor.download = `abundant-life-crm-backup-${todayISO()}.json`;
+        anchor.click();
+
+        URL.revokeObjectURL(anchor.href);
+      }
+
+      function esc(value = '') {
+        return String(value).replace(
+          /[&<>"']/g,
+          character => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+          })[character]
+        );
+      }
+
+      // Initialize selects.
+      $('#stage').innerHTML =
+        STAGES.map(
+          ([value, label]) =>
+            `<option value="${value}">${label}</option>`
+        ).join('');
+
+      $('#stageFilter').innerHTML =
+        '<option value="">All stages</option>' +
+        STAGES.map(
+          ([value, label]) =>
+            `<option value="${value}">${label}</option>`
+        ).join('');
+
+      // Events.
+      $('#loginForm').addEventListener('submit', signIn);
+      $('#logoutBtn').onclick = signOut;
+      $('#refreshBtn').onclick = loadLeads;
+
+      $('#newLeadBtn').onclick = () => {
+        if (currentUser) openLead();
+      };
+
+      $('#leadForm').addEventListener('submit', saveLead);
+      $('#cancelBtn').onclick = () => $('#leadDialog').close();
+      $('#deleteBtn').onclick = deleteCurrent;
+      $('#stage').onchange = syncNextRequired;
+
+      $$('.tab').forEach(tab => {
+        tab.onclick = () => setView(tab.dataset.view);
+      });
+
+      [
+        'searchInput',
+        'ownerFilter',
+        'sourceFilter',
+        'stageFilter'
+      ].forEach(id => {
+        $('#' + id).addEventListener(
+          id === 'searchInput' ? 'input' : 'change',
+          render
+        );
+      });
+
+      $('#exportBtn').onclick = exportData;
+
+      if (db) {
+        db.auth.onAuthStateChange((event, session) => {
+          if (event === 'SIGNED_OUT') {
+            currentUser = null;
+            state = { leads: [] };
+            render();
+            showAuth();
+          }
+
+          if (event === 'SIGNED_IN' && session?.user) {
+            currentUser = session.user;
+            showApp(session.user);
+          }
+        });
+      }
+
+      render();
+      setView(currentView);
+      initializeAuth();
+    })();
+  </script>  </script>
+</body>
+</html>

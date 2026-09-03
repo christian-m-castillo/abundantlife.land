@@ -506,9 +506,27 @@
       pointer-events: none;
     }
 
+    .role-readonly input,
+    .role-readonly textarea {
+      background: var(--cream);
+      color: var(--ink);
+      cursor: default;
+    }
+
+    .role-readonly select:disabled {
+      opacity: 1;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-text-fill-color: var(--ink);
+      cursor: default;
+    }
+
     @media (max-width: 600px) {
       .session-pill {
-        display: none;
+        display: inline-flex;
+        max-width: 118px;
+        padding: .32rem .5rem;
+        font-size: .68rem;
       }
 
       .sync-banner {
@@ -809,7 +827,7 @@
             <p class="muted" style="margin:0;">Log calls, texts, estimates, follow-ups, and notes.</p>
           </div>
 
-          <div class="activity-grid">
+          <div class="activity-grid" id="activityEntryFields">
             <div>
               <label for="activityType">Type</label>
               <select id="activityType">
@@ -830,7 +848,7 @@
 
           <div class="inline-error" id="activityError"></div>
 
-          <div>
+          <div id="activityEntryActions">
             <button class="button button-outline button-small" id="addActivityBtn" type="button">
               Add activity
             </button>
@@ -943,7 +961,21 @@
       let state = { leads: [] };
       let currentView = 'pipeline';
       let currentUser = null;
+      let currentProfile = null;
+      let currentRole = 'viewer';
       let loading = false;
+
+      const canWrite = () =>
+        currentRole === 'sales' || currentRole === 'admin';
+
+      const canDelete = () =>
+        currentRole === 'admin';
+
+      const roleLabel = role => ({
+        viewer: 'Viewer',
+        sales: 'Sales',
+        admin: 'Admin'
+      }[role] || 'Viewer');
 
       function setLoading(value, message = '') {
         loading = value;
@@ -965,7 +997,88 @@
       function showApp(user) {
         currentUser = user;
         $('#authScreen').classList.add('hidden');
-        $('#sessionEmail').textContent = user?.email || 'Signed in';
+
+        const identity =
+          currentProfile?.display_name ||
+          user?.email ||
+          'Signed in';
+
+        $('#sessionEmail').textContent =
+          `${identity} · ${roleLabel(currentRole)}`;
+
+        applyRoleUI();
+      }
+
+      async function loadCurrentProfile(user) {
+        currentProfile = null;
+        currentRole = 'viewer';
+
+        if (!db || !user?.id) {
+          applyRoleUI();
+          return;
+        }
+
+        const { data, error } = await db
+          .from('profiles')
+          .select('display_name, role')
+          .eq('id', user.id)
+          .maybeSingle();
+
+        if (error) {
+          console.error('Could not load CRM profile:', error);
+          applyRoleUI();
+          return;
+        }
+
+        if (data) {
+          currentProfile = data;
+          currentRole = ['viewer', 'sales', 'admin'].includes(data.role)
+            ? data.role
+            : 'viewer';
+        }
+
+        showApp(user);
+      }
+
+      function applyRoleUI() {
+        const writable = canWrite();
+        const deletable = canDelete();
+
+        $('#newLeadBtn')?.classList.toggle('hidden', !writable);
+        $('#saveBtn')?.classList.toggle('hidden', !writable);
+        $('#activityEntryFields')?.classList.toggle('hidden', !writable);
+        $('#activityEntryActions')?.classList.toggle('hidden', !writable);
+        $('#activityError')?.classList.toggle('hidden', !writable);
+
+        const form = $('#leadForm');
+        form?.classList.toggle('role-readonly', !writable);
+
+        [
+          '#name',
+          '#owner',
+          '#phone',
+          '#email',
+          '#address',
+          '#service',
+          '#value',
+          '#notes',
+          '#nextAction',
+          '#nextDate'
+        ].forEach(selector => {
+          const field = $(selector);
+          if (field) field.readOnly = !writable;
+        });
+
+        ['#source', '#stage'].forEach(selector => {
+          const field = $(selector);
+          if (field) field.disabled = !writable;
+        });
+
+        const hasLead = Boolean($('#leadId')?.value);
+        $('#deleteBtn')?.classList.toggle(
+          'hidden',
+          !hasLead || !deletable
+        );
       }
 
       function mapDbLead(row) {
@@ -1060,8 +1173,10 @@
           return;
         }
 
-        showApp(data.user);
+        currentUser = data.user;
+        $('#authScreen').classList.add('hidden');
         $('#loginPassword').value = '';
+        await loadCurrentProfile(data.user);
         await loadLeads();
       }
 
@@ -1069,6 +1184,8 @@
         if (!db) return;
         await db.auth.signOut();
         currentUser = null;
+        currentProfile = null;
+        currentRole = 'viewer';
         state = { leads: [] };
         render();
         showAuth();
@@ -1098,7 +1215,9 @@
           return;
         }
 
-        showApp(session.user);
+        currentUser = session.user;
+        $('#authScreen').classList.add('hidden');
+        await loadCurrentProfile(session.user);
         await loadLeads();
       }
 
@@ -1489,7 +1608,7 @@
           return;
         }
 
-        $('#addActivityBtn').disabled = false;
+        $('#addActivityBtn').disabled = !canWrite();
         container.innerHTML =
           '<div class="activity-empty">Loading activity…</div>';
 
@@ -1535,6 +1654,12 @@
 
       async function addActivity() {
         if (!db || !currentUser) return;
+
+        if (!canWrite()) {
+          $('#activityError').textContent =
+            'Your CRM role is read-only.';
+          return;
+        }
 
         const leadId = $('#leadId').value;
         const body = $('#activityBody').value.trim();
@@ -1601,30 +1726,40 @@
         $('#nextAction').value = lead?.nextAction || '';
         $('#nextDate').value = lead?.nextDate || '';
 
-        $('#deleteBtn').classList.toggle('hidden', !lead);
+        $('#deleteBtn').classList.toggle(
+          'hidden',
+          !lead || !canDelete()
+        );
         $('#activityBody').value = '';
         $('#activityType').value = 'note';
         $('#activityError').textContent = '';
 
         syncNextRequired();
+        applyRoleUI();
         $('#leadDialog').showModal();
         loadActivities(lead?.id || null);
       }
 
       function syncNextRequired() {
         const open = OPEN_STAGES.has($('#stage').value);
+        const required = open && canWrite();
 
-        $('#nextAction').required = open;
-        $('#nextDate').required = open;
+        $('#nextAction').required = required;
+        $('#nextDate').required = required;
 
-        $('#nextActionLabel').classList.toggle('required', open);
-        $('#nextDateLabel').classList.toggle('required', open);
+        $('#nextActionLabel').classList.toggle('required', required);
+        $('#nextDateLabel').classList.toggle('required', required);
       }
 
       async function saveLead(event) {
         event.preventDefault();
 
         if (!db || !currentUser || loading) return;
+
+        if (!canWrite()) {
+          alert('This account has Viewer access and cannot modify leads.');
+          return;
+        }
 
         const id = $('#leadId').value;
 
@@ -1679,7 +1814,7 @@
         }
 
         $('#leadId').value = result.data.id;
-        $('#deleteBtn').classList.remove('hidden');
+        $('#deleteBtn').classList.toggle('hidden', !canDelete());
         await loadLeads();
         await loadActivities(result.data.id);
 
@@ -1690,6 +1825,11 @@
 
       async function deleteCurrent() {
         if (!db || !currentUser || loading) return;
+
+        if (!canDelete()) {
+          alert('Only CRM admins can delete leads.');
+          return;
+        }
 
         const id = $('#leadId').value;
         const lead = state.leads.find(item => item.id === id);
@@ -1879,7 +2019,7 @@
       };
 
       $('#newLeadBtn').onclick = () => {
-        if (currentUser) openLead();
+        if (currentUser && canWrite()) openLead();
       };
 
       $('#leadForm').addEventListener('submit', saveLead);
@@ -1911,6 +2051,8 @@
         db.auth.onAuthStateChange((event, session) => {
           if (event === 'SIGNED_OUT') {
             currentUser = null;
+            currentProfile = null;
+            currentRole = 'viewer';
             state = { leads: [] };
             render();
             showAuth();
@@ -1918,7 +2060,7 @@
 
           if (event === 'SIGNED_IN' && session?.user) {
             currentUser = session.user;
-            showApp(session.user);
+            loadCurrentProfile(session.user);
           }
         });
       }

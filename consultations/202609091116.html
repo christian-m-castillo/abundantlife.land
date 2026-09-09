@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tree Health Assessment – Mature Red Maple</title>
+
+  <style>
+    :root {
+      --ink: #1f1f1f;
+      --muted: #666;
+      --line: #d8d8d8;
+      --soft: #f5f5f2;
+      --accent: #2f4a37;
+      --paper: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #ecece8;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .report {
+      width: min(920px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 56px 64px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: start;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .header .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .company {
+      text-align: right;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .company strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 24px;
+      background: var(--soft);
+      padding: 18px 20px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--accent);
+    }
+
+    .meta div {
+      font-size: 0.95rem;
+    }
+
+    .meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 7px;
+    }
+
+    h3 {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul {
+      margin: 8px 0 16px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .finding {
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+
+    .finding strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 18px 0 26px;
+    }
+
+    figure {
+      margin: 0;
+      break-inside: avoid;
+    }
+
+    figure img {
+      width: 100%;
+      display: block;
+      background: #eee;
+      border: 1px solid var(--line);
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    figcaption {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-top: 6px;
+    }
+
+    .photo-placeholder {
+      min-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          #f7f7f7,
+          #f7f7f7 10px,
+          #efefef 10px,
+          #efefef 20px
+        );
+      border: 1px dashed #aaa;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .timeline {
+      border-left: 3px solid var(--line);
+      padding-left: 22px;
+      margin: 18px 0;
+    }
+
+    .timeline-item {
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: -28px;
+      top: 7px;
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: var(--soft);
+    }
+
+    .limitations {
+      background: #fafafa;
+      border: 1px solid var(--line);
+      padding: 18px;
+      margin-top: 18px;
+    }
+
+    .signature {
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .signature-line {
+      margin-top: 36px;
+      width: 280px;
+      border-top: 1px solid var(--ink);
+      padding-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    .small {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .report {
+        width: 100%;
+        margin: 0;
+        padding: 28px 20px;
+        box-shadow: none;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+      }
+
+      .company {
+        text-align: left;
+      }
+
+      .meta,
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .report {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h2,
+      h3,
+      figure,
+      table,
+      .finding,
+      .limitations {
+        break-inside: avoid;
+      }
+
+      @page {
+        margin: 0.65in;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="report">
+
+    <header class="header">
+      <div>
+        <h1>Tree Health & Site Assessment</h1>
+        <div class="subtitle">
+          Mature Red Maple – Residential Landscape
+        </div>
+      </div>
+
+      <div class="company">
+        <strong>Abundant Life Land & Tree LLC</strong>
+        Christian Castillo<br />
+        Arborist & Landscaper<br />
+        405-953-1285<br />
+        www.AbundantLife.Land
+      </div>
+    </header>
+
+    <section class="meta">
+      <div>
+        <span>Client</span>
+        Lucinda Colorado
+      </div>
+
+      <div>
+        <span>Property</span>
+        15505 Arbuckle Heights
+      </div>
+
+      <div>
+        <span>Tree</span>
+        Red Maple (Acer rubrum)
+      </div>
+
+      <div>
+        <span>Assessment Date</span>
+        September 9th 2026
+      </div>
+
+      <div>
+        <span>Approximate DBH</span>
+        25 inches
+      </div>
+
+      <div>
+        <span>Approximate Size</span>
+        50 ft tall × 50 ft crown spread
+      </div>
+    </section>
+
+    <h2>1. Purpose of Assessment</h2>
+
+    <p>
+      This assessment was performed to document the present condition of a mature
+      red maple, evaluate recent canopy discoloration and associated landscape
+      stress, identify likely contributing factors, and develop a practical
+      preservation and landscape rehabilitation plan.
+    </p>
+
+    <p>
+      This report is intended primarily as a tree-care and land-management
+      assessment. It is not presented as a forensic determination of liability
+      or as a definitive diagnosis of a single causal agent.
+    </p>
+
+    <h2>2. Tree Description</h2>
+
+    <p>
+      The subject tree is a mature red maple (<em>Acer rubrum</em>) estimated at
+      approximately 25 inches diameter at breast height (DBH), approximately
+      50 feet in height, and approximately 50 feet in crown spread. The tree is
+      estimated to be approximately 40–50 years old and has codominant stem
+      architecture.
+    </p>
+
+    <p>
+      The root flare is visible and planting depth appears appropriate. No
+      significant stem-girdling roots were observed during the current visual
+      assessment. No notable mower or string-trimmer injury was observed at the
+      base, and no obvious evidence of active borer infestation was identified.
+      Minor trunk cavitation and some evidence consistent with sunscald were
+      observed.
+    </p>
+
+    <div class="photo-grid">
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-full-tree-current.jpg"
+            alt="Current full-tree photograph of the mature red maple taken from the street, showing the entire crown, trunk, surrounding lawn, raised planting bed, and the contrast between the heavily browned southwest crown and greener northeast crown."
+          />
+        </div>
+        <figcaption>
+          Current overall condition of the subject red maple.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-trunk-root-flare.jpg"
+            alt="Close photograph of the red maple trunk base and root flare from the southwest side, clearly showing root flare visibility, planting depth, bark condition, any cavitation, surface roots, and absence or presence of girdling roots."
+          />
+        </div>
+        <figcaption>
+          Root flare and lower trunk condition.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h2>3. Documented Site History</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <strong>2025 Growing Season</strong>
+        The maple was observed to be green, dense, and visually vigorous. No
+        significant premature coloration, thinning, canopy decline, or comparable
+        late-summer browning was noted.
+      </div>
+
+      <div class="timeline-item">
+        <strong>Spring 2025</strong>
+        Structural pruning was performed primarily on the east-to-northeast
+        portion of the canopy. The tree responded with strong, dark-green foliage
+        and maintained a healthy appearance for more than one year following the
+        pruning.
+      </div>
+
+      <div class="timeline-item">
+        <strong>Fall 2025</strong>
+        Major utility excavation occurred within the established root zone.
+        Photographic records document a trench running generally south to north
+        along the southwest-to-west side of the tree.
+      </div>
+
+      <div class="timeline-item">
+        <strong>Spring 2026</strong>
+        The maple reportedly leafed out normally.
+      </div>
+
+      <div class="timeline-item">
+        <strong>Late July 2026</strong>
+        Premature foliar discoloration was first noted.
+      </div>
+
+      <div class="timeline-item">
+        <strong>Late Summer to September 2026</strong>
+        Browning progressively expanded through portions of the crown. Brown
+        foliage remained largely retained. No major portion of the tree has yet
+        been confirmed dead.
+      </div>
+
+    </div>
+
+    <h2>4. Utility Excavation Within Root Zone</h2>
+
+    <p>
+      Historical photographs document substantial soil disturbance within the
+      root zone during fall 2025. The trench appears to have been approximately
+      18 inches wide and passed approximately 10–15 feet from the trunk on the
+      southwest-to-west side. Exact trench depth and utility type are presently
+      unknown.
+    </p>
+
+    <p>
+      Root severance was not directly observed or documented at the time of
+      excavation. However, given the size and maturity of the tree and the
+      proximity of the excavation, disturbance and/or severance of established
+      roots within the affected area is considered probable.
+    </p>
+
+    <div class="photo-grid">
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-trench-2025-overview.jpg"
+            alt="Historical fall 2025 photograph showing exposed red clay and major utility trenching through the lawn on the southwest to west side of the mature red maple, with the tree trunk and trench visible together for scale."
+          />
+        </div>
+        <figcaption>
+          Historical photograph documenting root-zone disturbance.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-trench-distance-current.jpg"
+            alt="Current photograph showing a measuring tape extended from the center or southwest edge of the maple trunk to the nearest documented location of the former trench, clearly showing the measured trunk-to-trench distance."
+          />
+        </div>
+        <figcaption>
+          Current measurement of trunk-to-former-trench distance.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h2>5. Present Crown Condition</h2>
+
+    <p>
+      The tree presently exhibits extensive premature browning and retained
+      foliage throughout a substantial portion of the canopy. Symptoms are
+      most pronounced on the southwest side of the crown. The east-to-northeast
+      portion remains comparatively greener and visually more vigorous.
+    </p>
+
+    <p>
+      The asymmetric pattern is significant because the area of greatest canopy
+      stress generally corresponds with the side of the root zone subjected to
+      the documented 2025 excavation.
+    </p>
+
+    <div class="finding">
+      <strong>Primary Current Finding</strong>
+      Severe asymmetric crown stress is present, with the greatest premature
+      browning occurring on the southwest side of the canopy. The spatial and
+      temporal relationship between this symptom pattern and prior root-zone
+      excavation warrants consideration of excavation-related root impairment
+      as a significant contributing factor.
+    </div>
+
+    <div class="photo-grid">
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-southwest-crown.jpg"
+            alt="Close photograph of the southwest portion of the maple crown showing extensive brown retained foliage, premature coloration, and degree of foliar stress."
+          />
+        </div>
+        <figcaption>
+          Southwest canopy showing the most pronounced stress.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-northeast-crown.jpg"
+            alt="Close photograph of the east to northeast portion of the maple crown showing comparatively green foliage and greater apparent vigor for direct comparison with the southwest crown."
+          />
+        </div>
+        <figcaption>
+          Comparatively greener east-to-northeast canopy.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h2>6. Soil and Root-Zone Observations</h2>
+
+    <p>
+      Surface soil beneath the mulch layer is dark and contains visible organic
+      matter and fine roots. Beneath the amended surface layer, the underlying
+      native soil is red clay.
+    </p>
+
+    <p>
+      The visible root flare and appropriate planting depth reduce concern for
+      deep planting as the primary explanation for the present decline. No
+      significant stem-girdling roots were observed during the visual inspection.
+    </p>
+
+    <div class="photo-grid">
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-soil-sample.jpg"
+            alt="Close photograph of a hand-held soil sample collected within the maple root zone showing the dark organic surface soil, fine roots, soil aggregation, and transition toward native red clay."
+          />
+        </div>
+        <figcaption>
+          Representative root-zone soil sample.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-soil-profile.jpg"
+            alt="Small hand-dug soil profile within the maple root zone showing the depth of mulch, dark amended surface soil, transition into native red clay, fine root presence, and approximate depth scale."
+          />
+        </div>
+        <figcaption>
+          Soil profile and transition to native clay.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h2>7. Irrigation and Moisture Stress</h2>
+
+    <p>
+      The landscape irrigation system is currently scheduled to operate three
+      times per week for approximately seven minutes per cycle. Irrigation
+      extends beyond the raised planting bed and into the surrounding lawn.
+    </p>
+
+    <p>
+      Controller run time alone does not establish the actual amount or
+      uniformity of water delivered to the root zone. Soil moisture availability,
+      sprinkler precipitation rate, distribution uniformity, infiltration into
+      clay soil, and seasonal evapotranspirational demand should therefore be
+      evaluated before increasing or substantially modifying irrigation.
+    </p>
+
+    <p>
+      Several shallow-rooted ornamental plants are also showing stress despite
+      not occupying the excavated portion of the root zone. This suggests that
+      moisture stress or irrigation limitations may be contributing to the
+      broader landscape condition independently of the trenching event.
+    </p>
+
+    <div class="photo-grid">
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/irrigation-catch-cups.jpg"
+            alt="Photograph of identical straight-sided catch containers positioned at several locations around the maple root zone, especially southwest and northeast, during an irrigation audit to compare water distribution."
+          />
+        </div>
+        <figcaption>
+          Recommended irrigation distribution test.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/soil-moisture-comparison.jpg"
+            alt="Photograph documenting comparative soil moisture checks at multiple distances from the maple trunk on both the declining southwest side and greener northeast side using a soil probe or hand-dug inspection points."
+          />
+        </div>
+        <figcaption>
+          Comparative soil moisture investigation.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h2>8. Surrounding Landscape Condition</h2>
+
+    <p>
+      The surrounding planting bed contains both viable and stressed vegetation.
+      Several shallow-rooted shrubs and ornamental plants show visible decline or
+      reduced vigor. Other drought-tolerant plants remain functional and
+      flowering.
+    </p>
+
+    <p>
+      The broader pattern supports a site-level assessment rather than evaluation
+      of the maple in isolation. Water availability, competition, heat exposure,
+      soil characteristics, root disturbance, and irrigation performance may be
+      interacting.
+    </p>
+
+    <div class="photo-grid">
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/distressed-shrubs.jpg"
+            alt="Photograph of the stressed shrubs and shallow-rooted ornamental plants growing within the raised bed near the maple, showing wilting, browning, dieback, or reduced vigor."
+          />
+        </div>
+        <figcaption>
+          Examples of stress within surrounding ornamental vegetation.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/healthy-comparison-plants.jpg"
+            alt="Photograph of comparatively healthy or drought-tolerant plants within the same landscape, including flowering lantana or other surviving vegetation, to document variation in plant response."
+          />
+        </div>
+        <figcaption>
+          Comparatively vigorous vegetation within the same landscape.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <h2>9. Assessment</h2>
+
+    <p>
+      The subject red maple was apparently vigorous through the 2025 growing
+      season and showed no comparable premature discoloration, thinning, or
+      decline prior to the documented utility excavation.
+    </p>
+
+    <p>
+      Significant soil disturbance subsequently occurred within the established
+      root zone during fall 2025. The tree leafed out normally the following
+      spring, with premature discoloration first becoming apparent in late July
+      2026 and progressing through the summer.
+    </p>
+
+    <p>
+      The temporal sequence and the spatial relationship between the disturbed
+      root zone and the most heavily affected portion of the canopy make
+      excavation-related root impairment a significant suspected contributor to
+      the present stress.
+    </p>
+
+    <p>
+      Concurrent moisture limitation may also be contributing. The existing
+      irrigation schedule may or may not provide sufficient water to the
+      effective root zone, and stress observed in shallow-rooted ornamental
+      vegetation outside the excavated area suggests that broader site moisture
+      conditions should be evaluated.
+    </p>
+
+    <p>
+      At present, available evidence does not establish a single definitive
+      causal mechanism. The most reasonable working assessment is that the tree
+      is experiencing substantial physiological stress potentially associated
+      with a combination of root-zone disturbance and summer water limitation.
+    </p>
+
+    <h2>10. Differential Considerations</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Potential Factor</th>
+            <th>Current Relevance</th>
+            <th>Basis</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Root disturbance or root severance from utility excavation</td>
+            <td>High</td>
+            <td>
+              Documented trenching occurred within the established root zone,
+              followed by delayed asymmetric canopy stress on the corresponding
+              side.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Summer moisture stress / inadequate effective irrigation</td>
+            <td>Moderate to High</td>
+            <td>
+              Symptoms developed during peak summer demand and additional
+              landscape plants are also showing stress.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Improper planting depth / girdling roots</td>
+            <td>Currently Low</td>
+            <td>
+              Root flare is visible and no significant girdling roots were
+              observed.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Mechanical trunk injury</td>
+            <td>Currently Low</td>
+            <td>
+              No significant mower or string-trimmer injury observed.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Borer activity</td>
+            <td>Currently Low</td>
+            <td>
+              No obvious evidence of active borer infestation observed during
+              the visual inspection.
+            </td>
+          </tr>
+
+          <tr>
+            <td>Vascular disease or other internal physiological disorder</td>
+            <td>Unresolved</td>
+            <td>
+              Cannot be excluded from visual inspection alone and may warrant
+              further investigation if symptoms continue despite site correction.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>11. Recommendations</h2>
+
+    <h3>Immediate</h3>
+
+    <ul>
+      <li>
+        Preserve the existing tree and avoid additional excavation, compaction,
+        grade change, or root disturbance within the root zone.
+      </li>
+
+      <li>
+        Perform an irrigation audit to determine actual precipitation rate and
+        distribution around the maple rather than relying only on controller
+        run time.
+      </li>
+
+      <li>
+        Compare soil moisture on the southwest and northeast portions of the root
+        zone at multiple distances from the trunk.
+      </li>
+
+      <li>
+        Maintain organic mulch over appropriate portions of the root zone while
+        keeping mulch away from direct contact with the trunk.
+      </li>
+
+      <li>
+        Avoid unnecessary fertilization while the tree is under active stress.
+      </li>
+    </ul>
+
+    <h3>Landscape Rehabilitation</h3>
+
+    <ul>
+      <li>
+        Remove nonviable ornamental plants.
+      </li>
+
+      <li>
+        Selectively prune clearly dead or nonrecoverable ornamental growth while
+        retaining viable plant material.
+      </li>
+
+      <li>
+        Evaluate lawn mowing height and maintain turf at a height appropriate for
+        summer heat stress, generally avoiding close mowing.
+      </li>
+
+      <li>
+        Evaluate irrigation coverage throughout both the lawn and planting bed.
+      </li>
+
+      <li>
+        Consider replacement plantings selected for the site's heat, soil, light,
+        and water conditions.
+      </li>
+    </ul>
+
+    <h3>Tree Monitoring</h3>
+
+    <ul>
+      <li>
+        Monitor retained brown foliage and branch vitality through dormancy.
+      </li>
+
+      <li>
+        Reassess twig and branch viability after leaf drop.
+      </li>
+
+      <li>
+        Reinspect the tree during spring 2027 leaf-out.
+      </li>
+
+      <li>
+        Document whether previously browned crown sectors leaf out normally,
+        weakly, partially, or not at all.
+      </li>
+
+      <li>
+        If decline progresses despite correction of site moisture conditions,
+        consider additional diagnostic investigation for vascular disease or
+        other internal causes.
+      </li>
+    </ul>
+
+    <h2>12. Prognosis</h2>
+
+    <p>
+      Preservation remains reasonable at this stage because no major portion of
+      the crown has yet been confirmed dead and the tree retains a substantial
+      area of green foliage.
+    </p>
+
+    <p>
+      Prognosis should remain guarded until the tree completes dormancy and its
+      spring 2027 response can be evaluated. The extent of any root loss from the
+      prior excavation is presently unknown, and recovery will depend upon the
+      amount of remaining functional root system, summer moisture availability,
+      and the tree's ability to regenerate absorbing roots.
+    </p>
+
+    <div class="finding">
+      <strong>Management Objective</strong>
+      Reduce additional physiological stress, preserve the remaining root system,
+      improve effective water availability where indicated, rehabilitate the
+      surrounding landscape, and evaluate the tree's recovery response over the
+      next growing cycle.
+    </div>
+
+    <h2>13. Limitations</h2>
+
+    <div class="limitations">
+      <p>
+        This assessment is based on visual inspection, available site history,
+        photographs, client-reported information, and current field observations.
+        No laboratory testing, root excavation, aerial inspection, resistance
+        drilling, tomography, or subsurface root mapping was performed unless
+        otherwise noted.
+      </p>
+
+      <p>
+        The exact depth of the prior utility trench, the utility involved, and
+        the number, diameter, or condition of roots affected by the excavation
+        are presently unknown. Root severance is therefore inferred from the
+        location and nature of the disturbance rather than directly documented.
+      </p>
+
+      <p>
+        Tree condition can change over time, particularly following root injury,
+        drought, storms, disease, or other environmental stress. Continued
+        monitoring is recommended.
+      </p>
+    </div>
+
+    <h2>14. Recommended Additional Documentation</h2>
+
+    <ul>
+      <li>
+        Photograph the tree from north, east, south, and west.
+      </li>
+
+      <li>
+        Photograph the root flare from all four cardinal directions.
+      </li>
+
+      <li>
+        Measure exact DBH.
+      </li>
+
+      <li>
+        Measure exact trunk-to-former-trench distance.
+      </li>
+
+      <li>
+        Photograph the current site from approximately the same position as the
+        fall 2025 trenching photographs.
+      </li>
+
+      <li>
+        Document irrigation output using catch containers.
+      </li>
+
+      <li>
+        Record comparative soil moisture readings across the root zone.
+      </li>
+    </ul>
+
+    <div class="photo-grid">
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-before-after-2025.jpg"
+            alt="Historical photograph from fall 2025 showing utility trenching and exposed red clay within the maple root zone, framed to include the mature tree for spatial reference."
+          />
+        </div>
+        <figcaption>
+          Historical site condition during utility excavation.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <div class="photo-placeholder">
+          <img
+            src="images/maple-before-after-2026.jpg"
+            alt="Current photograph taken from as close as practical to the exact same camera position as the historical fall 2025 trenching photograph, showing restored turf surface and current maple crown condition."
+          />
+        </div>
+        <figcaption>
+          Current site condition from matching historical viewpoint.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <section class="signature">
+      <p>
+        Prepared by:
+      </p>
+
+      <div class="signature-line">
+        Christian Castillo<br />
+        Abundant Life Land & Tree LLC
+      </div>
+
+      <p class="small" style="margin-top: 24px;">
+        This report is intended to support preservation-oriented tree care,
+        landscape rehabilitation, and ongoing site management.
+      </p>
+    </section>
+
+  </main>
+</body>
+</html>

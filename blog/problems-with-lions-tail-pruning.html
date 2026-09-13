@@ -236,6 +236,20 @@
       line-height: 1.55;
     }
 
+    .video-embed {
+      width: min(100%, 920px);
+     margin: 2.5rem auto;
+    }
+
+    .video-embed iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 18px;
+      box-shadow: 0 14px 40px rgba(51, 51, 51, .11);
+    }
+
     .article-body { padding-bottom: 1rem; }
     .lead {
       color: var(--green-dark);
@@ -472,6 +486,16 @@
       <div class="principle">
         <p><strong>A pruning cut is not an endpoint. It changes what the tree has to become afterward.</strong></p>
       </div>
+
+      <figure class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/D_O-HtQyM1Q?si=lAuhKRer9B5kFnwg"
+          title="When Pruning Becomes the Problem: Lion's-Tail Pruning"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </figure>
 
       <h2>What is lion's-tail pruning?</h2>
 

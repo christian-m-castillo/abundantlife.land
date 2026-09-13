@@ -33,13 +33,13 @@ function copyDirectory(source, destination) {
 
 function getMeta(html, name) {
   const regex = new RegExp(
-    `<meta\\s+name=["']${name}["']\\s+content=["']([^"']+)["']\\s*\\/?>`,
+    `<meta\\s+name=["']${name}["']\\s+content=(["'])(.*?)\\1\\s*\\/?>`,
     "i"
   );
 
   const match = html.match(regex);
 
-  return match ? match[1].trim() : "";
+  return match ? match[2].trim() : "";
 }
 
 function getArticleFiles() {

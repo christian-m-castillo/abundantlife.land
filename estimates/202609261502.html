@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Proposal for selective greenway edge restoration, tree assessment, written reporting, and material disposal in Edmond, Oklahoma."
+  >
+
+  <title>
+    Greenway Edge Restoration Proposal | Abundant Life Land & Tree
+  </title>
+
+  <style>
+    :root {
+      --ink: #243128;
+      --muted: #647068;
+      --forest: #355b3e;
+      --forest-dark: #25412c;
+      --sage: #e8eee8;
+      --sage-light: #f5f8f5;
+      --warm: #f4f0e7;
+      --line: #d8dfd8;
+      --white: #ffffff;
+      --shadow: 0 12px 35px rgba(25, 45, 30, 0.08);
+
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(
+          180deg,
+          #eef3ee 0,
+          #f8faf8 240px,
+          #ffffff 520px
+        );
+      color: var(--ink);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--forest);
+    }
+
+    .page {
+      width: min(
+        calc(100% - 32px),
+        var(--max-width)
+      );
+      margin: 0 auto;
+      padding: 42px 0 80px;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    .proposal-header {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 26px;
+    }
+
+    .header-band {
+      background: var(--forest-dark);
+      color: var(--white);
+      padding: 34px 42px;
+    }
+
+    .brand {
+      margin: 0 0 26px;
+      font-size: 0.86rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.88;
+    }
+
+    .header-band h1 {
+      margin: 0;
+      max-width: 760px;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(2rem, 5vw, 3.65rem);
+      line-height: 1.03;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    .header-band .subtitle {
+      margin: 18px 0 0;
+      max-width: 700px;
+      color: #dce8de;
+      font-size: 1.07rem;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px 34px;
+      padding: 28px 42px 32px;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .client-grid strong {
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    /* ---------- SUMMARY ---------- */
+
+    .summary {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 26px 0;
+    }
+
+    .summary-card {
+      min-height: 145px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+    }
+
+    .summary-card .number {
+      display: block;
+      margin: 4px 0 7px;
+      color: var(--forest-dark);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .summary-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    /* ---------- GENERAL SECTIONS ---------- */
+
+    section {
+      margin: 28px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 15px;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--forest);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(1.55rem, 4vw, 2.25rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--forest-dark);
+      font-size: 1.08rem;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .intro {
+      max-width: 800px;
+      color: #465249;
+      font-size: 1.04rem;
+    }
+
+    /* ---------- SCOPE CARDS ---------- */
+
+    .scope-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .scope-card {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 22px;
+      align-items: start;
+      padding: 26px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+
+    .scope-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--forest-dark);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.55rem;
+    }
+
+    .scope-copy p {
+      margin-bottom: 11px;
+      color: #4d5950;
+    }
+
+    .scope-copy ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .scope-copy li {
+      margin: 7px 0;
+    }
+
+    .scope-price {
+      min-width: 118px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .scope-price strong {
+      display: block;
+      color: var(--forest-dark);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.55rem;
+    }
+
+    .scope-price span {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* ---------- TREE ASSESSMENT ---------- */
+
+    .assessment-note {
+      margin-top: 18px;
+      padding: 22px 24px;
+      border-left: 4px solid var(--forest);
+      background: var(--sage-light);
+      border-radius:
+        0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .assessment-note strong {
+      color: var(--forest-dark);
+    }
+
+    /* ---------- TOTAL ---------- */
+
+    .total-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      margin-top: 26px;
+      padding: 28px 32px;
+      background: var(--forest-dark);
+      color: var(--white);
+      border-radius: var(--radius-md);
+    }
+
+    .total-box p {
+      margin: 4px 0 0;
+      color: #cfddd2;
+      font-size: 0.9rem;
+    }
+
+    .total-amount {
+      flex-shrink: 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(2.25rem, 7vw, 3.4rem);
+      line-height: 1;
+    }
+
+    /* ---------- BOUNDARIES ---------- */
+
+    .boundary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .boundary-card {
+      padding: 24px;
+      background: var(--sage-light);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+
+    .boundary-card ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .boundary-card li {
+      margin: 7px 0;
+    }
+
+    /* ---------- ACCEPTANCE ---------- */
+
+    .acceptance {
+      margin-top: 46px;
+      overflow: hidden;
+      background: var(--white);
+      border: 2px solid var(--forest);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .acceptance-header {
+      padding: 28px 32px 23px;
+      background: var(--sage);
+    }
+
+    .acceptance-header h2 {
+      margin-bottom: 8px;
+    }
+
+    .acceptance-header p {
+      margin: 0;
+      max-width: 760px;
+      color: #4c5b50;
+    }
+
+    .acceptance-body {
+      padding: 30px 32px 34px;
+    }
+
+    .authorization {
+      padding: 20px 22px;
+      margin-bottom: 25px;
+      background: var(--sage-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.94rem;
+    }
+
+    .field {
+      margin: 20px 0;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      min-height: 50px;
+      padding: 10px 13px;
+      border: 1px solid #adb8b0;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+    }
+
+    input:focus {
+      border-color: var(--forest);
+      outline: 3px solid rgba(53, 91, 62, 0.14);
+    }
+
+    .checkbox-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      margin: 24px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+    }
+
+    .checkbox-row input {
+      width: 20px;
+      height: 20px;
+      margin-top: 3px;
+      accent-color: var(--forest);
+    }
+
+    .checkbox-row label {
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    .signature-preview {
+      display: none;
+      margin: 24px 0;
+      padding: 23px;
+      background: var(--warm);
+      border-radius: var(--radius-sm);
+    }
+
+    .signature-preview.active {
+      display: block;
+    }
+
+    .signature-name {
+      display: block;
+      margin: 5px 0;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: 1.7rem;
+      font-style: italic;
+    }
+
+    .signature-date {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .accept-button {
+      width: 100%;
+      min-height: 57px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--forest);
+      color: var(--white);
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition:
+        transform 0.15s ease,
+        opacity 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .accept-button:hover:not(:disabled) {
+      background: var(--forest-dark);
+      transform: translateY(-1px);
+    }
+
+    .accept-button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .acceptance-note {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: 0.79rem;
+      text-align: center;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      margin-top: 38px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(
+          calc(100% - 20px),
+          var(--max-width)
+        );
+        padding-top: 16px;
+      }
+
+      .header-band,
+      .client-grid,
+      .acceptance-header,
+      .acceptance-body {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .client-grid,
+      .summary,
+      .boundary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .scope-card {
+        grid-template-columns: 52px 1fr;
+        gap: 15px;
+        padding: 20px;
+      }
+
+      .scope-number {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+      }
+
+      .scope-price {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .total-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .total-amount {
+        font-size: 3rem;
+      }
+    }
+
+    /* ---------- PRINT ---------- */
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+
+      .proposal-header,
+      .acceptance {
+        box-shadow: none;
+      }
+
+      .accept-button,
+      .acceptance-note {
+        display: none;
+      }
+
+      section,
+      .scope-card,
+      .boundary-card,
+      .acceptance {
+        break-inside: avoid;
+      }
+
+      .header-band,
+      .total-box {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- =====================================
+         PROPOSAL HEADER
+    ====================================== -->
+
+    <header class="proposal-header">
+
+      <div class="header-band">
+
+        <p class="brand">
+          Abundant Life Land &amp; Tree LLC
+        </p>
+
+        <h1>
+          Greenway Edge Restoration
+          &amp; Tree Assessment
+        </h1>
+
+        <p class="subtitle">
+          Selective stewardship of the transition between
+          the maintained residential landscape and adjoining
+          greenway.
+        </p>
+
+      </div>
+
+      <div class="client-grid">
+
+        <div>
+          <span class="label">Prepared For</span>
+          <strong>Robert Keenan</strong>
+        </div>
+
+        <div>
+          <span class="label">Proposal Date</span>
+          <strong>September 26, 2026</strong>
+        </div>
+
+        <div>
+          <span class="label">Project Address</span>
+          <strong>
+            700 Knights Bridge Road<br>
+            Edmond, OK 73034
+          </strong>
+        </div>
+
+        <div>
+          <span class="label">Client Email</span>
+          <strong>
+            <a href="mailto:rkeenan@outlook.com">
+              rkeenan@outlook.com
+            </a>
+          </strong>
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================
+         AT-A-GLANCE
+    ====================================== -->
+
+    <section>
+
+      <div class="section-heading">
+        <span class="eyebrow">Project at a glance</span>
+        <h2>A focused day of stewardship.</h2>
+      </div>
+
+      <p class="intro">
+        This project is intended to restore a cleaner,
+        more intentional boundary between the residential
+        property and adjoining greenway while retaining
+        desirable vegetation and identifying larger tree
+        concerns for future planning.
+      </p>
+
+      <div class="summary">
+
+        <div class="summary-card">
+          <span class="label">
+            Vegetation Management
+          </span>
+
+          <span class="number">
+            6 hrs
+          </span>
+
+          <p>
+            Selective clearing and restoration of
+            the greenway-facing property perimeter.
+          </p>
+        </div>
+
+        <div class="summary-card">
+          <span class="label">
+            Arboricultural Assessment
+          </span>
+
+          <span class="number">
+            2 hrs
+          </span>
+
+          <p>
+            Tree assessment, documentation,
+            recommendations, and written reporting.
+          </p>
+        </div>
+
+        <div class="summary-card">
+          <span class="label">
+            Material Haul-Off
+          </span>
+
+          <span class="number">
+            ~4 cubic yards
+          </span>
+
+          <p>
+            Labor, professional assessment,
+            material loading, haul-off, and disposal.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         SCOPE
+    ====================================== -->
+
+    <section>
+
+      <div class="section-heading">
+        <span class="eyebrow">Scope of work</span>
+        <h2>What is included</h2>
+      </div>
+
+      <div class="scope-list">
+
+        <!-- 01 -->
+
+        <article class="scope-card">
+
+          <div class="scope-number">
+            01
+          </div>
+
+          <div class="scope-copy">
+
+            <h3>
+              Selective Greenway-Edge Restoration
+            </h3>
+
+            <p>
+              Up to six labor-hours devoted to selective
+              management of vegetation encroaching along
+              the residential property perimeter.
+            </p>
+
+            <ul>
+              <li>
+                Selective removal and management of
+                tree-of-heaven, nandina, and other
+                undesirable woody encroachment.
+              </li>
+
+              <li>
+                Removal of small volunteer trees designated
+                for removal.
+              </li>
+
+              <li>
+                Removal of vines and woody growth tangled
+                into the fence where reasonably accessible.
+              </li>
+
+              <li>
+                Preservation of established Virginia
+                creeper and other desirable vegetation
+                where practical.
+              </li>
+
+              <li>
+                Selective refinement of the woodland edge
+                rather than indiscriminate clearing.
+              </li>
+
+              <li>
+                General cleanup of the immediate work area.
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="scope-price">
+            <strong>$540</strong>
+            <span>6 hrs × $90/hr</span>
+          </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="scope-card">
+
+          <div class="scope-number">
+            02
+          </div>
+
+          <div class="scope-copy">
+
+            <h3>
+              Tree Assessment &amp; Written Reporting
+            </h3>
+
+            <p>
+              Up to two professional hours devoted to
+              evaluation and documentation of larger,
+              mature trees adjoining the property,
+              particularly trees extending toward or
+              over the residence.
+            </p>
+
+            <ul>
+              <li>
+                Visual assessment from reasonably
+                accessible areas.
+              </li>
+
+              <li>
+                Identification of readily observable
+                structural concerns.
+              </li>
+
+              <li>
+                Review of dead, compromised, or
+                poorly positioned branches.
+              </li>
+
+              <li>
+                Consideration of building and property
+                clearance.
+              </li>
+
+              <li>
+                Documentation of notable trees and
+                conditions.
+              </li>
+
+              <li>
+                Written findings and practical
+                recommendations for future action.
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="scope-price">
+            <strong>$180</strong>
+            <span>2 hrs × $90/hr</span>
+          </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="scope-card">
+
+          <div class="scope-number">
+            03
+          </div>
+
+          <div class="scope-copy">
+
+            <h3>
+              Material Haul-Off &amp; Disposal
+            </h3>
+
+            <p>
+              Vegetation generated within the agreed
+              work scope will be processed as necessary,
+              consolidated, loaded, transported from the
+              property, and taken for appropriate off-site
+              disposal or processing.
+            </p>
+
+            <p>
+              This replaces the earlier concept of
+              redistributing processed vegetation into
+              the adjoining greenway and keeps generated
+              material within clearly authorized handling
+              and disposal channels.
+            </p>
+
+          </div>
+
+          <div class="scope-price">
+            <strong>$170</strong>
+            <span>disposal allowance</span>
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <div class="total-box">
+
+        <div>
+          <strong>Estimated Project Total</strong>
+
+          <p>
+            Includes the quantities and services
+            described above.
+          </p>
+        </div>
+
+        <div class="total-amount">
+          $890
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         ASSESSMENT DISTINCTION
+    ====================================== -->
+
+    <section>
+
+      <div class="section-heading">
+        <span class="eyebrow">
+          Mature trees
+        </span>
+
+        <h2>
+          Assessment first. Tree work second.
+        </h2>
+      </div>
+
+      <p class="intro">
+        Several larger trees appear to originate within
+        or near the adjoining greenway while extending
+        toward the residence. Their ownership,
+        management responsibility, and appropriate
+        authorization should be established before
+        pruning or removal is undertaken.
+      </p>
+
+      <div class="assessment-note">
+
+        <strong>
+          This proposal does not include pruning or
+          removal of the larger mature trees.
+        </strong>
+
+        The assessment and written report are intended
+        to identify concerns and provide a basis for
+        determining what, if anything, should happen
+        next. Any subsequent pruning, removal, climbing
+        inspection, advanced testing, or other tree work
+        will be separately authorized and priced.
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         WORK BOUNDARIES
+    ====================================== -->
+
+    <section>
+
+      <div class="section-heading">
+        <span class="eyebrow">
+          Work boundaries
+        </span>
+
+        <h2>
+          Clear limits keep the project clear.
+        </h2>
+      </div>
+
+      <div class="boundary-grid">
+
+        <div class="boundary-card">
+
+          <h3>
+            Included
+          </h3>
+
+          <ul>
+            <li>
+              Work occurring on the client's property.
+            </li>
+
+            <li>
+              Management of vegetation encroaching
+              into the authorized work area.
+            </li>
+
+            <li>
+              Loading and off-site disposal of material
+              generated by the agreed work.
+            </li>
+
+            <li>
+              Visual assessment and reporting concerning
+              the adjoining larger trees.
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="boundary-card">
+
+          <h3>
+            Not included
+          </h3>
+
+          <ul>
+            <li>
+              Unauthorized cutting or clearing on
+              adjoining property or within the greenway.
+            </li>
+
+            <li>
+              Depositing generated material onto
+              adjoining property.
+            </li>
+
+            <li>
+              Pruning or removal of larger mature trees.
+            </li>
+
+            <li>
+              Work beyond the stated labor allowance
+              without additional authorization.
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PROJECT PHILOSOPHY
+    ====================================== -->
+
+    <section>
+
+      <div class="section-heading">
+        <span class="eyebrow">
+          Project objective
+        </span>
+
+        <h2>
+          Selective stewardship,
+          not indiscriminate clearing.
+        </h2>
+      </div>
+
+      <p class="intro">
+        The objective is to remove undesirable
+        encroachment, preserve beneficial vegetation,
+        improve the usability and appearance of the
+        property boundary, and establish a more
+        intentional transition between the residential
+        landscape and adjoining natural area.
+      </p>
+
+    </section>
+
+
+    <!-- =====================================
+         ACCEPTANCE
+    ====================================== -->
+
+    <section
+      class="acceptance"
+      id="accept"
+    >
+
+      <div class="acceptance-header">
+
+        <span class="eyebrow">
+          Authorization
+        </span>
+
+        <h2>
+          Accept this proposal
+        </h2>
+
+        <p>
+          Acceptance authorizes Abundant Life Land &amp;
+          Tree LLC to place the project into its scheduling
+          process under the scope and pricing described
+          above.
+        </p>
+
+      </div>
+
+
+      <div class="acceptance-body">
+
+        <div class="authorization">
+
+          <strong>
+            Client Authorization
+          </strong>
+
+          <p style="margin: 8px 0 0;">
+            I have reviewed this proposal and authorize
+            Abundant Life Land &amp; Tree LLC to perform
+            the work described above for an estimated
+            project total of <strong>$890.00</strong>.
+            I understand that work outside the stated
+            scope or quantities requires additional
+            authorization.
+          </p>
+
+          <p style="margin: 12px 0 0;">
+            By typing my full name below, checking the
+            acceptance box, and sending this authorization,
+            I intend my electronic action and typed name
+            to serve as my signature and evidence of my
+            agreement to this proposal.
+          </p>
+
+          <p style="margin: 12px 0 0;">
+            I understand that acceptance authorizes
+            scheduling but does not guarantee a specific
+            work date until that date is confirmed by
+            Abundant Life Land &amp; Tree LLC.
+          </p>
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="client-name">
+            Full name
+          </label>
+
+          <input
+            type="text"
+            id="client-name"
+            name="client-name"
+            autocomplete="name"
+            placeholder="Robert Keenan"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="client-email">
+            Email address
+          </label>
+
+          <input
+            type="email"
+            id="client-email"
+            name="client-email"
+            value="rkeenan@outlook.com"
+            autocomplete="email"
+          >
+
+        </div>
+
+
+        <div class="checkbox-row">
+
+          <input
+            type="checkbox"
+            id="acceptance-checkbox"
+          >
+
+          <label for="acceptance-checkbox">
+            I accept this proposal for
+            <strong>$890.00</strong>, authorize Abundant
+            Life Land &amp; Tree LLC to schedule the
+            described work, and intend my typed name
+            and electronic submission to constitute my
+            signature.
+          </label>
+
+        </div>
+
+
+        <div
+          class="signature-preview"
+          id="signature-preview"
+        >
+
+          <span class="label">
+            Electronic Signature
+          </span>
+
+          <span
+            class="signature-name"
+            id="signature-name"
+          >
+          </span>
+
+          <span
+            class="signature-date"
+            id="signature-date"
+          >
+          </span>
+
+        </div>
+
+
+        <button
+          class="accept-button"
+          id="accept-button"
+          type="button"
+          disabled
+        >
+          Accept Proposal &amp; Send Authorization
+        </button>
+
+
+        <p class="acceptance-note">
+          Clicking the button will prepare an email
+          containing the signed authorization for review
+          and sending from your email application.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+      <strong>
+        Abundant Life Land &amp; Tree LLC
+      </strong>
+
+      <br>
+
+      Thoughtful stewardship of trees, land,
+      and living landscapes.
+
+    </footer>
+
+  </main>
+
+
+  <!-- =====================================
+       DIGITAL ACCEPTANCE
+       Replace BUSINESS_EMAIL below.
+  ====================================== -->
+
+  <script>
+
+    /*
+      Replace this with the Abundant Life email address
+      where you want signed acceptances delivered.
+    */
+
+    const BUSINESS_EMAIL =
+      "abundant.life.land@gmail.com";
+
+
+    const nameInput =
+      document.getElementById("client-name");
+
+    const emailInput =
+      document.getElementById("client-email");
+
+    const checkbox =
+      document.getElementById("acceptance-checkbox");
+
+    const button =
+      document.getElementById("accept-button");
+
+    const signaturePreview =
+      document.getElementById("signature-preview");
+
+    const signatureName =
+      document.getElementById("signature-name");
+
+    const signatureDate =
+      document.getElementById("signature-date");
+
+
+    function getSignedDate() {
+
+      return new Intl.DateTimeFormat(
+        "en-US",
+        {
+          dateStyle: "long",
+          timeStyle: "short"
+        }
+      ).format(new Date());
+
+    }
+
+
+    function updateAcceptance() {
+
+      const name =
+        nameInput.value.trim();
+
+      const email =
+        emailInput.value.trim();
+
+      const accepted =
+        checkbox.checked;
+
+      const ready =
+        name.length >= 3 &&
+        email.includes("@") &&
+        accepted;
+
+
+      button.disabled =
+        !ready;
+
+
+      if (ready) {
+
+        signatureName.textContent =
+          name;
+
+        signatureDate.textContent =
+          "Electronically signed " +
+          getSignedDate();
+
+        signaturePreview
+          .classList
+          .add("active");
+
+      } else {
+
+        signaturePreview
+          .classList
+          .remove("active");
+
+      }
+
+    }
+
+
+    nameInput.addEventListener(
+      "input",
+      updateAcceptance
+    );
+
+    emailInput.addEventListener(
+      "input",
+      updateAcceptance
+    );
+
+    checkbox.addEventListener(
+      "change",
+      updateAcceptance
+    );
+
+
+    button.addEventListener(
+      "click",
+      function () {
+
+        const clientName =
+          nameInput.value.trim();
+
+        const clientEmail =
+          emailInput.value.trim();
+
+        const signedDate =
+          getSignedDate();
+
+
+        const subject =
+          "Accepted Proposal — " +
+          "700 Knights Bridge Road";
+
+
+        const body =
+`ABUNDANT LIFE LAND & TREE LLC
+PROPOSAL ACCEPTANCE
+
+Project:
+Greenway Edge Restoration & Tree Assessment
+
+Property:
+700 Knights Bridge Road
+Edmond, OK 73034
+
+Accepted Project Total:
+$890.00
+
+Client:
+${clientName}
+
+Client Email:
+${clientEmail}
+
+Electronic Signature:
+${clientName}
+
+Date:
+${signedDate}
+
+
+AUTHORIZATION
+
+I have reviewed the proposal and authorize
+Abundant Life Land & Tree LLC to perform the
+work described therein for an estimated project
+total of $890.00.
+
+I understand that work outside the stated scope
+or quantities requires additional authorization.
+
+I authorize Abundant Life Land & Tree LLC to
+place this project into its scheduling process.
+I understand that a specific work date is not
+guaranteed until confirmed by the company.
+
+By typing my full name, affirmatively selecting
+the proposal acceptance statement, and sending
+this email, I intend this electronic action and
+my typed name to serve as my signature and
+evidence of my acceptance of the proposal.
+
+
+Electronically signed,
+
+${clientName}
+${signedDate}`;
+
+
+        const mailto =
+          "mailto:" +
+          encodeURIComponent(BUSINESS_EMAIL) +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body);
+
+
+        window.location.href =
+          mailto;
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

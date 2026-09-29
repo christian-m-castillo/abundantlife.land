@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tree Pruning Proposal | Mark Sliwinski | Abundant Life Land & Tree LLC</title>
+
+  <meta
+    name="description"
+    content="Tree pruning proposal prepared for Mark Sliwinski by Abundant Life Land & Tree LLC."
+  >
+
+  <style>
+    :root {
+      --ink: #20241f;
+      --muted: #667066;
+      --green: #365c43;
+      --green-dark: #284533;
+      --green-soft: #edf3ee;
+      --line: #d8ddd8;
+      --paper: #ffffff;
+      --background: #f3f4f1;
+      --warm: #f7f4ec;
+      --danger: #8a2f2f;
+      --shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--green);
+    }
+
+    .page {
+      width: min(940px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    .header {
+      padding: 38px 48px 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .brand h1 {
+      margin: 0 0 5px;
+      color: var(--green-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    .brand .tagline {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .proposal-label {
+      text-align: right;
+      min-width: 190px;
+    }
+
+    .proposal-label strong {
+      display: block;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.76rem;
+      margin-bottom: 4px;
+    }
+
+    .proposal-label span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       MAIN CONTENT
+       ========================= */
+
+    main {
+      padding: 42px 48px 50px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      margin-bottom: 38px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .client-name {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+    }
+
+    .contact-lines {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-lines p {
+      margin: 3px 0;
+    }
+
+    .summary-box {
+      padding: 22px;
+      background: var(--green-soft);
+      border: 1px solid #d3dfd5;
+      border-radius: 10px;
+    }
+
+    .summary-box p {
+      margin: 0;
+    }
+
+    .section {
+      margin-top: 38px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      padding-bottom: 9px;
+      border-bottom: 2px solid var(--green);
+      color: var(--green-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+    }
+
+    .tree-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 16px 0;
+      break-inside: avoid;
+    }
+
+    .tree-card h3 {
+      margin: 0 0 3px;
+      color: var(--green-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+    }
+
+    .species {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .tree-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 21px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 18px 20px;
+      background: var(--warm);
+      border-left: 4px solid #9b8a62;
+      border-radius: 4px;
+      font-size: 0.93rem;
+    }
+
+    /* =========================
+       PRICE
+       ========================= */
+
+    .price-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      margin-top: 36px;
+      padding: 25px 28px;
+      color: white;
+      background: var(--green-dark);
+      border-radius: 10px;
+      break-inside: avoid;
+    }
+
+    .price-box .price-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.82;
+    }
+
+    .price-box .included {
+      margin-top: 5px;
+      font-size: 0.91rem;
+      opacity: 0.88;
+    }
+
+    .price {
+      white-space: nowrap;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.35rem;
+      font-weight: 600;
+    }
+
+    /* =========================
+       TERMS
+       ========================= */
+
+    .terms {
+      font-size: 0.92rem;
+      color: #444b44;
+    }
+
+    .terms p {
+      margin: 10px 0;
+    }
+
+    /* =========================
+       ACCEPTANCE
+       ========================= */
+
+    .acceptance {
+      margin-top: 42px;
+      padding: 28px;
+      background: var(--green-soft);
+      border: 1px solid #cedbcf;
+      border-radius: 12px;
+      break-inside: avoid;
+    }
+
+    .acceptance h2 {
+      margin: 0 0 10px;
+      color: var(--green-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+    }
+
+    .acceptance-intro {
+      margin-top: 0;
+      color: #4e584f;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.84rem;
+      font-weight: 650;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #bbc7bc;
+      border-radius: 7px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(54, 92, 67, 0.12);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin-top: 20px;
+    }
+
+    .checkbox-row input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      accent-color: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .checkbox-row label {
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .accept-button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 15px 20px;
+      border: 0;
+      border-radius: 7px;
+      background: var(--green-dark);
+      color: white;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        transform 0.12s ease,
+        background 0.12s ease;
+    }
+
+    .accept-button:hover {
+      background: var(--green);
+    }
+
+    .accept-button:active {
+      transform: translateY(1px);
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .form-message.error {
+      display: block;
+      background: #f8eaea;
+      color: var(--danger);
+      border: 1px solid #e4c2c2;
+    }
+
+    .form-message.success {
+      display: block;
+      background: #e6f1e8;
+      color: #25482e;
+      border: 1px solid #bed3c2;
+    }
+
+    .small-print {
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      padding: 28px 48px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+
+    footer strong {
+      color: var(--green-dark);
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 680px) {
+      .page {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .header,
+      main,
+      footer {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .header {
+        padding-top: 28px;
+      }
+
+      .brand-row {
+        display: block;
+      }
+
+      .proposal-label {
+        margin-top: 22px;
+        text-align: left;
+      }
+
+      .intro-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .price-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .price {
+        font-size: 2.15rem;
+      }
+
+      .acceptance {
+        padding: 22px 18px;
+      }
+    }
+
+    /* =========================
+       PRINT
+       ========================= */
+
+    @media print {
+      @page {
+        margin: 0.55in;
+      }
+
+      body {
+        background: white;
+        font-size: 10.5pt;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .header {
+        padding: 0 0 20px;
+      }
+
+      main {
+        padding: 24px 0;
+      }
+
+      footer {
+        padding: 18px 0 0;
+      }
+
+      .accept-button,
+      .form-message,
+      .small-print {
+        display: none !important;
+      }
+
+      .acceptance {
+        background: white;
+      }
+
+      .summary-box,
+      .note,
+      .tree-card {
+        background: white;
+      }
+
+      .price-box {
+        color: var(--ink);
+        background: white;
+        border: 2px solid var(--green-dark);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+
+    <header class="header">
+      <div class="brand-row">
+
+        <div class="brand">
+          <h1>Abundant Life Land &amp; Tree LLC</h1>
+          <div class="tagline">
+            Thoughtful tree care &bull; Edmond &amp; Oklahoma City Metro
+          </div>
+        </div>
+
+        <div class="proposal-label">
+          <strong>Tree Pruning Proposal</strong>
+          <span>Prepared September 28, 2026</span>
+        </div>
+
+      </div>
+    </header>
+
+
+    <main>
+
+      <!-- =========================
+           CLIENT / PROJECT
+           ========================= -->
+
+      <section class="intro-grid">
+
+        <div>
+          <p class="eyebrow">Prepared For</p>
+
+          <h2 class="client-name">Mark Sliwinski</h2>
+
+          <div class="contact-lines">
+            <p>17417 Hawks Tree Lane</p>
+            <p>Edmond, OK 73012</p>
+            <p>310-626-3505</p>
+            <p>mslinky@yahoo.com</p>
+          </div>
+        </div>
+
+        <div class="summary-box">
+          <p class="eyebrow">Project Objective</p>
+
+          <p>
+            Selectively prune four established trees to improve canopy
+            clearance, visibility, and scale while preserving healthy,
+            functional crowns and the natural character of each tree.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           SCOPE
+           ========================= -->
+
+      <section class="section">
+
+        <h2 class="section-title">Scope of Work</h2>
+
+
+        <!-- BRANDON -->
+
+        <article class="tree-card">
+
+          <h3>Brandon — Front Yard</h3>
+
+          <p class="species">
+            Bradford pear
+          </p>
+
+          <p>
+            Selectively prune the front-yard Bradford pear to improve the
+            relationship between the tree, the home, and the street while
+            retaining an appropriate amount of healthy live canopy.
+          </p>
+
+          <ul>
+            <li>
+              Crown lift selected lower branches where appropriate to improve
+              visibility beneath the canopy.
+            </li>
+
+            <li>
+              Selectively reduce overextended portions of the crown using
+              appropriate reduction cuts.
+            </li>
+
+            <li>
+              Improve the view of the street from the property.
+            </li>
+
+            <li>
+              Improve visibility of the home from the curb.
+            </li>
+
+            <li>
+              Preserve healthy, functional foliage and the tree's natural
+              structure to the extent reasonably possible.
+            </li>
+          </ul>
+
+        </article>
+
+
+        <!-- BACKYARD -->
+
+        <article class="tree-card">
+
+          <h3>Larry, Curly &amp; Moe — Backyard</h3>
+
+          <p class="species">
+            Two Bradford pears and one Chinese pistache
+          </p>
+
+          <p>
+            Selectively prune each backyard tree according to its individual
+            structure, condition, and relationship to the surrounding
+            properties.
+          </p>
+
+          <ul>
+            <li>
+              Crown lift selected lower growth where appropriate.
+            </li>
+
+            <li>
+              Selectively reduce overextended portions of the crowns.
+            </li>
+
+            <li>
+              Improve clearance from the neighboring property.
+            </li>
+
+            <li>
+              Address interfering or poorly positioned growth where appropriate.
+            </li>
+
+            <li>
+              Preserve healthy live canopy and natural growth habit while
+              accomplishing the desired clearance objectives.
+            </li>
+          </ul>
+
+        </article>
+
+
+        <div class="note">
+          <strong>Pruning approach:</strong>
+          Crown reduction refers to selective shortening of branches back to
+          suitable lateral growth. It does not mean topping or indiscriminately
+          cutting the canopy to a predetermined height or outline. Final cuts
+          will be selected according to the structure encountered in the tree,
+          with tree health and sound arboricultural practice taking precedence
+          over achieving an artificially uniform shape.
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ESTIMATED WORKLOAD
+           ========================= -->
+
+      <section class="section">
+
+        <h2 class="section-title">Estimated Workload</h2>
+
+        <p>
+          Approximately <strong>two climbing hours per tree</strong> are
+          anticipated, for approximately <strong>eight total climbing hours</strong>
+          across the four trees.
+        </p>
+
+        <p>
+          This time estimate is provided for project planning and scope
+          communication. It is <strong>not a purchased or guaranteed block of
+          eight labor hours.</strong> Actual climbing time may be greater or
+          less depending on tree structure, access, pruning opportunities, and
+          conditions encountered during the work.
+        </p>
+
+        <p>
+          The quoted price is for completion of the pruning scope described in
+          this proposal rather than billing according to the exact number of
+          hours spent aloft.
+        </p>
+
+      </section>
+
+
+      <!-- =========================
+           CLEANUP
+           ========================= -->
+
+      <section class="section">
+
+        <h2 class="section-title">Cleanup &amp; Haul-Off</h2>
+
+        <p>
+          The project price includes general cleanup of limbs and debris
+          generated by the pruning work and haul-off of resulting woody
+          material.
+        </p>
+
+        <p>
+          The work area will be left reasonably clean following completion of
+          the project.
+        </p>
+
+      </section>
+
+
+      <!-- =========================
+           PRICE
+           ========================= -->
+
+      <div class="price-box">
+
+        <div>
+          <div class="price-label">Total Project Price</div>
+
+          <div class="included">
+            Four-tree pruning package including general cleanup and haul-off
+          </div>
+        </div>
+
+        <div class="price">$585</div>
+
+      </div>
+
+
+      <!-- =========================
+           TERMS
+           ========================= -->
+
+      <section class="section terms">
+
+        <h2 class="section-title">Project Terms</h2>
+
+        <p>
+          <strong>Scope.</strong>
+          This proposal covers pruning of the four trees described above,
+          together with general cleanup and haul-off of debris generated by
+          that work.
+        </p>
+
+        <p>
+          <strong>Field judgment.</strong>
+          Tree pruning necessarily involves professional judgment at the time
+          work is performed. Individual cuts may be adjusted in response to
+          branch structure, defects, live-crown distribution, property
+          clearance, and other conditions that become apparent while working
+          in the canopy.
+        </p>
+
+        <p>
+          <strong>Tree health.</strong>
+          Pruning will be performed with the intention of balancing the
+          client's clearance and visibility goals with preservation of
+          appropriate live canopy. No representation is made that pruning can
+          eliminate inherent defects, prevent future limb failure, or guarantee
+          the future health or condition of a living tree.
+        </p>
+
+        <p>
+          <strong>Access.</strong>
+          The client agrees to provide reasonable access to the work area and
+          to identify any known underground, irrigation, landscape, property,
+          or access concerns that could materially affect performance of the
+          work.
+        </p>
+
+        <p>
+          <strong>Weather and safety.</strong>
+          Work may be postponed or rescheduled when weather, site conditions,
+          equipment conditions, or other circumstances make climbing or tree
+          work imprudent.
+        </p>
+
+        <p>
+          <strong>Additional work.</strong>
+          Work materially outside the scope described in this proposal will
+          not be included in the $585 project price unless separately agreed
+          upon.
+        </p>
+
+      </section>
+
+
+      <!-- =========================
+           DIGITAL ACCEPTANCE
+           ========================= -->
+
+      <section class="acceptance" id="accept">
+
+        <h2>Accept This Proposal</h2>
+
+        <p class="acceptance-intro">
+          To authorize Abundant Life Land &amp; Tree LLC to schedule and
+          perform the work described above for <strong>$585</strong>, enter
+          your name and email address and confirm your acceptance below.
+        </p>
+
+
+        <form id="acceptanceForm" novalidate>
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="clientName">Full Name</label>
+
+              <input
+                type="text"
+                id="clientName"
+                name="clientName"
+                autocomplete="name"
+                placeholder="Mark Sliwinski"
+                required
+              >
+            </div>
+
+
+            <div class="field">
+              <label for="clientEmail">Email Address</label>
+
+              <input
+                type="email"
+                id="clientEmail"
+                name="clientEmail"
+                autocomplete="email"
+                placeholder="mslinky@yahoo.com"
+                required
+              >
+            </div>
+
+          </div>
+
+
+          <div class="checkbox-row">
+
+            <input
+              type="checkbox"
+              id="agreement"
+              name="agreement"
+              required
+            >
+
+            <label for="agreement">
+              I have reviewed this proposal and authorize Abundant Life Land
+              &amp; Tree LLC to perform the described tree-pruning work for the
+              quoted total of <strong>$585</strong>. I understand that entering
+              my name and submitting this acceptance communicates my approval
+              of the proposal and my intent to schedule the work.
+            </label>
+
+          </div>
+
+
+          <button
+            class="accept-button"
+            type="submit"
+          >
+            Accept Proposal &amp; Send Authorization
+          </button>
+
+
+          <div
+            id="formMessage"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+
+          <p class="small-print">
+            Selecting the button above will prepare an email containing the
+            acceptance information for transmission to Abundant Life Land
+            &amp; Tree LLC. The client's email application may require a final
+            confirmation before the message is sent.
+          </p>
+
+        </form>
+
+      </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer>
+
+      <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+
+      Edmond &amp; Oklahoma City Metro<br>
+
+      <a href="mailto:abundant.life.land@gmail.com">
+        abundant.life.land@gmail.com
+      </a>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =========================
+       ACCEPTANCE JAVASCRIPT
+       ========================= -->
+
+  <script>
+    (() => {
+
+      const form = document.getElementById("acceptanceForm");
+      const nameInput = document.getElementById("clientName");
+      const emailInput = document.getElementById("clientEmail");
+      const agreement = document.getElementById("agreement");
+      const message = document.getElementById("formMessage");
+
+
+      function showMessage(text, type) {
+        message.textContent = text;
+        message.className = "form-message " + type;
+      }
+
+
+      function validEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+
+      form.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const clientName = nameInput.value.trim();
+        const clientEmail = emailInput.value.trim();
+
+
+        /* -------------------------
+           VALIDATION
+           ------------------------- */
+
+        if (!clientName) {
+          showMessage(
+            "Please enter your full name before accepting the proposal.",
+            "error"
+          );
+
+          nameInput.focus();
+          return;
+        }
+
+
+        if (!clientEmail || !validEmail(clientEmail)) {
+          showMessage(
+            "Please enter a valid email address before accepting the proposal.",
+            "error"
+          );
+
+          emailInput.focus();
+          return;
+        }
+
+
+        if (!agreement.checked) {
+          showMessage(
+            "Please check the authorization box before accepting the proposal.",
+            "error"
+          );
+
+          agreement.focus();
+          return;
+        }
+
+
+        /* -------------------------
+           CREATE ACCEPTANCE RECORD
+           ------------------------- */
+
+        const now = new Date();
+
+        const acceptedAt = now.toLocaleString(
+          "en-US",
+          {
+            dateStyle: "full",
+            timeStyle: "long"
+          }
+        );
+
+
+        const subject =
+          "Proposal Acceptance - Mark Sliwinski - $585 Tree Pruning";
+
+
+        const body = [
+          "TREE PRUNING PROPOSAL ACCEPTANCE",
+          "",
+          "Client: " + clientName,
+          "Client email: " + clientEmail,
+          "Property: 17417 Hawks Tree Lane, Edmond, OK 73012",
+          "",
+          "Project: Pruning of Brandon, Larry, Curly, and Moe",
+          "Contract amount: $585",
+          "",
+          "Scope:",
+          "- Selective crown lifting and crown reduction",
+          "- Visibility and clearance improvements",
+          "- Neighboring-property clearance where applicable",
+          "- Preservation of appropriate healthy live canopy",
+          "- General cleanup and haul-off of pruning debris",
+          "",
+          "Authorization:",
+          "I have reviewed the proposal and authorize Abundant Life Land & Tree LLC to perform the described tree-pruning work for the quoted total of $585.",
+          "",
+          "Accepted by: " + clientName,
+          "Acceptance date/time: " + acceptedAt,
+          "",
+          "Please contact me regarding scheduling.",
+          "",
+          "Client email: " + clientEmail
+        ].join("\n");
+
+
+        /* -------------------------
+           USER FEEDBACK
+           ------------------------- */
+
+        showMessage(
+          "Thank you. Your acceptance email is ready. Please send the prepared message from your email application to complete the authorization.",
+          "success"
+        );
+
+
+        /* -------------------------
+           OPEN EMAIL CLIENT
+           ------------------------- */
+
+        const mailto =
+          "mailto:abundant.life.land@gmail.com" +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+
+
+        window.location.href = mailto;
+
+      });
+
+    })();
+  </script>
+
+</body>
+</html>

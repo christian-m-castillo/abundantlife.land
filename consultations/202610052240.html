@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tree Condition Review | Robert Keenan</title>
+
+  <style>
+    :root {
+      --ink: #24372f;
+      --muted: #627068;
+      --green: #285542;
+      --line: #dce3dc;
+      --light: #f3f6f2;
+      --urgent: #943d2d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #edf1ec;
+      color: var(--ink);
+      font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 36px;
+      background: white;
+    }
+
+    header {
+      border-bottom: 3px solid var(--green);
+      padding-bottom: 20px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 8px 0 14px;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    h2 { font-size: 21px; margin: 28px 0 12px; }
+    h3 { font-size: 18px; margin: 0; }
+    p { margin: 8px 0; }
+    a { color: var(--green); }
+
+    .meta, .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .action {
+      margin-top: 24px;
+      padding: 20px;
+      background: #fff3ed;
+      border-left: 5px solid var(--urgent);
+    }
+
+    .action h2 { margin-top: 0; }
+    .action ul { margin-bottom: 0; padding-left: 20px; }
+    .action li { margin: 8px 0; }
+
+    .tree {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      break-inside: avoid;
+    }
+
+    .tree-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .id {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font: 12px ui-monospace, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .priority {
+      padding: 4px 9px;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .priority.urgent {
+      color: var(--urgent);
+      background: #fff3ed;
+      border-color: #e8c6ba;
+    }
+
+    .photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 20px 0 8px;
+  align-items: start;
+}
+
+/* A single photograph receives more space. */
+.photos > figure:only-child {
+  grid-column: 1 / -1;
+  width: min(100%, 580px);
+  justify-self: center;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--light);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Keeps missing-photo placeholders readable. */
+figure img:not([src]),
+figure img[src=""] {
+  min-height: 240px;
+}
+
+figcaption {
+  margin: 0;
+  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .photos {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .photos > figure:only-child {
+    width: 100%;
+  }
+}
+
+@media print {
+  /* Allow a tree record to span pages as photographs grow. */
+  .tree {
+    break-inside: auto;
+  }
+
+  .tree-heading {
+    break-after: avoid;
+  }
+
+  .photos {
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  figure {
+    break-inside: avoid;
+    border-radius: 0;
+  }
+
+  figure img {
+    width: 100%;
+    height: auto;
+    max-height: 6in;
+    object-fit: contain;
+  }
+
+  .photos > figure:only-child {
+    width: 65%;
+  }
+
+  figcaption {
+    padding: 8px 10px;
+    font-size: 9pt;
+  }
+}
+
+    .note {
+      margin-top: 24px;
+      padding: 16px;
+      background: var(--light);
+    }
+
+    footer {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      main { margin: 0; padding: 22px; }
+      h1 { font-size: 25px; }
+      .tree-heading { flex-direction: column; gap: 8px; }
+      .photos { grid-template-columns: 1fr; }
+    }
+
+    @page { size: letter; margin: .6in; }
+
+    @media print {
+      body { background: white; font-size: 10pt; }
+      main { max-width: none; margin: 0; padding: 0; }
+      h1 { font-size: 23pt; }
+      h2 { font-size: 15pt; }
+      h3 { font-size: 12pt; }
+      .tree { padding: 14px 0; }
+      a { color: inherit; text-decoration: none; }
+      .action, .priority, .note {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Abundant Life Land &amp; Tree LLC</div>
+    <h1>Tree Condition Review &amp; Recommended Actions</h1>
+    <p><strong>Robert Keenan</strong><br>
+      700 Knights Bridge Rd, Edmond, OK 73034<br>
+      405-888-7879
+    </p>
+    <p class="meta">
+      Field records: September 30–October 5, 2026<br>
+      Prepared by Christian Castillo · Report date: October 5, 2026
+    </p>
+  </header>
+
+  <section class="action">
+    <h2>Requested HOA Action</h2>
+    <ul>
+      <li>
+        <strong>Arrange immediate removal of T-202609301216:</strong>
+        advanced basal decay, substantial lean toward the residence,
+        and crown dieback.
+      </li>
+      <li>
+        <strong>Arrange prompt removal of suspended dead branches
+        from T-202610011746.</strong>
+        Keep people out from beneath the affected crown until addressed.
+      </li>
+      <li>
+        <strong>Coordinate mitigation for T-202610051527</strong>
+        and selective pruning of T-202609301222.
+        Confirm greenbelt responsibility and authorize the appropriate work.
+      </li>
+    </ul>
+    <p class="small">
+      Greenbelt locations are reported below; ownership and authorization
+      require confirmation. The south-side boundary oak is not a greenbelt tree.
+    </p>
+  </section>
+
+  <h2>Individual Tree Findings</h2>
+  <p class="small">
+    Priorities indicate recommended action, not formal risk ratings.
+    Photo placeholders identify the supporting views to include.
+  </p>
+
+  <!-- Replace each image source with the corresponding photograph.
+       Alt text also serves as a photographic shot list. -->
+
+  <article class="tree" id="T-202609301216">
+    <div class="tree-heading">
+      <div>
+        <h3>Bur Oak — North Greenbelt</h3>
+        <span class="id">T-202609301216</span>
+      </div>
+      <span class="priority urgent">Immediate removal</span>
+    </div>
+    <p class="meta">Mature, single stem · Approximately 10 m north of home</p>
+    <p>
+      <strong>Finding:</strong> Advanced basal decay, pronounced southward
+      lean toward the home, and significant crown dieback.
+      The home lies within the potential fall zone.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Remove without delay.
+      Avoid the potential fall zone pending removal.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202609301216-overview.jpg"
+             alt="Whole bur oak viewed from the side, showing its lean toward the residence and the home's position within its potential fall zone.">
+        <figcaption>Tree lean and relationship to residence.</figcaption>
+      </figure>
+      <figure>
+        <img src="../img/T-202609301216-base.jpg"
+             alt="Close view of advanced basal decay, with a scale and enough surrounding trunk visible to locate the defect.">
+        <figcaption>Basal decay.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202609301222">
+    <div class="tree-heading">
+      <div>
+        <h3>Bur Oak — North Greenbelt</h3>
+        <span class="id">T-202609301222</span>
+      </div>
+      <span class="priority">Selective reduction</span>
+    </div>
+    <p class="meta">Mature, three codominant stems · Approximately 15 m north of home</p>
+    <p>
+      <strong>Finding:</strong> Generally healthy crown, limited included
+      bark at the main stem unions, and no visible decay noted.
+      Substantial branches extend toward the house.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Retain. Inspect the main unions
+      and selectively reduce house-facing branches to reduce leverage
+      and improve clearance.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202609301222-overview.jpeg"
+             alt="Whole three-stem bur oak showing house-facing branches and the residence approximately 15 metres to the south.">
+        <figcaption>House-facing branches.</figcaption>
+      </figure>
+      <figure>
+        <img src="../img/T-202609301222-unions.jpg"
+             alt="Close views of the three main stem unions showing their attachment geometry and areas of included bark.">
+        <figcaption>Codominant stem unions.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202609301226">
+    <div class="tree-heading">
+      <div>
+        <h3>Bur Oak — Rear Deck</h3>
+        <span class="id">T-202609301226</span>
+      </div>
+      <span class="priority">Examine and monitor</span>
+    </div>
+    <p class="meta">Mature, single stem · Approximately 2 m north of home · Homeowner property</p>
+    <p>
+      <strong>Finding:</strong> Lower-trunk groove or constriction scarring
+      at deck height; cause and internal condition are unknown.
+      Crown generally healthy, with peripheral dead branches.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Examine and document the basal feature,
+      establish a monitoring plan, and address dead branches over the
+      roof or occupied deck. Further investigation may be needed.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202609301226-base.jpg"
+             alt="Lower-trunk groove photographed from multiple accessible sides, showing its relationship to deck height and clearance around the trunk.">
+        <figcaption>Basal groove and deck interface.</figcaption>
+      </figure>
+      <figure>
+        <img src="../img/T-202609301226-crown.jpg"
+             alt="Full crown and residence showing peripheral dead branches above the roof or deck.">
+        <figcaption>Crown condition and nearby targets.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202609301317">
+    <div class="tree-heading">
+      <div>
+        <h3>Bur Oak — South Property Boundary</h3>
+        <span class="id">T-202609301317</span>
+      </div>
+      <span class="priority">Union assessment / reduction</span>
+    </div>
+    <p class="meta">
+      Mature, two codominant stems · Approximately 2 m south of home<br>
+      Appears to straddle homeowner and neighboring property; no greenbelt involvement
+    </p>
+    <p>
+      <strong>Finding:</strong> Substantial included bark at the basal
+      stem union raises concern for stem separation.
+      Crown vigorous; no significant visible decay noted.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Coordinate with the neighboring owner.
+      Examine the union and plan conservative crown reduction to reduce
+      leverage on the affected stems.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202609301317-overview.jpg"
+             alt="Whole double-stem bur oak showing proximity to the home and its apparent position along the neighboring property boundary.">
+        <figcaption>Tree position and both stems.</figcaption>
+      </figure>
+      <figure>
+        <img src="../img/T-202609301317-union.jpg"
+             alt="Close view of the basal union showing the included-bark seam and any visible cracks or separation.">
+        <figcaption>Basal stem union.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202610011738">
+    <div class="tree-heading">
+      <div>
+        <h3>Common Hackberry — East Fence</h3>
+        <span class="id">T-202610011738</span>
+      </div>
+      <span class="priority">Clearance completed</span>
+    </div>
+    <p class="meta">Young, dead · Base in greenbelt</p>
+    <p>
+      <strong>Finding:</strong> Dead sapling rested on the fence and was
+      intertwined with a redbud.
+    </p>
+    <p>
+      <strong>Action completed:</strong> Encroaching portions removed by
+      Abundant Life Land &amp; Tree LLC. No further action recommended
+      at this time; continue boundary monitoring.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202610011738-pre-clearance.jpg"
+             alt="Post-work view of the west fence showing completed hackberry clearance, any remaining material, and the retained redbud.">
+        <figcaption>Before fence clearance.</figcaption>
+      </figure>
+      <figure>
+        <img src="../img/T-202610011738-clearance.jpg"
+             alt="Post-work view of the west fence showing completed hackberry clearance, any remaining material, and the retained redbud.">
+        <figcaption>Completed fence clearance.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202610011746">
+    <div class="tree-heading">
+      <div>
+        <h3>Bur Oak — Spreading Greenbelt Tree</h3>
+        <span class="id">T-202610011746</span>
+      </div>
+      <span class="priority urgent">Prompt deadwood removal</span>
+    </div>
+    <p class="meta">Mature, spreading crown · Base in greenbelt</p>
+    <p>
+      <strong>Finding:</strong> Dead branches lodged in the crown present
+      an overhead falling-branch hazard with potential for serious injury.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Promptly remove suspended dead branches.
+      Restrict access beneath the affected crown until work is complete.
+      Whole-tree removal is not recommended by this finding.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202610011746-hangers.jpg"
+             alt="Telephoto view of suspended dead branches and their support points, photographed from outside the potential drop zone.">
+        <figcaption>Suspended dead branches.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202610011749">
+    <div class="tree-heading">
+      <div>
+        <h3>Bur Oak — Greenbelt Overhang</h3>
+        <span class="id">T-202610011749</span>
+      </div>
+      <span class="priority">Routine vine management</span>
+    </div>
+    <p class="meta">Mature, single stem · Base in greenbelt</p>
+    <p>
+      <strong>Finding:</strong> Branches overhang the property and fence;
+      dead vine foliage remains in the crown.
+      No specific structural defect recorded.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Manage vine growth and remove
+      accessible loose material without damaging the tree.
+      Review fence clearance; avoid pulling attached vines from the crown.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202610011749-vines.jpg"
+             alt="Whole oak showing dead vine foliage, overhanging branches, and their relationship to the homeowner's fence.">
+        <figcaption>Vine foliage and fence overhang.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202610011750">
+    <div class="tree-heading">
+      <div>
+        <h3>American Elm — Property Edge</h3>
+        <span class="id">T-202610011750</span>
+      </div>
+      <span class="priority">Clearance pruning</span>
+    </div>
+    <p class="meta">Young, healthy · Ownership to confirm</p>
+    <p>
+      <strong>Finding:</strong> Branches encroach onto homeowner property.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Retain and selectively prune
+      for clearance while preserving suitable crown structure.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202610011750-clearance.jpg"
+             alt="Whole young elm showing its base, property edge, and branches requiring clearance pruning.">
+        <figcaption>Boundary encroachment.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tree" id="T-202610051527">
+    <div class="tree-heading">
+      <div>
+        <h3>Common Hackberry — Greenbelt Near Home</h3>
+        <span class="id">T-202610051527</span>
+      </div>
+      <span class="priority">Prompt mitigation decision</span>
+    </div>
+    <p class="meta">Mature, two codominant stems · Base in greenbelt</p>
+    <p>
+      <strong>Finding:</strong> Included bark at the basal stem union
+      raises concern for stem separation. Branches extend toward the home.
+    </p>
+    <p>
+      <strong>Recommendation:</strong> Promptly assess the union and
+      select either retention with targeted reduction to reduce leverage
+      or complete removal, according to the defect’s severity.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/T-202610051527-overview.jpg"
+             alt="Whole double-stem hackberry showing its greenbelt position and branches extending toward the residence.">
+        <figcaption>Tree position and house-facing branches.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <section class="note">
+    <h3>Ongoing Boundary Management</h3>
+    <p>
+      Selectively manage encroaching volunteer saplings to maintain
+      clearance and a recognizable property edge. Retain desirable
+      vegetation and confirm authorization for work in the greenbelt.
+    </p>
+    <div class="photos">
+      <figure>
+        <img src="../img/greenbelt-volunteer-trees.jpg"
+             alt="Whole double-stem hackberry showing its greenbelt position and branches extending toward the residence.">
+        <figcaption>Tree position and house-facing branches.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      <strong>Scope:</strong> Summary of recorded field observations;
+      not a complete property inventory or formal ISA risk rating.
+      Internal wood condition and property boundaries have not been
+      verified. Pruning reduces selected loads but cannot guarantee
+      a direction of failure. Reassess after significant changes or storms.
+    </p>
+    <p>
+      Christian Castillo · Abundant Life Land &amp; Tree LLC<br>
+      <a href="mailto:abundant.life.land@gmail.com">
+        abundant.life.land@gmail.com
+      </a>
+    </p>
+  </footer>
+</main>
+</body>
+</html>

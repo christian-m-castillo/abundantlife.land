@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oak Limb Pruning Proposal | Abundant Life Land & Tree</title>
+
+<style>
+:root {
+  --green: #294638;
+  --green-light: #edf2ed;
+  --ink: #27312b;
+  --muted: #69746d;
+  --line: #d8dfd9;
+  --paper: #ffffff;
+  --background: #eef0ed;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.document {
+  max-width: 850px;
+  margin: 32px auto;
+  padding: 48px 54px;
+  background: var(--paper);
+  box-shadow: 0 5px 30px rgba(0,0,0,.06);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--green);
+}
+
+.brand {
+  color: var(--green);
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -.6px;
+  line-height: 1.2;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 7px;
+}
+
+.document-type {
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  color: var(--green);
+  font-weight: bold;
+}
+
+.document-date {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  text-align: right;
+}
+
+h1 {
+  font-size: 27px;
+  letter-spacing: -.7px;
+  color: var(--green);
+  margin: 30px 0 8px;
+  line-height: 1.25;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+h2 {
+  font-size: 15px;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin: 28px 0 12px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--line);
+}
+
+.client-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  margin-bottom: 3px;
+}
+
+.field-value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.photo {
+  margin: 20px 0;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+
+figcaption {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 9px;
+  line-height: 1.5;
+}
+
+.scope-item {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.scope-number {
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+  height: fit-content;
+}
+
+.scope-item strong {
+  display: block;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.scope-item p {
+  margin: 0;
+}
+
+.notice {
+  background: #f5f7f4;
+  border-left: 3px solid var(--green);
+  padding: 14px 17px;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.price-box {
+  margin-top: 28px;
+  border: 1px solid var(--green);
+  border-radius: 5px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.price-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.price-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 750;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+.terms {
+  font-size: 13px;
+  color: #48544c;
+}
+
+.signature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.signature-line {
+  border-bottom: 1px solid #7f8981;
+  height: 40px;
+}
+
+.signature-caption {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+footer {
+  margin-top: 42px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+footer strong {
+  color: var(--green);
+}
+
+@media(max-width: 600px) {
+  .document {
+    margin: 0;
+    padding: 28px 22px;
+  }
+
+  header { flex-direction: column; }
+
+  .document-type,
+  .document-date { text-align: left; }
+
+  .client-grid { grid-template-columns: 1fr; }
+
+  .signature-grid { grid-template-columns: 1fr; }
+
+  .price { font-size: 28px; }
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: .55in;
+  }
+
+  body { background: white; }
+
+  .document {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .photo,
+  .scope-item,
+  .price-box,
+  .signature-grid {
+    break-inside: avoid;
+  }
+
+  h2 { break-after: avoid; }
+
+  .photo img {
+    max-height: 3.8in;
+    object-fit: contain;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="document">
+
+<header>
+  <div>
+    <div class="brand">
+      Abundant Life<br>
+      Land &amp; Tree LLC
+    </div>
+    <div class="tagline">
+      Professional Tree Care &amp; Land Stewardship<br>
+      Oklahoma City Metropolitan Area
+    </div>
+  </div>
+
+  <div>
+    <div class="document-type">Service Proposal</div>
+    <div class="document-date">October 21, 2026</div>
+  </div>
+</header>
+
+<h1>Oak Limb Removal &amp; Pruning</h1>
+<div class="subtitle">
+  Selective deadwood removal · Controlled rigging ·
+  ANSI A300 pruning practices
+</div>
+
+<section>
+  <h2>Client &amp; Property</h2>
+
+  <div class="client-grid">
+    <div>
+      <span class="field-label">Prepared For</span>
+      <div class="field-value">
+        Sulliant Wesley B &amp; Whitney Ho
+      </div>
+    </div>
+
+    <div>
+      <span class="field-label">Contact</span>
+      <div class="field-value">
+        (405) 514-5231
+      </div>
+    </div>
+
+    <div>
+      <span class="field-label">Service Address</span>
+      <div class="field-value">
+        2531 NW 67th St<br>
+        Oklahoma City, OK 73116
+      </div>
+    </div>
+
+    <div>
+      <span class="field-label">Proposed Service</span>
+      <div class="field-value">
+        Large Oak — Dead Limb Removal
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Tree &amp; Work Area</h2>
+
+  <p>
+    A large oak contains a substantial dead limb extending
+    laterally from the primary canopy. Removal is recommended
+    to reduce the risk of deadwood failure while preserving
+    surrounding living branches and the tree's remaining
+    structure.
+  </p>
+
+  <figure class="photo">
+    <img
+      src="../img/oak-tree-dead-limb-202610211710.jpg"
+      alt="Large oak showing the dead lateral limb and associated branches outlined in yellow for proposed removal."
+    >
+    <figcaption>
+      Figure 1. Proposed pruning area. Yellow markings
+      indicate the general extent of the dead limb and
+      associated dead branches targeted for removal.
+      Final cut locations will be determined on site.
+    </figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>Proposed Scope of Work</h2>
+
+  <div class="scope-item">
+    <div class="scope-number">01</div>
+    <div>
+      <strong>Selective Dead Limb Removal</strong>
+      <p>
+        Remove the identified large dead oak limb and
+        associated dead branches within the marked work
+        area, using appropriate sectional cutting methods.
+        Retain healthy adjacent growth wherever practicable.
+      </p>
+    </div>
+  </div>
+
+  <div class="scope-item">
+    <div class="scope-number">02</div>
+    <div>
+      <strong>Controlled Rigging &amp; Lowering</strong>
+      <p>
+        Employ professional climbing, rigging, and controlled
+        lowering techniques as appropriate to manage limb
+        weight, minimize uncontrolled movement, and protect
+        the surrounding tree, landscape, and property.
+      </p>
+    </div>
+  </div>
+
+  <div class="scope-item">
+    <div class="scope-number">03</div>
+    <div>
+      <strong>ANSI A300 Pruning Practices</strong>
+      <p>
+        Perform pruning in accordance with applicable
+        ANSI A300 pruning standards. Make the final
+        pruning cut at the appropriate branch union,
+        preserving the branch collar and branch bark
+        ridge where identifiable. Avoid flush cuts and
+        unnecessary injury to living tissue.
+      </p>
+    </div>
+  </div>
+
+  <div class="scope-item">
+    <div class="scope-number">04</div>
+    <div>
+      <strong>Sanitized Final Cut</strong>
+      <p>
+        Use cleaned and appropriately sanitized cutting
+        equipment for the finishing cut. Complete the
+        cut with attention to proper placement, a clean
+        cut surface, and preservation of the tree's
+        natural wound response.
+      </p>
+    </div>
+  </div>
+
+  <div class="scope-item">
+    <div class="scope-number">05</div>
+    <div>
+      <strong>Debris Removal &amp; Cleanup</strong>
+      <p>
+        Collect and remove pruning debris generated by
+        the contracted work. Leave the immediate work
+        area reasonably clean and orderly upon completion.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Project Investment</h2>
+
+  <div class="price-box">
+    <div>
+      <div class="price-label">
+        Complete Proposed Service
+      </div>
+      <div class="price-note">
+        Labor, equipment, rigging, pruning,
+        debris removal, and cleanup included.
+      </div>
+    </div>
+
+    <div class="price">$650.00</div>
+  </div>
+</section>
+
+<section>
+  <h2>Professional Standards &amp; Terms</h2>
+
+  <div class="terms">
+    <p>
+      <strong>Insurance:</strong>
+      Abundant Life Land &amp; Tree LLC maintains
+      commercial general liability insurance.
+      Proof of coverage is available upon request.
+    </p>
+
+    <p>
+      <strong>Safety:</strong>
+      Work will be conducted using appropriate
+      arboricultural safety practices and equipment.
+      The contractor retains discretion to modify
+      work methods or suspend operations when
+      conditions present unacceptable risk.
+    </p>
+
+    <p>
+      <strong>Scope Limitations:</strong>
+      This proposal addresses the specifically
+      identified dead limb and associated deadwood
+      within the marked area. It does not constitute
+      a comprehensive tree risk assessment or
+      guarantee against future limb or tree failure.
+      Additional pruning or remediation is excluded
+      unless separately authorized.
+    </p>
+
+    <p>
+      <strong>Payment:</strong>
+      The quoted amount is due upon satisfactory
+      completion of the contracted work, unless
+      otherwise agreed in writing.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Authorization to Proceed</h2>
+
+  <p>
+    By signing below, the client authorizes
+    Abundant Life Land &amp; Tree LLC to perform
+    the services described above for the
+    agreed project price of <strong>$650.00</strong>,
+    subject to the stated terms and approved
+    adjustments.
+  </p>
+
+  <div class="signature-grid">
+    <div>
+      <div class="signature-line"></div>
+      <div class="signature-caption">
+        Client Signature
+      </div>
+    </div>
+
+    <div>
+      <div class="signature-line"></div>
+      <div class="signature-caption">
+        Date
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+  Oklahoma City, Oklahoma<br>
+  abundant.life.land@gmail.com<br>
+  abundantlife.land<br><br>
+  Thoughtful Stewardship. Professional Tree Care.
+</footer>
+
+</main>
+</body>
+</html>

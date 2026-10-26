@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HOA Tree Work Proposal | Abundant Life Land & Tree</title>
+
+  <style>
+    /* =========================================
+       DESIGN SYSTEM
+       ========================================= */
+
+    :root {
+      --ink: #172b27;
+      --pine: #214b3c;
+      --moss: #527360;
+      --paper: #ffffff;
+      --rule: #dce4dc;
+      --muted: #61716b;
+      --gold: #b59b66;
+      --alert: #a24c33;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e8eee9;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--pine);
+    }
+
+    .sheet {
+      max-width: 1120px;
+      margin: 32px auto;
+      padding: 52px 60px;
+      background: var(--paper);
+      box-shadow: 0 20px 70px #1736281b;
+    }
+
+    /* =========================================
+       HEADER
+       ========================================= */
+
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 3px solid var(--pine);
+    }
+
+    .brand {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--pine);
+    }
+
+    .tag {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .doc-title {
+      margin: 28px 0 8px;
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1.16;
+      color: var(--pine);
+    }
+
+    .subtitle {
+      margin: 0 0 24px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 30px;
+      padding: 16px 0;
+      margin-bottom: 20px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      font-size: 14px;
+    }
+
+    .meta strong {
+      display: block;
+      margin-bottom: 2px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--moss);
+    }
+
+    h2 {
+      margin: 32px 0 13px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--pine);
+    }
+
+    .notice {
+      margin: 19px 0 22px;
+      padding: 13px 18px;
+      border-left: 4px solid var(--gold);
+      background: #f9f7f0;
+      font-size: 14px;
+    }
+
+    /* =========================================
+       PRICING TABLE
+       ========================================= */
+
+    .pricing {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .pricing th {
+      padding: 11px 9px;
+      border-bottom: 2px solid var(--rule);
+      background: #f0f4ef;
+      text-align: left;
+      font: 700 11px Arial, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--moss);
+    }
+
+    .pricing td {
+      padding: 13px 9px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+
+    .pricing .ref {
+      width: 48px;
+      font: 700 13px Arial, sans-serif;
+    }
+
+    .pricing .price {
+      width: 145px;
+      text-align: right;
+      white-space: nowrap;
+      font: 600 15px Arial, sans-serif;
+    }
+
+    .pricing .item {
+      font-weight: 700;
+    }
+
+    .pricing .description {
+      margin-top: 3px;
+      font: 12px/1.55 Arial, sans-serif;
+      color: var(--muted);
+    }
+
+    .priority {
+      color: var(--alert);
+      font: 700 10px Arial, sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 6px;
+      margin-left: 6px;
+      border: 1px solid var(--rule);
+      font: 10px Arial, sans-serif;
+      color: var(--moss);
+    }
+
+    /* =========================================
+       TERMS AND FOOTER
+       ========================================= */
+
+    .terms {
+      font-size: 14px;
+    }
+
+    .terms p {
+      margin: 0 0 11px;
+    }
+
+    .terms strong {
+      color: var(--pine);
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 34px;
+      padding-top: 19px;
+      border-top: 2px solid var(--pine);
+      font: 12px Arial, sans-serif;
+      color: var(--muted);
+    }
+
+    /* =========================================
+       RESPONSIVE LAYOUT
+       ========================================= */
+
+    @media (max-width: 800px) {
+      .sheet {
+        margin: 0;
+        padding: 26px 17px;
+      }
+
+      .doc-title {
+        font-size: 32px;
+      }
+
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing {
+        font-size: 12px;
+      }
+
+      .pricing th,
+      .pricing td {
+        padding: 9px 4px;
+      }
+
+      .pricing .price {
+        width: auto;
+        font-size: 12px;
+      }
+    }
+
+    /* =========================================
+       PRINT STYLING
+       ========================================= */
+
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.55in;
+      }
+
+      body {
+        background: white;
+      }
+
+      .sheet {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .pricing tr,
+      .foot {
+        break-inside: avoid;
+      }
+
+      .notice,
+      .pricing th {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .doc-title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="sheet">
+
+    <!-- =====================================
+         DOCUMENT HEADER
+         ===================================== -->
+
+    <header class="masthead">
+      <div>
+        <div class="brand">
+          Abundant Life Land &amp; Tree LLC
+        </div>
+
+        <div class="tag">
+          Tree Stewardship · Arboricultural Services
+        </div>
+      </div>
+
+      <div class="tag" style="text-align: right;">
+        Preliminary Pricing Schedule<br>
+        October 23, 2026
+      </div>
+    </header>
+
+    <h1 class="doc-title">
+      Tree Work — Scope &amp; Pricing Options
+    </h1>
+
+    <p class="subtitle">
+      HOA Tree Management · Commercial Pricing Schedule
+    </p>
+
+    <!-- =====================================
+         PROPERTY INFORMATION
+         ===================================== -->
+
+    <section class="meta">
+      <div>
+        <strong>Property / Reference</strong>
+        700 Knights Bridge Rd, Edmond, OK 73034
+      </div>
+
+      <div>
+        <strong>Source Review</strong>
+        <a href="https://abundantlife.land/consultations/202610091910.html">
+          Tree Condition Review · October 5, 2026
+        </a>
+      </div>
+
+      <div>
+        <strong>Prepared By</strong>
+        Christian Castillo · Abundant Life Land &amp; Tree LLC
+      </div>
+
+      <div>
+        <strong>Contact</strong>
+        abundant.life.land@gmail.com
+      </div>
+    </section>
+
+    <div class="notice">
+      <strong>Preliminary pricing.</strong>
+      These amounts are planning estimates subject to field verification
+      of tree dimensions, access, rigging requirements, utilities,
+      ownership, and disposal conditions. Final scopes and pricing
+      require written authorization from the responsible property
+      owner or association.
+    </div>
+
+    <!-- =====================================
+         TREE-SPECIFIC WORK ITEMS
+         ===================================== -->
+
+    <section>
+      <h2>01. Tree-Specific Work Items</h2>
+
+      <table class="pricing">
+        <thead>
+          <tr>
+            <th>Ref.</th>
+            <th>Proposed Scope</th>
+            <th class="price">Commercial Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <!-- TREE 1 -->
+          <tr>
+            <td class="ref">1</td>
+
+            <td>
+              <div class="item">
+                Bur Oak — Complete Hazard Removal
+                <span class="priority">Immediate Priority</span>
+              </div>
+
+              <div class="description">
+                Controlled sectional dismantling of leaning, decayed
+                north-greenbelt bur oak. Includes specialized rigging,
+                reasonable ground protection, and debris removal.
+                Stump grinding excluded. Final pricing is sensitive
+                to tree dimensions, targets, and access.
+              </div>
+            </td>
+
+            <td class="price">$3,500</td>
+          </tr>
+
+          <!-- TREE 2 -->
+          <tr>
+            <td class="ref">2</td>
+
+            <td>
+              <div class="item">
+                Bur Oak — Union Inspection and Targeted Crown Reduction
+              </div>
+
+              <div class="description">
+                Climbing-level visual evaluation of three codominant
+                unions. Selective reduction of house-facing branches,
+                maintaining natural architecture and proper pruning cuts.
+              </div>
+            </td>
+
+            <td class="price">$870</td>
+          </tr>
+
+          <!-- TREE 3A -->
+          <tr>
+            <td class="ref">3a</td>
+
+            <td>
+              <div class="item">
+                Rear-Deck Bur Oak — Full Removal
+              </div>
+
+              <div class="description">
+                Full removal of tree. Includes climbing, dismantling,
+                and controlled lowering. Stump grind included.
+              </div>
+            </td>
+
+            <td class="price">$2,550</td>
+          </tr>
+
+          <!-- TREE 3B -->
+          <tr>
+            <td class="ref">3b</td>
+
+            <td>
+              <div class="item">
+                Rear-Deck Bur Oak — Deadwood Removal
+              </div>
+
+              <div class="description">
+                Remove accessible dead branches presenting exposure
+                to the occupied deck or roof. Includes controlled
+                lowering where necessary. Live-crown reduction excluded.
+              </div>
+            </td>
+
+            <td class="price">$485</td>
+          </tr>
+
+          <!-- TREE 4A -->
+          <tr>
+            <td class="ref">4a</td>
+
+            <td>
+              <div class="item">
+                South Boundary Bur Oak — Basal Union Assessment
+              </div>
+
+              <div class="description">
+                Document the included-bark union, inspect accessible
+                defect indicators, and formulate treatment
+                recommendations. Neighboring owner consent required
+                where applicable.
+              </div>
+            </td>
+
+            <td class="price">$120</td>
+          </tr>
+
+          <!-- TREE 4B -->
+          <tr>
+            <td class="ref">4b</td>
+
+            <td>
+              <div class="item">
+                South Boundary Bur Oak — Conservative Reduction
+                <span class="pill">Conditional</span>
+              </div>
+
+              <div class="description">
+                Selective reduction to moderate leverage on codominant
+                stems, only if assessment supports retention.
+                Supplemental support systems excluded.
+              </div>
+            </td>
+
+            <td class="price">$685</td>
+          </tr>
+
+          <!-- TREE 6 -->
+          <tr>
+            <td class="ref">6</td>
+
+            <td>
+              <div class="item">
+                Greenbelt Bur Oak — Suspended Deadwood Removal
+                <span class="priority">Prompt Priority</span>
+              </div>
+
+              <div class="description">
+                Access crown and safely remove or lower lodged dead
+                branches. Establish exclusion zones prior to work.
+                Whole-tree removal excluded.
+              </div>
+            </td>
+
+            <td class="price">$570</td>
+          </tr>
+
+          <!-- TREE 7 -->
+          <tr>
+            <td class="ref">7</td>
+
+            <td>
+              <div class="item">
+                Greenbelt Overhang — Vine Management
+              </div>
+
+              <div class="description">
+                Sever manageable vines near their bases and remove
+                safely reachable loose vegetation. Avoid pulling
+                attached vines from elevated branches.
+              </div>
+            </td>
+
+            <td class="price">$270</td>
+          </tr>
+
+          <!-- TREE 9A -->
+          <tr>
+            <td class="ref">9a</td>
+
+            <td>
+              <div class="item">
+                Greenbelt Hackberry — Codominant Union Evaluation
+                <span class="priority">Prompt Priority</span>
+              </div>
+
+              <div class="description">
+                Examine included-bark junction, document visible
+                structural concerns, and recommend retention with
+                reduction or removal. Advanced testing excluded.
+              </div>
+            </td>
+
+            <td class="price">$240</td>
+          </tr>
+
+          <!-- TREE 9B -->
+          <tr>
+            <td class="ref">9b</td>
+
+            <td>
+              <div class="item">
+                Hackberry — Conditional Crown Reduction
+                <span class="pill">Alternative A</span>
+              </div>
+
+              <div class="description">
+                Selective reduction of house-facing lever arms,
+                contingent upon a defensible retention determination.
+                Mutually exclusive with Tree 9c removal.
+              </div>
+            </td>
+
+            <td class="price">$950</td>
+          </tr>
+
+          <!-- TREE 9C -->
+          <tr>
+            <td class="ref">9c</td>
+
+            <td>
+              <div class="item">
+                Hackberry — Sectional Removal
+                <span class="pill">Alternative B</span>
+              </div>
+
+              <div class="description">
+                Controlled dismantling, rigging, and debris removal
+                if assessment favors removal. Stump grinding excluded.
+                Mutually exclusive with Tree 9b reduction.
+              </div>
+            </td>
+
+            <td class="price">$2,520</td>
+          </tr>
+
+          <!-- TREE 10 -->
+          <tr>
+            <td class="ref">10</td>
+
+            <td>
+              <div class="item">
+                Boundary Management — Volunteer Sapling Clearing
+              </div>
+
+              <div class="description">
+                Selective removal of encroaching volunteer saplings,
+                preserving desirable vegetation. Assumes a modest
+                accessible area and one crew visit.
+              </div>
+            </td>
+
+            <td class="price">$330</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </section>
+
+    <!-- =====================================
+         TERMS AND CONDITIONS
+         ===================================== -->
+
+    <section>
+      <h2>02. Scope Limits &amp; Authorizations</h2>
+
+      <div class="terms">
+        <p>
+          <strong>Ownership and Permissions.</strong>
+          Greenbelt work requires verification of ownership,
+          HOA responsibilities, and written authorization.
+          Tree 4 may require neighboring landowner approval.
+        </p>
+
+        <p>
+          <strong>Standards and Safety.</strong>
+          Pruning shall follow applicable ANSI A300 practices.
+          Operations shall be planned in accordance with applicable
+          ANSI Z133 safety requirements. Establish appropriate
+          exclusion zones, rigging systems, and structural protection.
+          Tree assessment does not guarantee against future failure.
+        </p>
+
+        <p>
+          <strong>Disposal and Exclusions.</strong>
+          Reasonable branch and wood debris removal is included in
+          the listed tree-work allowances. Stump grinding, permits,
+          traffic control, crane rental, utility clearance,
+          extraordinary ground protection, and concealed-defect
+          remediation are excluded unless separately authorized.
+          Tree 3a expressly includes stump grinding.
+        </p>
+
+        <p>
+          <strong>Pricing and Changes.</strong>
+          All pricing is subject to on-site verification and a final
+          written agreement. Material changes in access, hazard,
+          equipment requirements, or scope must be approved in writing
+          before additional work or charges.
+        </p>
+
+        <p>
+          <strong>Recommended Sequence.</strong>
+          Prioritize Tree 1, Tree 6, and Tree 9 evaluation.
+          Defer Tree 4 reduction and Tree 9 treatment until
+          evaluation and authorization are complete.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================
+         FOOTER
+         ===================================== -->
+
+    <footer class="foot">
+      <div>
+        <strong>Abundant Life Land &amp; Tree LLC</strong><br>
+        abundant.life.land@gmail.com<br>
+        abundantlife.land
+      </div>
+
+      <div style="text-align: right;">
+        Supplement to Tree Condition Review<br>
+        Reference: 202610091910<br>
+        Prepared October 23, 2026
+      </div>
+    </footer>
+
+  </main>
+</body>
+</html>

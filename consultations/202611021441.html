@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Tree Condition Review &amp; HOA Pricing | Robert Keenan | Abundant Life Land &amp; Tree LLC</title>
+<style>
+    :root {
+      --ink: #24372f;
+      --muted: #627068;
+      --green: #285542;
+      --line: #dce3dc;
+      --light: #f3f6f2;
+      --urgent: #943d2d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #edf1ec;
+      color: var(--ink);
+      font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 36px;
+      background: white;
+    }
+    header {
+      border-bottom: 3px solid var(--green);
+      padding-bottom: 20px;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 14px;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+    h2 { font-size: 21px; margin: 28px 0 12px; }
+    h3 { font-size: 18px; margin: 0; }
+    p { margin: 8px 0; }
+    a { color: var(--green); }
+    .meta, .small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .action {
+      margin-top: 24px;
+      padding: 20px;
+      background: #fff3ed;
+      border-left: 5px solid var(--urgent);
+    }
+    .action h2 { margin-top: 0; }
+    .action ul { margin-bottom: 0; padding-left: 20px; }
+    .action li { margin: 8px 0; }
+    .tree {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      break-inside: avoid;
+    }
+    .tree-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .id {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font: 12px ui-monospace, monospace;
+      overflow-wrap: anywhere;
+    }
+    .priority {
+      padding: 4px 9px;
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .priority.urgent {
+      color: var(--urgent);
+      background: #fff3ed;
+      border-color: #e8c6ba;
+    }
+    .photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 20px 0 8px;
+  align-items: start;
+}
+/* A single photograph receives more space. */
+.photos > figure:only-child {
+  grid-column: 1 / -1;
+  width: min(100%, 580px);
+  justify-self: center;
+}
+figure {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--light);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--muted);
+  font-size: 13px;
+}
+/* Keeps missing-photo placeholders readable. */
+figure img:not([src]),
+figure img[src=""] {
+  min-height: 240px;
+}
+figcaption {
+  margin: 0;
+  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+@media (max-width: 600px) {
+  .photos {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .photos > figure:only-child {
+    width: 100%;
+  }
+}
+@media print {
+  /* Allow a tree record to span pages as photographs grow. */
+  .tree {
+    break-inside: auto;
+  }
+  .tree-heading {
+    break-after: avoid;
+  }
+  .photos {
+    gap: 12px;
+    margin-top: 14px;
+  }
+  figure {
+    break-inside: avoid;
+    border-radius: 0;
+  }
+  figure img {
+    width: 100%;
+    height: auto;
+    max-height: 6in;
+    object-fit: contain;
+  }
+  .photos > figure:only-child {
+    width: 65%;
+  }
+  figcaption {
+    padding: 8px 10px;
+    font-size: 9pt;
+  }
+}
+    .note {
+      margin-top: 24px;
+      padding: 16px;
+      background: var(--light);
+    }
+    footer {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 600px) {
+      main { margin: 0; padding: 22px; }
+      h1 { font-size: 25px; }
+      .tree-heading { flex-direction: column; gap: 8px; }
+      .photos { grid-template-columns: 1fr; }
+    }
+    @page { size: letter; margin: .6in; }
+    @media print {
+      body { background: white; font-size: 10pt; }
+      main { max-width: none; margin: 0; padding: 0; }
+      h1 { font-size: 23pt; }
+      h2 { font-size: 15pt; }
+      h3 { font-size: 12pt; }
+      .tree { padding: 14px 0; }
+      a { color: inherit; text-decoration: none; }
+      .action, .priority, .note {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  [id] { scroll-margin-top: 20px; }
+.tree-heading h3 span { color: var(--green); }
+</style>
+<style>
+.pricing-summary{margin:24px 0;padding:20px;border:1px solid #d7e5dc;background:#f8fbf8}
+.costtable{width:100%;border-collapse:collapse;font-size:13px;margin:15px 0}
+.costtable th,.costtable td{padding:9px 8px;border-bottom:1px solid #d7e5dc;text-align:left;vertical-align:top}
+.costtable th:last-child,.costtable td:last-child{text-align:right;white-space:nowrap}
+.subtotal{margin:5px 0;font-size:13px}
+.priceblock{margin:17px 0 8px;padding:14px 16px;background:#f4f8f5;border-left:4px solid #2b5b45;break-inside:avoid}
+.priceblock h4{margin:0 0 12px;font-size:15px}
+.workitem{border-top:1px solid #d7e5dc;padding:9px 0}
+.workheading{display:flex;justify-content:space-between;gap:18px;font-size:14px}
+.amount{white-space:nowrap;color:#23523c}
+.workitem p{font-size:12px;color:#55665d;margin:5px 0 0}
+.pricing-note{font-size:12px;color:#55665d}
+@media(max-width:600px){.pricing-summary{padding:12px}.costtable{font-size:11px}.workheading{flex-direction:column;gap:2px}}
+@media print{.pricing-summary{break-inside:auto}.costtable tr{break-inside:avoid}.priceblock{break-inside:avoid} .pricing-summary,.priceblock{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head>
+<body>
+<main>
+<header>
+<div class="eyebrow">Abundant Life Land &amp; Tree LLC</div>
+<h1>Tree Condition Review &amp; Recommended Actions</h1>
+<p><strong>Robert Keenan</strong><br/>
+      700 Knights Bridge Rd, Edmond, OK 73034<br/>
+      405-888-7879
+    </p>
+<p class="meta">
+      Field records: September 30–October 5, 2026<br/>
+      Prepared by Christian Castillo · Report date: October 5, 2026
+    </p>
+<p class="meta">Revised HOA pricing integration: November 2, 2026 · Original field findings unchanged</p></header>
+<section class="action">
+<h2>Requested HOA Action</h2>
+<ul>
+<li>
+<strong>Arrange immediate removal of <a href="#tree-1">Tree 1</a> (T-202609301216):</strong>
+        advanced basal decay, substantial lean toward the residence,
+        and crown dieback.
+      </li>
+<li>
+<strong>Arrange prompt removal of suspended dead branches
+        from <a href="#tree-6">Tree 6</a> (T-202610011746).</strong>
+        Keep people out from beneath the affected crown until addressed.
+      </li>
+<li>
+<strong>Coordinate mitigation for <a href="#tree-9">Tree 9</a> (T-202610051527)</strong>
+        and selective pruning of <a href="#tree-2">Tree 2</a> (T-202609301222).
+        Confirm greenbelt responsibility and authorize the appropriate work.
+      </li>
+</ul>
+<p class="small">
+      Greenbelt locations are reported below; ownership and authorization
+      require confirmation. The south-side boundary oak is not a greenbelt tree.
+    </p>
+</section><section class="pricing-summary" id="hoa-pricing"><h2>HOA scope &amp; preliminary pricing</h2><p class="small">Commercial HOA allowances from the revised October 23, 2026 schedule. All amounts below are per proposed work item, not an authorization to proceed. Optional and conditional alternatives are identified explicitly.</p><table class="costtable"><thead><tr><th>Item</th><th>Proposed treatment</th><th>HOA estimate</th></tr></thead><tbody><tr><td>1</td><td>Bur oak — complete hazard removal Immediate priority</td><td>$3,900</td></tr><tr><td>2</td><td>Bur oak — union inspection and targeted crown reduction</td><td>$870</td></tr><tr><td>3a</td><td>Rear-deck bur oak — baseline examination and monitoring record</td><td>$210</td></tr><tr><td>3b</td><td>Rear-deck bur oak — deadwood over roof/deck</td><td>$390</td></tr><tr><td>4a</td><td>South boundary bur oak — basal union assessment</td><td>$210</td></tr><tr><td>4b</td><td>South boundary bur oak — conservative reduction Conditional</td><td>$990</td></tr><tr><td>6</td><td>Spreading greenbelt bur oak — remove suspended deadwood Prompt priority</td><td>$570</td></tr><tr><td>7</td><td>Greenbelt overhang — vine and loose-material management</td><td>$270</td></tr><tr><td>8</td><td>Young American elm — boundary clearance prune</td><td>$210</td></tr><tr><td>9a</td><td>Greenbelt hackberry — codominant union evaluation Prompt priority</td><td>$240</td></tr><tr><td>9b</td><td>Hackberry — conditional reduction Alternative A</td><td>$1,050</td></tr><tr><td>9c</td><td>Hackberry — sectional removal Alternative B</td><td>$2,520</td></tr><tr><td>10</td><td>Boundary management — selective sapling clearing</td><td>$330</td></tr></tbody></table><p class="subtotal"><strong>Base planning scope (excluding conditional treatments): </strong>$7,200</p><p class="subtotal"><strong>With Tree 4 optional reduction: </strong>$8,190</p><p class="subtotal"><strong>With Tree 9 reduction alternative: </strong>$8,250</p><p class="subtotal"><strong>With Tree 9 removal alternative: </strong>$9,720</p><p class="subtotal"><strong>With Tree 4 reduction + Tree 9 removal: </strong>$10,710</p><p class="small">Illustrative totals assume all listed nonconditional tasks are authorized, including work that may fall outside HOA ownership or responsibility. They are not a determination that the HOA should pay for every item. Tree 4 reduction is conditional. Tree 9 reduction and removal are exclusive alternatives. Confirm ownership, access, sizes, overhead utilities, scope, and authorization before issuing a fixed-price contract.</p><p class="small">Scope: reasonable branch and wood debris removal included in tree-work prices. Exclusions unless separately agreed: stump grinding, permits, traffic control, crane rental, utility clearance, extraordinary ground protection, and concealed-defect remediation. Pruning is intended to follow applicable ANSI A300 practices; operations are to be planned under applicable ANSI Z133 safety requirements. Material changes require a written revision.</p></section>
+<h2>Individual Tree Findings</h2>
+<p class="small">
+    Priorities indicate recommended action, not formal risk ratings.
+    Photo placeholders identify the supporting views to include.
+  </p>
+<!-- Replace each image source with the corresponding photograph.
+       Alt text also serves as a photographic shot list. -->
+<article class="tree" id="T-202609301216">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-1">1.</span> Bur Oak — North Greenbelt</h3>
+<span class="id">T-202609301216</span>
+</div>
+<span class="priority urgent">Immediate removal</span>
+</div>
+<p class="meta">Mature, single stem · Approximately 10 m north of home</p>
+<p>
+<strong id="tree-1-1">1.1 Finding:</strong> Advanced basal decay, pronounced southward
+      lean toward the home, and significant crown dieback.
+      The home lies within the potential fall zone.
+    </p>
+<p>
+<strong id="tree-1-2">1.2 Recommendation:</strong> Remove without delay.
+      Avoid the potential fall zone pending removal.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Whole bur oak viewed from the side, showing its lean toward the residence and the home's position within its potential fall zone." src="../img/T-202609301216-overview.jpg"/>
+<figcaption>Figure 1A · Tree lean and relationship to residence.</figcaption>
+</figure>
+<figure>
+<img alt="Close view of advanced basal decay, with a scale and enough surrounding trunk visible to locate the defect." src="../img/T-202609301216-base.jpg"/>
+<figcaption>Figure 1B · Basal decay.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>1. Bur oak — complete hazard removal Immediate priority</strong><strong class="amount">$3,900</strong></div><p>Controlled sectional dismantling of leaning, decayed north-greenbelt bur oak; specialized rigging, ground protection and debris removal. Stump grinding excluded. Final price sensitive to height, diameter, targets and access.</p></div></div></article>
+<article class="tree" id="T-202609301222">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-2">2.</span> Bur Oak — North Greenbelt</h3>
+<span class="id">T-202609301222</span>
+</div>
+<span class="priority">Selective reduction</span>
+</div>
+<p class="meta">Mature, three codominant stems · Approximately 15 m north of home</p>
+<p>
+<strong id="tree-2-1">2.1 Finding:</strong> Generally healthy crown, limited included
+      bark at the main stem unions, and no visible decay noted.
+      Substantial branches extend toward the house.
+    </p>
+<p>
+<strong id="tree-2-2">2.2 Recommendation:</strong> Retain. Inspect the main unions
+      and selectively reduce house-facing branches to reduce leverage
+      and improve clearance.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Whole three-stem bur oak showing house-facing branches and the residence approximately 15 metres to the south." src="../img/T-202609301222-overview.jpeg"/>
+<figcaption>Figure 2A · House-facing branches.</figcaption>
+</figure>
+<figure>
+<img alt="Close views of the three main stem unions showing their attachment geometry and areas of included bark." src="../img/T-202609301222-unions.jpg"/>
+<figcaption>Figure 2B · Codominant stem unions.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>2. Bur oak — union inspection and targeted crown reduction</strong><strong class="amount">$870</strong></div><p>Climbing-level visual evaluation of three codominant unions, selective reduction of house-facing branches and compliant finish cuts; retain natural form.</p></div></div></article>
+<article class="tree" id="T-202609301226">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-3">3.</span> Bur Oak — Rear Deck</h3>
+<span class="id">T-202609301226</span>
+</div>
+<span class="priority">Examine and monitor</span>
+</div>
+<p class="meta">Mature, single stem · Approximately 2 m north of home · Homeowner property</p>
+<p>
+<strong id="tree-3-1">3.1 Finding:</strong> Lower-trunk groove or constriction scarring
+      at deck height; cause and internal condition are unknown.
+      Crown generally healthy, with peripheral dead branches.
+    </p>
+<p>
+<strong id="tree-3-2">3.2 Recommendation:</strong> Examine and document the basal feature,
+      establish a monitoring plan, and address dead branches over the
+      roof or occupied deck. Further investigation may be needed.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Lower-trunk groove photographed from multiple accessible sides, showing its relationship to deck height and clearance around the trunk." src="../img/T-202609301226-base.jpg"/>
+<figcaption>Figure 3A · Basal groove and deck interface.</figcaption>
+</figure>
+<figure>
+<img alt="Full crown and residence showing peripheral dead branches above the roof or deck." src="../img/T-202609301226-crown.jpg"/>
+<figcaption>Figure 3B · Crown condition and nearby targets.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>3a. Rear-deck bur oak — baseline examination and monitoring record</strong><strong class="amount">$210</strong></div><p>Document trunk groove and deck interface; ground-access visual inspection, photographs and written monitoring recommendations. Advanced testing/engineering excluded.</p></div><div class="workitem"><div class="workheading"><strong>3b. Rear-deck bur oak — deadwood over roof/deck</strong><strong class="amount">$390</strong></div><p>Remove accessible dead limbs presenting exposure to occupied deck or roof; controlled lowering where required; no live-crown reduction assumed.</p></div></div></article>
+<article class="tree" id="T-202609301317">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-4">4.</span> Bur Oak — South Property Boundary</h3>
+<span class="id">T-202609301317</span>
+</div>
+<span class="priority">Union assessment / reduction</span>
+</div>
+<p class="meta">
+      Mature, two codominant stems · Approximately 2 m south of home<br/>
+      Appears to straddle homeowner and neighboring property; no greenbelt involvement
+    </p>
+<p>
+<strong id="tree-4-1">4.1 Finding:</strong> Substantial included bark at the basal
+      stem union raises concern for stem separation.
+      Crown vigorous; no significant visible decay noted.
+    </p>
+<p>
+<strong id="tree-4-2">4.2 Recommendation:</strong> Coordinate with the neighboring owner.
+      Examine the union and plan conservative crown reduction to reduce
+      leverage on the affected stems.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Whole double-stem bur oak showing proximity to the home and its apparent position along the neighboring property boundary." src="../img/T-202609301317-overview.jpg"/>
+<figcaption>Figure 4A · Tree position and both stems.</figcaption>
+</figure>
+<figure>
+<img alt="Close view of the basal union showing the included-bark seam and any visible cracks or separation." src="../img/T-202609301317-union.jpg"/>
+<figcaption>Figure 4B · Basal stem union.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>4a. South boundary bur oak — basal union assessment</strong><strong class="amount">$210</strong></div><p>Document the included-bark union, inspect accessible defect indicators and formulate treatment recommendations. Obtain neighboring owner consent where necessary.</p></div><div class="workitem"><div class="workheading"><strong>4b. South boundary bur oak — conservative reduction Conditional</strong><strong class="amount">$990</strong></div><p>Selective crown reduction to moderate leverage on codominant stems, only if the union assessment supports retention. Additional support systems not included.</p></div><p class="pricing-note">4b is conditional on assessment findings and neighboring-owner authorization.</p></div></article>
+<article class="tree" id="T-202610011738">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-5">5.</span> Common Hackberry — East Fence</h3>
+<span class="id">T-202610011738</span>
+</div>
+<span class="priority">Clearance completed</span>
+</div>
+<p class="meta">Young, dead · Base in greenbelt</p>
+<p>
+<strong id="tree-5-1">5.1 Finding:</strong> Dead sapling rested on the fence and was
+      intertwined with a redbud.
+    </p>
+<p>
+<strong id="tree-5-2">5.2 Action completed:</strong> Encroaching portions removed by
+      Abundant Life Land &amp; Tree LLC. No further action recommended
+      at this time; continue boundary monitoring.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Post-work view of the west fence showing completed hackberry clearance, any remaining material, and the retained redbud." src="../img/T-202610011738-pre-clearance.jpg"/>
+<figcaption>Figure 5A · Before fence clearance.</figcaption>
+</figure>
+<figure>
+<img alt="Post-work view of the west fence showing completed hackberry clearance, any remaining material, and the retained redbud." src="../img/T-202610011738-clearance.jpg"/>
+<figcaption>Figure 5B · Completed fence clearance.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><p>Prior corrective action completed; no additional work or price proposed.</p></div></article>
+<article class="tree" id="T-202610011746">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-6">6.</span> Bur Oak — Spreading Greenbelt Tree</h3>
+<span class="id">T-202610011746</span>
+</div>
+<span class="priority urgent">Prompt deadwood removal</span>
+</div>
+<p class="meta">Mature, spreading crown · Base in greenbelt</p>
+<p>
+<strong id="tree-6-1">6.1 Finding:</strong> Dead branches lodged in the crown present
+      an overhead falling-branch hazard with potential for serious injury.
+    </p>
+<p>
+<strong id="tree-6-2">6.2 Recommendation:</strong> Promptly remove suspended dead branches.
+      Restrict access beneath the affected crown until work is complete.
+      Whole-tree removal is not recommended by this finding.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Telephoto view of suspended dead branches and their support points, photographed from outside the potential drop zone." src="../img/T-202610011746-hangers.jpg"/>
+<figcaption>Figure 6A · Suspended dead branches.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>6. Spreading greenbelt bur oak — remove suspended deadwood Prompt priority</strong><strong class="amount">$570</strong></div><p>Access crown and safely remove/lower lodged dead branches; establish exclusion zone before work. Whole-tree removal excluded.</p></div></div></article>
+<article class="tree" id="T-202610011749">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-7">7.</span> Bur Oak — Greenbelt Overhang</h3>
+<span class="id">T-202610011749</span>
+</div>
+<span class="priority">Routine vine management</span>
+</div>
+<p class="meta">Mature, single stem · Base in greenbelt</p>
+<p>
+<strong id="tree-7-1">7.1 Finding:</strong> Branches overhang the property and fence;
+      dead vine foliage remains in the crown.
+      No specific structural defect recorded.
+    </p>
+<p>
+<strong id="tree-7-2">7.2 Recommendation:</strong> Manage vine growth and remove
+      accessible loose material without damaging the tree.
+      Review fence clearance; avoid pulling attached vines from the crown.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Whole oak showing dead vine foliage, overhanging branches, and their relationship to the homeowner's fence." src="../img/T-202610011749-vines.jpg"/>
+<figcaption>Figure 7A · Vine foliage and fence overhang.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>7. Greenbelt overhang — vine and loose-material management</strong><strong class="amount">$270</strong></div><p>Cut manageable vines near their bases and remove safely reachable loose vegetation; do not pull attached vines from elevated limbs.</p></div></div></article>
+<article class="tree" id="T-202610011750">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-8">8.</span> American Elm — Property Edge</h3>
+<span class="id">T-202610011750</span>
+</div>
+<span class="priority">Clearance pruning</span>
+</div>
+<p class="meta">Young, healthy · Ownership to confirm</p>
+<p>
+<strong id="tree-8-1">8.1 Finding:</strong> Branches encroach onto homeowner property.
+    </p>
+<p>
+<strong id="tree-8-2">8.2 Recommendation:</strong> Retain and selectively prune
+      for clearance while preserving suitable crown structure.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Whole young elm showing its base, property edge, and branches requiring clearance pruning." src="../img/T-202610011750-clearance.jpg"/>
+<figcaption>Figure 8A · Boundary encroachment.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>8. Young American elm — boundary clearance prune</strong><strong class="amount">$210</strong></div><p>Selective branch pruning to improve residential clearance while preserving healthy branch structure.</p></div></div></article>
+<article class="tree" id="T-202610051527">
+<div class="tree-heading">
+<div>
+<h3><span id="tree-9">9.</span> Common Hackberry — Greenbelt Near Home</h3>
+<span class="id">T-202610051527</span>
+</div>
+<span class="priority">Prompt mitigation decision</span>
+</div>
+<p class="meta">Mature, two codominant stems · Base in greenbelt</p>
+<p>
+<strong id="tree-9-1">9.1 Finding:</strong> Included bark at the basal stem union
+      raises concern for stem separation. Branches extend toward the home.
+    </p>
+<p>
+<strong id="tree-9-2">9.2 Recommendation:</strong> Promptly assess the union and
+      select either retention with targeted reduction to reduce leverage
+      or complete removal, according to the defect’s severity.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Whole double-stem hackberry showing its greenbelt position and branches extending toward the residence." src="../img/T-202610051527-overview.jpg"/>
+<figcaption>Figure 9A · Tree position and house-facing branches.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed work &amp; HOA pricing</h4><div class="workitem"><div class="workheading"><strong>9a. Greenbelt hackberry — codominant union evaluation Prompt priority</strong><strong class="amount">$240</strong></div><p>Examine included-bark junction, document visible structural concerns and recommend retention/reduction versus removal. Advanced testing excluded.</p></div><div class="workitem"><div class="workheading"><strong>9b. Hackberry — conditional reduction Alternative A</strong><strong class="amount">$1,050</strong></div><p>Selective reduction of house-facing lever arms if retention is defensible after 9a. Not performed in conjunction with 9c.</p></div><div class="workitem"><div class="workheading"><strong>9c. Hackberry — sectional removal Alternative B</strong><strong class="amount">$2,520</strong></div><p>Controlled dismantling, rigging and debris removal if defect assessment establishes removal as preferred treatment. Stump grinding excluded. Not performed with 9b.</p></div><p class="pricing-note">9b and 9c are mutually exclusive alternatives; neither is authorized without the findings from 9a and a treatment decision.</p></div></article>
+<section class="note">
+<h3 id="section-10">10. Ongoing Boundary Management</h3>
+<p>
+<strong id="section-10-1">10.1</strong> Selectively manage encroaching volunteer saplings to maintain
+      clearance and a recognizable property edge. Retain desirable
+      vegetation and confirm authorization for work in the greenbelt.
+    </p>
+<div class="photos">
+<figure>
+<img alt="Whole double-stem hackberry showing its greenbelt position and branches extending toward the residence." src="../img/greenbelt-volunteer-trees.jpg"/>
+<figcaption>Figure 10A · Encroaching volunteer saplings.</figcaption>
+</figure>
+</div>
+<div class="priceblock"><h4>Proposed HOA price</h4><p>10. Boundary management — selective sapling clearing — $330. Small-scale removal/management of encroaching volunteer saplings, preserving desirable vegetation; assumes a single crew visit and modest accessible area.</p></div></section>
+<footer>
+<p>
+<strong id="section-11">11. Scope:</strong> Summary of recorded field observations;
+      not a complete property inventory or formal ISA risk rating.
+      Internal wood condition and property boundaries have not been
+      verified. Pruning reduces selected loads but cannot guarantee
+      a direction of failure. Reassess after significant changes or storms.
+    </p>
+<p>
+      Christian Castillo · Abundant Life Land &amp; Tree LLC<br/>
+<a href="mailto:abundant.life.land@gmail.com">
+        abundant.life.land@gmail.com
+      </a>
+</p>
+</footer>
+</main>
+</body>
+</html>

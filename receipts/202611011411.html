@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Receipt | Andy Knight | Abundant Life Land & Tree</title>
+
+  <style>
+    :root {
+      --ink: #1c3028;
+      --muted: #66766d;
+      --green: #2b5b45;
+      --line: #dbe5dd;
+      --paper: #ffffff;
+      --bg: #f3f5f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .sheet {
+      max-width: 780px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 54px 58px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 36px #1c30280c;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 26px;
+      border-bottom: 2px solid var(--green);
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .tag {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: inline-block;
+      background: #e6f3eb;
+      color: #24603e;
+      border: 1px solid #b9ddc5;
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.07em;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      line-height: 1.15;
+      margin: 30px 0 6px;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 28px 0;
+    }
+
+    .label {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .value {
+      font-size: 15px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 22px;
+    }
+
+    .table th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+
+    .table td {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .table td:last-child,
+    .table th:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .details {
+      font-size: 13px;
+      color: #53645b;
+      margin-top: 5px;
+    }
+
+    .summary {
+      margin-left: auto;
+      width: min(100%, 335px);
+    }
+
+    .sumrow {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+    }
+
+    .sumrow.total {
+      border-top: 2px solid var(--green);
+      margin-top: 10px;
+      padding-top: 15px;
+      font-weight: 800;
+      font-size: 22px;
+    }
+
+    .paid {
+      color: #24603e;
+    }
+
+    .notes {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      padding-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      margin-top: 34px;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    a {
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      .sheet {
+        margin: 0;
+        padding: 30px 22px;
+        border: 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .top,
+      .footer {
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .sheet {
+        border: 0;
+        box-shadow: none;
+        margin: 0;
+        max-width: none;
+        padding: 10mm 12mm;
+      }
+
+      @page {
+        size: letter;
+        margin: 12mm;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="sheet">
+
+    <header class="top">
+      <div>
+        <div class="brand">
+          Abundant Life Land &amp; Tree LLC
+        </div>
+        <div class="tag">
+          Tree Care · Land Stewardship · Horticulture
+        </div>
+      </div>
+
+      <div class="status">PAID IN FULL</div>
+    </header>
+
+    <h1>Payment Receipt</h1>
+
+    <p class="sub">
+      Issued November 2, 2026 ·
+      Reference: Service Agreement 202609261549
+    </p>
+
+    <section class="grid">
+
+      <div>
+        <div class="label">Received from</div>
+        <div class="value">
+          <strong>Andy Knight</strong><br>
+          <a href="mailto:andy.knight@youversion.com">
+            andy.knight@youversion.com
+          </a><br>
+          817-879-4365
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Service location</div>
+        <div class="value">
+          24610 N Westminster Rd<br>
+          Arcadia, OK 73007
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Payment method</div>
+        <div class="value">Check</div>
+      </div>
+
+      <div>
+        <div class="label">Payment status</div>
+        <div class="value">
+          <strong>Paid in full</strong>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="label">Work covered by payment</div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            <strong>Tree Removal &amp; Stump Grinding</strong>
+
+            <div class="details">
+              Complete removal of identified tree;
+              collection and removal of associated
+              existing downed material, logs, limbs,
+              brush and above-ground debris;
+              grinding of remaining stump to practical
+              depth; and general work-area cleanup.
+              Stump grindings remain onsite as
+              specified in the agreement.
+            </div>
+          </td>
+
+          <td>$1,400.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="summary">
+
+      <div class="sumrow">
+        <span>Agreed contract price</span>
+        <span>$1,400.00</span>
+      </div>
+
+      <div class="sumrow">
+        <span>Received by check</span>
+        <span class="paid">−$1,400.00</span>
+      </div>
+
+      <div class="sumrow total">
+        <span>Balance due</span>
+        <span>$0.00</span>
+      </div>
+
+    </section>
+
+    <div class="notes">
+      This receipt acknowledges payment for the scope
+      described in the
+      <a href="https://abundantlife.land/service-agreements/202609261549.html">
+        original service agreement
+      </a>.
+
+      Issuance date is not necessarily the check receipt
+      or deposit date.
+    </div>
+
+    <footer class="footer">
+
+      <span>
+        Abundant Life Land &amp; Tree LLC<br>
+        <a href="https://abundantlife.land">
+          abundantlife.land
+        </a>
+      </span>
+
+      <span>
+        <a href="mailto:abundant.life.land@gmail.com">
+          abundant.life.land@gmail.com
+        </a>
+      </span>
+
+    </footer>
+
+  </main>
+</body>
+</html>

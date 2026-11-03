@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Payment Receipt | Jerry Valentine |
+    Abundant Life Land & Tree
+  </title>
+
+  <style>
+    :root {
+      --ink: #1c3028;
+      --muted: #66766d;
+      --green: #2b5b45;
+      --line: #dbe5dd;
+      --paper: #ffffff;
+      --bg: #f3f5f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .sheet {
+      max-width: 780px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 54px 58px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 36px #1c30280c;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 26px;
+      border-bottom: 2px solid var(--green);
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .tag {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: inline-block;
+      background: #e6f3eb;
+      color: #24603e;
+      border: 1px solid #b9ddc5;
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+      letter-spacing: 0.07em;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      line-height: 1.15;
+      margin: 30px 0 6px;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin: 0 0 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 28px 0;
+    }
+
+    .label {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .value {
+      font-size: 15px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 22px;
+    }
+
+    .table th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+
+    .table td {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .table td:last-child,
+    .table th:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .details {
+      font-size: 13px;
+      color: #53645b;
+      margin-top: 5px;
+    }
+
+    .summary {
+      margin-left: auto;
+      width: min(100%, 335px);
+    }
+
+    .sumrow {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+    }
+
+    .sumrow.total {
+      border-top: 2px solid var(--green);
+      margin-top: 10px;
+      padding-top: 15px;
+      font-weight: 800;
+      font-size: 22px;
+    }
+
+    .paid {
+      color: #24603e;
+    }
+
+    .notes {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      padding-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .review {
+      margin-top: 18px;
+      font-size: 13px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      margin-top: 34px;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    a {
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      .sheet {
+        margin: 0;
+        padding: 30px 22px;
+        border: 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .top,
+      .footer {
+        flex-direction: column;
+      }
+    }
+
+    @page {
+      size: letter;
+      margin: 12mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .sheet {
+        border: 0;
+        box-shadow: none;
+        margin: 0;
+        max-width: none;
+        padding: 10mm 12mm;
+      }
+
+      .top,
+      .grid,
+      .summary,
+      .notes,
+      .footer {
+        break-inside: avoid;
+      }
+
+      * {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="sheet">
+
+    <header class="top">
+      <div>
+        <div class="brand">
+          Abundant Life Land &amp; Tree LLC
+        </div>
+
+        <div class="tag">
+          Tree Care · Land Stewardship · Horticulture
+        </div>
+      </div>
+
+      <div class="status">PAID IN FULL</div>
+    </header>
+
+    <h1>Payment Receipt</h1>
+
+    <p class="sub">
+      Issued November 3, 2026
+    </p>
+
+    <section class="grid">
+
+      <div>
+        <div class="label">Received from</div>
+        <div class="value">
+          <strong>Jerry Valentine</strong><br>
+          <a href="tel:+14054712858">
+            (405) 471-2858
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Service location</div>
+        <div class="value">
+          2500 Sand Plum Cir<br>
+          Edmond, OK 73025
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Service date</div>
+        <div class="value">
+          November 3, 2026
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Payment date</div>
+        <div class="value">
+          November 3, 2026
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Payment method</div>
+        <div class="value">
+          Check
+        </div>
+      </div>
+
+      <div>
+        <div class="label">Payment status</div>
+        <div class="value">
+          <strong>Paid in full</strong>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="label">Work covered by payment</div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            <strong>
+              Bradford Pear Clearance Pruning
+              — Two Trees
+            </strong>
+
+            <div class="details">
+              Clearance pruning services performed
+              on two Bradford pear trees
+              (Pyrus calleryana 'Bradford').
+
+              Selective pruning of encroaching
+              branches to improve clearance
+              from adjacent structures and/or
+              designated use areas, while
+              considering appropriate pruning
+              practices and the trees'
+              existing structural condition.
+
+              Services completed November 3, 2026.
+            </div>
+          </td>
+
+          <td>$400.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="summary">
+
+      <div class="sumrow">
+        <span>Total service amount</span>
+        <span>$400.00</span>
+      </div>
+
+      <div class="sumrow">
+        <span>Payment received by check</span>
+        <span class="paid">−$400.00</span>
+      </div>
+
+      <div class="sumrow total">
+        <span>Balance due</span>
+        <span>$0.00</span>
+      </div>
+
+    </section>
+
+    <div class="notes">
+      This receipt acknowledges that clearance
+      pruning services were rendered at the
+      property identified above and that payment
+      of $400.00 was received in full by check
+      on November 3, 2026.
+
+      No outstanding balance remains for the
+      services described.
+
+      <p>
+        Thank you for trusting Abundant Life Land
+        &amp; Tree LLC with the care and stewardship
+        of your trees.
+      </p>
+
+      <div class="review">
+        We'd appreciate your feedback!
+        <a href="https://g.page/r/CVX__zL2hu3_EBE/review"
+           target="_blank" rel="noopener noreferrer">
+          Leave us a Google Review
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+
+      <span>
+        Abundant Life Land &amp; Tree LLC<br>
+        <a href="https://abundantlife.land">
+          abundantlife.land
+        </a>
+      </span>
+
+      <span>
+        <a href="mailto:abundant.life.land@gmail.com">
+          abundant.life.land@gmail.com
+        </a>
+      </span>
+
+    </footer>
+
+  </main>
+</body>
+</html>

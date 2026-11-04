@@ -1,0 +1,2414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
+
+<title>
+  Serra Woodland Edge Condition and Restoration Report
+  | Abundant Life Land & Tree LLC
+</title>
+
+<style>
+:root {
+  --ink: #24372f;
+  --muted: #627068;
+  --green: #285542;
+  --line: #dce3dc;
+  --light: #f3f6f2;
+  --urgent: #943d2d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #edf1ec;
+  color: var(--ink);
+  font: 15px/1.55 system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 42px;
+  background: white;
+}
+
+header {
+  border-bottom: 3px solid var(--green);
+  padding-bottom: 22px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 10px 0 16px;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 30px 0 12px;
+  font-size: 21px;
+  color: var(--green);
+}
+
+h3 {
+  margin: 19px 0 8px;
+  font-size: 17px;
+}
+
+p {
+  margin: 9px 0;
+}
+
+a {
+  color: var(--green);
+}
+
+.meta, .small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+section {
+  margin-bottom: 25px;
+}
+
+.summary,
+.notice {
+  margin: 22px 0;
+  padding: 19px;
+  background: #f4f8f5;
+  border-left: 4px solid var(--green);
+}
+
+.action {
+  margin: 24px 0;
+  padding: 21px;
+  background: #fff4ee;
+  border-left: 5px solid var(--urgent);
+}
+
+.action h2,
+.summary h2 {
+  margin-top: 0;
+}
+
+li {
+  margin: 8px 0;
+}
+
+.finding {
+  border-bottom: 1px solid var(--line);
+  padding: 15px 0;
+}
+
+.finding:last-child {
+  border-bottom: none;
+}
+
+.recommendation {
+  margin: 14px 0;
+  padding: 14px 17px;
+  background: var(--light);
+  border-left: 3px solid var(--green);
+}
+
+.photos {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+
+figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--light);
+  overflow: hidden;
+}
+
+figure.wide {
+  grid-column: 1 / -1;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: contain;
+}
+
+figcaption {
+  padding: 11px 13px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+figcaption strong {
+  color: var(--ink);
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 13px;
+}
+
+.price-table th,
+.price-table td {
+  padding: 11px 9px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.price-table th {
+  background: var(--light);
+}
+
+.price-table td:last-child,
+.price-table th:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.price-table tfoot td {
+  border-top: 2px solid var(--green);
+  font-weight: 800;
+}
+
+.budget {
+  padding: 19px;
+  background: var(--green);
+  color: white;
+  text-align: right;
+}
+
+.budget strong {
+  display: block;
+  font-size: 30px;
+}
+
+.request {
+  margin: 28px 0;
+  padding: 22px;
+  border: 2px solid var(--green);
+}
+
+.request h2 {
+  margin-top: 0;
+}
+
+footer {
+  margin-top: 35px;
+  border-top: 2px solid var(--green);
+  padding-top: 17px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 650px) {
+  main {
+    margin: 0;
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .photos {
+    grid-template-columns: 1fr;
+  }
+
+  figure.wide {
+    grid-column: auto;
+  }
+
+  .price-table {
+    font-size: 11px;
+  }
+
+  .price-table td,
+  .price-table th {
+    padding: 8px 5px;
+  }
+}
+
+@page {
+  size: letter;
+  margin: .62in .67in;
+}
+
+@media print {
+  body {
+    background: white;
+    font: 9.6pt/1.45 Arial, sans-serif;
+  }
+
+  main {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  h1 {
+    font-size: 21pt;
+  }
+
+  h2 {
+    font-size: 14pt;
+    break-after: avoid-page;
+  }
+
+  h3 {
+    font-size: 11pt;
+    break-after: avoid-page;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .finding {
+    break-inside: auto;
+  }
+
+  .photos {
+    gap: 8pt;
+  }
+
+  figure {
+    break-inside: avoid;
+  }
+
+  figure img {
+    max-height: 2.6in;
+  }
+
+  figure.wide img {
+    max-height: 3.5in;
+  }
+
+  figcaption {
+    font-size: 8pt;
+    padding: 7pt;
+  }
+
+  .price-table {
+    font-size: 8.5pt;
+  }
+
+  .price-table thead {
+    display: table-header-group;
+  }
+
+  .price-table tr {
+    break-inside: avoid;
+  }
+
+  .price-table td,
+  .price-table th {
+    padding: 6pt !important;
+  }
+
+  .budget,
+  .request,
+  .recommendation {
+    break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<header>
+
+  <div class="eyebrow">
+    Abundant Life Land &amp; Tree LLC
+  </div>
+
+  <h1>
+    Serra Woodland Edge Condition
+    and Restoration Report
+  </h1>
+
+  <p>
+    <strong>Prepared for:</strong>
+    Laura Serra<br>
+    340 Kristy Dr<br>
+    Edmond, OK 73003
+  </p>
+
+  <p>
+    <strong>Prepared by:</strong>
+    Christian Castillo<br>
+    Abundant Life Land &amp; Tree LLC
+  </p>
+
+  <p class="meta">
+    Field inspections:
+    October 26 and 29, 2026<br>
+    Report issued: November 4, 2026<br>
+    Prepared for presentation to the
+    Homeowners Association
+  </p>
+
+</header>
+
+<!-- EXECUTIVE SUMMARY -->
+
+<section class="summary">
+
+  <h2>Executive Summary</h2>
+
+  <p>
+    This report documents physical
+    disturbance to a wooded area
+    adjoining the residence of
+    Laura Serra at 340 Kristy Drive,
+    Edmond, Oklahoma.
+  </p>
+
+  <p>
+    Site inspections conducted on
+    October 26 and 29, 2026,
+    identified extensive surface
+    disturbance, tracked-equipment
+    impressions, displaced soil,
+    altered vegetation cover,
+    and declining crown conditions
+    in approximately twelve
+    surviving elm trees.
+  </p>
+
+  <p>
+    The affected elms are
+    approximately 7–10 inches
+    in diameter at breast height
+    (DBH), based on field estimates.
+  </p>
+
+  <p>
+    Field observations included
+    widespread cracking of
+    clay-rich surface soil,
+    machinery ruts approximately
+    3–4 inches deep,
+    and apparent fill material
+    covering root flares
+    near the disturbed area.
+  </p>
+
+  <p>
+    Previously established
+    herbaceous vegetation,
+    reportedly reaching
+    approximately 3–4 feet
+    in height, has been removed
+    from portions of the
+    disturbed woodland.
+  </p>
+
+  <p>
+    A dated photograph from
+    May 25, 2018, documents
+    substantial multilayered
+    woodland screening behind
+    the residence.
+  </p>
+
+  <p>
+    Current conditions raise
+    concerns regarding soil
+    degradation, reduced
+    root-zone moisture retention,
+    altered environmental
+    exposure, and long-term
+    tree vitality.
+  </p>
+
+  <p>
+    <strong>
+      The recommended HOA response
+      is to protect surviving trees,
+      support corrective deadwood
+      pruning, restore the disturbed
+      root zones, and establish
+      a long-term woodland buffer
+      restoration program.
+    </strong>
+  </p>
+
+</section>
+
+<!-- HOA ACTION -->
+
+<section class="action">
+
+  <h2>1. Requested HOA Action</h2>
+
+  <p>
+    The HOA should review the
+    documented disturbance and
+    coordinate a comprehensive
+    response to protect surviving
+    trees and restore the
+    residential woodland edge.
+  </p>
+
+  <ol>
+
+    <li>
+      <strong>
+        Prevent additional
+        mechanical disturbance.
+      </strong>
+
+      Restrict heavy machinery,
+      grading, soil dumping,
+      and material storage
+      within the affected
+      woodland root zones.
+    </li>
+
+    <li>
+      <strong>
+        Support corrective
+        pruning of approximately
+        twelve affected elms.
+      </strong>
+
+      Remove confirmed dead
+      branches where appropriate,
+      preserving living foliage
+      needed for recovery.
+    </li>
+
+    <li>
+      <strong>
+        Fund restorative
+        organic-matter installation.
+      </strong>
+
+      Protect exposed root zones
+      with properly applied
+      coarse arborist wood chips
+      and appropriate surface
+      vegetation.
+    </li>
+
+    <li>
+      <strong>
+        Address potentially
+        buried root flares.
+      </strong>
+
+      Verify the composition
+      and depth of deposited
+      material before undertaking
+      careful corrective work.
+    </li>
+
+    <li>
+      <strong>
+        Reestablish woodland
+        screening and understory.
+      </strong>
+
+      Develop native plantings
+      that address privacy,
+      security, ecological
+      function, erosion,
+      runoff, noise buffering,
+      and nighttime light
+      intrusion.
+    </li>
+
+    <li>
+      <strong>
+        Establish long-term
+        recovery monitoring.
+      </strong>
+
+      Support ongoing inspections
+      and establishment care
+      through multiple
+      growing seasons.
+    </li>
+
+  </ol>
+
+</section>
+
+<!-- INSPECTION -->
+
+<section>
+
+  <h2>2. Inspection Methods and Scope</h2>
+
+  <p>
+    Christian Castillo of Abundant
+    Life Land &amp; Tree LLC
+    conducted site inspections
+    on October 26 and 29, 2026.
+  </p>
+
+  <p>
+    Areas personally inspected
+    included the rear residential
+    yard, fence line, disturbed
+    machinery corridor, and
+    accessible remaining
+    woodland interior.
+  </p>
+
+  <p>
+    Inspection methods consisted
+    of visual examination,
+    photographic documentation,
+    manual probing of the
+    soil surface, assessment
+    of apparent moisture and
+    resistance to penetration,
+    and comparison with
+    less-disturbed areas.
+  </p>
+
+  <p>
+    Conditions were sunny,
+    with relatively low
+    soil moisture.
+    The affected site was
+    accessible on foot.
+  </p>
+
+  <p>
+    The inspection did not
+    include laboratory soil
+    analysis, bulk-density
+    testing, calibrated
+    penetrometer readings,
+    invasive root investigation,
+    or advanced internal
+    tree examination.
+  </p>
+
+  <p>
+    Measurements reported
+    below are field estimates
+    unless explicitly stated
+    otherwise.
+  </p>
+
+</section>
+
+<!-- HISTORY -->
+
+<section>
+
+  <h2>3. Reported Disturbance History</h2>
+
+  <p>
+    Woodland clearing reportedly
+    occurred earlier in 2026.
+    The exact beginning and
+    completion dates have
+    not been verified.
+  </p>
+
+  <p>
+    According to information
+    provided by the resident,
+    the work proceeded following
+    an indication of approval
+    from the HOA president.
+  </p>
+
+  <p>
+    The broader HOA membership
+    reportedly was not consulted
+    or asked to vote before
+    the clearing occurred.
+  </p>
+
+  <p>
+    This report does not
+    independently establish
+    the scope of that approval,
+    whether written authorization
+    was issued, or whether
+    applicable HOA governance
+    procedures were followed.
+  </p>
+
+  <p>
+    The resident reports
+    deterioration in the
+    condition of nearby
+    elm trees following
+    the disturbance.
+  </p>
+
+  <p>
+    The chronology is
+    consistent with a potential
+    relationship between
+    site disturbance and
+    subsequent tree stress.
+    It does not, by itself,
+    establish exclusive
+    causation.
+  </p>
+
+</section>
+
+<!-- HISTORICAL EVIDENCE -->
+
+<section>
+
+  <h2>
+    4. Historical Woodland
+    Condition and Screening
+  </h2>
+
+  <div class="photos">
+
+    <figure class="wide">
+
+      <img
+        src="../img/woodland-edge-before-mechanized-disturbance-edmond-oklahoma.jpeg"
+        alt="Woodland buffer behind
+             Laura Serra's residence,
+             May 25, 2018"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 1 — Historical
+          Woodland Condition.
+        </strong>
+
+        May 25, 2018.
+
+        The image depicts a
+        multilayered wooded buffer
+        behind the residential
+        fence, including mature
+        trees, smaller woody
+        vegetation, and ground cover.
+      </figcaption>
+
+    </figure>
+
+  </div>
+
+  <p>
+    The historical photograph
+    was taken from approximately
+    the same portion of the
+    residential backyard
+    represented in the
+    current documentation.
+  </p>
+
+  <p>
+    It establishes that a
+    densely vegetated woodland
+    buffer was present
+    in May 2018.
+  </p>
+
+  <p>
+    The wooded setting
+    provided visual screening
+    beyond the backyard's
+    ornamental fence,
+    and formed part of an
+    established residential
+    recreational environment.
+  </p>
+
+  <p>
+    The photographed vegetation
+    likely contributed to
+    localized shading,
+    wind moderation,
+    interception of rainfall,
+    and habitat diversity.
+  </p>
+
+  <p>
+    These functions were
+    not quantitatively measured.
+  </p>
+
+  <p>
+    The photograph establishes
+    historic conditions,
+    rather than the precise
+    number and species
+    of plants present
+    immediately before
+    the 2026 clearing.
+  </p>
+
+</section>
+
+<!-- FIELD FINDINGS -->
+
+<section>
+
+  <h2>5. Recorded Field Findings</h2>
+
+  <article class="finding">
+
+    <h3>
+      5.1 Machinery Traffic
+      and Soil Disturbance
+    </h3>
+
+    <p>
+      Track impressions
+      approximately 3–4 inches
+      deep were observed
+      through portions of
+      the disturbed woodland.
+    </p>
+
+    <p>
+      Soil displacement,
+      surface deformation,
+      and areas of exposed
+      clay were documented.
+    </p>
+
+    <p>
+      Manual probing and
+      comparison with
+      less-disturbed soil
+      suggested increased
+      resistance to penetration
+      in disturbed areas.
+    </p>
+
+    <p>
+      These findings are
+      consistent with mechanical
+      disturbance and possible
+      compaction.
+    </p>
+
+    <p>
+      The degree and depth
+      of subsurface compaction
+      have not been quantified.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>
+        Recommendation:
+      </strong>
+
+      Prevent additional equipment
+      traffic and implement
+      surface rehabilitation.
+
+      No generalized mechanical
+      cultivation or aggressive
+      soil excavation is
+      recommended at this stage.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      5.2 Loss of Surface
+      Vegetation and Organic Cover
+    </h3>
+
+    <p>
+      The resident describes
+      previously established
+      wild grass and herbaceous
+      vegetation reaching
+      approximately 3–4 feet
+      in height.
+    </p>
+
+    <p>
+      The current disturbed
+      areas exhibit widespread
+      exposed clay and
+      limited organic cover.
+    </p>
+
+    <p>
+      Remnants of forestry
+      mulching were observed
+      in localized piles,
+      rather than distributed
+      across the exposed soil.
+    </p>
+
+    <p>
+      The reduction in
+      surface vegetation
+      and organic cover
+      may increase direct
+      solar exposure,
+      evaporation, surface
+      temperatures, runoff,
+      and erosion.
+    </p>
+
+    <p>
+      Widespread surface
+      cracking was observed.
+      Such cracking can
+      result from drying
+      and shrinkage of
+      clay-rich soil and
+      does not independently
+      establish compaction.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>
+        Recommendation:
+      </strong>
+
+      Restore organic surface
+      protection using coarse
+      arborist wood chips
+      and suitable vegetation.
+
+      Avoid burial of
+      trunk bases and
+      excessive mulch depth.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      5.3 Deposited Material
+      and Buried Root Flares
+    </h3>
+
+    <p>
+      In portions of the
+      disturbed site,
+      soil material had been
+      deposited near existing
+      tree bases.
+    </p>
+
+    <p>
+      Some root flares
+      appeared buried
+      beneath displaced
+      clay and a pale
+      powder-like material.
+    </p>
+
+    <p>
+      The pale material
+      visually resembled
+      concrete powder,
+      but its composition
+      has not been verified.
+    </p>
+
+    <p>
+      If cementitious
+      or strongly alkaline
+      material is present,
+      it may warrant
+      specific investigation
+      before restoration.
+    </p>
+
+    <p>
+      Burial of root flares
+      and elevation of soil
+      grade may interfere
+      with favorable
+      root-zone conditions.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>
+        Recommendation:
+      </strong>
+
+      Document the location
+      and depth of fill,
+      determine the identity
+      of the unknown material,
+      and carefully expose
+      affected root flares
+      to an appropriate
+      original grade.
+
+      Avoid injuring bark
+      and structural roots.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      5.4 Elm Crown Decline
+    </h3>
+
+    <p>
+      Approximately twelve
+      surviving elms,
+      estimated at 7–10 inches
+      DBH, exhibited varying
+      degrees of crown decline.
+    </p>
+
+    <p>
+      Observations included
+      branch dieback,
+      irregular crown density,
+      minimal yellowing,
+      and limited premature
+      leaf drop.
+    </p>
+
+    <p>
+      No pronounced wilting
+      or conspicuous insect
+      activity was observed
+      during the inspections.
+    </p>
+
+    <p>
+      The resident describes
+      a gradual onset
+      of decline.
+    </p>
+
+    <p>
+      The pattern is compatible
+      with physiological stress
+      associated with unfavorable
+      growing conditions.
+    </p>
+
+    <p>
+      Soil disturbance and
+      reduced moisture
+      retention may have
+      compounded heat and
+      moisture stress
+      during the summer.
+    </p>
+
+    <p>
+      Other causes, including
+      vascular disease,
+      remain possible.
+    </p>
+
+    <p>
+      The absence of marked
+      wilting during inspection
+      and the reportedly gradual
+      onset do not rule out
+      Dutch elm disease.
+    </p>
+
+    <p>
+      Species identification,
+      the proportion of
+      dead crown, and
+      disease status
+      have not been
+      definitively established.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>
+        Recommendation:
+      </strong>
+
+      Retain and monitor
+      the living elm population
+      unless individual
+      structural assessments
+      warrant removal.
+
+      Prioritize root-zone
+      improvement and removal
+      of confirmed deadwood.
+
+      Pursue diagnostic sampling
+      if characteristic
+      vascular symptoms
+      or progressive
+      flagging develop.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      5.5 Mechanical
+      Branch Injuries
+    </h3>
+
+    <p>
+      The photographic record
+      includes trees exhibiting
+      fractured branch
+      attachments, exposed wood,
+      irregular cuts,
+      and torn woody tissue.
+    </p>
+
+    <p>
+      Such injuries can
+      affect local structural
+      condition and create
+      sites susceptible
+      to future wood decay.
+    </p>
+
+    <p>
+      The exact date
+      and cause of each
+      photographed wound
+      have not been verified.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>
+        Recommendation:
+      </strong>
+
+      Examine significant
+      wounds individually.
+
+      Remove hazardous
+      broken material
+      and make appropriate
+      corrective pruning cuts
+      where beneficial.
+
+      Avoid enlarging trunk
+      wounds unnecessarily
+      or removing healthy
+      foliage without
+      a clear purpose.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      5.6 Residential
+      Woodland Buffer Loss
+    </h3>
+
+    <p>
+      Clearing extends
+      to the vicinity
+      of Laura Serra's
+      property boundary.
+    </p>
+
+    <p>
+      The resident has
+      expressed concern
+      that the disturbance
+      may extend across
+      the property line.
+    </p>
+
+    <p>
+      A boundary survey
+      has not been conducted.
+      Encroachment onto
+      private property
+      is therefore
+      not established
+      by this report.
+    </p>
+
+    <p>
+      The changes in
+      vegetation have
+      reduced the apparent
+      density and continuity
+      of the historic
+      woodland buffer.
+    </p>
+
+    <p>
+      The resident identifies
+      diminished privacy,
+      security, noise buffering,
+      and increased intrusion
+      of nearby street lighting
+      as significant concerns.
+    </p>
+
+    <p>
+      Runoff, erosion control,
+      and long-term ecological
+      recovery are additional
+      restoration objectives.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>
+        Recommendation:
+      </strong>
+
+      Restore a layered
+      native woodland-edge
+      planting scheme
+      that addresses both
+      ecological function
+      and residential screening.
+
+      Confirm planting limits
+      and site permissions
+      before installation.
+
+    </div>
+
+  </article>
+
+</section>
+
+<!-- COMPLETED WORK -->
+
+<section>
+
+  <h2>
+    6. Initial Remediation
+    Already Performed
+  </h2>
+
+  <p>
+    Abundant Life Land &amp;
+    Tree LLC has completed
+    an initial organic
+    surface restoration
+    intervention near
+    the rear residential
+    boundary.
+  </p>
+
+  <p>
+    Approximately 3 cubic yards
+    of coarse, natural,
+    locally sourced arborist
+    wood chips were installed
+    beneath the affected
+    elm grouping.
+  </p>
+
+  <p>
+    The material was applied
+    at approximately
+    3 inches in depth.
+  </p>
+
+  <p>
+    The purpose was
+    to provide immediate
+    surface protection,
+    moderate soil temperature,
+    reduce evaporative losses,
+    and create favorable
+    conditions for gradual
+    improvement of the
+    organic surface layer.
+  </p>
+
+  <p>
+    The out-of-pocket
+    cost of this completed
+    intervention was
+    <strong>$360.00</strong>.
+  </p>
+
+  <div class="notice">
+
+    <strong>
+      Accounting distinction:
+    </strong>
+
+    This amount represents
+    completed work and
+    is included separately
+    in the restoration
+    budget below.
+
+    Any reimbursement or
+    payment obligation
+    should be confirmed
+    before final invoicing.
+
+  </div>
+
+</section>
+
+<!-- PHOTOS -->
+
+<section>
+
+  <h2>7. Contemporary Photographic Evidence</h2>
+
+  <p class="small">
+    Photographs provided from
+    the October 2026 site review.
+    The precise capture date
+    of each photograph
+    has not been separately verified.
+  </p>
+
+  <div class="photos">
+
+    <figure>
+
+      <img
+        src="../img/elms-post-compaction-edmond-oklahoma.jpg"
+        alt="Elm grouping with
+             irregular foliage density"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 2 — Elm Crown Condition.
+        </strong>
+
+        Multiple stems with
+        apparent crown thinning
+        and bare branches.
+      </figcaption>
+
+    </figure>
+
+    <figure>
+
+      <img
+        src="../img/exposed-surface-soil.jpg"
+        alt="Exposed clay-rich soil"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 3 — Exposed Surface Soil.
+        </strong>
+
+        Cracked clay surface
+        with sparse organic cover.
+      </figcaption>
+
+    </figure>
+
+    <figure>
+
+      <img
+        src="../img/improper-puning-wound-elm.jpg"
+        alt="Exposed wood at
+             branch attachment"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 4 — Branch Wound.
+        </strong>
+
+        Exposed wood and
+        localized discoloration.
+      </figcaption>
+
+    </figure>
+
+    <figure>
+
+      <img
+        src="../img/surviving-trees-woodland-edge.jpg"
+        alt="Disturbed woodland edge
+             behind residential fence"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 5 — Woodland Edge.
+        </strong>
+
+        Surviving trees adjacent
+        to cleared ground.
+      </figcaption>
+
+    </figure>
+
+    <figure class="wide">
+
+      <img
+        src="../img/soil-compaction-heavy-machinery-tracks.jpg"
+        alt="Heavy machinery tracks
+             through disturbed clay soil"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 6 — Machinery Corridor.
+        </strong>
+
+        Repeated tracked-equipment
+        impressions and
+        displaced soil.
+      </figcaption>
+
+    </figure>
+
+    <figure class="wide">
+
+      <img
+        src="../img/damaged-bark.jpg"
+        alt="Splintered branch
+             attachment with torn wood"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 7 — Mechanical Injury.
+        </strong>
+
+        Fractured branch attachment
+        and exposed woody tissue.
+      </figcaption>
+
+    </figure>
+
+  </div>
+
+</section>
+
+<!-- RESTORATION PLAN -->
+
+<section>
+
+  <h2>8. Recommended Restoration Program</h2>
+
+  <h3>
+    Phase I — Protect
+    Existing Woodland
+  </h3>
+
+  <p>
+    Establish appropriate
+    root-zone exclusion
+    areas and suspend
+    unnecessary mechanical
+    activity in the
+    affected woodland.
+  </p>
+
+  <p>
+    Avoid additional
+    soil dumping,
+    grading, excavation,
+    and equipment storage
+    near retained trees.
+  </p>
+
+  <h3>
+    Phase II — Corrective
+    Elm Pruning
+  </h3>
+
+  <p>
+    Conduct selective deadwood
+    pruning of approximately
+    twelve affected elms,
+    subject to individual
+    inspection and confirmation
+    of dead branch condition.
+  </p>
+
+  <p>
+    Tree size is estimated
+    at 7–10 inches DBH.
+  </p>
+
+  <p>
+    Access does not
+    reasonably accommodate
+    an aerial lift.
+  </p>
+
+  <p>
+    Work should be carried
+    out by a small,
+    appropriately equipped
+    crew using manual
+    access methods,
+    ladders where suitable,
+    and climbing techniques.
+  </p>
+
+  <p>
+    Pruning should emphasize
+    removal of confirmed
+    dead material without
+    unnecessary live-crown
+    reduction.
+  </p>
+
+  <p>
+    Applicable ANSI A300
+    pruning practices
+    and ANSI Z133
+    safety requirements
+    should be followed.
+  </p>
+
+  <h3>
+    Phase III — Soil
+    Surface Rehabilitation
+  </h3>
+
+  <p>
+    Expand the initial
+    coarse wood-chip
+    restoration across
+    appropriate disturbed
+    portions of the
+    woodland and
+    retained root zones.
+  </p>
+
+  <p>
+    Approximately 25 cubic
+    yards of organic material
+    are provisionally
+    anticipated in total,
+    including the
+    3 cubic yards
+    already installed.
+  </p>
+
+  <p>
+    Maintain approximately
+    3 inches of mulch
+    where appropriate,
+    without burying
+    trunks or root flares.
+  </p>
+
+  <p>
+    The final installation
+    area should be measured
+    before authorization.
+  </p>
+
+  <p>
+    Distribute materials
+    using wheelbarrows
+    and manual labor
+    to avoid further
+    soil compaction.
+  </p>
+
+  <p>
+    At present,
+    widespread mechanical
+    decompaction is not
+    recommended.
+  </p>
+
+  <h3>
+    Phase IV — Woodland
+    Planting and Screening
+  </h3>
+
+  <p>
+    Reestablish a
+    native woodland-edge
+    vegetation layer
+    using a combination
+    of understory trees,
+    shrubs, and suitable
+    ground vegetation.
+  </p>
+
+  <p>
+    The provisional
+    planting scope includes
+    ten or more saplings,
+    supplemented by
+    appropriate native
+    grasses, forbs,
+    and shrubs.
+  </p>
+
+  <p>
+    Plant selection should
+    reflect available
+    sunlight, soil moisture,
+    mature plant size,
+    drainage, and proximity
+    to existing tree roots.
+  </p>
+
+  <p>
+    Appropriate native
+    candidates should
+    be selected from
+    species suited to
+    central Oklahoma
+    woodland-edge conditions.
+  </p>
+
+  <p>
+    Species and quantities
+    should be finalized
+    after evaluating
+    the actual planting
+    locations and
+    screening objectives.
+  </p>
+
+  <p>
+    Restore multiple
+    vegetation layers,
+    rather than relying
+    solely on a row
+    of replacement trees.
+  </p>
+
+  <h3>
+    Phase V — Establishment
+    and Monitoring
+  </h3>
+
+  <p>
+    Newly installed
+    vegetation should
+    receive supplemental
+    watering sufficient
+    to support establishment,
+    adjusted to rainfall,
+    season, soil drainage,
+    and plant requirements.
+  </p>
+
+  <p>
+    Retained elms should
+    be monitored during
+    at least the next
+    two growing seasons,
+    with additional follow-up
+    where decline persists.
+  </p>
+
+  <p>
+    Document crown condition,
+    new dieback,
+    wound progression,
+    and the establishment
+    of replacement vegetation.
+  </p>
+
+  <p>
+    The HOA should
+    consider funding
+    continuing care,
+    replacement of failed
+    plantings, and monitoring
+    as part of the
+    overall restoration
+    program.
+  </p>
+
+</section>
+
+<!-- BUDGET -->
+
+<section>
+
+  <h2>9. Preliminary HOA Restoration Budget</h2>
+
+  <p>
+    The following schedule
+    reflects preliminary
+    contractor pricing
+    based on anticipated
+    quantities and access.
+  </p>
+
+  <p>
+    Final costs depend
+    on confirmation
+    of work quantities,
+    planting design,
+    and project scope.
+  </p>
+
+  <table class="price-table">
+
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Work Description</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>1</td>
+        <td>
+          Completed organic
+          mulch installation:
+          3 cubic yards
+        </td>
+        <td>$360</td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>
+          Additional organic
+          mulch installation:
+          22 cubic yards
+          at $120 per yard
+        </td>
+        <td>$2,640</td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>
+          Corrective deadwood
+          pruning:
+          estimated 8 hours
+          for a two-person crew
+          at $135 per hour
+        </td>
+        <td>$1,080</td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>
+          Native woodland-edge
+          planting:
+          ten or more saplings,
+          shrubs, and/or
+          native seeding
+        </td>
+        <td>TBD</td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>
+          Planting installation
+          and establishment:
+          priced at 2.3 times
+          approved plant
+          and material cost
+        </td>
+        <td>TBD</td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>
+          Follow-up tree
+          inspections,
+          establishment
+          watering, and
+          replacement provisions
+        </td>
+        <td>TBD</td>
+      </tr>
+
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          PRICED PLANNING SUBTOTAL
+        </td>
+        <td>$4,080</td>
+      </tr>
+    </tfoot>
+
+  </table>
+
+  <div class="budget">
+
+    <div>
+      Preliminary quantified
+      restoration allowance
+    </div>
+
+    <strong>$4,080.00</strong>
+
+    <div>
+      Plus planting,
+      establishment,
+      and monitoring
+      costs to be determined
+    </div>
+
+  </div>
+
+  <p class="small">
+    The mulch allowance assumes
+    25 cubic yards total,
+    including the three
+    cubic yards already placed.
+    If 25 additional cubic yards
+    are required, the budget
+    must be adjusted accordingly.
+  </p>
+
+  <p class="small">
+    At approximately 3 inches
+    of application depth,
+    25 cubic yards would cover
+    roughly 2,700 square feet,
+    before adjustments for
+    site geometry and exclusions.
+    The area has not been measured.
+  </p>
+
+  <p class="small">
+    An eight-hour pruning day
+    is an estimate, not a
+    confirmed fixed scope.
+    Work exceeding the allowance
+    requires approval.
+  </p>
+
+  <p class="small">
+    Plant material and
+    establishment services
+    should not be duplicated
+    in final invoicing.
+    A defined planting schedule
+    will establish the applicable
+    material-cost basis
+    and final installation price.
+  </p>
+
+  <div class="notice">
+
+    <strong>Budget status:</strong>
+
+    This is a preliminary
+    restoration allowance,
+    not a complete fixed-price
+    contract.
+
+    HOA funding approval
+    should include the
+    specified initial work
+    and development of a
+    complete planting and
+    recovery budget.
+
+  </div>
+
+</section>
+
+<!-- IMPACT -->
+
+<section>
+
+  <h2>
+    10. Significance
+    of the Disturbance
+  </h2>
+
+  <h3>
+    10.1 Tree Health
+    and Root-Zone Function
+  </h3>
+
+  <p>
+    The observed physical
+    disturbance, loss of
+    organic surface cover,
+    possible compaction,
+    and apparent root-flare
+    burial present concerns
+    for surviving trees.
+  </p>
+
+  <p>
+    These changes may
+    reduce favorable
+    moisture, aeration,
+    and soil temperature
+    conditions.
+  </p>
+
+  <p>
+    Such conditions
+    could contribute
+    to decline, particularly
+    during periods
+    of high heat
+    and low soil moisture.
+  </p>
+
+  <h3>
+    10.2 Residential
+    Privacy and Amenity
+  </h3>
+
+  <p>
+    The historical photograph
+    demonstrates that
+    an established woodland
+    buffer previously
+    bordered the residence.
+  </p>
+
+  <p>
+    The resident reports
+    reduced visual privacy,
+    increased street-light
+    penetration, diminished
+    noise buffering,
+    and concerns
+    regarding security.
+  </p>
+
+  <p>
+    These concerns should
+    be addressed through
+    a vegetation plan
+    that restores meaningful
+    screening as plants mature.
+  </p>
+
+  <h3>
+    10.3 Runoff,
+    Erosion, and
+    Ecological Function
+  </h3>
+
+  <p>
+    Loss of vegetation
+    and organic cover
+    can reduce surface
+    protection and
+    alter runoff behavior.
+  </p>
+
+  <p>
+    Surface restoration
+    and appropriately
+    established vegetation
+    can contribute to
+    improved ground
+    stabilization and
+    ecological recovery.
+  </p>
+
+  <p>
+    No hydrologic modeling
+    or quantitative erosion
+    assessment has
+    been completed.
+  </p>
+
+</section>
+
+<!-- LIMITATIONS -->
+
+<section>
+
+  <h2>
+    11. Assessment Limitations
+    and Unresolved Questions
+  </h2>
+
+  <p>
+    This report documents
+    the accessible site
+    conditions observed
+    during the October
+    inspections and
+    incorporates resident
+    statements and
+    historical photographs.
+  </p>
+
+  <p>
+    The following matters
+    remain unresolved:
+  </p>
+
+  <ul>
+
+    <li>
+      Exact date and duration
+      of clearing activity.
+    </li>
+
+    <li>
+      Precise equipment
+      types and work methods.
+    </li>
+
+    <li>
+      Dimensions of the
+      disturbed woodland area.
+    </li>
+
+    <li>
+      Species, sizes,
+      and number of
+      trees or shrubs removed.
+    </li>
+
+    <li>
+      Exact extent of
+      subsurface root injury
+      and soil compaction.
+    </li>
+
+    <li>
+      Composition of the
+      pale deposited material
+      observed near root flares.
+    </li>
+
+    <li>
+      Extent of any
+      disturbance beyond
+      the residential
+      property line.
+    </li>
+
+    <li>
+      Specific diagnosis
+      of elm crown decline,
+      including possible
+      vascular disease.
+    </li>
+
+    <li>
+      Total planting and
+      long-term establishment
+      costs.
+    </li>
+
+  </ul>
+
+  <p>
+    The species composition
+    and quantity of vegetation
+    removed from the woodland
+    are particularly uncertain.
+    No formal pre-disturbance
+    tree inventory
+    is available.
+  </p>
+
+  <p>
+    The historical photograph
+    documents conditions
+    in May 2018,
+    but does not establish
+    the exact vegetation
+    present immediately
+    before the 2026 clearing.
+  </p>
+
+  <p>
+    The observed crown decline
+    may have multiple
+    contributing causes.
+    This report does not
+    establish a definitive
+    causal diagnosis.
+  </p>
+
+  <p>
+    No formal quantified
+    tree-risk assessment,
+    legal determination,
+    boundary survey,
+    environmental testing,
+    or monetary appraisal
+    of removed vegetation
+    is included.
+  </p>
+
+  <p>
+    The recommendations
+    reflect professional
+    judgment based on
+    currently available
+    information and
+    may require adjustment
+    as additional evidence
+    becomes available.
+  </p>
+
+</section>
+
+<!-- HOA REQUEST -->
+
+<section class="request">
+
+  <h2>
+    12. Recommended
+    HOA Resolution
+  </h2>
+
+  <p>
+    Based on the documented
+    mechanical disturbance,
+    altered soil conditions,
+    apparent tree injuries,
+    and reduction in
+    woodland screening,
+    the following actions
+    are recommended
+    for HOA consideration.
+  </p>
+
+  <ol>
+
+    <li>
+      <strong>
+        Establish protective
+        restrictions on additional
+        machinery activity
+        in the affected woodland.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Approve corrective
+        deadwood pruning
+        and root-zone
+        surface restoration
+        for the surviving
+        elm population.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Review and fund
+        the preliminary
+        $4,080 restoration
+        allowance, subject
+        to final verification
+        of quantities
+        and completed-work
+        accounting.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Commission a
+        woodland-edge
+        planting plan
+        that restores
+        residential privacy
+        and ecological function.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Establish a separate
+        planting and long-term
+        establishment budget
+        following approval
+        of the vegetation plan.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Provide continuing
+        oversight and monitoring
+        during the recovery
+        of surviving trees
+        and establishment
+        of replacement vegetation.
+      </strong>
+    </li>
+
+  </ol>
+
+  <p>
+    This approach addresses
+    both the immediate
+    physical condition
+    of retained trees
+    and the broader need
+    to restore the woodland
+    buffer adjoining
+    the Serra residence.
+  </p>
+
+</section>
+
+<!-- CONCLUSION -->
+
+<section>
+
+  <h2>13. Professional Conclusion</h2>
+
+  <p>
+    The October 2026
+    inspections documented
+    substantial surface
+    disturbance within
+    woodland adjoining
+    Laura Serra's residence.
+  </p>
+
+  <p>
+    Observable conditions
+    include machinery ruts,
+    displaced clay soil,
+    diminished organic
+    ground cover,
+    apparent root-flare
+    burial, and injuries
+    to retained trees.
+  </p>
+
+  <p>
+    Approximately twelve
+    elms display varying
+    degrees of crown
+    decline and branch
+    dieback.
+  </p>
+
+  <p>
+    The documented
+    disturbance provides
+    a plausible contributing
+    explanation for
+    physiological stress,
+    particularly when
+    considered alongside
+    low soil moisture
+    and summer heat.
+  </p>
+
+  <p>
+    The precise cause
+    and degree of
+    decline remain
+    undetermined.
+  </p>
+
+  <p>
+    Historical photographic
+    evidence establishes
+    that a substantial
+    woodland buffer
+    existed along
+    the residential edge
+    in May 2018.
+  </p>
+
+  <p>
+    The current reduced
+    vegetation cover
+    presents a separate
+    restoration concern
+    beyond the health
+    of individual trees.
+  </p>
+
+  <p>
+    <strong>
+      A coordinated program
+      of tree protection,
+      conservative corrective
+      pruning, organic
+      root-zone restoration,
+      native vegetation
+      reestablishment,
+      and ongoing monitoring
+      is recommended.
+    </strong>
+  </p>
+
+  <p>
+    The objective should
+    be to preserve
+    the surviving elm
+    population wherever
+    reasonably practicable
+    while progressively
+    restoring the screening,
+    soil protection,
+    and ecological character
+    of the woodland edge.
+  </p>
+
+</section>
+
+<!-- TECHNICAL REFERENCES -->
+
+<section>
+
+  <h2>14. Technical References</h2>
+
+  <p class="small">
+    Oklahoma State University
+    Extension — Site Disturbance
+    and Tree Decline.
+    <a href="https://extension.okstate.edu/fact-sheets/site-disturbance-and-tree-decline">
+      View publication
+    </a>
+  </p>
+
+  <p class="small">
+    Oklahoma State University
+    Extension — All You Need
+    to Know About Mulch.
+    <a href="https://extension.okstate.edu/fact-sheets/all-you-need-to-know-about-mulch">
+      View publication
+    </a>
+  </p>
+
+  <p class="small">
+    Oklahoma State University
+    Extension — Planting Trees
+    and Shrubs.
+    <a href="https://extension.okstate.edu/fact-sheets/planting-trees-and-shrubs">
+      View publication
+    </a>
+  </p>
+
+  <p class="small">
+    Oklahoma State University
+    Extension — Dutch Elm Disease.
+    <a href="https://extension.okstate.edu/programs/digital-diagnostics/plant-diseases/dutch-elm-disease">
+      View publication
+    </a>
+  </p>
+
+  <p class="small">
+    Oklahoma State University
+    Extension — Plant-It OK
+    plant selection resource.
+    <a href="https://extension.okstate.edu/programs/gardening/plant-it-app">
+      View resource
+    </a>
+  </p>
+
+</section>
+
+<footer>
+
+  <strong>
+    Abundant Life Land &amp; Tree LLC
+  </strong>
+
+  <p>
+    Prepared by Christian Castillo<br>
+    Arboricultural Services ·
+    Land Stewardship · Horticulture
+  </p>
+
+  <p>
+    <a href="https://abundantlife.land">
+      abundantlife.land
+    </a><br>
+
+    <a href="mailto:abundant.life.land@gmail.com">
+      abundant.life.land@gmail.com
+    </a>
+  </p>
+
+  <p>
+    Serra Woodland Edge Condition
+    and Restoration Report<br>
+    Inspected October 26 and 29, 2026<br>
+    Issued November 4, 2026
+  </p>
+
+</footer>
+
+</main>
+</body>
+</html>

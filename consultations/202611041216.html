@@ -1,0 +1,2095 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
+
+<title>
+  Woodland Edge Disturbance, Tree Condition
+  & Restoration Report | Abundant Life Land & Tree LLC
+</title>
+
+<style>
+:root {
+  --ink: #24372f;
+  --muted: #627068;
+  --green: #285542;
+  --line: #dce3dc;
+  --light: #f3f6f2;
+  --urgent: #943d2d;
+  --amber: #875d24;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #edf1ec;
+  color: var(--ink);
+  font: 15px/1.55 system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 42px;
+  background: white;
+}
+
+header {
+  border-bottom: 3px solid var(--green);
+  padding-bottom: 22px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 12px 0 18px;
+  font-size: 31px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 32px 0 13px;
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--green);
+}
+
+h3 {
+  font-size: 17px;
+  margin: 22px 0 8px;
+}
+
+h4 {
+  margin: 13px 0 6px;
+  font-size: 15px;
+}
+
+p {
+  margin: 9px 0;
+}
+
+a {
+  color: var(--green);
+}
+
+.meta, .small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+section {
+  margin-bottom: 26px;
+}
+
+.action {
+  margin: 26px 0;
+  padding: 22px;
+  background: #fff5ee;
+  border-left: 5px solid var(--urgent);
+}
+
+.action h2 {
+  margin-top: 0;
+  color: var(--ink);
+}
+
+.action li {
+  margin: 12px 0;
+}
+
+.summary {
+  padding: 20px;
+  background: #f4f8f5;
+  border: 1px solid var(--line);
+  margin: 25px 0;
+}
+
+.finding {
+  padding: 19px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.finding:last-child {
+  border-bottom: none;
+}
+
+.notice {
+  margin: 18px 0;
+  padding: 15px 18px;
+  background: var(--light);
+  border-left: 4px solid var(--green);
+}
+
+.caution {
+  margin: 18px 0;
+  padding: 15px 18px;
+  background: #faf6ee;
+  border-left: 4px solid var(--amber);
+}
+
+.evidence {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: #fafcf9;
+}
+
+.evidence h3 {
+  margin-top: 0;
+}
+
+.photos {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.photos figure:only-child {
+  grid-column: 1 / -1;
+  width: 80%;
+  justify-self: center;
+}
+
+figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--light);
+  overflow: hidden;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+figure.wide {
+  grid-column: 1 / -1;
+}
+
+figure.wide img {
+  max-height: 520px;
+}
+
+figcaption {
+  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+figcaption strong {
+  color: var(--ink);
+}
+
+.photo-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.worktable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 13px;
+}
+
+.worktable th,
+.worktable td {
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.worktable th {
+  background: var(--light);
+  color: var(--green);
+}
+
+.worktable td:last-child {
+  white-space: nowrap;
+}
+
+.worktable thead {
+  display: table-header-group;
+}
+
+.priority {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 9px;
+  margin: 6px 0;
+  background: var(--light);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.priority.urgent {
+  color: var(--urgent);
+  background: #fff1eb;
+  border-color: #e8c6ba;
+}
+
+.priority.high {
+  color: #73551e;
+  background: #faf4e5;
+  border-color: #e7dbb9;
+}
+
+.recommendation {
+  margin: 18px 0;
+  padding: 16px 18px;
+  background: #f4f8f5;
+  border-left: 4px solid var(--green);
+}
+
+.recommendation strong {
+  color: var(--green);
+}
+
+.numbered {
+  padding-left: 24px;
+}
+
+.numbered li {
+  margin-bottom: 14px;
+}
+
+.request {
+  margin-top: 26px;
+  padding: 22px;
+  border: 2px solid var(--green);
+}
+
+.request h2 {
+  margin-top: 0;
+}
+
+.signature {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+footer {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 2px solid var(--green);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+@media (max-width: 650px) {
+  main {
+    margin: 0;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .photos {
+    grid-template-columns: 1fr;
+  }
+
+  .photos figure:only-child {
+    width: 100%;
+  }
+
+  .worktable {
+    font-size: 11px;
+  }
+
+  .worktable th,
+  .worktable td {
+    padding: 8px 5px;
+  }
+}
+
+/* PDF EXPORT */
+
+@page {
+  size: letter;
+  margin: .62in .67in .67in;
+}
+
+@media print {
+  html, body {
+    background: white;
+    width: auto;
+  }
+
+  body {
+    font: 9.7pt/1.44 Arial, Helvetica, sans-serif;
+  }
+
+  main {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  header {
+    padding-bottom: 12pt;
+  }
+
+  h1 {
+    font: bold 21pt/1.2 Arial, sans-serif;
+    margin: 8pt 0 12pt;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin: 20pt 0 8pt;
+    break-after: avoid-page;
+  }
+
+  h3 {
+    font-size: 11pt;
+    break-after: avoid-page;
+  }
+
+  h4 {
+    font-size: 10pt;
+    break-after: avoid-page;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  section {
+    margin-bottom: 16pt;
+  }
+
+  .finding {
+    break-inside: auto;
+    padding: 12pt 0;
+  }
+
+  .summary,
+  .action,
+  .notice,
+  .caution,
+  .recommendation {
+    padding: 11pt 13pt;
+  }
+
+  .photos {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 8pt;
+    margin: 10pt 0;
+  }
+
+  .photos figure:only-child {
+    width: 78%;
+  }
+
+  figure {
+    break-inside: avoid;
+  }
+
+  figure img {
+    width: 100%;
+    max-height: 2.55in;
+    object-fit: contain;
+  }
+
+  figure.wide img {
+    max-height: 3.5in;
+  }
+
+  figcaption {
+    padding: 7pt 8pt;
+    font-size: 8pt;
+  }
+
+  .worktable {
+    font-size: 8.4pt;
+  }
+
+  .worktable tr {
+    break-inside: avoid;
+  }
+
+  .worktable td,
+  .worktable th {
+    padding: 6pt !important;
+  }
+
+  .request,
+  .signature,
+  footer {
+    break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<header>
+  <div class="eyebrow">
+    Abundant Life Land &amp; Tree LLC
+  </div>
+
+  <h1>
+    Woodland Edge Disturbance,
+    Tree Condition &amp; Restoration Report
+  </h1>
+
+  <p>
+    <strong>Prepared for:</strong>
+    Laura — Resident Adjoining HOA-Managed Woodland
+    <br>
+
+    <strong>Location:</strong>
+    Edmond, Oklahoma
+    <br>
+
+    <strong>Prepared by:</strong>
+    Christian Castillo
+    <br>
+
+    <strong>Company:</strong>
+    Abundant Life Land &amp; Tree LLC
+    <br>
+
+    <strong>Report date:</strong>
+    November 4, 2026
+    <br>
+
+    <strong>Field observation date:</strong>
+    To be verified
+  </p>
+
+  <p class="meta">
+    Preliminary Arboricultural Condition Review<br>
+    Woodland Disturbance Documentation<br>
+    Residential Buffer Restoration Recommendations
+  </p>
+</header>
+
+<!-- EXECUTIVE SUMMARY -->
+
+<section class="summary">
+
+  <h2>Executive Summary</h2>
+
+  <p>
+    This report documents significant changes
+    to a wooded area adjoining a residential
+    property in Edmond, Oklahoma, following
+    recent mechanized vegetation clearing.
+  </p>
+
+  <p>
+    Available photographic evidence establishes
+    extensive surface disturbance, machinery
+    travel, vegetation removal, altered
+    woodland-edge conditions, and physical
+    injuries to surviving trees.
+  </p>
+
+  <p>
+    Several retained trees, including an elm
+    grouping near the residential boundary,
+    exhibit irregular crown density, exposed
+    woody structure, and visible branch injuries.
+  </p>
+
+  <p>
+    A historical photograph dated May 25, 2018,
+    provides a valuable reference for the
+    previously established woodland buffer.
+    The image was taken from approximately
+    the same residential outdoor area shown
+    in the contemporary documentation.
+  </p>
+
+  <p>
+    The evidence supports concern regarding
+    mechanical damage, possible root-zone
+    degradation, and loss of woodland screening.
+    The precise contribution of each disturbance
+    to subsequent tree decline remains
+    undetermined.
+  </p>
+
+  <p>
+    <strong>
+      Recommended response:
+    </strong>
+
+    The HOA should coordinate a documented
+    assessment of retained trees, protect
+    remaining root zones from further mechanical
+    disturbance, undertake appropriate corrective
+    pruning, and implement a phased restoration
+    of soil conditions and woodland vegetation.
+  </p>
+
+</section>
+
+<!-- REQUESTED ACTION -->
+
+<section class="action">
+
+  <h2>1. Requested HOA Action</h2>
+
+  <p>
+    The recommended response addresses
+    both the condition of surviving trees
+    and the deterioration of the woodland
+    buffer adjoining the residential property.
+  </p>
+
+  <ol>
+    <li>
+      <strong>
+        Establish immediate protection
+        for retained trees.
+      </strong>
+
+      Suspend additional heavy-equipment
+      traffic, grading, and material storage
+      within affected root zones until
+      suitable protection limits are established.
+    </li>
+
+    <li>
+      <strong>
+        Authorize a detailed assessment
+        of the affected trees and soil.
+      </strong>
+
+      Record tree conditions, visible injuries,
+      equipment corridors, exposed roots,
+      soil disturbance, and identified targets.
+    </li>
+
+    <li>
+      <strong>
+        Arrange selective corrective
+        deadwood pruning.
+      </strong>
+
+      Address confirmed dead or hazardous
+      branches while avoiding unnecessary
+      removal of living foliage from
+      stressed trees.
+    </li>
+
+    <li>
+      <strong>
+        Fund a root-zone and
+        soil-restoration program.
+      </strong>
+
+      Reestablish protective organic surface
+      cover and determine where more intensive
+      soil rehabilitation is warranted.
+    </li>
+
+    <li>
+      <strong>
+        Develop and implement a woodland
+        buffer restoration plan.
+      </strong>
+
+      Restore appropriate understory vegetation,
+      visual screening, and woodland-edge
+      continuity using suitable native species.
+    </li>
+
+    <li>
+      <strong>
+        Establish continuing monitoring.
+      </strong>
+
+      Reevaluate affected trees during
+      subsequent growing seasons and document
+      changes in crown condition, wounds,
+      and structural stability.
+    </li>
+  </ol>
+
+</section>
+
+<!-- BACKGROUND -->
+
+<section>
+
+  <h2>2. Site Background</h2>
+
+  <p>
+    The affected area consists of wooded
+    land adjoining a residential backyard,
+    separated in part by ornamental fencing.
+  </p>
+
+  <p>
+    According to the resident, substantial
+    woodland clearing and ground disturbance
+    occurred through the use of heavy machinery.
+  </p>
+
+  <p>
+    The resident subsequently learned that
+    the operator reportedly received an
+    indication of approval from the HOA
+    president before performing the work.
+  </p>
+
+  <p>
+    The broader HOA membership reportedly
+    was not consulted or asked to vote
+    before the clearing occurred.
+  </p>
+
+  <p>
+    These circumstances are included as
+    resident-provided background.
+    This report does not independently
+    establish the operator's authorization,
+    determine the authority of individual
+    HOA representatives, or interpret
+    applicable governing documents.
+  </p>
+
+  <p>
+    The resident reports that the elm
+    grouping near her property exhibited
+    healthier foliage before the disturbance
+    and subsequently experienced
+    noticeable decline.
+  </p>
+
+  <p>
+    A historical photograph taken in 2018
+    documents established woodland vegetation
+    behind the residence. Contemporary
+    photographs show substantially altered
+    vegetation and ground conditions.
+  </p>
+
+</section>
+
+<!-- HISTORICAL CONDITIONS -->
+
+<section>
+
+  <h2>
+    3. Historical Woodland Conditions
+    and Residential Buffer
+  </h2>
+
+  <div class="evidence">
+
+    <h3>
+      Historical Photograph — May 25, 2018
+    </h3>
+
+    <div class="photos">
+
+      <figure class="wide">
+        <img
+          src="../img/laura-before-20180525.jpeg"
+          alt="Historical photograph showing the established
+               woodland buffer behind the residential fence"
+          loading="eager"
+        >
+
+        <figcaption>
+          <strong>
+            Figure 1 — Historical Woodland Condition.
+          </strong>
+
+          Residential backyard and woodland edge,
+          May 25, 2018.
+
+          The image depicts established mature
+          trees, smaller woody vegetation,
+          understory growth, and substantial
+          visual screening beyond the fence.
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <p>
+      The historical photograph depicts
+      an established, multilayered woodland
+      buffer immediately beyond the
+      residential fence.
+    </p>
+
+    <p>
+      The visible vegetation includes
+      mature trees, smaller understory
+      trees, shrubs, and continuous
+      ground-level plant cover.
+    </p>
+
+    <p>
+      The woodland served as a visual
+      backdrop to an actively used
+      residential outdoor area.
+      Recreational furnishings and a
+      hammock are visible within
+      the maintained yard.
+    </p>
+
+    <p>
+      This configuration provided substantial
+      visual separation between the
+      residential setting and the land
+      beyond the fence.
+    </p>
+
+    <p>
+      The presence of multiple vegetation
+      layers also likely contributed to
+      localized shading, ground protection,
+      and moderation of wind exposure.
+      These benefits have not been
+      quantitatively measured.
+    </p>
+
+    <div class="notice">
+
+      <strong>Historical evidence limitation.</strong>
+
+      The photograph is a documented
+      historical reference, not a complete
+      inventory of vegetation immediately
+      before the recent clearing.
+
+      Changes between 2018 and the
+      disturbance date have not been
+      independently reconstructed.
+
+      Original image metadata and
+      any additional dated photographs
+      should be preserved.
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRESENT CONDITIONS -->
+
+<section>
+
+  <h2>4. Existing Site Conditions</h2>
+
+  <article class="finding">
+
+    <h3>
+      4.1 Mechanized Ground Disturbance
+      and Equipment Traffic
+    </h3>
+
+    <span class="priority high">
+      High restoration priority
+    </span>
+
+    <p>
+      Contemporary photographs show
+      substantial tracked-equipment
+      impressions, displaced clay soil,
+      surface rutting, and areas of
+      exposed ground.
+    </p>
+
+    <p>
+      The track impressions establish
+      that tracked machinery traveled
+      through the photographed corridor.
+    </p>
+
+    <p>
+      The affected ground exhibits
+      mechanical deformation and
+      disruption of its surface structure.
+    </p>
+
+    <p>
+      Equipment traffic in wooded areas
+      may compact soil, reduce pore space,
+      interfere with water infiltration
+      and soil aeration, and damage
+      shallow absorbing roots.
+    </p>
+
+    <p>
+      These effects may contribute to
+      physiological stress and delayed
+      tree decline.
+    </p>
+
+    <p>
+      However, the depth and lateral
+      extent of compaction have not
+      been measured, and subsurface
+      root injury has not been
+      independently verified.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>Recommended intervention:</strong>
+
+      Establish equipment-exclusion
+      areas, document disturbed corridors,
+      assess the soil condition, and
+      restore protective organic cover.
+
+      Consider targeted pneumatic
+      decompaction only where field
+      investigation supports its use.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      4.2 Exposed and Degraded
+      Soil Surface
+    </h3>
+
+    <span class="priority high">
+      High restoration priority
+    </span>
+
+    <p>
+      Exposed clay-rich soil with
+      visible surface cracking is
+      documented beneath disturbed
+      woodland vegetation.
+    </p>
+
+    <p>
+      Protective leaf litter and other
+      organic surface materials appear
+      sparse in portions of the
+      photographed area.
+    </p>
+
+    <p>
+      Bare soil can experience
+      greater temperature variation,
+      surface drying, runoff, and
+      erosion than comparably
+      protected woodland soil.
+    </p>
+
+    <p>
+      Surface cracking is also
+      consistent with shrinkage
+      during drying and does not,
+      by itself, establish compaction.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>Recommended intervention:</strong>
+
+      Preserve existing soil grade
+      and root flares.
+
+      Restore appropriate leaf litter
+      and apply coarse arborist
+      wood-chip mulch over selected
+      disturbed root-zone areas.
+
+      Avoid burying the trunks
+      or mechanically cultivating
+      existing tree roots.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      4.3 Elm Crown Decline
+      and Physiological Stress
+    </h3>
+
+    <span class="priority high">
+      Assessment and monitoring
+    </span>
+
+    <p>
+      Surviving elm trees near
+      the residential woodland edge
+      exhibit areas of limited foliage,
+      numerous visible bare twigs,
+      and irregular crown density.
+    </p>
+
+    <p>
+      The resident reports that these
+      trees were more vigorous before
+      the recent clearing activity.
+    </p>
+
+    <p>
+      The observed symptoms are
+      consistent with tree stress
+      but are not specific to a
+      single cause.
+    </p>
+
+    <p>
+      Potential contributing factors
+      include altered soil conditions,
+      root disturbance, changes
+      in environmental exposure,
+      drought stress, disease,
+      or preexisting decline.
+    </p>
+
+    <p>
+      The present evidence is insufficient
+      to determine the percentage of
+      living versus dead crown,
+      establish the onset of symptoms,
+      or attribute the decline exclusively
+      to the clearing activity.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>Recommended intervention:</strong>
+
+      Conduct a tree-by-tree crown
+      and root-zone assessment.
+
+      Establish a photographic
+      baseline, document deadwood,
+      and prioritize improvements
+      to growing conditions.
+
+      Retain healthy living foliage
+      wherever practicable.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      4.4 Mechanical Branch and
+      Trunk Injuries
+    </h3>
+
+    <span class="priority">
+      Corrective assessment
+    </span>
+
+    <p>
+      Several photographed trees
+      exhibit exposed wood,
+      splintered branch attachments,
+      irregular cuts, and visible
+      bark injury.
+    </p>
+
+    <p>
+      One photographed branch
+      junction shows extensive
+      exposed wood and discoloration.
+      Another exhibits a fractured
+      branch stub with torn
+      woody fibers.
+    </p>
+
+    <p>
+      Mechanical injuries can damage
+      living cambial tissue and
+      expose wood to colonization
+      by decay organisms.
+    </p>
+
+    <p>
+      Not all exposed wood indicates
+      active decay, and the age
+      and origin of each wound
+      have not been established.
+    </p>
+
+    <p>
+      Existing wounds cannot be
+      reversed by pruning or
+      wound dressings.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>Recommended intervention:</strong>
+
+      Inspect significant wounds
+      individually.
+
+      Remove loose or hazardous
+      broken branch material
+      where indicated.
+
+      Make appropriate pruning cuts
+      outside the branch collar,
+      without enlarging trunk wounds
+      unnecessarily.
+
+      Avoid routine application
+      of wound paints or sealants.
+
+    </div>
+
+  </article>
+
+  <article class="finding">
+
+    <h3>
+      4.5 Loss of Woodland Vegetation
+      and Protective Buffer
+    </h3>
+
+    <span class="priority high">
+      Restoration recommended
+    </span>
+
+    <p>
+      Contemporary photographs show
+      cleared ground adjacent to
+      retained mature and young trees.
+    </p>
+
+    <p>
+      The resulting woodland edge
+      is more open than the
+      established landscape depicted
+      in the historical photograph.
+    </p>
+
+    <p>
+      The removal of intermediate
+      vegetation can increase
+      exposure of remaining trees
+      and the adjoining residence
+      to sunlight, wind, and
+      temperature fluctuations.
+    </p>
+
+    <p>
+      Loss of understory vegetation
+      also diminishes habitat
+      complexity, ground cover,
+      and visual screening.
+    </p>
+
+    <p>
+      Restoration of the trees'
+      growing conditions alone
+      will not fully restore the
+      prior woodland character
+      or residential privacy.
+    </p>
+
+    <div class="recommendation">
+
+      <strong>Recommended intervention:</strong>
+
+      Establish a native woodland-edge
+      restoration plan that includes
+      understory trees, shrubs,
+      appropriate ground vegetation,
+      and long-term establishment care.
+
+      Give particular attention
+      to restoring visual screening
+      along the residential boundary.
+
+    </div>
+
+  </article>
+
+</section>
+
+<!-- EVIDENCE -->
+
+<section>
+
+  <h2>5. Contemporary Photographic Record</h2>
+
+  <p>
+    The following images document
+    current conditions within
+    the affected woodland area.
+  </p>
+
+  <p class="small">
+    Photographs are descriptive
+    evidence of visible conditions.
+    They do not independently
+    establish when individual
+    injuries occurred or
+    who caused them.
+  </p>
+
+  <div class="photos">
+
+    <figure>
+      <img
+        src="../img/laura-01.jpg"
+        alt="Surviving elm grouping with
+             irregular crown density"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 2 — Elm Crown Condition.
+        </strong>
+
+        Multiple stems with irregular
+        foliage density and numerous
+        exposed branches.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="../img/laura-02.jpg"
+        alt="Exposed cracked clay soil"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 3 — Exposed Surface Soil.
+        </strong>
+
+        Cracked clay-rich soil with
+        sparse organic surface cover.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="../img/laura-03.jpg"
+        alt="Large branch wound with
+             exposed wood and discoloration"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 4 — Existing Branch Wound.
+        </strong>
+
+        Exposed wood, irregular
+        attachment tissue, and
+        localized discoloration.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="../img/laura-04.jpg"
+        alt="Surviving woodland edge
+             beside disturbed cleared ground"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 5 — Woodland Edge Context.
+        </strong>
+
+        Retained trees beside
+        open disturbed ground
+        and the residential fence.
+      </figcaption>
+    </figure>
+
+    <figure class="wide">
+      <img
+        src="../img/laura-05.jpg"
+        alt="Tracked machinery impressions
+             through disturbed woodland soil"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 6 — Equipment Travel Corridor.
+        </strong>
+
+        Deep repeated tread impressions,
+        displaced soil, and surface
+        disturbance consistent with
+        tracked machinery travel.
+      </figcaption>
+    </figure>
+
+    <figure class="wide">
+      <img
+        src="../img/laura-06.jpg"
+        alt="Fractured branch stub
+             with splintered exposed wood"
+        loading="eager"
+      >
+
+      <figcaption>
+        <strong>
+          Figure 7 — Mechanical Branch Injury.
+        </strong>
+
+        Splintered branch attachment
+        and exposed wood requiring
+        further assessment.
+      </figcaption>
+    </figure>
+
+  </div>
+
+</section>
+
+<!-- RESTORATION -->
+
+<section>
+
+  <h2>6. Recommended Restoration Program</h2>
+
+  <p>
+    Restoration should proceed
+    in a coordinated sequence
+    to minimize additional
+    disturbance and prioritize
+    retention of surviving trees.
+  </p>
+
+  <h3>
+    Phase I — Protection
+    and Documentation
+  </h3>
+
+  <span class="priority urgent">
+    Immediate priority
+  </span>
+
+  <ol class="numbered">
+    <li>
+      Mark appropriate temporary
+      tree-protection and
+      equipment-exclusion areas.
+    </li>
+
+    <li>
+      Document the affected
+      vegetation and machinery
+      travel corridors.
+    </li>
+
+    <li>
+      Inventory retained trees,
+      including species,
+      approximate diameter,
+      crown condition,
+      visible wounds, and
+      proximity to occupied areas.
+    </li>
+
+    <li>
+      Identify hazardous
+      broken branches and
+      conditions requiring
+      prompt risk mitigation.
+    </li>
+
+    <li>
+      Preserve remaining
+      undisturbed woodland
+      vegetation and organic cover.
+    </li>
+  </ol>
+
+  <h3>
+    Phase II — Corrective Pruning
+    and Tree Health
+  </h3>
+
+  <ol class="numbered">
+    <li>
+      Remove confirmed dead
+      branches presenting
+      meaningful exposure
+      to occupied areas.
+    </li>
+
+    <li>
+      Correct accessible broken
+      or splintered branch
+      attachments where
+      appropriate.
+    </li>
+
+    <li>
+      Avoid discretionary
+      live-crown reduction
+      on physiologically
+      stressed trees.
+    </li>
+
+    <li>
+      Conduct additional
+      structural examinations
+      where substantial wounds,
+      decay, or instability
+      are suspected.
+    </li>
+
+    <li>
+      Follow applicable
+      ANSI A300 pruning
+      practices and ANSI Z133
+      operational safety requirements.
+    </li>
+  </ol>
+
+  <h3>
+    Phase III — Root-Zone
+    Rehabilitation
+  </h3>
+
+  <ol class="numbered">
+    <li>
+      Assess the extent
+      of equipment-related
+      soil disturbance.
+    </li>
+
+    <li>
+      Protect and retain
+      existing surface roots
+      and root flares.
+    </li>
+
+    <li>
+      Apply approximately
+      2–4 inches of coarse
+      arborist wood-chip mulch
+      where appropriate,
+      avoiding accumulation
+      against trunks.
+    </li>
+
+    <li>
+      Restore suitable
+      leaf-litter and organic
+      surface conditions.
+    </li>
+
+    <li>
+      Consider localized
+      pneumatic soil loosening
+      where site assessment
+      confirms significant
+      compaction and
+      an appropriate treatment
+      method can be used
+      without further root injury.
+    </li>
+
+    <li>
+      Avoid indiscriminate
+      fertilization or chemical
+      treatments without
+      an identified need.
+    </li>
+  </ol>
+
+  <h3>
+    Phase IV — Woodland Buffer
+    Reestablishment
+  </h3>
+
+  <ol class="numbered">
+    <li>
+      Map the cleared
+      woodland-edge area
+      and identify appropriate
+      planting locations.
+    </li>
+
+    <li>
+      Select native,
+      site-adapted understory
+      trees and shrubs.
+    </li>
+
+    <li>
+      Reestablish layered
+      vegetation to restore
+      privacy, habitat,
+      and woodland continuity.
+    </li>
+
+    <li>
+      Protect planted material
+      from equipment,
+      browsing animals,
+      and unnecessary soil disturbance.
+    </li>
+
+    <li>
+      Provide supplemental
+      watering and appropriate
+      establishment care.
+    </li>
+
+    <li>
+      Monitor plant survival
+      and replace failed
+      plantings as specified
+      in the final restoration plan.
+    </li>
+  </ol>
+
+  <h3>
+    Phase V — Monitoring
+  </h3>
+
+  <ol class="numbered">
+    <li>
+      Reinspect affected
+      trees during the
+      following growing season.
+    </li>
+
+    <li>
+      Track crown density,
+      twig dieback,
+      wound progression,
+      and other indicators
+      of changing condition.
+    </li>
+
+    <li>
+      Continue monitoring
+      for at least two
+      growing seasons,
+      with additional review
+      where significant
+      decline persists.
+    </li>
+
+    <li>
+      Document planting
+      establishment and
+      woodland buffer recovery.
+    </li>
+  </ol>
+
+</section>
+
+<!-- PRICING -->
+
+<section>
+
+  <h2>
+    7. Preliminary HOA
+    Restoration Work Schedule
+  </h2>
+
+  <p>
+    The following work components
+    form the recommended basis
+    for a comprehensive
+    HOA restoration proposal.
+  </p>
+
+  <p>
+    Final prices require
+    field measurements,
+    confirmation of affected
+    tree quantities,
+    and a defined
+    restoration area.
+  </p>
+
+  <table class="worktable">
+
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Recommended Work</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>1</td>
+        <td>
+          Detailed retained-tree
+          inventory, condition
+          assessment, and
+          photographic documentation
+        </td>
+        <td>TBD</td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>
+          Corrective deadwood
+          pruning and treatment
+          of accessible broken
+          branch attachments
+        </td>
+        <td>TBD</td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td>
+          Root-zone protection
+          and organic mulch
+          installation
+        </td>
+        <td>TBD</td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td>
+          Targeted soil
+          decompaction where
+          field conditions
+          justify intervention
+        </td>
+        <td>TBD</td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td>
+          Woodland understory
+          planting and residential
+          buffer restoration
+        </td>
+        <td>TBD</td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td>
+          Plant establishment,
+          supplemental watering,
+          and follow-up
+          health inspections
+        </td>
+        <td>TBD</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="notice">
+
+    <strong>Pricing status:</strong>
+
+    This table is a preliminary
+    scope of recommended work
+    and is not a final
+    contractor quotation.
+
+    Costs should be consolidated
+    after the work area and
+    treatment quantities
+    have been established.
+
+  </div>
+
+</section>
+
+<!-- IMPACT -->
+
+<section>
+
+  <h2>
+    8. Significance of
+    Woodland Buffer Loss
+  </h2>
+
+  <p>
+    The documented disturbance
+    has two distinguishable
+    consequences.
+  </p>
+
+  <h3>
+    8.1 Arboricultural
+    and Ecological Effects
+  </h3>
+
+  <p>
+    Machinery traffic,
+    vegetation removal,
+    and altered soil cover
+    may affect the growing
+    conditions of surviving trees.
+  </p>
+
+  <p>
+    Physical injuries
+    and potential root-zone
+    degradation introduce
+    concerns for long-term
+    vitality, structural
+    condition, and
+    woodland recovery.
+  </p>
+
+  <p>
+    Restoration should therefore
+    emphasize preservation
+    of living trees and
+    rehabilitation of
+    their growing environment.
+  </p>
+
+  <h3>
+    8.2 Residential
+    Screening and Amenity
+  </h3>
+
+  <p>
+    Historical photographic
+    evidence demonstrates
+    that the woodland
+    provided substantial
+    visual screening
+    behind the residence.
+  </p>
+
+  <p>
+    The cleared portions
+    of the woodland edge
+    represent a change
+    in the appearance
+    and functional character
+    of the residential setting.
+  </p>
+
+  <p>
+    The loss of layered
+    vegetation cannot
+    be addressed solely
+    by pruning or soil
+    rehabilitation.
+  </p>
+
+  <p>
+    A separate planting
+    and establishment program
+    is warranted to recreate
+    meaningful vegetation cover
+    and screening.
+  </p>
+
+  <div class="caution">
+
+    <strong>
+      Vegetation valuation:
+    </strong>
+
+    This report does not
+    establish the monetary
+    value of removed trees
+    or calculate compensation
+    for lost landscape amenities.
+
+    A defensible valuation
+    would require additional
+    documentation, including
+    species, dimensions,
+    condition, location,
+    and appropriate professional
+    appraisal methodology.
+
+  </div>
+
+</section>
+
+<!-- LIMITATIONS -->
+
+<section>
+
+  <h2>
+    9. Assessment Scope
+    and Limitations
+  </h2>
+
+  <p>
+    This report is based on
+    supplied photographic
+    documentation, resident
+    statements, and
+    preliminary arboricultural
+    interpretation.
+  </p>
+
+  <p>
+    It is not a complete
+    tree inventory,
+    a formal quantified
+    tree-risk assessment,
+    a soil engineering study,
+    a property boundary survey,
+    or a forensic determination
+    of liability.
+  </p>
+
+  <p>
+    The exact number of
+    affected trees,
+    disturbed soil area,
+    equipment corridor dimensions,
+    and extent of vegetation
+    removed remain to
+    be verified.
+  </p>
+
+  <p>
+    The historical photograph
+    establishes conditions
+    visible in May 2018
+    but does not independently
+    establish the site's
+    condition immediately
+    before the recent clearing.
+  </p>
+
+  <p>
+    The cause of individual
+    tree wounds and
+    physiological symptoms
+    cannot be conclusively
+    established from the
+    available photographs.
+  </p>
+
+  <p>
+    No soil penetration,
+    bulk-density testing,
+    root excavation,
+    internal decay testing,
+    or advanced diagnostic
+    assessment is represented
+    as having been performed.
+  </p>
+
+  <p>
+    Recommendations may
+    require modification
+    following detailed
+    field assessment.
+  </p>
+
+  <p>
+    Restoration measures
+    cannot guarantee
+    recovery of previously
+    injured trees,
+    and replacement plantings
+    cannot immediately recreate
+    mature woodland conditions.
+  </p>
+
+</section>
+
+<!-- FINAL HOA REQUEST -->
+
+<section class="request">
+
+  <h2>
+    10. Recommended HOA Resolution
+  </h2>
+
+  <p>
+    In consideration of
+    the documented mechanical
+    disturbance, visible
+    tree injuries, altered
+    soil conditions,
+    and loss of established
+    woodland screening,
+    the following course
+    of action is recommended
+    for HOA consideration.
+  </p>
+
+  <ol>
+
+    <li>
+      <strong>
+        Acknowledge the documented
+        change in woodland condition
+        and authorize a coordinated
+        restoration assessment.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Protect surviving
+        woodland trees from
+        further unnecessary
+        mechanical disturbance.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Commission corrective
+        pruning and root-zone
+        rehabilitation as
+        supported by the
+        detailed field findings.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Approve development
+        of a native woodland
+        buffer restoration plan,
+        including reestablishment
+        of meaningful screening
+        along the residential edge.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Review a consolidated
+        contractor proposal
+        and provide project
+        funding and oversight
+        following confirmation
+        of scope and quantities.
+      </strong>
+    </li>
+
+    <li>
+      <strong>
+        Establish a documented
+        process for proposed
+        future vegetation
+        clearing within
+        HOA-managed woodland.
+      </strong>
+    </li>
+
+  </ol>
+
+  <p>
+    The objective is to
+    protect the long-term
+    health and function
+    of surviving trees,
+    repair disturbed
+    woodland conditions,
+    and progressively restore
+    the visual and ecological
+    character of the
+    residential woodland edge.
+  </p>
+
+</section>
+
+<!-- CONCLUSION -->
+
+<section>
+
+  <h2>
+    11. Professional Conclusion
+  </h2>
+
+  <p>
+    The available evidence
+    documents substantial
+    disturbance of a
+    previously vegetated
+    woodland area adjoining
+    the residential property.
+  </p>
+
+  <p>
+    Observed conditions
+    include equipment
+    traffic, displaced soil,
+    exposed ground,
+    injured branches,
+    and retained trees
+    exhibiting variable
+    crown condition.
+  </p>
+
+  <p>
+    A dated historical
+    photograph establishes
+    the prior presence
+    of a substantial
+    multilayered woodland
+    buffer at the
+    residential edge.
+  </p>
+
+  <p>
+    Although the precise
+    degree of physiological
+    tree injury and
+    the cause of individual
+    defects remain to
+    be determined, the
+    documented conditions
+    support proactive
+    tree protection,
+    targeted rehabilitation,
+    and woodland restoration.
+  </p>
+
+  <p>
+    <strong>
+      The recommended objective
+      is not simply to remove
+      damaged vegetation,
+      but to preserve
+      the surviving trees
+      and restore the
+      ecological and
+      residential functions
+      of the woodland edge.
+    </strong>
+  </p>
+
+</section>
+
+<!-- AUTHOR -->
+
+<div class="signature">
+
+  <strong>
+    Prepared by:
+  </strong>
+
+  <p>
+    Christian Castillo<br>
+    Abundant Life Land &amp; Tree LLC
+  </p>
+
+  <p>
+    Arboricultural Services<br>
+    Tree Care · Land Stewardship · Horticulture
+  </p>
+
+  <p>
+    <a href="mailto:abundant.life.land@gmail.com">
+      abundant.life.land@gmail.com
+    </a>
+  </p>
+
+  <p>
+    <a href="https://abundantlife.land">
+      abundantlife.land
+    </a>
+  </p>
+
+</div>
+
+<footer>
+
+  <p>
+    <strong>
+      Abundant Life Land &amp; Tree LLC
+    </strong>
+  </p>
+
+  <p>
+    Woodland Edge Disturbance,
+    Tree Condition &amp; Restoration Report
+  </p>
+
+  <p>
+    Report issued November 4, 2026
+  </p>
+
+  <p>
+    Preliminary HOA Review Document
+  </p>
+
+</footer>
+
+</main>
+</body>
+</html>

@@ -120,6 +120,9 @@ function writeSitemap(posts) {
       loc: `${SITE_URL}/`
     },
     {
+      loc: `${SITE_URL}/tree/`
+    },
+    {
       loc: `${SITE_URL}/blog/`
     },
     ...posts.map((post) => ({

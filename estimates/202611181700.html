@@ -1,0 +1,1780 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Elm Tree Assessment & Proposal | Jason Milacek</title>
+
+<style>
+:root {
+  --green: #254637;
+  --dark: #193629;
+  --sage: #eaf0e9;
+  --cream: #faf9f5;
+  --ink: #26312b;
+  --muted: #65736a;
+  --line: #d9e1d9;
+  --amber: #94621b;
+  --amber-bg: #fff5e3;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #e9ece8;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.document {
+  max-width: 900px;
+  margin: 35px auto;
+  padding: 52px 58px;
+  background: var(--white);
+  box-shadow: 0 8px 32px #00000012;
+}
+
+header {
+  border-bottom: 3px solid var(--green);
+  padding-bottom: 22px;
+  margin-bottom: 28px;
+}
+
+.brand {
+  color: var(--green);
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+.brand-sub {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--dark);
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 25px 0 10px;
+}
+
+h2 {
+  color: var(--green);
+  font-size: 19px;
+  margin: 32px 0 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+
+h3 {
+  color: var(--dark);
+  font-size: 15px;
+  margin: 16px 0 8px;
+}
+
+p {
+  margin: 9px 0 13px;
+}
+
+a {
+  color: var(--green);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 25px 0;
+}
+
+.meta > div {
+  background: var(--cream);
+  padding: 14px 17px;
+  border-left: 3px solid var(--green);
+}
+
+.meta strong {
+  display: block;
+  color: var(--green);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+.notice {
+  background: var(--amber-bg);
+  border-left: 4px solid var(--amber);
+  padding: 17px 20px;
+  margin: 22px 0;
+}
+
+.notice > strong {
+  color: #805217;
+}
+
+.recommendation {
+  background: var(--sage);
+  border-left: 4px solid var(--green);
+  padding: 20px;
+  margin: 24px 0;
+}
+
+ul {
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 9px;
+}
+
+.option {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 22px;
+  margin: 20px 0;
+  break-inside: avoid;
+}
+
+.option.preferred {
+  border: 2px solid var(--green);
+}
+
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.option-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.price {
+  color: var(--green);
+  font-size: 23px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  background: var(--sage);
+  color: var(--green);
+}
+
+.total {
+  font-weight: bold;
+  color: var(--green);
+  font-size: 17px;
+}
+
+/* PHOTO GALLERY */
+
+.gallery-intro {
+  color: var(--muted);
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 22px 0;
+}
+
+.photo-card {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--cream);
+  break-inside: avoid;
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #e6eae4;
+  overflow: hidden;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  border: 2px dashed #b5c4b6;
+}
+
+.photo-placeholder strong {
+  color: var(--green);
+  font-size: 15px;
+}
+
+.photo-placeholder span {
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.photo-frame.missing img {
+  display: none;
+}
+
+.photo-frame.missing .photo-placeholder {
+  display: flex;
+}
+
+.photo-card figcaption {
+  padding: 14px 15px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.photo-card figcaption strong {
+  display: block;
+  color: var(--green);
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+/* AUTHORIZATION */
+
+.authorization {
+  margin-top: 35px;
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--cream);
+}
+
+.authorization label.field-label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+}
+
+.authorization input[type="text"],
+.authorization input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b7c4b9;
+  border-radius: 5px;
+  font: inherit;
+  background: white;
+}
+
+.authorization .check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0;
+  font-weight: 400;
+}
+
+.authorization .check input {
+  margin-top: 5px;
+  flex-shrink: 0;
+  accent-color: var(--green);
+}
+
+.authorization .service-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  margin: 8px 0;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.authorization .service-choice input {
+  margin-top: 5px;
+  accent-color: var(--green);
+}
+
+.authorization button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 16px;
+  background: var(--green);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.authorization button:hover {
+  background: var(--dark);
+}
+
+.authorization button:focus-visible,
+.authorization input:focus-visible {
+  outline: 3px solid #84ad8f;
+  outline-offset: 2px;
+}
+
+.authorization button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.authorization .selection-summary {
+  background: var(--sage);
+  border-left: 3px solid var(--green);
+  padding: 14px 17px;
+  margin: 18px 0;
+}
+
+.authorization .selection-summary strong {
+  color: var(--green);
+}
+
+.authorization .status {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.signature {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.signature div {
+  border-top: 1px solid var(--ink);
+  padding-top: 8px;
+  font-size: 12px;
+}
+
+footer {
+  margin-top: 45px;
+  border-top: 2px solid var(--green);
+  padding-top: 17px;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .document {
+    margin: 0;
+    padding: 25px 20px;
+  }
+
+  .meta,
+  .photo-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .option-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .authorization {
+    padding: 18px;
+  }
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: .65in;
+  }
+
+  body {
+    background: white;
+    font-size: 10.5pt;
+  }
+
+  .document {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+    box-shadow: none;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  .option,
+  .notice,
+  .recommendation,
+  .photo-card {
+    break-inside: avoid;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .authorization button {
+    display: none;
+  }
+
+  header,
+  footer,
+  .notice,
+  .recommendation,
+  .photo-card {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="document">
+
+<header>
+  <div class="brand">
+    ABUNDANT LIFE LAND & TREE
+  </div>
+
+  <div class="brand-sub">
+    Tree Service & Land Management
+  </div>
+
+  <h1>
+    Elm Tree Condition Assessment<br>
+    & Service Proposal
+  </h1>
+
+  <p class="small">
+    Prepared November 18, 2026
+  </p>
+</header>
+
+<section class="meta">
+  <div>
+    <strong>Prepared For</strong>
+    Jason Milacek<br>
+    3321 Old Georgetowne Rd<br>
+    Edmond, OK 73013
+  </div>
+
+  <div>
+    <strong>Subject Tree</strong>
+    Mature elm (Ulmus sp.)<br>
+    Approximate height: 30–40 feet<br>
+    Location: Property boundary area
+  </div>
+</section>
+
+<section>
+<h2>1. Purpose of Assessment</h2>
+
+<p>
+Abundant Life Land & Tree LLC has examined
+the visible above-ground condition of a
+mature elm situated near the boundary
+between Jason Milacek's property and
+an adjoining residential property.
+</p>
+
+<p>
+The purpose of this report is to document
+observed indicators of declining vitality
+and compromised crown structure, present
+available management options, and assist
+neighboring property owners in reaching
+an informed, coordinated decision.
+</p>
+
+<p>
+This document constitutes a limited visual
+condition assessment and service proposal.
+It is not a formal tree risk assessment.
+</p>
+</section>
+
+<section>
+<h2>2. Observed Tree Condition</h2>
+
+<p>
+The subject elm exhibits a combination
+of historic pruning injuries, structural
+defects, deadwood accumulation, and
+indicators of declining vitality.
+</p>
+
+<h3>Historic Pruning Damage</h3>
+
+<ul>
+  <li>
+    Numerous large pruning cuts were made
+    between natural branch unions,
+    commonly described as internodal
+    or heading cuts.
+  </li>
+
+  <li>
+    Several historic pruning wounds exhibit
+    exposed wood, deterioration, and
+    conditions suggestive of decay.
+  </li>
+
+  <li>
+    The tree displays evidence of repeated,
+    substantial crown reduction over
+    an extended period.
+  </li>
+</ul>
+
+<h3>Compromised Crown Architecture</h3>
+
+<ul>
+  <li>
+    A substantial majority of the remaining
+    crown appears to consist of secondary
+    or epicormic growth originating from
+    previously headed structural limbs.
+  </li>
+
+  <li>
+    The attachment characteristics of this
+    secondary growth warrant concern,
+    particularly where it originates
+    near large historic pruning wounds
+    or deteriorating parent limbs.
+  </li>
+
+  <li>
+    Historic storm-related branch tear-out
+    and associated structural damage
+    are evident.
+  </li>
+</ul>
+
+<h3>Deadwood, Bark Loss & Discoloration</h3>
+
+<ul>
+  <li>
+    Extensive deadwood is present
+    throughout portions of the crown.
+  </li>
+
+  <li>
+    Yellowing foliage and localized
+    crown thinning are visible.
+  </li>
+
+  <li>
+    Areas of missing bark expose wood
+    exhibiting alternating darker
+    and lighter discoloration.
+  </li>
+
+  <li>
+    These conditions are consistent
+    with tissue deterioration but do
+    not independently establish the
+    extent of internal decay.
+  </li>
+
+  <li>
+    Evidence suggestive of fungal
+    activity has been observed.
+    The organism and significance
+    have not been confirmed.
+  </li>
+</ul>
+
+<h3>Declining Vitality</h3>
+
+<p>
+The combination of crown dieback,
+foliage discoloration, historic
+structural injury, and extensive
+secondary shoot growth indicates
+substantial physiological and
+structural stress.
+</p>
+
+<p>
+Although the tree retains living
+foliage, its history of severe
+pruning and existing crown defects
+substantially limit the prospects
+for successful long-term
+rehabilitation.
+</p>
+</section>
+
+<section>
+<h2>3. Structural Concerns</h2>
+
+<div class="notice">
+  <strong>
+    Multiple Structural Defects Identified
+  </strong>
+
+  <p>
+    Visible defects include large historic
+    heading cuts, suspected decay,
+    compromised crown architecture,
+    storm-related damage, and
+    significant deadwood.
+  </p>
+</div>
+
+<p>
+Of particular concern is the relationship
+between large, historically damaged
+structural limbs and the substantial
+secondary growth they now support.
+</p>
+
+<p>
+Removal of deadwood and selective
+reduction of certain branches may
+address individual defects or
+reduce loading on selected limbs.
+</p>
+
+<p>
+However, such pruning cannot reverse
+established decay, restore lost
+structural wood, or reliably correct
+the underlying architecture created
+by repeated improper reductions.
+</p>
+
+<h3>Scope of Structural Evaluation</h3>
+
+<p>
+The base of the tree has not been
+evaluated. No assessment of the
+tree's overall risk of failure
+has been performed.
+</p>
+
+<p>
+Accordingly, this report does not
+establish the condition of the
+root system, root collar, or
+lower trunk, and does not assign
+a probability of failure or
+a formal risk rating.
+</p>
+
+<p>
+The concerns described herein
+relate specifically to the
+visible defects and condition
+of the examined above-ground
+portions of the tree.
+</p>
+</section>
+
+<section>
+<h2>4. Professional Recommendation</h2>
+
+<div class="recommendation">
+  <strong>
+    Recommended Management:
+    Coordinated Complete Removal
+  </strong>
+
+  <p>
+    Based on the observed combination
+    of declining vitality, historic
+    structural damage, suspected
+    decay, and compromised crown
+    architecture, complete removal
+    is the preferred long-term
+    management option.
+  </p>
+
+  <p>
+    The likelihood of successfully
+    rehabilitating the tree through
+    corrective pruning is considered
+    low.
+  </p>
+</div>
+
+<p>
+This recommendation is based on
+the limited potential for meaningful
+structural rehabilitation and the
+persistence of substantial defects,
+rather than on a quantified
+assessment of failure risk.
+</p>
+
+<p>
+Selective pruning remains an
+available interim management
+option when immediate removal
+is not feasible.
+</p>
+
+<p>
+However, the amount of pruning
+that can meaningfully improve
+the tree's condition is limited,
+and additional pruning cannot
+reasonably be expected to
+restore long-term structural
+integrity or vitality.
+</p>
+</section>
+
+<section>
+<h2>5. Service Options & Pricing</h2>
+
+<div class="option">
+  <div class="option-header">
+    <h3>
+      Option A — Limited
+      Risk-Mitigation Pruning
+    </h3>
+    <span class="price">$140/hour</span>
+  </div>
+
+  <p class="small">
+    Two-person crew at $70 per
+    person-hour.
+  </p>
+
+  <p><strong>Proposed scope:</strong></p>
+
+  <ul>
+    <li>
+      Remove selected dead, broken,
+      or visibly compromised branches
+      where safely accessible.
+    </li>
+
+    <li>
+      Perform limited selective
+      reduction where appropriate
+      to reduce loading on
+      identified defective limbs.
+    </li>
+
+    <li>
+      Prioritize branches that
+      present identifiable concerns
+      over structures or
+      frequently occupied areas.
+    </li>
+
+    <li>
+      Avoid further topping,
+      indiscriminate heading cuts,
+      or unnecessary removal
+      of living crown material.
+    </li>
+  </ul>
+
+  <h3>Proposed Labor Authorization</h3>
+
+  <table>
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+    </tr>
+
+    <tr>
+      <td>Two-person crew</td>
+      <td>$140/hour</td>
+    </tr>
+
+    <tr>
+      <td>Maximum authorized crew time</td>
+      <td>3 hours</td>
+    </tr>
+
+    <tr>
+      <td class="total">
+        Maximum Proposed Labor
+      </td>
+      <td class="total">$420</td>
+    </tr>
+  </table>
+
+  <p>
+    The proposed three-hour maximum
+    reflects the limited amount
+    of corrective pruning considered
+    likely to provide meaningful
+    benefit given the tree's
+    existing defects.
+  </p>
+
+  <p>
+    Actual labor will be billed
+    according to time worked,
+    up to the authorized maximum.
+    Additional time or expenditure
+    requires separate approval.
+  </p>
+
+  <div class="notice">
+    <strong>
+      Important Limitation of Pruning
+    </strong>
+
+    <p>
+      Pruning is offered only as
+      an interim measure to address
+      selected visible defects.
+      It is not expected to
+      rehabilitate the tree or
+      resolve the underlying
+      structural concerns.
+    </p>
+
+    <p>
+      Because the tree's base
+      has not been evaluated
+      and no tree risk assessment
+      has been conducted, no
+      representation is made
+      regarding its overall
+      risk of failure before
+      or after pruning.
+    </p>
+  </div>
+
+  <p class="small">
+    Final pruning scope and
+    debris handling arrangements
+    will be confirmed before work.
+    Work will be limited to
+    operations judged safe and
+    appropriate after closer
+    inspection.
+  </p>
+</div>
+
+<div class="option preferred">
+  <div class="option-header">
+    <h3>
+      Option B — Complete Tree Removal
+    </h3>
+    <span class="price">$1,500</span>
+  </div>
+
+  <p>
+    <strong>
+      Recommended Long-Term Option
+    </strong>
+  </p>
+
+  <p><strong>Included scope:</strong></p>
+
+  <ul>
+    <li>
+      Controlled dismantling and
+      complete removal of the
+      above-ground tree structure.
+    </li>
+
+    <li>
+      Sectional removal as needed
+      to protect nearby structures,
+      fencing, and other
+      site improvements.
+    </li>
+
+    <li>
+      Processing and loading
+      of removed tree material.
+    </li>
+
+    <li>
+      Haul-off and disposal
+      of tree debris generated
+      by the removal.
+    </li>
+
+    <li>
+      Reasonable cleanup of
+      the work area, including
+      collection of removal debris
+      and general raking or
+      blowing of affected surfaces.
+    </li>
+  </ul>
+
+  <p>
+    The stump will remain unless
+    the optional stump grinding
+    service is selected.
+  </p>
+
+  <p>
+    Reasonable cleanup does not
+    include lawn reconstruction,
+    replacement of landscaping,
+    soil restoration, or
+    repair of preexisting
+    site conditions.
+  </p>
+
+  <h3>Optional Stump Grinding</h3>
+
+  <p>
+    Grinding of the remaining
+    stump is available for
+    an additional $350.
+    Grinding depth and surface
+    restoration details will
+    be confirmed before work.
+  </p>
+
+  <table>
+    <tr>
+      <th>Service</th>
+      <th>Price</th>
+    </tr>
+
+    <tr>
+      <td>
+        Complete Removal,
+        Haul-Off & Cleanup
+      </td>
+      <td>$1,500</td>
+    </tr>
+
+    <tr>
+      <td>Optional Stump Grinding</td>
+      <td>$350</td>
+    </tr>
+
+    <tr>
+      <td class="total">
+        Removal + Stump Grinding
+      </td>
+      <td class="total">$1,850</td>
+    </tr>
+  </table>
+
+  <p class="small">
+    Final work methods depend on
+    safe access, site conditions,
+    and appropriate property-owner
+    authorization.
+  </p>
+</div>
+</section>
+
+<section>
+<h2>6. Property Boundary & Ownership</h2>
+
+<p>
+The subject elm is situated
+near the boundary between
+Jason Milacek's property and
+an adjoining residential property.
+</p>
+
+<p>
+Based on the reported site
+arrangement, the majority, but not all of the tree's base resides in Jason's property,
+while the base of the trunk
+appears to be situated on
+the neighboring side of
+the existing fence.
+</p>
+
+<p>
+The location of the fence
+does not conclusively establish
+the legal property boundary
+or ownership of the tree.
+</p>
+
+<p>
+Likewise, the proportion
+of the crown extending
+over either property
+does not independently
+establish ownership.
+</p>
+
+<div class="notice">
+  <strong>
+    Coordinated Authorization Recommended
+  </strong>
+
+  <p>
+    Given the apparent location
+    of the trunk, Abundant Life
+    Land & Tree strongly recommends
+    that both neighboring property
+    owners review the tree's
+    condition and reach a
+    coordinated decision
+    before work proceeds.
+  </p>
+
+  <p>
+    Written authorization from
+    the property owner or owners
+    with legal authority over
+    the tree should be obtained
+    before complete removal.
+  </p>
+</div>
+
+<p>
+A coordinated approach is
+preferred to clarify property
+access, work authorization,
+debris handling, financial
+responsibility, and the
+intended outcome.
+</p>
+
+<p>
+The electronic authorization
+in Section 10 records Jason
+Milacek's affirmation that
+mutual consent has been obtained.
+It does not independently
+verify that consent.
+</p>
+
+<p>
+This report does not determine
+legal ownership, establish
+liability, or constitute
+a boundary survey or
+legal opinion.
+</p>
+</section>
+
+<section>
+<h2>7. Considerations if Work Is Deferred</h2>
+
+<p>
+If no work is undertaken,
+the currently observed
+crown defects and deadwood
+will remain.
+</p>
+
+<p>
+Additional deterioration
+or branch failure is
+possible under future
+loading conditions,
+including wind and ice.
+However, the likelihood
+or timing of any failure
+has not been assessed.
+</p>
+
+<p>
+Monitoring may help identify
+changes in visible condition,
+but it does not correct
+existing structural defects.
+</p>
+
+<p>
+Until a management decision
+is reached, avoiding
+unnecessary occupancy
+beneath visibly compromised
+limbs is a prudent
+precautionary measure.
+</p>
+</section>
+
+<section>
+<h2>8. Assessment Limitations</h2>
+
+<p>
+This document is a limited
+visual assessment of
+observed above-ground
+tree conditions.
+</p>
+
+<p>
+The base of the tree,
+root collar, root system,
+and lower-trunk condition
+have not been evaluated.
+</p>
+
+<p>
+No formal assessment of
+the tree's risk of failure
+has been performed.
+</p>
+
+<p>
+No internal decay testing,
+root excavation, laboratory
+fungal identification,
+or advanced structural
+investigation was conducted.
+</p>
+
+<p>
+Consequently, this report
+does not establish a
+probability of failure,
+formal risk classification,
+or comprehensive assessment
+of the tree's structural
+integrity.
+</p>
+
+<p>
+The recommendation for
+removal reflects the
+observed condition of
+the crown and structural
+limbs, together with
+the low likelihood
+of successful long-term
+rehabilitation.
+</p>
+
+<p>
+Tree conditions may change
+over time, and neither
+pruning nor inspection
+can guarantee freedom
+from future failure.
+</p>
+</section>
+
+<section id="photographs">
+<h2>9. Photographic Documentation</h2>
+
+<p class="gallery-intro">
+The following photographs document the
+visible crown condition, historic pruning
+wounds, and altered branch architecture
+of the subject elm. Photographs are
+provided for reference and do not
+constitute internal decay testing or
+a comprehensive structural assessment.
+</p>
+
+<div class="photo-gallery">
+
+  <!-- PHOTO 1 -->
+  <figure class="photo-card">
+    <div class="photo-frame">
+      <img
+        src="../img/mature-elm-declining-04.jpg"
+        alt="Elm canopy showing yellowing foliage, deadwood and overhanging branches"
+        loading="lazy"
+        onerror="this.parentElement.classList.add('missing')">
+
+      <div class="photo-placeholder">
+        <strong>Photograph 1</strong>
+        <span>Insert overall canopy photograph</span>
+      </div>
+    </div>
+
+    <figcaption>
+      <strong>Figure 1 — Crown Condition</strong>
+      Overview of the crown above the
+      residence, showing variable foliage
+      density, yellowing foliage, and
+      visible deadwood.
+    </figcaption>
+  </figure>
+
+  <!-- PHOTO 2 -->
+  <figure class="photo-card">
+    <div class="photo-frame">
+      <img
+        src="../img/mature-elm-declining-02.jpg"
+        alt="Large historic heading cut and exposed wood on structural elm limb"
+        loading="lazy"
+        onerror="this.parentElement.classList.add('missing')">
+
+      <div class="photo-placeholder">
+        <strong>Photograph 2</strong>
+        <span>Insert historic pruning wound photograph</span>
+      </div>
+    </div>
+
+    <figcaption>
+      <strong>Figure 2 — Historic Pruning Wound</strong>
+      Large internodal pruning wound
+      with exposed wood and surrounding
+      secondary growth. The visible
+      deterioration warrants concern
+      but does not establish the
+      internal extent of decay.
+    </figcaption>
+  </figure>
+
+  <!-- PHOTO 3 -->
+  <figure class="photo-card">
+    <div class="photo-frame">
+      <img
+        src="../img/mature-elm-declining-03.jpg"
+        alt="Elm branch structure with multiple historic pruning cuts and secondary shoots"
+        loading="lazy"
+        onerror="this.parentElement.classList.add('missing')">
+
+      <div class="photo-placeholder">
+        <strong>Photograph 3</strong>
+        <span>Insert branch architecture photograph</span>
+      </div>
+    </div>
+
+    <figcaption>
+      <strong>Figure 3 — Altered Branch Architecture</strong>
+      Multiple large historic pruning
+      cuts and secondary shoots arising
+      near previously reduced limbs,
+      illustrating the extent of
+      structural modification.
+    </figcaption>
+  </figure>
+
+  <!-- PHOTO 4 -->
+  <figure class="photo-card">
+    <div class="photo-frame">
+      <img
+        src="../img/mature-elm-declining-01.jpg"
+        alt="Overall elm structure with deadwood and extensive secondary crown growth"
+        loading="lazy"
+        onerror="this.parentElement.classList.add('missing')">
+
+      <div class="photo-placeholder">
+        <strong>Photograph 4</strong>
+        <span>Insert overall structure photograph</span>
+      </div>
+    </div>
+
+    <figcaption>
+      <strong>Figure 4 — Overall Structural Condition</strong>
+      Wider view of the major limbs,
+      historic reduction points,
+      deadwood, and extensive secondary
+      growth contributing to the
+      present crown architecture.
+    </figcaption>
+  </figure>
+
+</div>
+
+<p class="small">
+Photographs supplied in connection with
+the November 18, 2026 assessment.
+Descriptions concern visible features
+only. The tree base and root system
+are not documented in these images.
+</p>
+</section>
+
+<section class="authorization" id="authorization">
+
+<h2>10. Service Selection & Authorization</h2>
+
+<p>
+By completing this authorization,
+Jason Milacek confirms his selected
+service and acknowledges the
+assessment findings, service
+limitations, and property-owner
+coordination requirements described
+in this proposal.
+</p>
+
+<form id="authorizationForm">
+
+<h3>Select Service</h3>
+
+<label class="service-choice">
+  <input
+    type="radio"
+    name="service"
+    value="pruning"
+    required>
+
+  <span>
+    <strong>
+      Option A — Limited Pruning
+    </strong><br>
+    $140 per crew-hour, maximum
+    3 hours ($420).
+  </span>
+</label>
+
+<label class="service-choice">
+  <input
+    type="radio"
+    name="service"
+    value="removal"
+    required>
+
+  <span>
+    <strong>
+      Option B — Complete Removal
+    </strong><br>
+    $1,500, including debris
+    haul-off and reasonable cleanup.
+  </span>
+</label>
+
+<label class="check">
+  <input
+    type="checkbox"
+    id="stump"
+    disabled>
+
+  <span>
+    Add stump grinding for $350
+    (available with removal only).
+  </span>
+</label>
+
+<div class="selection-summary"
+     id="selectionSummary"
+     aria-live="polite">
+  <strong>Selected Service</strong>
+  <div id="selectionDescription">
+    Please select a service above.
+  </div>
+  <div id="selectionPrice"></div>
+</div>
+
+<h3>Property-Owner Consent</h3>
+
+<label class="check">
+  <input
+    type="checkbox"
+    id="neighborConsent"
+    required>
+
+  <span>
+    <strong>
+      I affirm that mutual consent
+      has been obtained.
+    </strong>
+
+    I, Jason Milacek, represent
+    that I have communicated with
+    the adjoining property owner
+    and obtained their consent
+    for the tree work selected
+    above, including complete
+    removal of the tree if that
+    option is selected.
+
+    I further affirm that I have
+    authority to authorize the
+    selected work insofar as it
+    affects my property.
+  </span>
+</label>
+
+<label class="check">
+  <input
+    type="checkbox"
+    id="riskAcknowledgment"
+    required>
+
+  <span>
+    I acknowledge that the base
+    of the tree has not been
+    evaluated, no formal assessment
+    of tree-failure risk has been
+    performed, and pruning is
+    offered only as limited
+    interim mitigation, not as
+    rehabilitation of the tree.
+  </span>
+</label>
+
+<label class="check">
+  <input
+    type="checkbox"
+    id="termsAcknowledgment"
+    required>
+
+  <span>
+    I have reviewed and accept
+    the selected scope of work,
+    pricing, assessment limitations,
+    and authorization conditions
+    described in this proposal.
+  </span>
+</label>
+
+<h3>Electronic Signature</h3>
+
+<label class="field-label" for="signerName">
+  Full Legal Name
+</label>
+
+<input
+  type="text"
+  id="signerName"
+  name="signerName"
+  placeholder="Jason Milacek"
+  autocomplete="name"
+  required>
+
+<label class="field-label" for="signerEmail">
+  Email Address
+</label>
+
+<input
+  type="email"
+  id="signerEmail"
+  name="signerEmail"
+  placeholder="Your email address"
+  autocomplete="email"
+  required>
+
+<label class="check">
+  <input
+    type="checkbox"
+    id="signatureConsent"
+    required>
+
+  <span>
+    I intend my typed name
+    to serve as my electronic
+    signature and authorize
+    transmission of this
+    acceptance to Abundant
+    Life Land & Tree LLC.
+  </span>
+</label>
+
+<button type="submit">
+  Accept Agreement &amp; Send Authorization
+</button>
+
+<p class="status" id="authorizationStatus"
+   role="status" aria-live="polite">
+  Clicking the button opens your email
+  application with a prepared authorization.
+  Review and send the email to complete
+  transmission.
+</p>
+
+<p class="small">
+  This form records the client's
+  representation concerning mutual
+  consent. It does not independently
+  verify neighboring property-owner
+  authorization. Additional written
+  permission may be requested before
+  work is scheduled.
+</p>
+
+</form>
+</section>
+
+<footer>
+  <strong>
+    Abundant Life Land & Tree LLC
+  </strong><br>
+  Tree Service & Land Management<br>
+  Edmond, Oklahoma<br>
+  <a href="https://abundantlife.land">
+    abundantlife.land
+  </a><br>
+  <a href="mailto:abundant.life.land@gmail.com">
+    abundant.life.land@gmail.com
+  </a>
+</footer>
+
+</main>
+
+<script>
+(() => {
+  "use strict";
+
+  const form = document.getElementById(
+    "authorizationForm"
+  );
+
+  const stump = document.getElementById(
+    "stump"
+  );
+
+  const services = form.querySelectorAll(
+    'input[name="service"]'
+  );
+
+  const selectionDescription =
+    document.getElementById(
+      "selectionDescription"
+    );
+
+  const selectionPrice =
+    document.getElementById(
+      "selectionPrice"
+    );
+
+  const authorizationStatus =
+    document.getElementById(
+      "authorizationStatus"
+    );
+
+  function getSelectedService() {
+    return form.querySelector(
+      'input[name="service"]:checked'
+    )?.value || null;
+  }
+
+  function updateSelection() {
+    const selected = getSelectedService();
+
+    const removal = selected === "removal";
+
+    stump.disabled = !removal;
+
+    if (!removal) {
+      stump.checked = false;
+    }
+
+    if (selected === "pruning") {
+      selectionDescription.textContent =
+        "Limited Risk-Mitigation Pruning";
+
+      selectionPrice.textContent =
+        "Maximum authorized labor: $420.00";
+    }
+
+    else if (selected === "removal") {
+      selectionDescription.textContent =
+        stump.checked
+          ? "Removal with Stump Grinding"
+          : "Complete Tree Removal";
+
+      selectionPrice.textContent =
+        stump.checked
+          ? "Total authorized price: $1,850.00"
+          : "Total authorized price: $1,500.00";
+    }
+
+    else {
+      selectionDescription.textContent =
+        "Please select a service above.";
+
+      selectionPrice.textContent = "";
+    }
+  }
+
+  services.forEach(radio => {
+    radio.addEventListener(
+      "change",
+      updateSelection
+    );
+  });
+
+  stump.addEventListener(
+    "change",
+    updateSelection
+  );
+
+  updateSelection();
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    const selected = getSelectedService();
+
+    const signer = document.getElementById(
+      "signerName"
+    ).value.trim();
+
+    const email = document.getElementById(
+      "signerEmail"
+    ).value.trim();
+
+    if (!selected || !signer || !email) {
+      authorizationStatus.textContent =
+        "Please complete all required fields.";
+      return;
+    }
+
+    const removal = selected === "removal";
+    const grinding = removal && stump.checked;
+
+    const service = removal
+      ? "Complete Tree Removal"
+      : "Limited Risk-Mitigation Pruning";
+
+    const price = removal
+      ? (grinding ? "$1,850.00" : "$1,500.00")
+      : "Up to $420.00 at $140 per crew-hour";
+
+    const date = new Date().toLocaleString(
+      "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        timeZoneName: "short"
+      }
+    );
+
+    const subject =
+      "SIGNED AUTHORIZATION - Elm Tree - " +
+      signer;
+
+    const body = [
+      "SERVICE AUTHORIZATION",
+      "Abundant Life Land & Tree LLC",
+      "",
+      "Proposal Date: November 18, 2026",
+      "Client: Jason Milacek",
+      "Property: 3321 Old Georgetowne Rd",
+      "Edmond, OK 73013",
+      "",
+      "SELECTED SERVICE",
+      "",
+      "Service: " + service,
+      "Stump Grinding: " + (
+        grinding ? "Yes" : "No"
+      ),
+      "Authorized Price: " + price,
+      "",
+      "PROPERTY-OWNER CONSENT",
+      "",
+      "I affirm that mutual consent has",
+      "been obtained.",
+      "",
+      "I represent that I have communicated",
+      "with the adjoining property owner",
+      "and obtained their consent for the",
+      "selected tree work, including",
+      "complete removal if selected.",
+      "",
+      "I affirm that I have authority",
+      "to authorize the selected work",
+      "insofar as it affects my property.",
+      "",
+      "ASSESSMENT ACKNOWLEDGMENT",
+      "",
+      "I acknowledge that the base of",
+      "the tree has not been evaluated",
+      "and no formal assessment of",
+      "tree-failure risk has been",
+      "performed.",
+      "",
+      "I understand that limited pruning",
+      "does not constitute structural",
+      "rehabilitation or a guarantee",
+      "of safety.",
+      "",
+      "AGREEMENT",
+      "",
+      "I accept the selected service,",
+      "pricing, scope, limitations,",
+      "and authorization conditions",
+      "described in the proposal dated",
+      "November 18, 2026.",
+      "",
+      "ELECTRONIC SIGNATURE",
+      "",
+      "Signed by: " + signer,
+      "Email: " + email,
+      "Date: " + date,
+      "",
+      "My typed name constitutes my",
+      "intended electronic signature.",
+      "",
+      "This authorization is submitted",
+      "by email at my direction."
+    ].join("\n");
+
+    const recipient =
+      "abundant.life.land@gmail.com";
+
+    const mailto =
+      "mailto:" + recipient +
+      "?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+
+    authorizationStatus.textContent =
+      "Your email application should open. " +
+      "Please review and send the prepared " +
+      "authorization to complete submission.";
+
+    window.location.href = mailto;
+  });
+})();
+</script>
+
+</body>
+</html>

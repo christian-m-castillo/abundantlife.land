@@ -1,0 +1,1789 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Mature Maple Pruning Proposal | Jeannie Niedo
+</title>
+
+<style>
+:root {
+  --forest: #244536;
+  --forest-dark: #172f25;
+  --sage: #eaf0e9;
+  --gold: #b58b45;
+  --cream: #faf9f5;
+  --ink: #26332c;
+  --muted: #66736a;
+  --border: #dce3db;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #e9ece8;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+.document {
+  max-width: 920px;
+  margin: 30px auto;
+  padding: 55px;
+  background: var(--white);
+  box-shadow: 0 8px 35px rgba(0,0,0,.08);
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  color: var(--forest-dark);
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin: 15px 0;
+}
+
+h2 {
+  font-size: 1.45rem;
+  margin-top: 45px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+h3 {
+  margin-bottom: 8px;
+}
+
+p {
+  margin: 10px 0 16px;
+}
+
+ul {
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 7px;
+}
+
+a {
+  color: var(--forest);
+}
+
+.brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 3px solid var(--forest);
+  padding-bottom: 22px;
+}
+
+.brand-name {
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  font-size: 1.1rem;
+  color: var(--forest);
+}
+
+.brand-subtitle {
+  font-family: Arial, sans-serif;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: var(--muted);
+}
+
+.brand-contact {
+  text-align: right;
+  font-family: Arial, sans-serif;
+  font-size: .8rem;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  font-family: Arial, sans-serif;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: .75rem;
+  margin-top: 35px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 22px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+}
+
+.meta-label {
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.notice {
+  padding: 20px 24px;
+  margin: 25px 0;
+  background: var(--sage);
+  border-left: 4px solid var(--forest);
+}
+
+.warning {
+  background: #faf4e8;
+  border-left-color: var(--gold);
+}
+
+/* WHY CHOOSE US */
+
+.trust-intro {
+  font-size: 1.05rem;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 25px 0;
+}
+
+.trust-card {
+  border: 1px solid var(--border);
+  background: var(--cream);
+  padding: 22px;
+  border-radius: 7px;
+  break-inside: avoid;
+}
+
+.trust-card h3 {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.trust-card p {
+  font-size: .92rem;
+  margin-bottom: 0;
+}
+
+.trust-number {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  color: var(--gold);
+  font-weight: bold;
+  font-size: .85rem;
+  margin-bottom: 8px;
+}
+
+.insurance-panel {
+  background: var(--forest-dark);
+  color: white;
+  padding: 25px;
+  border-radius: 7px;
+  margin-top: 20px;
+}
+
+.insurance-panel h3 {
+  color: white;
+  margin-top: 0;
+}
+
+.insurance-panel p {
+  color: #e3ece5;
+}
+
+.insurance-panel ul {
+  margin-bottom: 0;
+}
+
+.insurance-panel li {
+  color: #e3ece5;
+}
+
+.insurance-note {
+  font-family: Arial, sans-serif;
+  font-size: .78rem;
+  opacity: .9;
+}
+
+/* PRICING TIERS */
+
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.tier {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px 18px;
+  cursor: pointer;
+  position: relative;
+  background: white;
+  transition: .2s;
+}
+
+.tier:hover {
+  border-color: var(--forest);
+}
+
+.tier.selected {
+  border: 2px solid var(--forest);
+  background: #f3f7f2;
+}
+
+.tier.recommended {
+  border-top: 5px solid var(--gold);
+}
+
+.tier-label {
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: .7rem;
+  font-weight: bold;
+  color: var(--forest);
+}
+
+.price {
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--forest-dark);
+  margin: 12px 0;
+}
+
+.tier h3 {
+  font-size: 1.15rem;
+}
+
+.tier p,
+.tier li {
+  font-size: .9rem;
+}
+
+.tier ul {
+  padding-left: 18px;
+}
+
+.recommendation {
+  font-family: Arial, sans-serif;
+  font-size: .7rem;
+  font-weight: bold;
+  color: #815f26;
+  text-transform: uppercase;
+}
+
+/* COMPARISON */
+
+.scope-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: .85rem;
+  margin-top: 20px;
+}
+
+.scope-table th,
+.scope-table td {
+  padding: 13px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.scope-table th:first-child,
+.scope-table td:first-child {
+  text-align: left;
+}
+
+.scope-table th {
+  background: var(--forest);
+  color: white;
+}
+
+.yes {
+  color: #267343;
+  font-weight: bold;
+}
+
+.limited {
+  color: #a07831;
+  font-weight: bold;
+}
+
+.no {
+  color: #8b9290;
+}
+
+/* PHOTO GALLERY */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.photo {
+  margin: 0;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.photo figcaption {
+  padding: 12px;
+  font-family: Arial, sans-serif;
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.photo-placeholder {
+  display: flex;
+  height: 260px;
+  justify-content: center;
+  align-items: center;
+  background: #e8ede6;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: .8rem;
+  text-align: center;
+  padding: 15px;
+}
+
+/* AUTHORIZATION */
+
+.authorization {
+  margin-top: 35px;
+  padding: 25px;
+  border: 2px solid var(--forest);
+  border-radius: 8px;
+}
+
+.form-row {
+  margin: 15px 0;
+}
+
+label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: .82rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bfc9bf;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: white;
+}
+
+.checkbox-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 18px 0;
+  font-family: Arial, sans-serif;
+  font-size: .85rem;
+}
+
+.checkbox-row input {
+  margin-top: 4px;
+}
+
+.checkbox-row label {
+  font-weight: normal;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 15px 22px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+.primary-button {
+  background: var(--forest);
+  color: white;
+  width: 100%;
+}
+
+.secondary-button {
+  background: var(--sage);
+  color: var(--forest);
+}
+
+.selected-summary {
+  padding: 16px;
+  background: var(--sage);
+  font-family: Arial, sans-serif;
+  margin: 20px 0;
+}
+
+.footer {
+  margin-top: 55px;
+  padding-top: 20px;
+  border-top: 2px solid var(--forest);
+  font-family: Arial, sans-serif;
+  font-size: .75rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+  .document {
+    margin: 0;
+    padding: 25px 18px;
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand-contact {
+    text-align: left;
+  }
+
+  .meta,
+  .tier-grid,
+  .trust-grid,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scope-table {
+    font-size: .7rem;
+  }
+
+  .scope-table th,
+  .scope-table td {
+    padding: 9px 5px;
+  }
+}
+
+/* PRINT */
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .document {
+    margin: 0;
+    max-width: none;
+    box-shadow: none;
+    padding: 20px;
+  }
+
+  .tier,
+  .trust-card,
+  .photo {
+    break-inside: avoid;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  h2 {
+    break-after: avoid;
+  }
+
+  .insurance-panel {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="document">
+
+<!-- HEADER -->
+
+<header class="brand">
+
+  <div>
+    <div class="brand-name">
+      ABUNDANT LIFE
+    </div>
+
+    <div class="brand-subtitle">
+      Land & Tree LLC
+    </div>
+
+    <div class="brand-subtitle">
+      Tree Service & Land Management
+    </div>
+  </div>
+
+  <div class="brand-contact">
+    Veteran-Owned Oklahoma Business<br>
+
+    <a href="https://abundantlife.land">
+      abundantlife.land
+    </a><br>
+
+    <a href="mailto:abundant.life.land@gmail.com">
+      abundant.life.land@gmail.com
+    </a>
+  </div>
+
+</header>
+
+<div class="eyebrow">
+  Residential Tree Care Proposal
+</div>
+
+<h1>Mature Maple Tree Pruning</h1>
+
+<p class="subtitle">
+  Thoughtful tree care focused on reducing
+  deadwood hazards, protecting your property,
+  and preserving your mature maple.
+</p>
+
+<!-- CLIENT DETAILS -->
+
+<section class="meta">
+
+  <div>
+    <div class="meta-label">
+      Prepared For
+    </div>
+
+    <strong>Jeannie Niedo</strong><br>
+    1520 NE 2nd Street<br>
+    Moore, OK 73160<br>
+
+    <a href="tel:+14058350668">
+      (405) 835-0668
+    </a>
+  </div>
+
+  <div>
+    <div class="meta-label">
+      Prepared By
+    </div>
+
+    Abundant Life Land & Tree LLC<br>
+    Sales Contact: Chris Young<br>
+    Proposal Date: November 19, 2026<br>
+    Preferred Service Period: After Thanksgiving
+  </div>
+
+</section>
+
+<!-- CLIENT CONCERNS -->
+
+<h2>1. Your Tree & Your Concerns</h2>
+
+<p>
+  Your property contains a large, mature maple
+  with a broad canopy, multiple substantial
+  upright stems, and long lateral branches
+  extending over portions of the surrounding
+  residential landscape.
+</p>
+
+<p>
+  Your primary concern is the possibility of
+  dead branches falling onto people, vehicles,
+  or property.
+</p>
+
+<p>
+  Our proposed services are designed around
+  that concern while preserving as much
+  healthy, functional canopy as reasonably
+  possible.
+</p>
+
+<div class="notice">
+  <strong>Our objective:</strong>
+
+  Reduce identifiable deadwood hazards through
+  selective pruning without unnecessarily
+  removing healthy branches or compromising
+  the natural character of your mature maple.
+</div>
+
+<!-- OBSERVATIONS -->
+
+<h2>2. Preliminary Tree Observations</h2>
+
+<p>
+  Based on the supplied photographs, the
+  following characteristics are apparent:
+</p>
+
+<ul>
+  <li>
+    Large, mature, multi-stem maple with
+    a broad, spreading crown.
+  </li>
+
+  <li>
+    Visible dead or apparently dead branches
+    in portions of the canopy.
+  </li>
+
+  <li>
+    Large scaffold limbs extending toward
+    the house, driveway, and occupied areas.
+  </li>
+
+  <li>
+    Evidence of previous pruning, including
+    established pruning wounds.
+  </li>
+
+  <li>
+    Multiple major stem unions warranting
+    closer examination before climbing or
+    performing structural pruning.
+  </li>
+</ul>
+
+<p>
+  Preliminary photographic estimates suggest
+  a tree approximately 65–80 feet tall
+  with a crown spread of approximately
+  60–75 feet.
+</p>
+
+<p>
+  These dimensions have not been confirmed
+  through field measurements.
+</p>
+
+<div class="notice warning">
+  <strong>Assessment limitation:</strong>
+
+  This proposal is based on photographic
+  observations and reported concerns.
+  It is not a formal tree risk assessment.
+
+  Root condition, internal decay, structural
+  integrity, and overall likelihood of failure
+  have not been established by this document.
+</div>
+
+<!-- WHY CHOOSE US -->
+
+<h2>3. Why Choose Abundant Life Land & Tree?</h2>
+
+<p class="trust-intro">
+  Choosing a tree service involves more than
+  comparing prices. Mature trees are valuable
+  living assets, and the decisions made during
+  pruning can influence their condition for
+  years to come.
+</p>
+
+<p>
+  At Abundant Life Land & Tree LLC, our
+  approach emphasizes responsible workmanship,
+  clear communication, and respect for both
+  your property and your trees.
+</p>
+
+<div class="trust-grid">
+
+  <div class="trust-card">
+    <span class="trust-number">01 / INSURED OPERATIONS</span>
+
+    <h3>Commercial Insurance Coverage</h3>
+
+    <p>
+      We maintain general liability insurance
+      for our tree and landscaping operations,
+      along with commercial automobile coverage.
+
+      Insurance documentation is available
+      upon request so homeowners can review
+      applicable coverage before work begins.
+    </p>
+  </div>
+
+  <div class="trust-card">
+    <span class="trust-number">02 / PROFESSIONAL PRACTICES</span>
+
+    <h3>ANSI A300-Informed Tree Care</h3>
+
+    <p>
+      Our pruning approach is informed by
+      ANSI A300 arboricultural standards
+      and accepted tree-care principles.
+
+      We emphasize appropriate pruning cuts,
+      preservation of healthy canopy, and
+      avoidance of unnecessary topping
+      or excessive live-branch removal.
+    </p>
+  </div>
+
+  <div class="trust-card">
+    <span class="trust-number">03 / TREE PRESERVATION</span>
+
+    <h3>Preservation Before Unnecessary Removal</h3>
+
+    <p>
+      We recognize the environmental,
+      aesthetic, and practical value of
+      mature trees.
+
+      Our goal is to recommend work that
+      addresses identifiable concerns
+      while retaining healthy branches
+      and the tree's natural character
+      whenever reasonably appropriate.
+    </p>
+  </div>
+
+  <div class="trust-card">
+    <span class="trust-number">04 / CLEAR EXPECTATIONS</span>
+
+    <h3>Defined Scope & Transparent Pricing</h3>
+
+    <p>
+      Each service option explains what
+      is included, what is excluded,
+      and what the homeowner can reasonably
+      expect from the work.
+
+      We believe you should understand
+      what you are purchasing before
+      making a commitment.
+    </p>
+  </div>
+
+  <div class="trust-card">
+    <span class="trust-number">05 / RESPONSIBLE OPERATIONS</span>
+
+    <h3>Safety-Conscious Work Planning</h3>
+
+    <p>
+      Tree work involves significant
+      physical hazards.
+
+      We emphasize pre-work hazard
+      identification, appropriate
+      equipment, controlled work areas,
+      and the authority to stop work
+      when conditions become unsafe.
+    </p>
+  </div>
+
+  <div class="trust-card">
+    <span class="trust-number">06 / LOCAL OWNERSHIP</span>
+
+    <h3>Veteran-Owned Oklahoma Business</h3>
+
+    <p>
+      Abundant Life Land & Tree LLC is
+      a locally operated, veteran-owned
+      tree service and land management
+      company serving the greater
+      Oklahoma City metropolitan area.
+
+      We value accountability,
+      professional conduct, and
+      lasting customer relationships.
+    </p>
+  </div>
+
+</div>
+
+<div class="insurance-panel">
+
+  <h3>
+    Insurance & Professional Accountability
+  </h3>
+
+  <p>
+    Before authorizing tree work, homeowners
+    should feel comfortable asking about
+    insurance coverage, work practices,
+    and the scope of the proposed service.
+  </p>
+
+  <p>
+    Abundant Life Land & Tree LLC maintains:
+  </p>
+
+  <ul>
+    <li>
+      General liability insurance covering
+      applicable tree-care and landscaping
+      operations.
+    </li>
+
+    <li>
+      Commercial automobile insurance.
+    </li>
+
+    <li>
+      Work planning informed by recognized
+      arboricultural safety and pruning
+      principles.
+    </li>
+  </ul>
+
+  <p class="insurance-note">
+    Proof of applicable insurance may be
+    requested before scheduling. Coverage
+    is governed by the terms, exclusions,
+    and limits of the applicable policies.
+    Insurance does not eliminate operational
+    risk or guarantee against damage.
+  </p>
+
+</div>
+
+<div class="notice">
+  <strong>What ANSI A300-informed pruning means for you:</strong>
+
+  <p>
+    Rather than removing branches indiscriminately,
+    we select pruning cuts based on branch condition,
+    attachment, location, and the intended objective.
+
+    This helps us address specific concerns
+    while limiting unnecessary wounds and
+    preserving the tree's living canopy.
+  </p>
+
+  <p>
+    Our reference to ANSI-informed practices
+    describes our approach to work. It is not
+    a claim of third-party certification
+    or accreditation.
+  </p>
+</div>
+
+<!-- SERVICE OPTIONS -->
+
+<h2>4. Choose Your Level of Service</h2>
+
+<p>
+  We offer three levels of pruning so you
+  can choose the scope that best addresses
+  your concerns and current budget.
+</p>
+
+<p>
+  Every option includes debris collection,
+  haul-off, and reasonable cleanup of
+  the work area.
+</p>
+
+<div class="tier-grid">
+
+  <!-- OPTION A -->
+
+  <article
+    class="tier"
+    data-tier="essential"
+    onclick="selectTier('essential')">
+
+    <div class="tier-label">
+      Option A
+    </div>
+
+    <h3>
+      Essential Safety Pruning
+    </h3>
+
+    <div class="price">
+      $1,200
+    </div>
+
+    <p>
+      <strong>
+        Focus on the areas that matter most.
+      </strong>
+    </p>
+
+    <ul>
+      <li>
+        Priority removal of conspicuous
+        dead or broken branches over
+        the house, driveway, and
+        frequently occupied areas.
+      </li>
+
+      <li>
+        Targeted work rather than
+        full-crown pruning.
+      </li>
+
+      <li>
+        Debris removal and cleanup.
+      </li>
+    </ul>
+
+    <p>
+      <strong>Best for:</strong>
+
+      Addressing priority concerns
+      while minimizing expenditure.
+    </p>
+
+    <p>
+      <strong>Limitation:</strong>
+
+      Deadwood elsewhere in the canopy
+      may remain.
+
+      Live-branch clearance and
+      structural pruning are not included.
+    </p>
+
+  </article>
+
+  <!-- OPTION B -->
+
+  <article
+    class="tier recommended"
+    data-tier="comprehensive"
+    onclick="selectTier('comprehensive')">
+
+    <div class="recommendation">
+      Recommended
+    </div>
+
+    <div class="tier-label">
+      Option B
+    </div>
+
+    <h3>
+      Comprehensive Deadwood Pruning
+    </h3>
+
+    <div class="price">
+      $1,575
+    </div>
+
+    <p>
+      <strong>
+        Address deadwood throughout the tree.
+      </strong>
+    </p>
+
+    <ul>
+      <li>
+        All work included in
+        Essential Safety Pruning.
+      </li>
+
+      <li>
+        Expanded deadwood removal
+        throughout safely accessible
+        portions of the crown.
+      </li>
+
+      <li>
+        Attention to dead and broken
+        branches beyond the immediate
+        house and driveway.
+      </li>
+
+      <li>
+        Debris removal and cleanup.
+      </li>
+    </ul>
+
+    <p>
+      <strong>Best for:</strong>
+
+      Homeowners seeking broader
+      deadwood management in one visit.
+    </p>
+
+    <p>
+      <strong>Limitation:</strong>
+
+      Live-branch clearance and structural
+      pruning are not included.
+
+      Small dead twigs and inaccessible
+      material may remain.
+    </p>
+
+  </article>
+
+  <!-- OPTION C -->
+
+  <article
+    class="tier"
+    data-tier="complete"
+    onclick="selectTier('complete')">
+
+    <div class="tier-label">
+      Option C
+    </div>
+
+    <h3>
+      Complete Canopy Care
+    </h3>
+
+    <div class="price">
+      $1,950
+    </div>
+
+    <p>
+      <strong>
+        Deadwood removal plus selective
+        preventive maintenance.
+      </strong>
+    </p>
+
+    <ul>
+      <li>
+        All work included in
+        Comprehensive Deadwood Pruning.
+      </li>
+
+      <li>
+        Targeted clearance pruning
+        of live branches where needed
+        near structures.
+      </li>
+
+      <li>
+        Selective structural pruning
+        where suitable branches and
+        reduction points permit
+        meaningful improvement.
+      </li>
+
+      <li>
+        Preservation of healthy canopy
+        and natural tree form.
+      </li>
+
+      <li>
+        Debris removal and cleanup.
+      </li>
+    </ul>
+
+    <p>
+      <strong>Best for:</strong>
+
+      Homeowners seeking broader
+      maintenance during one visit.
+    </p>
+
+    <p>
+      <strong>Limitation:</strong>
+
+      Does not include major crown
+      reduction, cabling, bracing,
+      removal of large structural
+      leaders, or correction of
+      all existing structural defects.
+    </p>
+
+  </article>
+
+</div>
+
+<!-- COMPARISON -->
+
+<h2>5. Compare Your Options</h2>
+
+<table class="scope-table">
+
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Essential<br>$1,200</th>
+      <th>Comprehensive<br>$1,575</th>
+      <th>Complete<br>$1,950</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <td>
+        Priority deadwood over occupied areas
+      </td>
+      <td class="yes">Yes</td>
+      <td class="yes">Yes</td>
+      <td class="yes">Yes</td>
+    </tr>
+
+    <tr>
+      <td>
+        Deadwood throughout accessible crown
+      </td>
+      <td class="limited">Limited</td>
+      <td class="yes">Yes</td>
+      <td class="yes">Yes</td>
+    </tr>
+
+    <tr>
+      <td>
+        Targeted live-branch clearance
+      </td>
+      <td class="no">No</td>
+      <td class="no">No</td>
+      <td class="yes">Yes</td>
+    </tr>
+
+    <tr>
+      <td>
+        Selective structural pruning
+      </td>
+      <td class="no">No</td>
+      <td class="no">No</td>
+      <td class="yes">Yes</td>
+    </tr>
+
+    <tr>
+      <td>
+        Debris haul-off and cleanup
+      </td>
+      <td class="yes">Yes</td>
+      <td class="yes">Yes</td>
+      <td class="yes">Yes</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+<div class="notice">
+
+  <strong>
+    Our Recommendation:
+    Option B — $1,575
+  </strong>
+
+  <p>
+    Comprehensive Deadwood Pruning
+    provides a practical balance
+    between cost and scope.
+  </p>
+
+  <p>
+    It expands attention beyond the
+    immediate occupied areas without
+    requiring additional live-branch
+    pruning that may not be necessary
+    to address your primary concern.
+  </p>
+
+</div>
+
+<!-- WORK APPROACH -->
+
+<h2>6. Our Approach to Your Tree</h2>
+
+<h3>Preserve Healthy Canopy</h3>
+
+<p>
+  Healthy living branches provide
+  important physiological and
+  structural functions.
+
+  Our approach emphasizes selective
+  pruning rather than indiscriminate
+  canopy thinning or topping.
+</p>
+
+<h3>Use Appropriate Pruning Cuts</h3>
+
+<p>
+  Pruning will be performed using
+  appropriate branch removal and
+  reduction techniques informed
+  by accepted arboricultural practices,
+  including ANSI A300 principles
+  where applicable.
+</p>
+
+<h3>Protect Surrounding Property</h3>
+
+<p>
+  Branches will be controlled or
+  lowered where necessary to reduce
+  the likelihood of damage to nearby
+  structures, vehicles, and landscaping.
+
+  The work area must remain clear
+  of unauthorized persons during
+  operations.
+</p>
+
+<h3>Maintain Realistic Expectations</h3>
+
+<p>
+  Deadwood pruning reduces selected
+  identifiable hazards, but no pruning
+  service can eliminate the possibility
+  of future branch failure.
+
+  Trees are living organisms subject
+  to weather, disease, decay, and
+  changing environmental conditions.
+</p>
+
+<!-- PHOTO GALLERY -->
+
+<h2>7. Photographic Reference</h2>
+
+<p>
+  These photographs document the
+  visible condition and general
+  structure of the tree before service.
+</p>
+
+<div class="photo-grid">
+
+  <figure class="photo">
+    <img
+      src="../img/mature-maple-before-pruning-moore-01.jpg"
+      alt="Overall view of mature maple"
+      onerror="showPlaceholder(this)">
+
+    <figcaption>
+      Figure 1 — Overall tree form
+      and canopy spread.
+    </figcaption>
+  </figure>
+
+  <figure class="photo">
+    <img
+      src="../img/mature-maple=before-prune-moore-02.jpg"
+      alt="Maple canopy and lateral limbs"
+      onerror="showPlaceholder(this)">
+
+    <figcaption>
+      Figure 2 — Lateral scaffold branches
+      and canopy condition.
+    </figcaption>
+  </figure>
+
+</div>
+
+<!-- LIMITATIONS -->
+
+<h2>8. Scope Conditions & Limitations</h2>
+
+<ul>
+
+  <li>
+    Work is limited to the selected
+    service tier.
+  </li>
+
+  <li>
+    All pruning is subject to safe access,
+    suitable attachment points, and a
+    satisfactory pre-work inspection.
+  </li>
+
+  <li>
+    Branches that cannot be accessed
+    or removed safely within the
+    agreed scope may remain.
+  </li>
+
+  <li>
+    Deadwood pruning does not constitute
+    a complete tree risk assessment
+    or guarantee against future
+    branch failure.
+  </li>
+
+  <li>
+    Internal decay, root defects,
+    and concealed structural conditions
+    are outside the scope of this
+    photographic assessment.
+  </li>
+
+  <li>
+    If previously unidentified conditions
+    materially affect the work,
+    they will be discussed before
+    any change in scope or price.
+  </li>
+
+  <li>
+    Stump work, tree removal, cabling,
+    bracing, and major structural
+    restoration are excluded.
+  </li>
+
+  <li>
+    Reasonable cleanup includes removal
+    of pruning debris generated by the
+    selected service, not unrelated
+    existing yard debris.
+  </li>
+
+  <li>
+    Scheduling is subject to weather,
+    crew availability, and mutual agreement.
+  </li>
+
+</ul>
+
+<!-- PAYMENT -->
+
+<h2>9. Scheduling & Payment</h2>
+
+<p>
+  We understand that you would prefer
+  to schedule service after Thanksgiving.
+</p>
+
+<p>
+  We are happy to coordinate a mutually
+  convenient date once the service scope
+  has been selected.
+</p>
+
+<p>
+  A 50% scheduling deposit is requested
+  upon acceptance, with the remaining
+  balance due upon satisfactory completion
+  of the agreed scope.
+</p>
+
+<p>
+  The selected price is a fixed proposed
+  service price, subject to confirmation
+  of site conditions and scope before
+  scheduling.
+
+  Any changes require mutual agreement.
+</p>
+
+<!-- AUTHORIZATION -->
+
+<h2>10. Service Selection & Authorization</h2>
+
+<section class="authorization">
+
+  <p>
+    Please select the level of service
+    you would like us to perform.
+  </p>
+
+  <div class="form-row">
+
+    <label for="service">
+      Selected Service
+    </label>
+
+    <select
+      id="service"
+      onchange="selectTier(this.value)">
+
+      <option value="">
+        Choose a service option
+      </option>
+
+      <option value="essential">
+        Essential Safety Pruning — $1,200
+      </option>
+
+      <option value="comprehensive">
+        Comprehensive Deadwood Pruning — $1,575
+      </option>
+
+      <option value="complete">
+        Complete Canopy Care — $1,950
+      </option>
+
+    </select>
+
+  </div>
+
+  <div
+    class="selected-summary"
+    id="selectedSummary">
+
+    No service selected.
+
+  </div>
+
+  <div class="form-row">
+
+    <label for="clientName">
+      Homeowner Name
+    </label>
+
+    <input
+      type="text"
+      id="clientName"
+      value="Jeannie Niedo"
+      required>
+
+  </div>
+
+  <div class="form-row">
+
+    <label for="clientEmail">
+      Homeowner Email
+    </label>
+
+    <input
+      type="email"
+      id="clientEmail"
+      placeholder="Your email address">
+
+  </div>
+
+  <div class="form-row">
+
+    <label for="preferredDate">
+      Preferred Service Date
+    </label>
+
+    <input
+      type="date"
+      id="preferredDate"
+      min="2026-11-27">
+
+  </div>
+
+  <div class="checkbox-row">
+
+    <input
+      type="checkbox"
+      id="acknowledge">
+
+    <label for="acknowledge">
+      I have reviewed the selected service
+      scope, price, exclusions, and limitations.
+
+      I understand that pruning reduces selected
+      hazards but does not guarantee that future
+      branch failures will not occur.
+    </label>
+
+  </div>
+
+  <div class="checkbox-row">
+
+    <input
+      type="checkbox"
+      id="authorize">
+
+    <label for="authorize">
+      I am the property owner or an authorized
+      representative and request that Abundant
+      Life Land & Tree LLC proceed with scheduling
+      the selected service, subject to written
+      confirmation and payment arrangements.
+    </label>
+
+  </div>
+
+  <button
+    type="button"
+    class="primary-button"
+    onclick="prepareAuthorization()">
+
+    Prepare Written Authorization
+
+  </button>
+
+  <p
+    id="authorizationStatus"
+    aria-live="polite"
+    style="
+      font-family:Arial,sans-serif;
+      font-size:.8rem;
+      color:var(--muted);
+    ">
+
+    This button prepares an email for your review.
+    Authorization is not submitted until you
+    send the email.
+
+  </p>
+
+</section>
+
+<div
+  class="no-print"
+  style="margin-top:30px;text-align:center">
+
+  <button
+    class="secondary-button"
+    onclick="window.print()">
+
+    Print or Save as PDF
+
+  </button>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <strong>
+    Abundant Life Land & Tree LLC
+  </strong>
+
+  <br>
+
+  Veteran-Owned Tree Service & Land Management
+
+  <br>
+
+  Edmond & Greater Oklahoma City Metro
+
+  <br>
+
+  <a href="https://abundantlife.land">
+    abundantlife.land
+  </a>
+
+  <br><br>
+
+  Thoughtful Stewardship.
+  Responsible Tree Care.
+
+</footer>
+
+</main>
+
+<script>
+const services = {
+  essential: {
+    name: "Essential Safety Pruning",
+    price: 1200
+  },
+
+  comprehensive: {
+    name: "Comprehensive Deadwood Pruning",
+    price: 1575
+  },
+
+  complete: {
+    name: "Complete Canopy Care",
+    price: 1950
+  }
+};
+
+let selectedService = "";
+
+function selectTier(tier) {
+  const serviceSelect =
+    document.getElementById("service");
+
+  if (!services[tier]) {
+    selectedService = "";
+    serviceSelect.value = "";
+
+    document.querySelectorAll(".tier").forEach(card => {
+      card.classList.remove("selected");
+    });
+
+    document.getElementById(
+      "selectedSummary"
+    ).textContent = "No service selected.";
+
+    return;
+  }
+
+  selectedService = tier;
+  serviceSelect.value = tier;
+
+  document.querySelectorAll(".tier").forEach(card => {
+    card.classList.toggle(
+      "selected",
+      card.dataset.tier === tier
+    );
+  });
+
+  const service = services[tier];
+  const deposit = service.price * 0.5;
+
+  document.getElementById(
+    "selectedSummary"
+  ).innerHTML = `
+    <strong>Selected:</strong>
+    ${service.name}<br>
+
+    <strong>Total:</strong>
+    $${service.price.toLocaleString()}<br>
+
+    <strong>Scheduling Deposit (50%):</strong>
+    $${deposit.toLocaleString()}<br>
+
+    <strong>Balance Upon Completion:</strong>
+    $${deposit.toLocaleString()}
+  `;
+}
+
+function showPlaceholder(image) {
+  const placeholder = document.createElement("div");
+
+  placeholder.className = "photo-placeholder";
+
+  placeholder.textContent =
+    "Photo placeholder — replace image source " +
+    "with the corresponding tree photograph.";
+
+  image.replaceWith(placeholder);
+}
+
+function prepareAuthorization() {
+  const status =
+    document.getElementById("authorizationStatus");
+
+  const name =
+    document.getElementById("clientName")
+      .value.trim();
+
+  const emailInput =
+    document.getElementById("clientEmail");
+
+  const email = emailInput.value.trim();
+
+  const date =
+    document.getElementById("preferredDate").value;
+
+  const acknowledged =
+    document.getElementById("acknowledge").checked;
+
+  const authorized =
+    document.getElementById("authorize").checked;
+
+  if (!selectedService) {
+    alert("Please select a service option.");
+    return;
+  }
+
+  if (!name) {
+    alert("Please enter the homeowner's name.");
+    return;
+  }
+
+  if (email && !emailInput.checkValidity()) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  if (!acknowledged || !authorized) {
+    alert(
+      "Please review and check both " +
+      "authorization boxes."
+    );
+    return;
+  }
+
+  const service = services[selectedService];
+
+  const subject =
+    "Tree Pruning Authorization — " +
+    "Jeannie Niedo — 1520 NE 2nd Street";
+
+  const message = [
+    "Abundant Life Land & Tree LLC",
+    "Tree Pruning Service Authorization",
+    "",
+    "Property: 1520 NE 2nd Street, Moore, OK 73160",
+    "Homeowner: " + name,
+    "Email: " + (email || "Not provided"),
+    "",
+    "Selected Service: " + service.name,
+    "Proposed Price: $" + service.price,
+    "Scheduling Deposit: $" + (service.price * 0.5),
+    "Remaining Balance: $" + (service.price * 0.5),
+    "",
+    "Preferred Service Date: " +
+      (date || "To be coordinated"),
+    "",
+    "I have reviewed the selected service scope,",
+    "price, exclusions, and limitations.",
+    "",
+    "I understand that pruning cannot guarantee",
+    "the prevention of future branch failure.",
+    "",
+    "I affirm that I am the property owner or",
+    "an authorized representative and request",
+    "written confirmation of the selected service",
+    "and scheduling arrangements.",
+    "",
+    "Homeowner: " + name,
+    "",
+    "Please confirm acceptance and next steps."
+  ].join("\n");
+
+  const mailto =
+    "mailto:abundant.life.land@gmail.com" +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(message);
+
+  status.textContent =
+    "Your email application will open. " +
+    "Please review and send the message " +
+    "to request confirmation.";
+
+  window.location.href = mailto;
+}
+</script>
+
+</body>
+</html>

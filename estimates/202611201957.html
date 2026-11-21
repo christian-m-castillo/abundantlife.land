@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greg Moore | River Birch Removal Proposal</title>
+<style>
+:root {
+  --forest:#203c30;
+  --dark:#142a21;
+  --sage:#edf2eb;
+  --gold:#b68b46;
+  --ink:#25312b;
+  --muted:#657169;
+  --line:#dce3db;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:#f5f6f2;
+  color:var(--ink);
+  font:16px/1.65 system-ui,-apple-system,
+       BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.page {
+  max-width:880px;
+  margin:32px auto;
+  background:white;
+  box-shadow:0 12px 40px #142a2112;
+}
+header {
+  background:var(--dark);
+  color:white;
+  padding:40px 48px;
+}
+.brand {
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:750;
+  color:#d7c09a;
+}
+header h1 {
+  margin:20px 0 10px;
+  font:normal clamp(32px,5vw,48px)/1.12 Georgia,serif;
+}
+header p { color:#d8e2d9; margin:0; }
+main { padding:40px 48px 50px; }
+h2 {
+  color:var(--forest);
+  font:normal 26px Georgia,serif;
+  margin:36px 0 12px;
+}
+p { margin:10px 0 16px; }
+.meta {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  padding-bottom:28px;
+  border-bottom:1px solid var(--line);
+}
+.small {
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:750;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.meta strong { font-size:16px; }
+.photo {
+  margin:28px 0;
+  background:#edf0eb;
+  border-radius:8px;
+  overflow:hidden;
+}
+.photo img {
+  width:100%;
+  object-fit:cover;
+  display:block;
+}
+figcaption {
+  padding:10px 16px;
+  font-size:13px;
+  color:var(--muted);
+}
+ul { padding-left:22px; }
+li { margin:8px 0; }
+.notice {
+  border-left:4px solid var(--gold);
+  background:#f8f5ee;
+  padding:18px 22px;
+  margin:24px 0;
+}
+.notice strong { color:var(--dark); }
+.price {
+  background:var(--forest);
+  color:white;
+  padding:28px 32px;
+  border-radius:8px 8px 0 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.price .amount {
+  font-size:42px;
+  font-weight:750;
+  line-height:1.1;
+}
+.price .small { color:#c8d7ca; }
+.price p { margin:6px 0 0; color:#dce6dd; }
+
+/* Prominent price-match section */
+.guarantee {
+  border:2px solid var(--gold);
+  border-top:0;
+  border-radius:0 0 8px 8px;
+  background:#fbf8ef;
+  padding:24px 30px;
+}
+.guarantee-kicker {
+  color:#836025;
+  text-transform:uppercase;
+  letter-spacing:1.3px;
+  font-size:12px;
+  font-weight:800;
+}
+.guarantee h3 {
+  color:var(--forest);
+  font:normal 28px Georgia,serif;
+  line-height:1.2;
+  margin:8px 0 12px;
+}
+.guarantee p { margin:8px 0; }
+.guarantee .fine {
+  font-size:13px;
+  color:#6b675c;
+  margin-top:14px;
+}
+.features {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:20px;
+}
+.feature {
+  border:1px solid var(--line);
+  border-radius:7px;
+  padding:16px;
+}
+.feature strong {
+  display:block;
+  color:var(--forest);
+  margin-bottom:4px;
+}
+.feature p {
+  font-size:14px;
+  margin:0;
+  color:var(--muted);
+}
+.terms {
+  background:var(--sage);
+  border-radius:8px;
+  padding:22px 26px;
+}
+.authorization {
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:24px;
+}
+.authorization label {
+  display:block;
+  font-weight:650;
+  margin:14px 0 5px;
+}
+.authorization input {
+  width:100%;
+  border:1px solid #bfcac0;
+  border-radius:5px;
+  padding:12px;
+  font:inherit;
+}
+.authorization button {
+  margin-top:20px;
+  padding:14px 22px;
+  border:0;
+  border-radius:5px;
+  background:var(--forest);
+  color:white;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+.authorization button:hover {
+  background:var(--dark);
+}
+footer {
+  background:var(--sage);
+  padding:26px 48px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+footer strong { color:var(--forest); }
+a { color:inherit; }
+@media(max-width:600px) {
+  .page { margin:0; }
+  header,main { padding:28px 22px; }
+  footer { padding:24px; }
+  .meta,.features { grid-template-columns:1fr; }
+  .price { align-items:flex-start; flex-direction:column; }
+  .price .amount { font-size:38px; }
+  .guarantee { padding:22px; }
+  .guarantee h3 { font-size:25px; }
+}
+@media print {
+  body { background:white; font-size:12px; }
+  .page { margin:0; box-shadow:none; max-width:none; }
+  header,main { padding:24px 36px; }
+  h2 { font-size:21px; margin-top:22px; }
+  .photo img { max-height:280px; }
+  .authorization button { display:none; }
+  .notice,.price,.guarantee,.feature {
+    break-inside:avoid;
+  }
+  * {
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<header>
+  <div class="brand">
+    Abundant Life Land &amp; Tree LLC
+  </div>
+  <h1>River Birch<br>Removal Proposal</h1>
+  <p>
+    Professional Tree Service &amp; Land Management
+  </p>
+</header>
+
+<main>
+
+<section class="meta">
+  <div>
+    <span class="small">Prepared For</span>
+    <strong>Greg Moore</strong><br>
+    415 Sparrow Hawk<br>
+    Edmond, OK 73003<br>
+    <a href="tel:+14054014478">
+      (405) 401-4478
+    </a>
+  </div>
+  <div>
+    <span class="small">Prepared By</span>
+    <strong>Christian Castillo</strong><br>
+    Owner / Arborist<br>
+    Abundant Life Land &amp; Tree LLC
+  </div>
+  <div>
+    <span class="small">Proposal Date</span>
+    November 20, 2026
+  </div>
+  <div>
+    <span class="small">Proposal Validity</span>
+    30 days, subject to site conditions
+  </div>
+</section>
+
+<figure class="photo">
+  <!-- Replace with hosted image URL -->
+  <img src="../img/river-birch-removal-near-utilities.jpeg"
+       alt="River birch proposed for removal">
+  <figcaption>
+    Subject river birch showing crown dieback
+    and proximity to residential structures
+    and overhead utilities.
+  </figcaption>
+</figure>
+
+<h2>Project Overview</h2>
+
+<p>
+The subject river birch exhibits substantial
+crown dieback and is situated near the residence,
+surrounding landscape features, and overhead
+utility conductors.
+</p>
+
+<p>
+Given the observed condition and location,
+complete removal is proposed as a practical
+option for eliminating future maintenance
+associated with the declining tree.
+</p>
+
+<p>
+This proposal is based on a visual review.
+It does not constitute a formal tree risk
+assessment, and concealed structural defects
+may be present.
+</p>
+
+<h2>Proposed Scope of Work</h2>
+
+<ul>
+  <li>
+    Remove the subject river birch in its
+    entirety above ground level.
+  </li>
+  <li>
+    Perform sectional dismantling and controlled
+    lowering where required to protect nearby
+    structures, landscaping, and other property.
+  </li>
+  <li>
+    Process and remove branches, brush,
+    and trunk sections.
+  </li>
+  <li>
+    Haul away all resulting tree debris.
+  </li>
+  <li>
+    Cut the remaining stump as close to ground
+    level as reasonably practical.
+  </li>
+  <li>
+    Rake and collect reasonable remaining
+    debris from affected work areas.
+  </li>
+  <li>
+    Leave the property in a reasonably clean
+    and orderly condition.
+  </li>
+</ul>
+
+<div class="notice">
+  <strong>Utility Coordination &amp; Safety</strong>
+
+  <p>
+    Portions of the tree are located within
+    approximately 10 feet of overhead
+    utility conductors.
+  </p>
+
+  <p>
+    Before removal begins, the serving electric
+    utility must be identified and appropriate
+    electrical safety arrangements confirmed.
+    Depending on the utility's evaluation,
+    this may include line clearance, temporary
+    de-energization, or qualified line-clearance
+    personnel.
+  </p>
+
+  <p>
+    Work requiring entry into an applicable
+    electrical minimum approach distance
+    will not proceed without the required
+    qualifications and safety arrangements.
+  </p>
+
+  <p>
+    Scheduling is contingent upon satisfactory
+    utility coordination. Any additional utility
+    charges or specialized subcontractor costs
+    not included in this proposal will require
+    separate written approval.
+  </p>
+</div>
+
+<h2>Project Investment</h2>
+
+<div class="price">
+  <div>
+    <span class="small">
+      Complete Above-Ground Removal
+    </span>
+    <strong>One River Birch</strong>
+    <p>
+      Includes debris removal and
+      routine site cleanup.
+    </p>
+  </div>
+  <div class="amount">$2,350</div>
+</div>
+
+<section class="guarantee">
+  <div class="guarantee-kicker">
+    Our Competitive Pricing Commitment
+  </div>
+
+  <h3>
+    Price Match Guarantee<br>
+    <strong>Plus Up to 5% Better</strong>
+  </h3>
+
+  <p>
+    We believe professional tree care should
+    be both safe and competitively priced.
+  </p>
+
+  <p>
+    If you receive a lower written estimate
+    from another comparably insured tree
+    service for the same scope of work,
+    we'll match that qualifying price
+    and may beat it by up to an additional 5%.
+  </p>
+
+  <p>
+    That means you don't have to choose
+    between competitive pricing and
+    professional, safety-conscious service.
+  </p>
+
+  <p class="fine">
+    <strong>Guarantee conditions:</strong>
+    Competing estimates must be current,
+    written, and independently verifiable;
+    cover substantially identical work,
+    including debris haul-off and cleanup;
+    and be provided by a contractor with
+    comparable general liability and
+    applicable commercial auto insurance.
+    Required electrical safety arrangements
+    must also be comparable. Any additional
+    reduction of up to 5% is subject to
+    review and written approval by
+    Abundant Life Land &amp; Tree LLC.
+    Offers cannot be combined with
+    other discounts.
+  </p>
+</section>
+
+<h2>Why Choose Abundant Life?</h2>
+
+<div class="features">
+  <div class="feature">
+    <strong>Insured Operations</strong>
+    <p>
+      Commercial general liability and
+      commercial automotive insurance.
+      Proof of coverage available upon request.
+    </p>
+  </div>
+
+  <div class="feature">
+    <strong>ANSI-Informed Practices</strong>
+    <p>
+      Work planning informed by applicable
+      ANSI A300 tree-care standards and
+      ANSI Z133 arboricultural safety principles.
+    </p>
+  </div>
+
+  <div class="feature">
+    <strong>Owner-Led Work</strong>
+    <p>
+      Direct involvement from the owner
+      in assessment, planning, and execution.
+    </p>
+  </div>
+
+  <div class="feature">
+    <strong>Respect for Your Property</strong>
+    <p>
+      Deliberate work methods, consideration
+      of surrounding landscape features,
+      and thorough post-work cleanup.
+    </p>
+  </div>
+</div>
+
+<h2>Project Conditions &amp; Exclusions</h2>
+
+<div class="terms">
+  <ul>
+    <li>
+      Stump grinding, root excavation,
+      and soil restoration are not included.
+    </li>
+    <li>
+      Underground utility locating will be
+      coordinated where required before
+      ground-disturbing work.
+    </li>
+    <li>
+      Utility charges, specialized line-clearance
+      subcontractors, and extraordinary electrical
+      protection measures are excluded unless
+      separately approved in writing.
+    </li>
+    <li>
+      The client will provide reasonable access
+      and relocate movable personal property
+      before operations begin.
+    </li>
+    <li>
+      Unforeseen conditions materially altering
+      the scope will be discussed before
+      additional charges are incurred.
+    </li>
+    <li>
+      Scheduling remains subject to weather,
+      site access, and utility coordination.
+    </li>
+    <li>
+      No work will begin until both parties
+      agree to the final scope and applicable
+      utility-related conditions.
+    </li>
+  </ul>
+</div>
+
+<h2>Authorization</h2>
+
+<p>
+Acceptance authorizes Abundant Life Land &amp; Tree LLC
+to schedule the described services at the stated
+price, subject to the utility coordination and
+project conditions outlined above.
+</p>
+
+<div class="authorization">
+  <strong>Client Acceptance</strong>
+
+  <label for="client">Client Full Name</label>
+  <input id="client" type="text"
+         value="Greg Moore">
+
+  <label for="date">Date</label>
+  <input id="date" type="date">
+
+  <button type="button" onclick="prepareAcceptance()">
+    Prepare Acceptance Email
+  </button>
+
+  <p style="font-size:12px;color:var(--muted)">
+    Selecting this button prepares an email
+    containing your acceptance information.
+    Authorization is not transmitted until
+    you review and send that email.
+    Work remains subject to final mutual
+    agreement and required utility coordination.
+  </p>
+</div>
+
+</main>
+
+<footer>
+  <strong>
+    Abundant Life Land &amp; Tree LLC
+  </strong><br>
+  Professional Tree Service &amp; Land Management<br>
+  Edmond &amp; Greater Oklahoma City Metro<br>
+
+  <a href="https://abundantlife.land">
+    abundantlife.land
+  </a><br>
+
+  <a href="mailto:abundant.life.land@gmail.com">
+    abundant.life.land@gmail.com
+  </a>
+</footer>
+
+</div>
+
+<script>
+function prepareAcceptance() {
+  const name = document.getElementById("client")
+    .value.trim();
+  const date = document.getElementById("date").value;
+
+  if (!name || !date) {
+    alert("Please enter your name and the date.");
+    return;
+  }
+
+  const subject =
+    "River Birch Removal Proposal Acceptance";
+
+  const body = [
+    "I, " + name + ", confirm that I have reviewed",
+    "the River Birch Removal Proposal dated",
+    "November 20, 2026.",
+    "",
+    "I accept the proposed above-ground tree removal",
+    "scope at $2,350, subject to the stated project",
+    "conditions and satisfactory utility coordination.",
+    "",
+    "I understand that any additional utility-related",
+    "charges or subcontractor costs require my",
+    "separate written approval before proceeding.",
+    "",
+    "Client: " + name,
+    "Date: " + date,
+    "",
+    "Property: 415 Sparrow Hawk, Edmond, OK 73003"
+  ].join("\n");
+
+  const url =
+    "mailto:abundant.life.land@gmail.com" +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+
+  window.location.href = url;
+}
+</script>
+
+</body>
+</html>

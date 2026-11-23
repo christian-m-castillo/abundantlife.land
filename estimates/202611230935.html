@@ -1,0 +1,1833 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>River Birch Removal Proposal | Greg Moore</title>
+
+  <style>
+    /* ==========================================
+       DESIGN SYSTEM
+       ========================================== */
+
+    :root {
+      --green: #254637;
+      --dark: #193629;
+      --sage: #eaf0e9;
+      --cream: #faf9f5;
+      --white: #ffffff;
+      --ink: #26312b;
+      --muted: #65736a;
+      --line: #d9e1d9;
+      --amber: #94621b;
+      --amber-bg: #fff5e3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #e9ece8;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .document {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 52px 58px;
+      background: var(--white);
+      box-shadow: 0 8px 32px #00000012;
+    }
+
+    h1 {
+      color: var(--dark);
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin: 34px 0 14px;
+      padding-bottom: 9px;
+      color: var(--green);
+      font-size: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h3 {
+      color: var(--dark);
+      font-size: 17px;
+    }
+
+    p {
+      margin: 10px 0 15px;
+    }
+
+    li {
+      margin-bottom: 9px;
+    }
+
+    a {
+      color: var(--green);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+
+    /* ==========================================
+       HEADER AND CLIENT DETAILS
+       ========================================== */
+
+    header {
+      padding-bottom: 23px;
+      border-bottom: 3px solid var(--green);
+    }
+
+    .brand {
+      color: var(--green);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 27px 0;
+    }
+
+    .meta > div {
+      padding: 15px 18px;
+      background: var(--cream);
+      border-left: 3px solid var(--green);
+    }
+
+    .meta strong {
+      display: block;
+      color: var(--green);
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+
+    /* ==========================================
+       PROJECT PHOTOGRAPH
+       ========================================== */
+
+    .photo {
+      margin: 24px 0;
+      overflow: hidden;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    .photo-frame {
+      position: relative;
+      background: #e6eae4;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .photo-frame.missing {
+      min-height: 230px;
+    }
+
+    .photo-frame.missing img {
+      display: none;
+    }
+
+    .photo-placeholder {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .photo-frame.missing .photo-placeholder {
+      display: flex;
+    }
+
+    .photo figcaption {
+      padding: 14px 17px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+
+    /* ==========================================
+       ASSESSMENT AND SAFETY NOTICES
+       ========================================== */
+
+    .notice {
+      margin: 22px 0;
+      padding: 19px 22px;
+      background: var(--amber-bg);
+      border-left: 4px solid var(--amber);
+    }
+
+    .recommendation {
+      margin: 22px 0;
+      padding: 21px;
+      background: var(--sage);
+      border-left: 4px solid var(--green);
+    }
+
+    .terms {
+      padding: 20px 24px;
+      background: var(--sage);
+      border-left: 4px solid var(--green);
+    }
+
+
+    /* ==========================================
+       INTERACTIVE SERVICE OPTIONS
+       ========================================== */
+
+    .service {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+
+      margin: 13px 0;
+      padding: 20px;
+
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .service.selected {
+      background: #f6faf5;
+      border: 2px solid var(--green);
+      padding: 19px;
+    }
+
+    .service.required {
+      background: var(--sage);
+      cursor: default;
+    }
+
+    .service input {
+      width: 22px;
+      height: 22px;
+      margin-top: 4px;
+      flex-shrink: 0;
+      accent-color: var(--green);
+    }
+
+    .service-detail {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .service-detail strong {
+      display: block;
+      color: var(--dark);
+      font-size: 16px;
+    }
+
+    .service-detail p {
+      margin: 6px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .service-price {
+      color: var(--green);
+      font-size: 21px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .service-tag {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .referral {
+      margin: 18px 0;
+      padding: 21px;
+      background: var(--cream);
+      border: 1px dashed #aab9ab;
+      border-radius: 8px;
+    }
+
+    .referral h3 {
+      margin-top: 0;
+    }
+
+
+    /* ==========================================
+       PRICING SUMMARY
+       ========================================== */
+
+    .summary {
+      margin: 22px 0;
+      padding: 21px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 11px 0;
+    }
+
+    .summary-row span:last-child {
+      white-space: nowrap;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+
+      margin-top: 17px;
+      padding-top: 15px;
+
+      color: var(--green);
+      border-top: 2px solid var(--green);
+      font-weight: 800;
+    }
+
+    .summary-total strong {
+      font-size: 27px;
+      white-space: nowrap;
+    }
+
+    .sticky-total {
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+
+      padding: 16px 21px;
+      margin: 20px 0;
+
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 5px 20px #00000030;
+    }
+
+    .sticky-total span {
+      display: block;
+      font-size: 12px;
+    }
+
+    .sticky-total strong {
+      display: block;
+      font-size: 28px;
+    }
+
+    .sticky-total a {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+
+    /* ==========================================
+       PRICE MATCH AND CREDENTIALS
+       ========================================== */
+
+    .guarantee {
+      margin: 23px 0;
+      padding: 23px;
+      background: #fbf8ef;
+      border: 2px solid #b68b46;
+      border-radius: 7px;
+    }
+
+    .guarantee h3 {
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .feature {
+      padding: 18px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    .feature strong {
+      display: block;
+      color: var(--green);
+    }
+
+    .feature p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+
+    /* ==========================================
+       AUTHORIZATION FORM
+       ========================================== */
+
+    .authorization {
+      margin-top: 35px;
+      padding: 26px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .authorization h2 {
+      margin-top: 0;
+    }
+
+    .field-label {
+      display: block;
+      margin: 16px 0 6px;
+      font-weight: 700;
+    }
+
+    .authorization input[type="text"],
+    .authorization input[type="email"] {
+      width: 100%;
+      padding: 13px;
+      background: white;
+      border: 1px solid #b7c4b9;
+      border-radius: 5px;
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin: 17px 0;
+    }
+
+    .check input {
+      margin-top: 6px;
+      accent-color: var(--green);
+    }
+
+    .submit {
+      width: 100%;
+      margin-top: 16px;
+      padding: 16px;
+
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .submit:hover {
+      background: var(--dark);
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #84ad8f;
+      outline-offset: 3px;
+    }
+
+    footer {
+      margin-top: 45px;
+      padding-top: 18px;
+      border-top: 2px solid var(--green);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+
+    /* ==========================================
+       MOBILE
+       ========================================== */
+
+    @media (max-width: 650px) {
+
+      .document {
+        margin: 0;
+        padding: 25px 19px;
+      }
+
+      .meta,
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .service {
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .service.selected {
+        padding: 13px;
+      }
+
+      .service-price {
+        font-size: 17px;
+      }
+
+      .service-detail strong {
+        font-size: 14px;
+      }
+
+      .summary-total strong {
+        font-size: 23px;
+      }
+
+      .sticky-total strong {
+        font-size: 23px;
+      }
+
+      .authorization {
+        padding: 18px;
+      }
+    }
+
+
+    /* ==========================================
+       PRINT
+       ========================================== */
+
+    @media print {
+
+      @page {
+        size: letter;
+        margin: 0.65in;
+      }
+
+      body {
+        background: white;
+      }
+
+      .document {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .sticky-total,
+      .submit {
+        display: none;
+      }
+
+      .service,
+      .notice,
+      .recommendation,
+      .guarantee,
+      .feature {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="document">
+
+    <!-- ======================================
+         HEADER
+         ====================================== -->
+
+    <header>
+
+      <div class="brand">
+        ABUNDANT LIFE LAND & TREE
+      </div>
+
+      <div class="brand-sub">
+        Tree Service & Land Management
+      </div>
+
+      <h1>
+        River Birch Removal<br>
+        & Service Proposal
+      </h1>
+
+      <p class="small">
+        Originally prepared November 20, 2026<br>
+        Revised November 23, 2026
+      </p>
+
+    </header>
+
+
+    <!-- ======================================
+         CLIENT INFORMATION
+         ====================================== -->
+
+    <section class="meta">
+
+      <div>
+        <strong>Prepared For</strong>
+        Greg Moore<br>
+        415 Sparrow Hawk<br>
+        Edmond, OK 73003<br>
+
+        <a href="tel:+14054014478">
+          (405) 401-4478
+        </a>
+      </div>
+
+      <div>
+        <strong>Subject Tree</strong>
+        River birch (<em>Betula nigra</em>)<br>
+        Estimated height: 45–55 feet<br>
+        Residential backyard
+      </div>
+
+      <div>
+        <strong>Prepared By</strong>
+        Christian Castillo<br>
+        Owner / Arborist<br>
+        Abundant Life Land & Tree LLC
+      </div>
+
+      <div>
+        <strong>Proposal Validity</strong>
+        30 days from revision<br>
+        Subject to utility arrangements<br>
+        and site conditions
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         PROJECT PHOTOGRAPH
+         ====================================== -->
+
+    <figure class="photo">
+
+      <div class="photo-frame">
+
+        <img
+          src="../img/river-birch-removal-near-utilities.jpeg"
+          alt="River birch with crown dieback near the residence and overhead conductors"
+          onerror="this.parentElement.classList.add('missing')"
+        >
+
+        <div class="photo-placeholder">
+          Project photograph unavailable
+        </div>
+
+      </div>
+
+      <figcaption>
+        <strong>Subject Tree — Existing Conditions</strong><br>
+        Mature river birch exhibiting substantial crown
+        dieback, uneven foliage distribution, and proximity
+        to the residence and overhead utility conductors.
+      </figcaption>
+
+    </figure>
+
+
+    <!-- ======================================
+         1. PROJECT OVERVIEW
+         ====================================== -->
+
+    <section>
+
+      <h2>1. Project Overview</h2>
+
+      <p>
+        Abundant Life Land & Tree LLC proposes complete
+        above-ground removal of the mature river birch
+        located in the residential backyard of Greg Moore.
+      </p>
+
+      <p>
+        The tree exhibits substantial crown dieback and
+        uneven remaining foliage. Its proximity to the
+        residence, landscaped areas, and overhead electrical
+        infrastructure makes controlled removal an
+        appropriate management option.
+      </p>
+
+      <p>
+        This proposal is based on a limited visual review
+        and does not constitute a formal tree risk assessment.
+      </p>
+
+    </section>
+
+
+    <!-- ======================================
+         2. TREE CONDITION
+         ====================================== -->
+
+    <section>
+
+      <h2>2. Observed Tree Condition</h2>
+
+      <h3>Crown Condition</h3>
+
+      <ul>
+        <li>
+          Extensive apparent deadwood throughout
+          the upper and outer crown.
+        </li>
+
+        <li>
+          Remaining foliage is unevenly distributed.
+        </li>
+
+        <li>
+          Substantial decline is apparent, although
+          the underlying cause has not been established.
+        </li>
+      </ul>
+
+      <h3>Site Considerations</h3>
+
+      <ul>
+        <li>
+          The tree is near the residence and landscaping.
+        </li>
+
+        <li>
+          Overhead utility conductors are within
+          approximately 10 feet of portions of the tree.
+        </li>
+
+        <li>
+          Removal will require deliberate work positioning,
+          controlled dismantling, and appropriate protection
+          of nearby property.
+        </li>
+      </ul>
+
+      <div class="notice">
+
+        <strong>Assessment Limitation</strong>
+
+        <p>
+          Internal decay, concealed defects, and root
+          stability have not been established. No
+          quantified probability of failure is asserted.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         3. RECOMMENDATION
+         ====================================== -->
+
+    <section>
+
+      <h2>3. Professional Recommendation</h2>
+
+      <div class="recommendation">
+
+        <strong>
+          Recommended Management:
+          Complete Above-Ground Removal
+        </strong>
+
+        <p>
+          Given the substantial visible crown dieback
+          and proximity to occupied residential areas,
+          removal is proposed as a practical long-term
+          management option.
+        </p>
+
+        <p>
+          Removal also provides an opportunity to consider
+          replacement planting better suited to the site.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         4. UPDATED UTILITY ARRANGEMENTS
+         ====================================== -->
+
+    <section>
+
+      <h2>4. Electrical Utility Coordination</h2>
+
+      <div class="recommendation">
+
+        <strong>
+          Temporary Line Drop / De-Energization Arranged
+        </strong>
+
+        <p>
+          The appropriate utility department has been
+          contacted, and arrangements have been confirmed
+          for a temporary line drop or de-energization
+          to facilitate the tree removal.
+        </p>
+
+        <p>
+          This arrangement allows the removal to be planned
+          without additional line-clearance subcontracting
+          or specialized electrical qualifications being
+          incorporated into the quoted tree-work scope.
+        </p>
+
+      </div>
+
+      <p>
+        Before work begins, the crew will verify with
+        the serving utility that the necessary line
+        drop or de-energization has actually been
+        completed and that the work area is released
+        for the planned operations.
+      </p>
+
+      <p>
+        Any remaining energized conductors will be
+        treated as energized. Applicable electrical
+        approach distances and safety requirements
+        will remain in effect.
+      </p>
+
+      <p>
+        Scheduling remains contingent on completion
+        of the utility arrangements. Any material
+        changes requiring additional services or
+        costs will be discussed and approved in
+        writing before proceeding.
+      </p>
+
+    </section>
+
+
+    <!-- ======================================
+         5. INTERACTIVE SERVICE OPTIONS
+         ====================================== -->
+
+    <section id="services">
+
+      <h2>5. Choose Your Services</h2>
+
+      <p>
+        We believe homeowners should have the flexibility
+        to choose the level of service that best fits
+        their priorities and budget.
+      </p>
+
+      <p>
+        The essential removal includes controlled
+        dismantling and safe staging of the resulting
+        material. Debris haul-off is available as an
+        optional additional service.
+      </p>
+
+      <p>
+        Select or deselect the optional service below.
+        Your total updates immediately.
+      </p>
+
+      <!-- Generated by JavaScript -->
+
+      <div id="serviceList"></div>
+
+      <!-- Itemized summary -->
+
+      <div
+        class="summary"
+        id="pricingSummary"
+        aria-live="polite"
+      ></div>
+
+      <!-- Stump grinding referral -->
+
+      <div class="referral">
+
+        <h3>Optional Stump Grinding Referral</h3>
+
+        <p>
+          Stump grinding is available through an
+          independent contractor.
+        </p>
+
+        <p>
+          We can provide an introduction so you may
+          discuss the desired grinding depth, access,
+          pricing, scheduling, and cleanup arrangements
+          directly with the contractor.
+        </p>
+
+        <p>
+          <strong>Price: To Be Determined</strong>
+        </p>
+
+        <p class="small">
+          Stump grinding is not included in the
+          Abundant Life Land & Tree LLC contract
+          total. Any stump grinding agreement,
+          payment, and associated responsibilities
+          would be arranged directly between the
+          homeowner and the independent contractor.
+        </p>
+
+        <label class="check">
+
+          <input
+            type="checkbox"
+            id="grinderReferral"
+          >
+
+          <span>
+            I would like an introduction to the
+            independent stump grinding contractor.
+          </span>
+
+        </label>
+
+      </div>
+
+      <!-- Sticky total -->
+
+      <div class="sticky-total">
+
+        <div>
+          <span>Selected Project Total</span>
+
+          <strong id="stickyPrice">
+            $1,650.00
+          </strong>
+        </div>
+
+        <a href="#authorization">
+          Authorize
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         6. PRICE MATCH GUARANTEE
+         ====================================== -->
+
+    <section>
+
+      <h2>6. Our Price Match Guarantee</h2>
+
+      <div class="guarantee">
+
+        <h3>
+          We Match Competitive Bids<br>
+          And May Beat Them by Up to 5%
+        </h3>
+
+        <p>
+          If you receive a lower written estimate
+          from another comparably insured tree service
+          for substantially identical work, we will
+          match a qualifying price and may beat it
+          by up to an additional 5%.
+        </p>
+
+        <p class="small">
+          Competing estimates must be current, written,
+          independently verifiable, and cover comparable
+          services and electrical safety arrangements.
+          Any additional reduction requires review and
+          written approval. Offers cannot be combined
+          with other discounts.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         7. WHY CHOOSE US
+         ====================================== -->
+
+    <section>
+
+      <h2>7. Why Choose Abundant Life?</h2>
+
+      <div class="features">
+
+        <div class="feature">
+
+          <strong>Insured Operations</strong>
+
+          <p>
+            Commercial general liability and commercial
+            auto insurance. Proof available upon request.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <strong>ANSI-Informed Practices</strong>
+
+          <p>
+            Work planning informed by applicable ANSI
+            A300 tree-care standards and ANSI Z133
+            arboricultural safety principles.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <strong>Owner-Led Service</strong>
+
+          <p>
+            Direct owner involvement in project
+            assessment, planning, and execution.
+          </p>
+
+        </div>
+
+        <div class="feature">
+
+          <strong>Property-Conscious Work</strong>
+
+          <p>
+            Controlled work methods, attention to
+            surrounding landscape features, and
+            reasonable post-work cleanup.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         8. PROJECT CONDITIONS
+         ====================================== -->
+
+    <section>
+
+      <h2>8. Project Conditions & Exclusions</h2>
+
+      <div class="terms">
+
+        <ul>
+
+          <li>
+            The base price includes complete above-ground
+            dismantling and safe staging of wood and brush.
+          </li>
+
+          <li>
+            Standard operational cleanup is included
+            with the base removal.
+          </li>
+
+          <li>
+            If haul-off is not selected, resulting
+            material will remain on the property
+            in an agreed-upon safe staging area.
+            Sufficient space and access must be available.
+          </li>
+
+          <li>
+            If haul-off is selected, generated wood
+            and brush will be processed, loaded,
+            transported, and disposed of.
+          </li>
+
+          <li>
+            Stump grinding, grinding debris removal,
+            backfilling, grading, seeding, and sod
+            installation are excluded.
+          </li>
+
+          <li>
+            Independent stump grinding is a referral
+            only and is not part of this contract.
+          </li>
+
+          <li>
+            The planned utility line drop or
+            de-energization must be completed and
+            verified before affected work begins.
+          </li>
+
+          <li>
+            The homeowner will provide reasonable
+            access and relocate movable personal
+            property before operations begin.
+          </li>
+
+          <li>
+            Unforeseen conditions materially changing
+            the work scope require discussion and
+            mutual written approval.
+          </li>
+
+          <li>
+            Scheduling remains subject to weather,
+            access, and utility coordination.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         9. AUTHORIZATION
+         ====================================== -->
+
+    <section
+      class="authorization"
+      id="authorization"
+    >
+
+      <h2>9. Service Authorization</h2>
+
+      <p>
+        Review your selected services and total.
+        Your authorization email will reflect
+        the exact scope selected below.
+      </p>
+
+      <div
+        class="summary"
+        id="authorizationSummary"
+        aria-live="polite"
+      ></div>
+
+      <form id="authorizationForm">
+
+        <label
+          class="field-label"
+          for="signerName"
+        >
+          Full Legal Name
+        </label>
+
+        <input
+          type="text"
+          id="signerName"
+          value="Greg Moore"
+          autocomplete="name"
+          required
+        >
+
+        <label
+          class="field-label"
+          for="signerEmail"
+        >
+          Email Address
+        </label>
+
+        <input
+          type="email"
+          id="signerEmail"
+          autocomplete="email"
+          required
+        >
+
+        <h3>Required Acknowledgments</h3>
+
+        <label class="check">
+
+          <input
+            type="checkbox"
+            id="propertyAuthority"
+            required
+          >
+
+          <span>
+            I affirm that I own the property
+            or otherwise have authority to
+            authorize the described work.
+          </span>
+
+        </label>
+
+        <label class="check">
+
+          <input
+            type="checkbox"
+            id="utilityAcknowledgment"
+            required
+          >
+
+          <span>
+            I understand that work is contingent
+            upon completion and verification of
+            the required utility arrangements.
+          </span>
+
+        </label>
+
+        <label class="check">
+
+          <input
+            type="checkbox"
+            id="termsAcknowledgment"
+            required
+          >
+
+          <span>
+            I have reviewed and accept the selected
+            services, total price, exclusions,
+            assessment limitations, and project
+            conditions described in this proposal.
+          </span>
+
+        </label>
+
+        <label class="check">
+
+          <input
+            type="checkbox"
+            id="signatureConsent"
+            required
+          >
+
+          <span>
+            I intend my typed name to serve
+            as my electronic signature on the
+            authorization email I review and send.
+          </span>
+
+        </label>
+
+        <button
+          type="submit"
+          class="submit"
+        >
+          Authorize Selected Services
+        </button>
+
+        <p
+          id="authorizationStatus"
+          class="small"
+          role="status"
+          aria-live="polite"
+        >
+          This button prepares an email for your
+          review. You must send the email from
+          your email application to transmit
+          the authorization.
+        </p>
+
+      </form>
+
+    </section>
+
+
+    <!-- ======================================
+         FOOTER
+         ====================================== -->
+
+    <footer>
+
+      <strong>
+        Abundant Life Land & Tree LLC
+      </strong><br>
+
+      Tree Service & Land Management<br>
+      Edmond, Oklahoma<br>
+
+      <a href="https://abundantlife.land">
+        abundantlife.land
+      </a><br>
+
+      <a href="mailto:abundant.life.land@gmail.com">
+        abundant.life.land@gmail.com
+      </a>
+
+    </footer>
+
+  </main>
+
+
+  <!-- ========================================
+       INTERACTIVE PRICING AND AUTHORIZATION
+       ======================================== -->
+
+  <script>
+    (() => {
+      "use strict";
+
+
+      /* ======================================
+         1. PROJECT CONFIGURATION
+         ====================================== */
+
+      const project = {
+
+        client: "Greg Moore",
+
+        address:
+          "415 Sparrow Hawk, Edmond, OK 73003",
+
+        proposalDate:
+          "November 23, 2026",
+
+        recipient:
+          "abundant.life.land@gmail.com"
+
+      };
+
+
+      /* ======================================
+         2. SERVICE PRICING
+
+         The base service is required.
+
+         Haul-off is optional and selected
+         by default.
+         ====================================== */
+
+      const services = [
+
+        {
+          id: "dismantling",
+
+          name:
+            "Climbing, Sectional Dismantling & Safe Staging",
+
+          price: 1200,
+
+          required: true,
+
+          selected: true,
+
+          description:
+            "Complete above-ground removal using " +
+            "appropriate climbing, rigging, and " +
+            "controlled dismantling methods. " +
+            "Wood and brush will be staged in an " +
+            "agreed-upon safe location. Includes " +
+            "reasonable standard operational cleanup."
+        },
+
+        {
+          id: "haulOff",
+
+          name:
+            "Debris Processing & Haul-Off",
+
+          price: 450,
+
+          required: false,
+
+          selected: true,
+
+          description:
+            "Process, load, transport, and dispose " +
+            "of the wood and brush generated by " +
+            "the removal. Includes routine cleanup " +
+            "of the debris loading area."
+        }
+
+      ];
+
+
+      /* ======================================
+         3. FORMATTING HELPERS
+         ====================================== */
+
+      function money(amount) {
+
+        return new Intl.NumberFormat(
+          "en-US",
+          {
+            style: "currency",
+            currency: "USD"
+          }
+        ).format(amount);
+
+      }
+
+
+      function selectedServices() {
+
+        return services.filter(
+          service => service.selected
+        );
+
+      }
+
+
+      function calculateTotal() {
+
+        return selectedServices().reduce(
+          (sum, service) => {
+
+            return sum + service.price;
+
+          },
+          0
+        );
+
+      }
+
+
+      /* ======================================
+         4. RENDER SERVICE SELECTION
+         ====================================== */
+
+      function renderServices() {
+
+        const container = document.getElementById(
+          "serviceList"
+        );
+
+        container.replaceChildren();
+
+        services.forEach(service => {
+
+          const card = document.createElement("label");
+
+          card.className = "service";
+
+          if (service.selected) {
+            card.classList.add("selected");
+          }
+
+          if (service.required) {
+            card.classList.add("required");
+          }
+
+          const checkbox = document.createElement(
+            "input"
+          );
+
+          checkbox.type = "checkbox";
+          checkbox.checked = service.selected;
+          checkbox.disabled = service.required;
+
+          checkbox.addEventListener(
+            "change",
+            () => {
+
+              service.selected = checkbox.checked;
+
+              renderProposal();
+
+            }
+          );
+
+          const detail = document.createElement(
+            "div"
+          );
+
+          detail.className = "service-detail";
+
+          const title = document.createElement(
+            "strong"
+          );
+
+          title.textContent = service.name;
+
+          const description = document.createElement(
+            "p"
+          );
+
+          description.textContent =
+            service.description;
+
+          detail.append(
+            title,
+            description
+          );
+
+          if (service.required) {
+
+            const tag = document.createElement(
+              "span"
+            );
+
+            tag.className = "service-tag";
+            tag.textContent = "Required base service";
+
+            detail.appendChild(tag);
+
+          }
+
+          const price = document.createElement(
+            "span"
+          );
+
+          price.className = "service-price";
+          price.textContent = money(service.price);
+
+          card.append(
+            checkbox,
+            detail,
+            price
+          );
+
+          container.appendChild(card);
+
+        });
+
+      }
+
+
+      /* ======================================
+         5. BUILD PRICING SUMMARY
+         ====================================== */
+
+      function createSummary() {
+
+        const container = document.createElement(
+          "div"
+        );
+
+        selectedServices().forEach(service => {
+
+          const row = document.createElement(
+            "div"
+          );
+
+          row.className = "summary-row";
+
+          const name = document.createElement(
+            "span"
+          );
+
+          name.textContent = service.name;
+
+          const price = document.createElement(
+            "span"
+          );
+
+          price.textContent = money(
+            service.price
+          );
+
+          row.append(name, price);
+
+          container.appendChild(row);
+
+        });
+
+        const totalRow = document.createElement(
+          "div"
+        );
+
+        totalRow.className = "summary-total";
+
+        const label = document.createElement(
+          "span"
+        );
+
+        label.textContent = "Authorized Project Total";
+
+        const value = document.createElement(
+          "strong"
+        );
+
+        value.textContent = money(
+          calculateTotal()
+        );
+
+        totalRow.append(label, value);
+
+        container.appendChild(totalRow);
+
+        return container;
+
+      }
+
+
+      /* ======================================
+         6. UPDATE ALL PRICING DISPLAYS
+         ====================================== */
+
+      function renderProposal() {
+
+        renderServices();
+
+        document.getElementById(
+          "pricingSummary"
+        ).replaceChildren(
+          createSummary()
+        );
+
+        document.getElementById(
+          "authorizationSummary"
+        ).replaceChildren(
+          createSummary()
+        );
+
+        document.getElementById(
+          "stickyPrice"
+        ).textContent = money(
+          calculateTotal()
+        );
+
+      }
+
+
+      /* ======================================
+         7. PREPARE AUTHORIZATION EMAIL
+         ====================================== */
+
+      function prepareAuthorization(event) {
+
+        event.preventDefault();
+
+        const form = event.currentTarget;
+
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const signer = document.getElementById(
+          "signerName"
+        ).value.trim();
+
+        const email = document.getElementById(
+          "signerEmail"
+        ).value.trim();
+
+        const referral = document.getElementById(
+          "grinderReferral"
+        ).checked;
+
+        const status = document.getElementById(
+          "authorizationStatus"
+        );
+
+        if (!signer || !email) {
+
+          status.textContent =
+            "Please provide your name and email.";
+
+          return;
+        }
+
+        const selected = selectedServices();
+
+        const selectedLines = selected.map(
+          service => {
+
+            return (
+              service.name +
+              " — " +
+              money(service.price)
+            );
+
+          }
+        );
+
+        const haulOffSelected = services.find(
+          service => service.id === "haulOff"
+        ).selected;
+
+        const date = new Date().toLocaleString(
+          "en-US",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            timeZoneName: "short"
+          }
+        );
+
+        const subject =
+          "Service Authorization | " +
+          signer +
+          " | River Birch Removal";
+
+        const body = [
+
+          "SERVICE AUTHORIZATION",
+          "Abundant Life Land & Tree LLC",
+          "",
+
+          "PROPOSAL",
+          "Client: " + project.client,
+          "Property: " + project.address,
+          "Revision Date: " + project.proposalDate,
+          "",
+
+          "AUTHORIZED SERVICES",
+          ...selectedLines,
+          "",
+
+          "TOTAL AUTHORIZED PRICE",
+          money(calculateTotal()),
+          "",
+
+          "DEBRIS DISPOSITION",
+
+          haulOffSelected
+            ? "Debris processing and haul-off included."
+            : "Wood and brush will remain on site " +
+              "in an agreed safe staging location.",
+
+          "",
+
+          "STUMP GRINDING REFERRAL",
+
+          referral
+            ? "Please introduce me to the independent " +
+              "stump grinding contractor."
+            : "No stump grinding referral requested.",
+
+          "Stump grinding is excluded from this " +
+          "contract and authorized total.",
+          "",
+
+          "UTILITY COORDINATION",
+
+          "The required temporary line drop or " +
+          "de-energization must be completed and " +
+          "verified before affected work begins.",
+
+          "Additional costs or material scope " +
+          "changes require written approval.",
+          "",
+
+          "AGREEMENT",
+
+          "I affirm that I have authority to " +
+          "authorize this work.",
+
+          "I accept the selected scope, price, " +
+          "exclusions, assessment limitations, " +
+          "and project conditions.",
+          "",
+
+          "CUSTOMER AUTHORIZATION",
+
+          "Signed by: " + signer,
+          "Email: " + email,
+          "Date: " + date,
+          "",
+
+          "I intend my typed name to serve as " +
+          "my electronic signature.",
+          "",
+
+          "Please confirm acceptance and scheduling."
+
+        ].join("\n");
+
+        const mailto =
+          "mailto:" +
+          project.recipient +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body);
+
+        if (mailto.length > 7000) {
+
+          status.textContent =
+            "The prepared email is too long " +
+            "for reliable transmission. Please " +
+            "contact us for an alternative " +
+            "authorization method.";
+
+          return;
+        }
+
+        status.textContent =
+          "Your email application should open. " +
+          "Review and send the prepared email " +
+          "to complete the authorization request. " +
+          "No submission has yet been confirmed.";
+
+        window.location.href = mailto;
+
+      }
+
+
+      /* ======================================
+         8. INITIALIZE
+         ====================================== */
+
+      document.getElementById(
+        "authorizationForm"
+      ).addEventListener(
+        "submit",
+        prepareAuthorization
+      );
+
+      renderProposal();
+
+    })();
+  </script>
+
+</body>
+</html>

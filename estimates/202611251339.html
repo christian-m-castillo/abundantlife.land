@@ -1,0 +1,4018 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta
+        property="og:image"
+        content="https://abundantlife.land/img/arcadia-oak-grove-pruning-hero.jpg"
+    >
+
+    <title>
+        Winter Arboriculture &amp; Landscape Restoration | Anna Eichhorn
+    </title>
+
+    <style>
+
+        /* ==================================================
+           01. DESIGN SYSTEM
+        ================================================== */
+
+        :root {
+            --green: #254637;
+            --dark: #193629;
+            --sage: #eaf0e9;
+            --cream: #faf9f5;
+            --ink: #26312b;
+            --muted: #65736a;
+            --line: #d9e1d9;
+            --amber: #89682d;
+            --error: #a12e2e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .wrap {
+            max-width: 920px;
+            margin: auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            margin: 0 0 14px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 400;
+        }
+
+        h2 {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--dark);
+        }
+
+        h3 {
+            font-size: 17px;
+            color: var(--green);
+        }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        ul {
+            padding-left: 22px;
+            margin: 12px 0 20px;
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+
+        a {
+            color: var(--green);
+        }
+
+        small,
+        .muted {
+            color: var(--muted);
+        }
+
+        .eyebrow {
+            margin-bottom: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+
+        /* ==================================================
+           02. HEADER & BRANDING
+        ================================================== */
+
+        header {
+            padding: 48px 24px 42px;
+            background: var(--dark);
+            color: white;
+            border-bottom: 5px solid #9baa90;
+        }
+
+        .brand {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            margin-top: 6px;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            color: #d3dfd2;
+        }
+
+        header h1 {
+            max-width: 800px;
+            margin-top: 28px;
+        }
+
+        header p {
+            margin-bottom: 0;
+            color: #e0e8de;
+        }
+
+
+        /* ==================================================
+           03. GENERAL LAYOUT
+        ================================================== */
+
+        main {
+            padding: 24px 16px 48px;
+        }
+
+        .client,
+        .panel {
+            padding: clamp(18px, 4vw, 32px);
+            margin-bottom: 22px;
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+
+        .client {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .note {
+            margin: 18px 0;
+            padding: 18px;
+            background: var(--sage);
+            border-radius: 5px;
+        }
+
+        .note p:last-child,
+        .note ul:last-child {
+            margin-bottom: 0;
+        }
+
+        .rate {
+            font-weight: 600;
+            color: var(--green);
+        }
+
+
+        /* ==================================================
+           04. PHOTOGRAPHY & INFOGRAPHICS
+        ================================================== */
+
+        .photo,
+        .infographic {
+            margin: 22px 0;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .photo img,
+        .infographic img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .photo figcaption {
+            padding: 10px 14px;
+            background: var(--sage);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .infographic {
+            background: white;
+            border: 1px solid var(--line);
+        }
+
+        .infographic img {
+            object-fit: contain;
+        }
+
+
+        /* ==================================================
+           05. SELECTABLE HOURLY SERVICES
+        ================================================== */
+
+        .choices {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(165px, 1fr));
+            gap: 10px;
+            margin: 18px 0;
+        }
+
+        .choice {
+            display: block;
+            padding: 15px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            cursor: pointer;
+            transition:
+                background 150ms,
+                border-color 150ms;
+        }
+
+        .choice:hover {
+            background: var(--cream);
+        }
+
+        .choice:has(input:checked) {
+            padding: 14px;
+            border: 2px solid var(--green);
+            background: var(--sage);
+        }
+
+        .choice input {
+            accent-color: var(--green);
+            width: 17px;
+            height: 17px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        .choice small {
+            display: block;
+            font-weight: 400;
+        }
+
+        .choice small + small {
+            margin-top: 8px;
+        }
+
+        .choice-name {
+            font-size: 15px;
+        }
+
+        .price {
+            display: block;
+            margin: 8px 0 3px;
+            font-size: 25px;
+            font-weight: 650;
+            color: var(--green);
+        }
+
+
+        /* ==================================================
+           06. GENERAL FORM INPUTS
+        ================================================== */
+
+        label {
+            font-weight: 600;
+        }
+
+        input,
+        textarea,
+        button {
+            font: inherit;
+        }
+
+        input,
+        textarea {
+            color: var(--ink);
+        }
+
+        input[type="date"],
+        input[type="text"],
+        textarea {
+            max-width: 100%;
+            padding: 12px;
+            background: white;
+            border: 1px solid #b9c5b9;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus-visible,
+        textarea:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 3px;
+        }
+
+
+        /* ==================================================
+           07. INDEPENDENT DATE SELECTION
+
+           Date inputs are always enabled. Selecting a service
+           makes its corresponding date required, but never
+           controls whether the date input is accessible.
+        ================================================== */
+
+        .datefield {
+            margin-top: 24px;
+            padding: 18px;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+        }
+
+        .datefield label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--dark);
+            font-size: 17px;
+        }
+
+        .datefield-description {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .datefield input[type="date"] {
+            display: block;
+            width: 100%;
+            min-width: 0;
+            min-height: 54px;
+            padding: 12px 14px;
+            background: white;
+            color: var(--ink);
+            border: 1px solid #aebdae;
+            border-radius: 5px;
+            font-size: 17px;
+            cursor: pointer;
+            color-scheme: light;
+        }
+
+        .datefield input[type="date"]::-webkit-date-and-time-value {
+            text-align: left;
+        }
+
+        .datefield input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+        }
+
+        .datefield input[type="date"]:focus {
+            border-color: var(--green);
+        }
+
+        .datefield input.date-error {
+            border: 2px solid var(--error);
+        }
+
+        .date-feedback {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--green);
+        }
+
+        .date-feedback.error {
+            color: var(--error);
+        }
+
+        .date-requirement {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+
+        /* ==================================================
+           08. CULTIVAR CHARACTERISTICS
+        ================================================== */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            padding: 14px 8px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: middle;
+        }
+
+
+        /* ==================================================
+           09. RESPONSIVE NURSERY CARDS
+        ================================================== */
+
+        .nursery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin: 22px 0;
+        }
+
+        .nursery-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 18px;
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            transition:
+                background 150ms,
+                border-color 150ms,
+                box-shadow 150ms;
+        }
+
+        .nursery-card.selected {
+            background: var(--sage);
+            border-color: var(--green);
+            box-shadow: inset 0 0 0 1px var(--green);
+        }
+
+        .stock-heading {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .stock-name {
+            margin: 0 0 4px;
+            font-size: 18px;
+            font-weight: 650;
+            color: var(--dark);
+        }
+
+        .stock-height {
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+        .stock-pricing {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .installed-price {
+            font-size: 30px;
+            font-weight: 650;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--green);
+        }
+
+        .price-caption {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .nursery-price {
+            margin-top: 12px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .availability {
+            min-height: 25px;
+            margin-top: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--amber);
+        }
+
+        .stock-description {
+            margin: 10px 0 18px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+
+        /* ==================================================
+           10. QUANTITY CONTROLS
+        ================================================== */
+
+        .quantity-area {
+            margin-top: auto;
+            padding: 16px 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .quantity-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 650;
+        }
+
+        .quantity-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quantity-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            background: white;
+            color: var(--green);
+            border: 1px solid #aebdae;
+            border-radius: 6px;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1;
+            cursor: pointer;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .quantity-button:hover:not(:disabled) {
+            background: var(--cream);
+            border-color: var(--green);
+        }
+
+        .quantity-button:active:not(:disabled) {
+            background: var(--green);
+            color: white;
+        }
+
+        .quantity-button:disabled {
+            background: #f2f3ef;
+            border-color: var(--line);
+            color: #a5afa4;
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .quantity-value {
+            flex: 1;
+            min-width: 0;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 650;
+            font-variant-numeric: tabular-nums;
+            color: var(--dark);
+        }
+
+        .stock-subtotal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .stock-subtotal strong {
+            font-size: 18px;
+            color: var(--green);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .planting-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0 14px;
+            padding: 16px 18px;
+            background: var(--sage);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+        }
+
+        .planting-summary-label {
+            font-weight: 650;
+            color: var(--green);
+        }
+
+        .planting-summary small {
+            display: block;
+            margin-top: 2px;
+        }
+
+        #plantingSubtotal {
+            font-size: 28px;
+            font-weight: 650;
+            color: var(--green);
+            font-variant-numeric: tabular-nums;
+        }
+
+
+        /* ==================================================
+           11. INVESTMENT & SCHEDULING SUMMARY
+        ================================================== */
+
+        .summary {
+            background: var(--dark);
+            color: white;
+        }
+
+        .summary h2,
+        .summary .eyebrow {
+            color: white;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid #ffffff30;
+        }
+
+        .summary-line strong {
+            flex-shrink: 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .summary-service {
+            min-width: 0;
+        }
+
+        .summary-date {
+            display: block;
+            margin-top: 3px;
+            color: #d4dfd3;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .summary-date:empty {
+            display: none;
+        }
+
+        .summary-terms {
+            display: block;
+            margin-top: 18px;
+            color: #d4dfd3;
+        }
+
+        .grand-total {
+            font-size: 32px;
+            font-weight: 650;
+        }
+
+
+        /* ==================================================
+           12. AUTHORIZATION & ACTION BUTTONS
+        ================================================== */
+
+        .authorization label {
+            display: block;
+            margin: 16px 0 6px;
+        }
+
+        .authorization input[type="text"],
+        .authorization textarea {
+            width: 100%;
+        }
+
+        .authorization .check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 22px;
+            font-weight: 400;
+        }
+
+        .check input {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 4px;
+            accent-color: var(--green);
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .actions button {
+            min-height: 48px;
+            padding: 14px 20px;
+            background: var(--green);
+            color: white;
+            border: 1px solid var(--green);
+            border-radius: 5px;
+            font-weight: 650;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .actions button:hover {
+            opacity: 0.9;
+        }
+
+        .actions button.secondary {
+            background: white;
+            color: var(--green);
+            border-color: var(--line);
+        }
+
+        #status {
+            margin-top: 12px;
+            color: var(--green);
+        }
+
+        #status.error {
+            color: var(--error);
+        }
+
+        .authorization-fallback {
+            display: block;
+            width: 100%;
+            margin-top: 12px;
+        }
+
+
+        /* ==================================================
+           13. FOOTER
+        ================================================== */
+
+        footer {
+            padding: 10px 20px 32px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+
+        /* ==================================================
+           14. MOBILE RESPONSIVENESS
+        ================================================== */
+
+        @media (max-width: 760px) {
+
+            .nursery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nursery-card {
+                padding: 20px;
+            }
+
+            .stock-heading {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .stock-pricing {
+                align-items: flex-end;
+                margin-left: auto;
+                text-align: right;
+            }
+
+            .availability {
+                min-height: 0;
+            }
+
+            .availability:empty {
+                display: none;
+            }
+
+            .quantity-area {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .quantity-label {
+                margin: 0;
+                font-size: 16px;
+            }
+
+            .quantity-controls {
+                justify-content: flex-end;
+                gap: 10px;
+            }
+
+            .quantity-button {
+                width: 52px;
+                height: 52px;
+            }
+
+            .quantity-value {
+                flex: none;
+                min-width: 38px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 36px 20px;
+            }
+
+            main {
+                padding: 18px 12px 36px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            .choices {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .actions button {
+                width: 100%;
+            }
+
+            .note,
+            .datefield {
+                padding: 14px;
+            }
+
+            .grand-total {
+                font-size: 26px;
+            }
+
+        }
+
+        @media (max-width: 400px) {
+
+            .choices {
+                grid-template-columns: 1fr;
+            }
+
+            .nursery-card {
+                padding: 15px;
+            }
+
+            .installed-price {
+                font-size: 26px;
+            }
+
+            .quantity-controls {
+                gap: 6px;
+            }
+
+            .quantity-button {
+                width: 48px;
+                height: 48px;
+            }
+
+            .quantity-value {
+                min-width: 30px;
+            }
+
+        }
+
+
+        /* ==================================================
+           15. PRINT STYLES
+        ================================================== */
+
+        @media print {
+
+            body {
+                background: white;
+            }
+
+            header,
+            .summary,
+            .note,
+            .choice,
+            .nursery-card,
+            .planting-summary,
+            .datefield {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            figure,
+            .choices,
+            .datefield,
+            .summary-line,
+            .nursery-card,
+            tr {
+                break-inside: avoid;
+            }
+
+            h2,
+            h3 {
+                break-after: avoid;
+            }
+
+            .actions,
+            .quantity-button,
+            #status {
+                display: none;
+            }
+
+            .quantity-controls {
+                justify-content: flex-end;
+            }
+
+            main {
+                padding: 12px 0;
+            }
+
+            .nursery-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+
+        <div class="wrap">
+
+            <div class="brand">
+                Abundant Life Land &amp; Tree LLC
+            </div>
+
+            <div class="tagline">
+                Veteran-Owned · Arboriculture &amp; Horticulture
+            </div>
+
+            <h1>
+                Winter Arboriculture &amp;<br>
+                Landscape Restoration
+            </h1>
+
+            <p>
+                Preserving mature trees. Restoring privacy.
+                Cultivating the landscape.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="wrap">
+
+
+        <!-- ==================================================
+             CLIENT INFORMATION
+        ================================================== -->
+
+        <section class="client">
+
+            <div>
+
+                <div class="eyebrow">Prepared for</div>
+
+                <strong>Anna Eichhorn</strong><br>
+
+                12830 Deer Run<br>
+                Arcadia, OK 73007<br>
+
+                <a href="tel:+13364067917">
+                    336-406-7917
+                </a>
+
+            </div>
+
+            <div>
+
+                <div class="eyebrow">Prepared on</div>
+
+                November 24, 2026<br>
+
+                <span class="muted">
+                    Winter 2026–2027
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             PROJECT INTRODUCTION
+        ================================================== -->
+
+        <section class="panel">
+
+            <div class="eyebrow">
+                Property Stewardship
+            </div>
+
+            <h2>
+                A phased approach to your landscape
+            </h2>
+
+            <p>
+                Following our previous cedar removal work,
+                this next phase focuses on preserving the oak grove,
+                restoring evergreen privacy, and preparing the
+                landscape for spring improvements.
+            </p>
+
+            <p>
+                Each service may be selected and scheduled
+                independently according to your priorities.
+            </p>
+
+        </section>
+
+
+        <form id="proposal" novalidate>
+
+
+            <!-- ==================================================
+                 01. DORMANT-SEASON ARBORICULTURE
+            ================================================== -->
+
+            <section class="panel">
+
+                <div class="eyebrow">
+                    01 / Arboriculture
+                </div>
+
+                <h2>
+                    Dormant-season tree care
+                </h2>
+
+
+                <!-- OAK GROVE PHOTOGRAPH -->
+
+                <figure class="photo">
+
+                    <img
+                        src="../img/arcadia-oak-grove-pruning-hero.jpg"
+                        alt="Existing oak grove at the Eichhorn property"
+                    >
+
+                    <figcaption>
+                        The existing oak grove at the Eichhorn property.
+                    </figcaption>
+
+                </figure>
+
+
+                <p>
+                    Conservative pruning to improve tree health,
+                    structure, and clearance while preserving
+                    natural crown architecture.
+                </p>
+
+                <h3>Scope of work</h3>
+
+                <ul>
+
+                    <li>
+                        Selective deadwood removal throughout
+                        the oak grove.
+                    </li>
+
+                    <li>
+                        Structural and clearance pruning
+                        where appropriate.
+                    </li>
+
+                    <li>
+                        Selective pruning of the redbud.
+                    </li>
+
+                    <li>
+                        Removal of two bur oaks measuring
+                        approximately 5 inches in trunk diameter
+                        at breast height (DBH).
+                    </li>
+
+                    <li>
+                        Removal of the small dead oak on the
+                        north side of the property, beyond
+                        the wooden fence.
+                    </li>
+
+                    <li>
+                        Cleanup and haul-off of resulting debris.
+                        Materials may be retained as desired.
+                    </li>
+
+                </ul>
+
+                <p class="rate">
+                    $70 per man-hour · Two-person crew<br>
+                    $140 per crew-hour
+                </p>
+
+                <h3>Select your level of service</h3>
+
+
+                <!-- PRUNING OPTIONS -->
+
+                <div
+                    class="choices"
+                    role="group"
+                    aria-label="Tree care service options"
+                >
+
+                    <label class="choice">
+
+                        <input
+                            type="radio"
+                            name="pruning"
+                            value="0"
+                            checked
+                        >
+
+                        <span class="choice-name">Defer</span>
+
+                        <span class="price">$0</span>
+
+                        <small>No tree work selected.</small>
+
+                    </label>
+
+
+                    <label class="choice">
+
+                        <input
+                            type="radio"
+                            name="pruning"
+                            value="5"
+                        >
+
+                        <span class="choice-name">Economy</span>
+
+                        <span class="price">$700</span>
+
+                        <small>
+                            5 crew hours<br>
+                            10 man-hours
+                        </small>
+
+                        <small>
+                            Highest-priority tree care.
+                        </small>
+
+                    </label>
+
+
+                    <label class="choice">
+
+                        <input
+                            type="radio"
+                            name="pruning"
+                            value="7"
+                        >
+
+                        <span class="choice-name">Standard</span>
+
+                        <span class="price">$980</span>
+
+                        <small>
+                            7 crew hours<br>
+                            14 man-hours
+                        </small>
+
+                        <small>
+                            Broader coverage of the grove.
+                        </small>
+
+                    </label>
+
+
+                    <label class="choice">
+
+                        <input
+                            type="radio"
+                            name="pruning"
+                            value="10"
+                        >
+
+                        <span class="choice-name">
+                            Comprehensive
+                        </span>
+
+                        <span class="price">$1,400</span>
+
+                        <small>
+                            10 crew hours<br>
+                            20 man-hours
+                        </small>
+
+                        <small>
+                            Detailed pruning and individual
+                            tree care.
+                        </small>
+
+                    </label>
+
+                </div>
+
+
+                <!-- HOURLY BILLING -->
+
+                <div class="note">
+
+                    <h3>Hourly billing</h3>
+
+                    <p>
+                        Your selection establishes a spending allowance.
+                        Only actual time worked is billed, so completing
+                        the work sooner reduces your final cost.
+                    </p>
+
+                    <p>
+                        Work is prioritized within the selected allowance.
+                        Additional time requires your approval.
+                    </p>
+
+                </div>
+
+
+                <!-- PRUNING DATE SELECTION -->
+
+                <div class="datefield">
+
+                    <label for="pruningDate">
+                        Preferred pruning date
+                    </label>
+
+                    <span
+                        class="datefield-description"
+                        id="pruningDateDescription"
+                    >
+                        Tap or click the field below to select a date.
+                        Winter dormancy and suitable weather preferred.
+                    </span>
+
+                    <input
+                        type="date"
+                        id="pruningDate"
+                        name="pruningDate"
+                        aria-describedby="pruningDateDescription pruningDateFeedback pruningDateRequirement"
+                    >
+
+                    <span
+                        class="date-feedback"
+                        id="pruningDateFeedback"
+                        aria-live="polite"
+                    >
+                        No date selected
+                    </span>
+
+                    <small
+                        class="date-requirement"
+                        id="pruningDateRequirement"
+                    >
+                        Required if tree care is selected.
+                    </small>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 02. EVERGREEN PRIVACY RESTORATION
+            ================================================== -->
+
+            <section class="panel">
+
+                <div class="eyebrow">
+                    02 / Horticulture
+                </div>
+
+                <h2>
+                    Evergreen privacy restoration
+                </h2>
+
+                <p>
+                    Establish evergreen screening along the fence
+                    line to restore privacy lost following the
+                    removal of eastern red cedar.
+                </p>
+
+                <h3>Recommended cultivar</h3>
+
+                <p>
+                    <strong>Nellie R. Stevens Holly</strong><br>
+                    <em>Ilex</em> ‘Nellie R. Stevens’
+                </p>
+
+
+                <!-- HOLLY PHOTOGRAPH -->
+
+                <figure class="photo">
+
+                    <img
+                        src="../img/holly-nelly-stevens-arcadia-tree-planting.jpeg"
+                        alt="45-gallon Nellie R. Stevens holly nursery specimen"
+                        loading="lazy"
+                    >
+
+                    <figcaption>
+                        Nellie R. Stevens holly — 45-gallon specimen shown.
+                    </figcaption>
+
+                </figure>
+
+
+                <p>
+                    Dense, glossy evergreen foliage and an upright
+                    growth habit make this holly an excellent choice
+                    for year-round privacy and landscape diversity.
+                </p>
+
+
+                <!-- CULTIVAR CHARACTERISTICS -->
+
+                <table aria-label="Holly cultivar characteristics">
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Foliage</strong></td>
+                            <td>Broadleaf evergreen</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Mature height</strong></td>
+                            <td>15–25 feet</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Mature spread</strong></td>
+                            <td>8–15 feet</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Light exposure</strong></td>
+                            <td>Full sun to partial shade</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- SEASONAL PLANTING RECOMMENDATION -->
+
+                <div class="note">
+
+                    <h3>Recommended planting window</h3>
+
+                    <p>
+                        We prefer planting between November and early
+                        spring, before the onset of sustained heat.
+                        Cooler conditions reduce moisture stress and
+                        allow root establishment when soil temperatures
+                        are favorable.
+                    </p>
+
+
+                    <!-- HOLLY PLANTING CALENDAR -->
+
+                    <figure class="infographic">
+
+                        <img
+                            src="../img/central-oklahoma-holly-planting-window.jpeg"
+                            alt="Central Oklahoma holly planting calendar.
+                                 October, November and March are optimal.
+                                 December, January, February and April
+                                 are suitable. May and September are
+                                 marginal. June through August should
+                                 be avoided when possible."
+                            loading="lazy"
+                        >
+
+                    </figure>
+
+
+                    <p>
+                        Early spring is generally favored for broadleaf
+                        evergreens, but favorable winter conditions offer
+                        an opportunity to plant ahead of early spring heat.
+                    </p>
+
+                    <p>
+                        <strong>Establishment care:</strong>
+                        Consistent soil moisture, appropriate mulching,
+                        and watering during dry winter periods are
+                        essential.
+                    </p>
+
+                    <small>
+                        Planting is subject to workable soil,
+                        favorable weather, nursery availability,
+                        and irrigation access. Severe freezes
+                        and drying winds should be avoided.
+                    </small>
+
+                </div>
+
+
+                <!-- ==================================================
+                     NURSERY INVENTORY & PRICING
+                ================================================== -->
+
+                <h3>Available nursery stock</h3>
+
+                <p>
+                    As discussed, installed pricing is twice the
+                    nursery price, including procurement,
+                    transportation, and professional installation.
+                </p>
+
+                <p>
+                    <strong>
+                        Use the + and − buttons to select your
+                        preferred sizes and quantities.
+                    </strong>
+                </p>
+
+
+                <div class="nursery-grid">
+
+
+                    <!-- 45-GALLON HOLLY -->
+
+                    <article
+                        class="nursery-card"
+                        id="card45"
+                        aria-labelledby="stockName45"
+                    >
+
+                        <div class="stock-heading">
+
+                            <div>
+
+                                <h3 class="stock-name" id="stockName45">
+                                    45 gallon
+                                </h3>
+
+                                <div class="stock-height">
+                                    5–6 ft tall
+                                </div>
+
+                            </div>
+
+                            <div class="stock-pricing">
+
+                                <div
+                                    class="installed-price"
+                                    id="installedPrice45"
+                                >
+                                    $1,190
+                                </div>
+
+                                <div class="price-caption">
+                                    Per tree, installed
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="nursery-price">
+
+                            Nursery price:
+                            <span id="nurseryPrice45">$595</span>
+
+                        </div>
+
+                        <div
+                            class="availability"
+                            id="availability45"
+                            aria-live="polite"
+                        >
+                            Only 2 available
+                        </div>
+
+                        <p class="stock-description">
+                            Largest available specimens for the
+                            greatest immediate screening.
+                        </p>
+
+
+                        <div class="quantity-area">
+
+                            <span class="quantity-label">
+                                Quantity
+                            </span>
+
+                            <div
+                                class="quantity-controls"
+                                role="group"
+                                aria-label="45-gallon holly quantity"
+                            >
+
+                                <button
+                                    type="button"
+                                    class="quantity-button"
+                                    id="minus45"
+                                    data-size="45"
+                                    data-change="-1"
+                                    aria-label="Remove one 45-gallon holly"
+                                    disabled
+                                >
+                                    &minus;
+                                </button>
+
+                                <output
+                                    class="quantity-value"
+                                    id="quantity45"
+                                    aria-label="Selected 45-gallon hollies"
+                                    aria-live="polite"
+                                >
+                                    0
+                                </output>
+
+                                <button
+                                    type="button"
+                                    class="quantity-button"
+                                    id="plus45"
+                                    data-size="45"
+                                    data-change="1"
+                                    aria-label="Add one 45-gallon holly"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stock-subtotal">
+
+                            <span>Subtotal</span>
+
+                            <strong id="subtotal45">$0</strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 15-GALLON HOLLY -->
+
+                    <article
+                        class="nursery-card"
+                        id="card15"
+                        aria-labelledby="stockName15"
+                    >
+
+                        <div class="stock-heading">
+
+                            <div>
+
+                                <h3 class="stock-name" id="stockName15">
+                                    15 gallon
+                                </h3>
+
+                                <div class="stock-height">
+                                    3–4 ft tall
+                                </div>
+
+                            </div>
+
+                            <div class="stock-pricing">
+
+                                <div
+                                    class="installed-price"
+                                    id="installedPrice15"
+                                >
+                                    $558
+                                </div>
+
+                                <div class="price-caption">
+                                    Per tree, installed
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="nursery-price">
+
+                            Nursery price:
+                            <span id="nurseryPrice15">$279</span>
+
+                        </div>
+
+                        <div class="availability"></div>
+
+                        <p class="stock-description">
+                            A balance of initial plant size
+                            and installation cost.
+                        </p>
+
+
+                        <div class="quantity-area">
+
+                            <span class="quantity-label">
+                                Quantity
+                            </span>
+
+                            <div
+                                class="quantity-controls"
+                                role="group"
+                                aria-label="15-gallon holly quantity"
+                            >
+
+                                <button
+                                    type="button"
+                                    class="quantity-button"
+                                    id="minus15"
+                                    data-size="15"
+                                    data-change="-1"
+                                    aria-label="Remove one 15-gallon holly"
+                                    disabled
+                                >
+                                    &minus;
+                                </button>
+
+                                <output
+                                    class="quantity-value"
+                                    id="quantity15"
+                                    aria-label="Selected 15-gallon hollies"
+                                    aria-live="polite"
+                                >
+                                    0
+                                </output>
+
+                                <button
+                                    type="button"
+                                    class="quantity-button"
+                                    id="plus15"
+                                    data-size="15"
+                                    data-change="1"
+                                    aria-label="Add one 15-gallon holly"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stock-subtotal">
+
+                            <span>Subtotal</span>
+
+                            <strong id="subtotal15">$0</strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- 7-GALLON HOLLY -->
+
+                    <article
+                        class="nursery-card"
+                        id="card7"
+                        aria-labelledby="stockName7"
+                    >
+
+                        <div class="stock-heading">
+
+                            <div>
+
+                                <h3 class="stock-name" id="stockName7">
+                                    7 gallon
+                                </h3>
+
+                                <div class="stock-height">
+                                    2–3 ft tall
+                                </div>
+
+                            </div>
+
+                            <div class="stock-pricing">
+
+                                <div
+                                    class="installed-price"
+                                    id="installedPrice7"
+                                >
+                                    $298
+                                </div>
+
+                                <div class="price-caption">
+                                    Per tree, installed
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="nursery-price">
+
+                            Nursery price:
+                            <span id="nurseryPrice7">$149</span>
+
+                        </div>
+
+                        <div class="availability"></div>
+
+                        <p class="stock-description">
+                            Most economical option for
+                            developing privacy over time.
+                        </p>
+
+
+                        <div class="quantity-area">
+
+                            <span class="quantity-label">
+                                Quantity
+                            </span>
+
+                            <div
+                                class="quantity-controls"
+                                role="group"
+                                aria-label="7-gallon holly quantity"
+                            >
+
+                                <button
+                                    type="button"
+                                    class="quantity-button"
+                                    id="minus7"
+                                    data-size="7"
+                                    data-change="-1"
+                                    aria-label="Remove one 7-gallon holly"
+                                    disabled
+                                >
+                                    &minus;
+                                </button>
+
+                                <output
+                                    class="quantity-value"
+                                    id="quantity7"
+                                    aria-label="Selected 7-gallon hollies"
+                                    aria-live="polite"
+                                >
+                                    0
+                                </output>
+
+                                <button
+                                    type="button"
+                                    class="quantity-button"
+                                    id="plus7"
+                                    data-size="7"
+                                    data-change="1"
+                                    aria-label="Add one 7-gallon holly"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stock-subtotal">
+
+                            <span>Subtotal</span>
+
+                            <strong id="subtotal7">$0</strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- LIVE PLANTING SUBTOTAL -->
+
+                <div class="planting-summary" aria-live="polite">
+
+                    <div>
+
+                        <div class="planting-summary-label">
+                            Planting subtotal
+                        </div>
+
+                        <small id="plantingCount">
+                            No trees selected
+                        </small>
+
+                    </div>
+
+                    <strong id="plantingSubtotal">$0</strong>
+
+                </div>
+
+
+                <small>
+                    Inventory subject to confirmation.
+                    Placement will account for mature plant size,
+                    light exposure, and desired privacy.
+                </small>
+
+
+                <!-- PLANTING DATE SELECTION -->
+
+                <div class="datefield">
+
+                    <label for="plantingDate">
+                        Preferred planting date
+                    </label>
+
+                    <span
+                        class="datefield-description"
+                        id="plantingDateDescription"
+                    >
+                        Tap or click the field below to select a date.
+                        Subject to nursery availability and suitable
+                        planting conditions.
+                    </span>
+
+                    <input
+                        type="date"
+                        id="plantingDate"
+                        name="plantingDate"
+                        aria-describedby="plantingDateDescription plantingDateFeedback plantingDateRequirement"
+                    >
+
+                    <span
+                        class="date-feedback"
+                        id="plantingDateFeedback"
+                        aria-live="polite"
+                    >
+                        No date selected
+                    </span>
+
+                    <small
+                        class="date-requirement"
+                        id="plantingDateRequirement"
+                    >
+                        Required if hollies are selected.
+                    </small>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 03. SEASONAL LANDSCAPE CLEANUP
+            ================================================== -->
+
+            <section class="panel">
+
+                <div class="eyebrow">
+                    03 / Seasonal Maintenance
+                </div>
+
+                <h2>
+                    Fall landscape cleanup
+                </h2>
+
+                <p>
+                    Gentle removal of accumulated leaves and organic
+                    debris from selected areas, retaining beneficial
+                    leaf litter where appropriate.
+                </p>
+
+
+                <!-- LOW-IMPACT MAINTENANCE -->
+
+                <div class="note">
+
+                    <h3>
+                        Protecting the landscape from the ground up
+                    </h3>
+
+                    <p>
+                        Manual leaf collection and lightweight equipment
+                        minimize heavy machinery and tire traffic over
+                        the shallow, absorbing roots of established trees.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Reduced soil compaction and root disturbance.
+                        </li>
+
+                        <li>
+                            Preservation of soil aeration
+                            and water infiltration.
+                        </li>
+
+                        <li>
+                            Reduced rutting and turf damage.
+                        </li>
+
+                        <li>
+                            Greater precision around existing plantings.
+                        </li>
+
+                        <li>
+                            Leaf-litter reintegration into woodland areas
+                            where appropriate, with haul-off as desired.
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        The objective is to improve the appearance
+                        of the property without compromising the
+                        health of the landscape beneath it.
+                    </p>
+
+                </div>
+
+
+                <p class="rate">
+                    $55 per man-hour · Two-person crew<br>
+                    $110 per crew-hour
+                </p>
+
+                <h3>Select your level of service</h3>
+
+
+                <!-- CLEANUP OPTIONS -->
+
+                <div
+                    class="choices"
+                    role="group"
+                    aria-label="Landscape cleanup service options"
+                >
+
+                    <label class="choice">
+
+                        <input
+                            type="radio"
+                            name="cleanup"
+                            value="0"
+                            checked
+                        >
+
+                        <span class="choice-name">Defer</span>
+
+                        <span class="price">$0</span>
+
+                        <small>No cleanup selected.</small>
+
+                    </label>
+
+
+                    <label class="choice">
+
+                        <input
+                            type="radio"
+                            name="cleanup"
+                            value="3"
+                        >
+
+                        <span class="choice-name">Essential</span>
+
+                        <span class="price">$330</span>
+
+                        <small>
+                            3 crew hours<br>
+                            6 man-hours
+                        </small>
+
+                        <small>
+                            Highest-priority areas.
+                        </small>
+
+                    </label>
+
+
+                    <label class="choice">
+
+                        <input
+                            type="radio"
+                            name="cleanup"
+                            value="5"
+                        >
+
+                        <span class="choice-name">Extended</span>
+
+                        <span class="price">$550</span>
+
+                        <small>
+                            5 crew hours<br>
+                            10 man-hours
+                        </small>
+
+                        <small>
+                            Broader coverage and detailed cleanup.
+                        </small>
+
+                    </label>
+
+                </div>
+
+                <small>
+                    Only actual time worked is billed.
+                    Additional time requires approval.
+                </small>
+
+
+                <!-- CLEANUP DATE SELECTION -->
+
+                <div class="datefield">
+
+                    <label for="cleanupDate">
+                        Preferred cleanup date
+                    </label>
+
+                    <span
+                        class="datefield-description"
+                        id="cleanupDateDescription"
+                    >
+                        Tap or click the field below to select a date.
+                        Subject to suitable site conditions.
+                    </span>
+
+                    <input
+                        type="date"
+                        id="cleanupDate"
+                        name="cleanupDate"
+                        aria-describedby="cleanupDateDescription cleanupDateFeedback cleanupDateRequirement"
+                    >
+
+                    <span
+                        class="date-feedback"
+                        id="cleanupDateFeedback"
+                        aria-live="polite"
+                    >
+                        No date selected
+                    </span>
+
+                    <small
+                        class="date-requirement"
+                        id="cleanupDateRequirement"
+                    >
+                        Required if cleanup is selected.
+                    </small>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 04. SPRING LANDSCAPE DEVELOPMENT
+            ================================================== -->
+
+            <section class="panel">
+
+                <div class="eyebrow">
+                    04 / Future Phase · Spring 2027
+                </div>
+
+                <h2>
+                    Continued landscape development
+                </h2>
+
+                <p>
+                    The remaining landscape improvements are
+                    best reserved for spring.
+                </p>
+
+                <ul>
+
+                    <li>
+
+                        <strong>Flowering trees.</strong>
+
+                        Chaste tree (<em>Vitex agnus-castus</em>)
+                        and desert willow (<em>Chilopsis linearis</em>)
+                        for summer color and ornamental diversity.
+
+                    </li>
+
+                    <li>
+
+                        <strong>Broadleaf tree composition.</strong>
+
+                        Additional tree plantings to enhance canopy
+                        diversity and long-term landscape character.
+
+                    </li>
+
+                    <li>
+
+                        <strong>Oak grove mulching.</strong>
+
+                        Organic mulch to conserve moisture,
+                        moderate soil temperatures, protect roots,
+                        and reduce mowing and equipment traffic.
+
+                    </li>
+
+                </ul>
+
+                <div class="note">
+
+                    These improvements will be planned and priced
+                    separately in spring. No commitment to this
+                    future phase is included in the current proposal.
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================
+                 05. LIVE INVESTMENT & SCHEDULING SUMMARY
+            ================================================== -->
+
+            <section class="panel summary" aria-live="polite">
+
+                <div class="eyebrow">Your Selections</div>
+
+                <h2>Estimated investment</h2>
+
+
+                <!-- TREE CARE SUMMARY -->
+
+                <div class="summary-line">
+
+                    <div class="summary-service">
+
+                        <span id="pruningLabel">
+                            Tree care · Deferred
+                        </span>
+
+                        <span
+                            class="summary-date"
+                            id="pruningSummaryDate"
+                        ></span>
+
+                    </div>
+
+                    <strong id="pruningTotal">$0</strong>
+
+                </div>
+
+
+                <!-- PLANTING SUMMARY -->
+
+                <div class="summary-line">
+
+                    <div class="summary-service">
+
+                        <span id="plantingLabel">
+                            Holly planting · Deferred
+                        </span>
+
+                        <span
+                            class="summary-date"
+                            id="plantingSummaryDate"
+                        ></span>
+
+                    </div>
+
+                    <strong id="plantingTotal">$0</strong>
+
+                </div>
+
+
+                <!-- CLEANUP SUMMARY -->
+
+                <div class="summary-line">
+
+                    <div class="summary-service">
+
+                        <span id="cleanupLabel">
+                            Cleanup · Deferred
+                        </span>
+
+                        <span
+                            class="summary-date"
+                            id="cleanupSummaryDate"
+                        ></span>
+
+                    </div>
+
+                    <strong id="cleanupTotal">$0</strong>
+
+                </div>
+
+
+                <!-- GRAND TOTAL -->
+
+                <div class="summary-line">
+
+                    <span>Total selected estimate</span>
+
+                    <strong class="grand-total" id="grandTotal">
+                        $0
+                    </strong>
+
+                </div>
+
+
+                <small class="summary-terms">
+                    Hourly services are billed at actual time worked
+                    within the selected allowances. Preferred dates
+                    are subject to confirmation. Additional charges,
+                    including applicable taxes, debris disposal,
+                    or stump treatment, require prior agreement.
+                </small>
+
+            </section>
+
+
+            <!-- ==================================================
+                 06. ELECTRONIC AUTHORIZATION
+            ================================================== -->
+
+            <section class="panel authorization">
+
+                <div class="eyebrow">
+                    Service Authorization
+                </div>
+
+                <h2>
+                    Approve your selected services
+                </h2>
+
+                <p>
+                    Select your services and preferred dates,
+                    then sign below to prepare your authorization email.
+                </p>
+
+
+                <label for="signature">
+                    Full name / Electronic signature
+                </label>
+
+                <input
+                    type="text"
+                    id="signature"
+                    name="signature"
+                    autocomplete="name"
+                    placeholder="Anna Eichhorn"
+                    required
+                >
+
+
+                <label for="notes">
+                    Additional instructions (optional)
+                </label>
+
+                <textarea
+                    id="notes"
+                    name="notes"
+                    rows="4"
+                    placeholder="Planting locations, priorities, or scheduling considerations."
+                ></textarea>
+
+
+                <label class="check">
+
+                    <input
+                        type="checkbox"
+                        id="agreement"
+                        name="agreement"
+                        required
+                    >
+
+                    <span>
+                        I authorize Abundant Life Land &amp; Tree LLC
+                        to perform the selected services at the stated
+                        pricing, subject to scheduling confirmation.
+                        Additional work requires my approval.
+                        Authorization is submitted when I send the email.
+                    </span>
+
+                </label>
+
+
+                <div class="actions">
+
+                    <button type="submit">
+                        Prepare Authorization Email
+                    </button>
+
+                    <button
+                        type="button"
+                        class="secondary"
+                        id="copyAuthorization"
+                    >
+                        Copy Authorization
+                    </button>
+
+                    <button
+                        type="button"
+                        class="secondary"
+                        id="printProposal"
+                    >
+                        Print / Save PDF
+                    </button>
+
+                </div>
+
+
+                <p id="status" role="status" aria-live="polite"></p>
+
+                <small>
+                    No payment is collected through this page.
+                    Scheduling will be confirmed upon receipt.
+                </small>
+
+            </section>
+
+        </form>
+
+    </main>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <strong>
+            Abundant Life Land &amp; Tree LLC
+        </strong>
+
+        <br>
+
+        Arboriculture · Horticulture · Land Management
+
+        <br>
+
+        Edmond, Oklahoma
+
+        <br>
+
+        <a href="https://abundantlife.land">
+            abundantlife.land
+        </a>
+
+        &nbsp;·&nbsp;
+
+        <a href="mailto:abundant.life.land@gmail.com">
+            abundant.life.land@gmail.com
+        </a>
+
+    </footer>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+        "use strict";
+
+
+        /* ==================================================
+           01. PROJECT CONFIGURATION
+        ================================================== */
+
+        const config = {
+
+            company: "Abundant Life Land & Tree LLC",
+
+            email: "abundant.life.land@gmail.com",
+
+            client: {
+                name: "Anna Eichhorn",
+                phone: "336-406-7917",
+                address: "12830 Deer Run, Arcadia, OK 73007"
+            },
+
+            crewSize: 2,
+
+            pruningRate: 70,
+
+            cleanupRate: 55,
+
+            nurseryMultiplier: 2
+
+        };
+
+
+        const nurseryStock = [
+
+            {
+                size: 45,
+                height: "5–6 ft",
+                nurseryPrice: 595,
+                maxQuantity: 2,
+                quantity: 0
+            },
+
+            {
+                size: 15,
+                height: "3–4 ft",
+                nurseryPrice: 279,
+                maxQuantity: Infinity,
+                quantity: 0
+            },
+
+            {
+                size: 7,
+                height: "2–3 ft",
+                nurseryPrice: 149,
+                maxQuantity: Infinity,
+                quantity: 0
+            }
+
+        ];
+
+
+        const pruningNames = {
+            0: "Deferred",
+            5: "Economy",
+            7: "Standard",
+            10: "Comprehensive"
+        };
+
+
+        const cleanupNames = {
+            0: "Deferred",
+            3: "Essential",
+            5: "Extended"
+        };
+
+
+        /*
+            Independent scheduling configuration.
+
+            Each service has its own date input, feedback
+            element, and live summary element.
+        */
+
+        const scheduling = [
+
+            {
+                service: "pruning",
+                label: "tree care",
+                inputId: "pruningDate",
+                feedbackId: "pruningDateFeedback",
+                requirementId: "pruningDateRequirement",
+                summaryId: "pruningSummaryDate"
+            },
+
+            {
+                service: "planting",
+                label: "holly planting",
+                inputId: "plantingDate",
+                feedbackId: "plantingDateFeedback",
+                requirementId: "plantingDateRequirement",
+                summaryId: "plantingSummaryDate"
+            },
+
+            {
+                service: "cleanup",
+                label: "landscape cleanup",
+                inputId: "cleanupDate",
+                feedbackId: "cleanupDateFeedback",
+                requirementId: "cleanupDateRequirement",
+                summaryId: "cleanupSummaryDate"
+            }
+
+        ];
+
+
+        /* ==================================================
+           02. GENERAL HELPER FUNCTIONS
+        ================================================== */
+
+        const $ = id => document.getElementById(id);
+
+        const form = $("proposal");
+
+
+        function money(amount) {
+
+            return amount.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+                maximumFractionDigits: 0
+            });
+
+        }
+
+
+        function selectedHours(service) {
+
+            const selected = form.querySelector(
+                `input[name="${service}"]:checked`
+            );
+
+            return selected ? Number(selected.value) : 0;
+
+        }
+
+
+        function installedPrice(stock) {
+
+            return stock.nurseryPrice * config.nurseryMultiplier;
+
+        }
+
+
+        function specimenLabel(quantity) {
+
+            return quantity === 1 ? "tree" : "trees";
+
+        }
+
+
+        function setStatus(message, isError = false) {
+
+            const status = $("status");
+
+            status.textContent = message;
+
+            status.classList.toggle("error", isError);
+
+        }
+
+
+        /* ==================================================
+           03. DATE HANDLING
+
+           Date inputs store values as YYYY-MM-DD.
+
+           Dates are formatted using local calendar components
+           rather than UTC conversion, avoiding accidental
+           one-day shifts caused by time zones.
+        ================================================== */
+
+        function localToday() {
+
+            const now = new Date();
+
+            const year = now.getFullYear();
+
+            const month = String(
+                now.getMonth() + 1
+            ).padStart(2, "0");
+
+            const day = String(
+                now.getDate()
+            ).padStart(2, "0");
+
+
+            return `${year}-${month}-${day}`;
+
+        }
+
+
+        function isValidDate(value) {
+
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+
+                return false;
+
+            }
+
+
+            const [year, month, day] =
+                value.split("-").map(Number);
+
+
+            const date = new Date(
+                year,
+                month - 1,
+                day,
+                12,
+                0,
+                0
+            );
+
+
+            return (
+
+                date.getFullYear() === year &&
+
+                date.getMonth() === month - 1 &&
+
+                date.getDate() === day
+
+            );
+
+        }
+
+
+        function formatDateValue(value) {
+
+            if (!value || !isValidDate(value)) {
+
+                return "Not selected";
+
+            }
+
+
+            const [year, month, day] =
+                value.split("-").map(Number);
+
+
+            const date = new Date(
+                year,
+                month - 1,
+                day,
+                12,
+                0,
+                0
+            );
+
+
+            return date.toLocaleDateString("en-US", {
+
+                weekday: "long",
+
+                month: "long",
+
+                day: "numeric",
+
+                year: "numeric"
+
+            });
+
+        }
+
+
+        function getPreferredDate(inputId) {
+
+            return $(inputId).value;
+
+        }
+
+
+        /* ==================================================
+           04. INITIALIZE DATE INPUTS
+
+           All three dates remain enabled from page load.
+           The minimum selectable date is today's local date.
+
+           Native date pickers are retained for mobile
+           compatibility without external dependencies.
+        ================================================== */
+
+        function initializeDates() {
+
+            const today = localToday();
+
+
+            scheduling.forEach(item => {
+
+                const input = $(item.inputId);
+
+
+                // Always permit date selection.
+
+                input.disabled = false;
+
+                input.readOnly = false;
+
+
+                // Prevent past dates in the calendar.
+
+                input.min = today;
+
+            });
+
+        }
+
+
+        /* ==================================================
+           05. NURSERY QUANTITY CONTROLS
+        ================================================== */
+
+        function changeQuantity(size, change) {
+
+            const stock = nurseryStock.find(
+                item => item.size === size
+            );
+
+            if (!stock) {
+
+                return;
+
+            }
+
+
+            stock.quantity = Math.min(
+
+                Math.max(0, stock.quantity + change),
+
+                stock.maxQuantity
+
+            );
+
+
+            setStatus("");
+
+            updateProposal();
+
+        }
+
+
+        function initializeQuantityControls() {
+
+            const buttons = form.querySelectorAll(
+                ".quantity-button"
+            );
+
+
+            buttons.forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const size = Number(button.dataset.size);
+
+                    const change = Number(button.dataset.change);
+
+
+                    if (change !== 1 && change !== -1) {
+
+                        return;
+
+                    }
+
+
+                    changeQuantity(size, change);
+
+                });
+
+            });
+
+        }
+
+
+        /* ==================================================
+           06. PROJECT CALCULATIONS
+
+           Pricing and preferred dates are collected into
+           a single proposal object.
+
+           Dates are read directly from the inputs each time
+           this function runs, including at authorization.
+        ================================================== */
+
+        function calculateProposal() {
+
+            const pruningHours = selectedHours("pruning");
+
+            const cleanupHours = selectedHours("cleanup");
+
+
+            const pruningTotal =
+                pruningHours *
+                config.crewSize *
+                config.pruningRate;
+
+
+            const cleanupTotal =
+                cleanupHours *
+                config.crewSize *
+                config.cleanupRate;
+
+
+            let plantingTotal = 0;
+
+            let plantCount = 0;
+
+
+            const plants = nurseryStock.map(stock => {
+
+                const quantity = stock.quantity;
+
+                const unitPrice = installedPrice(stock);
+
+                const subtotal = quantity * unitPrice;
+
+
+                plantingTotal += subtotal;
+
+                plantCount += quantity;
+
+
+                return {
+
+                    ...stock,
+
+                    quantity,
+
+                    unitPrice,
+
+                    subtotal
+
+                };
+
+            });
+
+
+            // Capture the three independent preferred dates.
+
+            const dates = {
+
+                pruning: getPreferredDate("pruningDate"),
+
+                planting: getPreferredDate("plantingDate"),
+
+                cleanup: getPreferredDate("cleanupDate")
+
+            };
+
+
+            // Identify which services are actually selected.
+
+            const activeServices = {
+
+                pruning: pruningHours > 0,
+
+                planting: plantCount > 0,
+
+                cleanup: cleanupHours > 0
+
+            };
+
+
+            const grandTotal =
+                pruningTotal +
+                plantingTotal +
+                cleanupTotal;
+
+
+            return {
+
+                pruningHours,
+
+                pruningTotal,
+
+                cleanupHours,
+
+                cleanupTotal,
+
+                plants,
+
+                plantCount,
+
+                plantingTotal,
+
+                grandTotal,
+
+                dates,
+
+                activeServices
+
+            };
+
+        }
+
+
+        /* ==================================================
+           07. UPDATE NURSERY CARDS
+        ================================================== */
+
+        function updateNurseryCards(plants) {
+
+            plants.forEach(plant => {
+
+                const size = plant.size;
+
+
+                // Update quantities and prices.
+
+                $(`quantity${size}`).textContent =
+                    plant.quantity;
+
+                $(`nurseryPrice${size}`).textContent =
+                    money(plant.nurseryPrice);
+
+                $(`installedPrice${size}`).textContent =
+                    money(plant.unitPrice);
+
+                $(`subtotal${size}`).textContent =
+                    money(plant.subtotal);
+
+
+                // Highlight selected stock.
+
+                $(`card${size}`).classList.toggle(
+
+                    "selected",
+
+                    plant.quantity > 0
+
+                );
+
+
+                // Prevent negative quantities.
+
+                $(`minus${size}`).disabled =
+                    plant.quantity === 0;
+
+
+                // Respect nursery inventory limits.
+
+                $(`plus${size}`).disabled =
+                    plant.quantity >= plant.maxQuantity;
+
+
+                // Update 45-gallon availability message.
+
+                if (size === 45) {
+
+                    const remaining =
+                        plant.maxQuantity - plant.quantity;
+
+
+                    if (remaining === 0) {
+
+                        $("availability45").textContent =
+                            "Both available trees selected";
+
+                    } else if (remaining === 1) {
+
+                        $("availability45").textContent =
+                            "1 additional tree available";
+
+                    } else {
+
+                        $("availability45").textContent =
+                            "Only 2 available";
+
+                    }
+
+                }
+
+            });
+
+        }
+
+
+        /* ==================================================
+           08. DATE VALIDATION & LIVE FEEDBACK
+
+           The date fields are never disabled.
+
+           Only dates for selected services are required.
+           Dates entered for deferred services are retained
+           locally but excluded from authorization.
+        ================================================== */
+
+        function updateScheduling(proposal) {
+
+            const today = localToday();
+
+
+            scheduling.forEach(item => {
+
+                const input = $(item.inputId);
+
+                const feedback = $(item.feedbackId);
+
+                const requirement = $(item.requirementId);
+
+                const summary = $(item.summaryId);
+
+
+                const active =
+                    proposal.activeServices[item.service];
+
+
+                const value =
+                    proposal.dates[item.service];
+
+
+                const valid =
+                    isValidDate(value) && value >= today;
+
+
+                /*
+                    Keep date fields available at all times.
+
+                    Only required status changes according
+                    to the selected service.
+                */
+
+                input.disabled = false;
+
+                input.readOnly = false;
+
+                input.required = active;
+
+                input.min = today;
+
+
+                // Clear any previous validation styling.
+
+                input.classList.remove("date-error");
+
+                input.removeAttribute("aria-invalid");
+
+                feedback.classList.remove("error");
+
+
+                // Communicate whether a date is required.
+
+                requirement.textContent = active
+
+                    ? "A preferred date is required for this service."
+
+                    : "This date is only used if you select this service.";
+
+
+                /*
+                    Live feedback displayed directly beneath
+                    each native calendar input.
+                */
+
+                if (!value) {
+
+                    feedback.textContent = "No date selected";
+
+                } else if (!valid) {
+
+                    feedback.textContent =
+                        "Please select today or a future date.";
+
+                    feedback.classList.add("error");
+
+                    input.classList.add("date-error");
+
+                    input.setAttribute("aria-invalid", "true");
+
+                } else {
+
+                    feedback.textContent =
+                        formatDateValue(value);
+
+                }
+
+
+                /*
+                    Show scheduling information in the final
+                    investment summary only for selected services.
+                */
+
+                if (!active) {
+
+                    summary.textContent = "";
+
+                } else if (!value) {
+
+                    summary.textContent =
+                        "Preferred date: Please select a date";
+
+                } else if (!valid) {
+
+                    summary.textContent =
+                        "Preferred date: Please choose a valid date";
+
+                } else {
+
+                    summary.textContent =
+                        `Preferred date: ${formatDateValue(value)}`;
+
+                }
+
+            });
+
+        }
+
+
+        /* ==================================================
+           09. UPDATE LIVE PROJECT SUMMARY
+        ================================================== */
+
+        function updateProposal() {
+
+            const proposal = calculateProposal();
+
+
+            // Refresh nursery cards.
+
+            updateNurseryCards(proposal.plants);
+
+
+            // Planting section subtotal.
+
+            $("plantingSubtotal").textContent =
+                money(proposal.plantingTotal);
+
+
+            $("plantingCount").textContent =
+                proposal.plantCount > 0
+
+                    ? `${proposal.plantCount} ${
+                        specimenLabel(proposal.plantCount)
+                    } selected`
+
+                    : "No trees selected";
+
+
+            // Tree care summary.
+
+            $("pruningLabel").textContent =
+                proposal.pruningHours > 0
+
+                    ? `Tree care · ${
+                        pruningNames[proposal.pruningHours]
+                    } / ${proposal.pruningHours} hrs`
+
+                    : "Tree care · Deferred";
+
+
+            $("pruningTotal").textContent =
+                money(proposal.pruningTotal);
+
+
+            // Planting summary.
+
+            $("plantingLabel").textContent =
+                proposal.plantCount > 0
+
+                    ? `Holly planting · ${proposal.plantCount} ${
+                        specimenLabel(proposal.plantCount)
+                    }`
+
+                    : "Holly planting · Deferred";
+
+
+            $("plantingTotal").textContent =
+                money(proposal.plantingTotal);
+
+
+            // Cleanup summary.
+
+            $("cleanupLabel").textContent =
+                proposal.cleanupHours > 0
+
+                    ? `Cleanup · ${
+                        cleanupNames[proposal.cleanupHours]
+                    } / ${proposal.cleanupHours} hrs`
+
+                    : "Cleanup · Deferred";
+
+
+            $("cleanupTotal").textContent =
+                money(proposal.cleanupTotal);
+
+
+            // Combined project investment.
+
+            $("grandTotal").textContent =
+                money(proposal.grandTotal);
+
+
+            // Refresh all scheduling information.
+
+            updateScheduling(proposal);
+
+
+            return proposal;
+
+        }
+
+
+        /* ==================================================
+           10. VALIDATION HELPERS
+        ================================================== */
+
+        function focusField(element) {
+
+            element.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+
+            element.focus({
+
+                preventScroll: true
+
+            });
+
+        }
+
+
+        function displayDateError(item, message) {
+
+            const input = $(item.inputId);
+
+            const feedback = $(item.feedbackId);
+
+
+            input.classList.add("date-error");
+
+            input.setAttribute("aria-invalid", "true");
+
+
+            feedback.textContent = message;
+
+            feedback.classList.add("error");
+
+
+            setStatus(message, true);
+
+            focusField(input);
+
+        }
+
+
+        /* ==================================================
+           11. VALIDATE SELECTED SERVICES & DATES
+
+           The form uses novalidate so the JavaScript can
+           provide specific, understandable error messages
+           and guide the client to the relevant field.
+        ================================================== */
+
+        function validateProposal() {
+
+            initializeDates();
+
+            const proposal = updateProposal();
+
+            const today = localToday();
+
+
+            // At least one service must be selected.
+
+            if (proposal.grandTotal <= 0) {
+
+                setStatus(
+                    "Please select at least one service.",
+                    true
+                );
+
+                return false;
+
+            }
+
+
+            /*
+                Validate preferred dates only for services
+                that have been selected.
+            */
+
+            for (const item of scheduling) {
+
+                if (!proposal.activeServices[item.service]) {
+
+                    continue;
+
+                }
+
+
+                const value = proposal.dates[item.service];
+
+                const input = $(item.inputId);
+
+
+                if (!value) {
+
+                    displayDateError(
+
+                        item,
+
+                        `Please select a preferred date for ${item.label}.`
+
+                    );
+
+                    return false;
+
+                }
+
+
+                if (
+
+                    !isValidDate(value) ||
+
+                    input.validity.badInput ||
+
+                    value < today
+
+                ) {
+
+                    displayDateError(
+
+                        item,
+
+                        `Please select a valid date for ${item.label} that is today or in the future.`
+
+                    );
+
+                    return false;
+
+                }
+
+            }
+
+
+            // Validate the electronic signature.
+
+            if (!$("signature").value.trim()) {
+
+                setStatus(
+                    "Please enter your full name.",
+                    true
+                );
+
+                focusField($("signature"));
+
+                return false;
+
+            }
+
+
+            // Validate the client's agreement.
+
+            if (!$("agreement").checked) {
+
+                setStatus(
+                    "Please accept the authorization terms.",
+                    true
+                );
+
+                focusField($("agreement"));
+
+                return false;
+
+            }
+
+
+            setStatus("");
+
+
+            // Return the validated snapshot of the proposal.
+
+            return proposal;
+
+        }
+
+
+        /* ==================================================
+           12. BUILD AUTHORIZATION EMAIL
+
+           All dates are captured from the validated proposal.
+
+           Selected services include both a readable date and
+           its YYYY-MM-DD representation for scheduling records.
+        ================================================== */
+
+        function buildAuthorization() {
+
+            const proposal = validateProposal();
+
+
+            if (!proposal) {
+
+                return null;
+
+            }
+
+
+            const lines = [];
+
+
+            /* ----------------------------------------------
+               CLIENT INFORMATION
+            ---------------------------------------------- */
+
+            lines.push(
+
+                "WINTER ARBORICULTURE & LANDSCAPE RESTORATION",
+
+                "SERVICE AUTHORIZATION",
+
+                "========================================",
+
+                "",
+
+                `Client: ${config.client.name}`,
+
+                `Property: ${config.client.address}`,
+
+                `Phone: ${config.client.phone}`,
+
+                ""
+
+            );
+
+
+            /* ----------------------------------------------
+               PREFERRED SERVICE SCHEDULE
+            ---------------------------------------------- */
+
+            lines.push(
+
+                "PREFERRED SERVICE SCHEDULE",
+
+                "----------------------------------------"
+
+            );
+
+
+            scheduling.forEach(item => {
+
+                if (proposal.activeServices[item.service]) {
+
+                    const value = proposal.dates[item.service];
+
+                    const serviceName =
+                        item.label.charAt(0).toUpperCase() +
+                        item.label.slice(1);
+
+
+                    lines.push(
+
+                        `${serviceName}: ${formatDateValue(value)}`,
+
+                        `Calendar date: ${value}`
+
+                    );
+
+                }
+
+            });
+
+
+            lines.push(
+
+                "",
+
+                "All dates are preferences and remain subject " +
+                "to scheduling confirmation.",
+
+                ""
+
+            );
+
+
+            /* ----------------------------------------------
+               01. PRUNING AUTHORIZATION
+            ---------------------------------------------- */
+
+            lines.push(
+
+                "01. DORMANT-SEASON TREE CARE",
+
+                "----------------------------------------"
+
+            );
+
+
+            if (proposal.activeServices.pruning) {
+
+                lines.push(
+
+                    `Service level: ${
+                        pruningNames[proposal.pruningHours]
+                    }`,
+
+                    `Crew size: ${config.crewSize}`,
+
+                    `Crew hours: ${proposal.pruningHours}`,
+
+                    `Total man-hours: ${
+                        proposal.pruningHours * config.crewSize
+                    }`,
+
+                    `Rate: ${money(config.pruningRate)} per man-hour`,
+
+                    `Authorized allowance: ${
+                        money(proposal.pruningTotal)
+                    }`,
+
+                    `Preferred date: ${
+                        formatDateValue(proposal.dates.pruning)
+                    }`,
+
+                    "",
+
+                    "Scope: Selective deadwood, structural and " +
+                    "clearance pruning of the oak grove; selective " +
+                    "pruning of the redbud; removal of two approximately " +
+                    "5-inch DBH bur oaks; removal of the small dead oak " +
+                    "north of the property beyond the wooden fence; " +
+                    "and cleanup and haul-off of resulting debris, " +
+                    "with materials retained as desired.",
+
+                    "",
+
+                    "Work will be prioritized within the selected " +
+                    "hourly allowance."
+
+                );
+
+            } else {
+
+                lines.push("Deferred.");
+
+            }
+
+
+            lines.push("");
+
+
+            /* ----------------------------------------------
+               02. PLANTING AUTHORIZATION
+            ---------------------------------------------- */
+
+            lines.push(
+
+                "02. EVERGREEN PRIVACY RESTORATION",
+
+                "----------------------------------------"
+
+            );
+
+
+            if (proposal.activeServices.planting) {
+
+                lines.push(
+
+                    "Cultivar: Nellie R. Stevens holly",
+
+                    ""
+
+                );
+
+
+                proposal.plants
+
+                    .filter(plant => plant.quantity > 0)
+
+                    .forEach(plant => {
+
+                        lines.push(
+
+                            `${plant.quantity} × ` +
+                            `${plant.size}-gallon holly (${plant.height})`,
+
+                            `Nursery unit price: ${
+                                money(plant.nurseryPrice)
+                            }`,
+
+                            `Installed unit price: ${
+                                money(plant.unitPrice)
+                            }`,
+
+                            `Subtotal: ${money(plant.subtotal)}`,
+
+                            ""
+
+                        );
+
+                    });
+
+
+                lines.push(
+
+                    `Total specimens: ${proposal.plantCount}`,
+
+                    `Planting subtotal: ${
+                        money(proposal.plantingTotal)
+                    }`,
+
+                    `Preferred date: ${
+                        formatDateValue(proposal.dates.planting)
+                    }`,
+
+                    "",
+
+                    "Scope: Procurement, transportation, and " +
+                    "professional installation of selected hollies " +
+                    "for evergreen privacy along the fence line.",
+
+                    "",
+
+                    "Subject to nursery availability, suitable " +
+                    "planting conditions, and irrigation access."
+
+                );
+
+            } else {
+
+                lines.push("Deferred.");
+
+            }
+
+
+            lines.push("");
+
+
+            /* ----------------------------------------------
+               03. CLEANUP AUTHORIZATION
+            ---------------------------------------------- */
+
+            lines.push(
+
+                "03. FALL LANDSCAPE CLEANUP",
+
+                "----------------------------------------"
+
+            );
+
+
+            if (proposal.activeServices.cleanup) {
+
+                lines.push(
+
+                    `Service level: ${
+                        cleanupNames[proposal.cleanupHours]
+                    }`,
+
+                    `Crew size: ${config.crewSize}`,
+
+                    `Crew hours: ${proposal.cleanupHours}`,
+
+                    `Total man-hours: ${
+                        proposal.cleanupHours * config.crewSize
+                    }`,
+
+                    `Rate: ${money(config.cleanupRate)} per man-hour`,
+
+                    `Authorized allowance: ${
+                        money(proposal.cleanupTotal)
+                    }`,
+
+                    `Preferred date: ${
+                        formatDateValue(proposal.dates.cleanup)
+                    }`,
+
+                    "",
+
+                    "Scope: Gentle, low-impact leaf and debris " +
+                    "collection using manual labor and lightweight " +
+                    "equipment to minimize soil compaction and " +
+                    "root disturbance. Leaf litter will be reintegrated " +
+                    "into appropriate woodland areas, with haul-off " +
+                    "as desired."
+
+                );
+
+            } else {
+
+                lines.push("Deferred.");
+
+            }
+
+
+            lines.push("");
+
+
+            /* ----------------------------------------------
+               FINANCIAL SUMMARY
+            ---------------------------------------------- */
+
+            lines.push(
+
+                "ESTIMATED INVESTMENT",
+
+                "========================================",
+
+                `Tree care: ${money(proposal.pruningTotal)}`,
+
+                `Holly planting: ${money(proposal.plantingTotal)}`,
+
+                `Landscape cleanup: ${money(proposal.cleanupTotal)}`,
+
+                "",
+
+                `TOTAL SELECTED ESTIMATE: ${
+                    money(proposal.grandTotal)
+                }`,
+
+                "",
+
+                "Hourly services are billed at actual time worked " +
+                "within the selected allowances. Additional work, " +
+                "applicable taxes, debris disposal charges, or stump " +
+                "treatment require prior agreement. Scheduling and " +
+                "nursery availability are subject to confirmation.",
+
+                "",
+
+                "Spring flowering trees, additional broadleaf " +
+                "plantings, and grove mulching are excluded.",
+
+                ""
+
+            );
+
+
+            /* ----------------------------------------------
+               ELECTRONIC SIGNATURE
+            ---------------------------------------------- */
+
+            lines.push(
+
+                "CLIENT AUTHORIZATION",
+
+                "========================================",
+
+                "",
+
+                "I authorize Abundant Life Land & Tree LLC to " +
+                "perform the selected services at the stated pricing, " +
+                "subject to scheduling confirmation. Additional " +
+                "work requires my approval.",
+
+                "",
+
+                `Electronic signature: ${$("signature").value.trim()}`,
+
+                `Date signed: ${new Date().toLocaleString("en-US")}`,
+
+                "",
+
+                "Additional instructions:",
+
+                $("notes").value.trim() || "None."
+
+            );
+
+
+            return lines.join("\n");
+
+        }
+
+
+        /* ==================================================
+           13. EMAIL AUTHORIZATION
+        ================================================== */
+
+        form.addEventListener("submit", event => {
+
+            event.preventDefault();
+
+
+            const body = buildAuthorization();
+
+
+            if (!body) {
+
+                return;
+
+            }
+
+
+            const subject =
+                `${config.client.name} — Winter Service Authorization`;
+
+
+            const mailto =
+                `mailto:${config.email}` +
+                `?subject=${encodeURIComponent(subject)}` +
+                `&body=${encodeURIComponent(body)}`;
+
+
+            setStatus(
+
+                "Please review and send the prepared email " +
+                "to submit your authorization. Your preferred " +
+                "service dates are included."
+
+            );
+
+
+            window.location.href = mailto;
+
+        });
+
+
+        /* ==================================================
+           14. COPY AUTHORIZATION
+
+           Provides an alternative for clients using webmail
+           or devices without a configured email application.
+        ================================================== */
+
+        $("copyAuthorization").addEventListener(
+
+            "click",
+
+            async () => {
+
+                const body = buildAuthorization();
+
+
+                if (!body) {
+
+                    return;
+
+                }
+
+
+                try {
+
+                    await navigator.clipboard.writeText(body);
+
+
+                    setStatus(
+
+                        "Authorization copied, including your preferred " +
+                        `dates. Paste it into an email to ${config.email} ` +
+                        "and send."
+
+                    );
+
+                } catch (error) {
+
+                    // Manual-copy fallback.
+
+                    const textarea =
+                        document.createElement("textarea");
+
+
+                    textarea.value = body;
+
+                    textarea.rows = 12;
+
+                    textarea.readOnly = true;
+
+                    textarea.className = "authorization-fallback";
+
+
+                    const status = $("status");
+
+                    status.classList.remove("error");
+
+
+                    status.replaceChildren(
+
+                        document.createTextNode(
+
+                            "Please copy the authorization below " +
+                            `and email it to ${config.email}.`
+
+                        ),
+
+                        textarea
+
+                    );
+
+
+                    textarea.focus();
+
+                    textarea.select();
+
+                }
+
+            }
+
+        );
+
+
+        /* ==================================================
+           15. PRINT / SAVE PDF
+        ================================================== */
+
+        $("printProposal").addEventListener("click", () => {
+
+            updateProposal();
+
+            window.print();
+
+        });
+
+
+        /* ==================================================
+           16. LIVE SERVICE & DATE LISTENERS
+
+           Date changes update the proposal immediately.
+
+           Both input and change events are supported for
+           compatibility with desktop and mobile browsers.
+        ================================================== */
+
+        form.addEventListener("change", event => {
+
+            const target = event.target;
+
+
+            if (
+
+                target.name === "pruning" ||
+
+                target.name === "cleanup" ||
+
+                target.type === "date"
+
+            ) {
+
+                setStatus("");
+
+                updateProposal();
+
+            }
+
+        });
+
+
+        scheduling.forEach(item => {
+
+            const input = $(item.inputId);
+
+
+            input.addEventListener("input", () => {
+
+                setStatus("");
+
+                updateProposal();
+
+            });
+
+        });
+
+
+        /*
+            Refresh the minimum selectable date if the page
+            remains open overnight or is restored from cache.
+        */
+
+        window.addEventListener("pageshow", () => {
+
+            initializeDates();
+
+            updateProposal();
+
+        });
+
+
+        /* ==================================================
+           17. INITIALIZE PROPOSAL
+        ================================================== */
+
+        initializeDates();
+
+        initializeQuantityControls();
+
+        updateProposal();
+
+    </script>
+
+</body>
+
+</html>
